@@ -1,0 +1,101 @@
+{
+  "number": 0,
+  "sourceId": "17uPVDSN1Q0Dl9_0kJa09S7f-WuRT1jhD",
+  "sourceName": "0-Önerilebilir-atlaslar-ve-kitaplar.pdf",
+  "totalPages": 7,
+  "sourceSha256": "86aec186d256b31dd88e751bef184131230b82eef9ec268686fe7ced38fadeea",
+  "importedAt": "2026-10-14",
+  "extraction": "PyMuPDF native text blocks; every page has a rendered visual fallback; no OCR",
+  "pages": [
+    {
+      "number": 1,
+      "title": "Merhaba arkadaşlar. Bu liste de eğitim hayatınız boyunca size anatomi",
+      "blocks": [
+        "Merhaba arkadaşlar. Bu liste de eğitim hayatınız boyunca size anatomi",
+        "eğitim öğretimi için lazım olacak ve mesleki hayatınızda her daim bir",
+        "sağlıkçının kullanacağı kitapların listesini sıralayacağım.\nPek çok değerli hocalarımızın akademisyenlerimizin kitapları olmasına",
+        "rağmen bu liste sadece temel eğitimleriniz için öneri mahiyetindedir.\nListedeki kitapları almak mecburi değildir. Anatomiyi öğrenmek için ders",
+        "notları yeterli olabilir ama biz sağlıkçılar olarak klinikte anatominin çok\nönemli olduğunun bilincindeyiz. Ek kaynak almanızı, kendinizi anatomi",
+        "dersinde geliştirmenizi istiyor ve destekliyorum.\nKitapları sıfır alacağınız gibi ikinci el alarakta temin edebilirsiniz.",
+        "Aklınıza takılan her soruyu sorabilirsiniz.",
+        "Öğr. Gör. Bekir DAĞDEVİREN",
+        "bdagdeviren@firat.edu.tr"
+      ],
+      "text": "Merhaba arkadaşlar. Bu liste de eğitim hayatınız boyunca size anatomi\n\neğitim öğretimi için lazım olacak ve mesleki hayatınızda her daim bir\n\nsağlıkçının kullanacağı kitapların listesini sıralayacağım.\nPek çok değerli hocalarımızın akademisyenlerimizin kitapları olmasına\n\nrağmen bu liste sadece temel eğitimleriniz için öneri mahiyetindedir.\nListedeki kitapları almak mecburi değildir. Anatomiyi öğrenmek için ders\n\nnotları yeterli olabilir ama biz sağlıkçılar olarak klinikte anatominin çok\nönemli olduğunun bilincindeyiz. Ek kaynak almanızı, kendinizi anatomi\n\ndersinde geliştirmenizi istiyor ve destekliyorum.\nKitapları sıfır alacağınız gibi ikinci el alarakta temin edebilirsiniz.\n\nAklınıza takılan her soruyu sorabilirsiniz.\n\nÖğr. Gör. Bekir DAĞDEVİREN\n\nbdagdeviren@firat.edu.tr",
+      "image": "/course-content/pages/0/001.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 2,
+      "title": "SOBOTTA ATLAS",
+      "blocks": [
+        "SOBOTTA ATLAS"
+      ],
+      "text": "SOBOTTA ATLAS",
+      "image": "/course-content/pages/0/002.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 3,
+      "title": "SOBOTTA 2. EL (ESKİ BASIM ATLAS)",
+      "blocks": [
+        "• SOBOTTA 2. EL (ESKİ BASIM ATLAS)"
+      ],
+      "text": "• SOBOTTA 2. EL (ESKİ BASIM ATLAS)",
+      "image": "/course-content/pages/0/003.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 4,
+      "title": "Netter insan anatomisi",
+      "blocks": [
+        "• Netter insan anatomisi"
+      ],
+      "text": "• Netter insan anatomisi",
+      "image": "/course-content/pages/0/004.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 5,
+      "title": "Netter insan anatomisi",
+      "blocks": [],
+      "text": "",
+      "image": "/course-content/pages/0/005.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": false
+    },
+    {
+      "number": 6,
+      "title": "Mehmet yıldırım anatomi ders kitabı (lisans düzeyine uygun)",
+      "blocks": [
+        "• Mehmet yıldırım anatomi ders kitabı (lisans düzeyine uygun)"
+      ],
+      "text": "• Mehmet yıldırım anatomi ders kitabı (lisans düzeyine uygun)",
+      "image": "/course-content/pages/0/006.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 7,
+      "title": "Kaplan arıncı ders kitabı (ayrıntılı, fazla bilgi)",
+      "blocks": [
+        "• Kaplan arıncı ders kitabı (ayrıntılı, fazla bilgi)"
+      ],
+      "text": "• Kaplan arıncı ders kitabı (ayrıntılı, fazla bilgi)",
+      "image": "/course-content/pages/0/007.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    }
+  ]
+}

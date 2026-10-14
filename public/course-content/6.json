@@ -1,0 +1,1281 @@
+{
+  "number": 6,
+  "sourceId": "18C2JaGV5Wm7kXwMpgKm_lY7dU1PsOxRc",
+  "sourceName": "6-Hem, Ebe, B.D. myologia dersi pdf.pdf",
+  "totalPages": 86,
+  "sourceSha256": "c498f86d28735784cbdad34a08849fc54bdae6069f42d15cfe78f2c4980d8473",
+  "importedAt": "2026-10-14",
+  "extraction": "PyMuPDF native text blocks; every page has a rendered visual fallback; no OCR",
+  "pages": [
+    {
+      "number": 1,
+      "title": "Systema Locomotorium",
+      "blocks": [
+        "Systema Locomotorium",
+        "Myologia\n(Kas Bilimi)"
+      ],
+      "text": "Systema Locomotorium\n\nMyologia\n(Kas Bilimi)",
+      "image": "/course-content/pages/6/001.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 2,
+      "title": "HAREKETİN UNSURLARI",
+      "blocks": [
+        "HAREKETİN UNSURLARI",
+        "KASLAR",
+        "HAREKET",
+        "EKLEMLER\nKEMİKLER"
+      ],
+      "text": "HAREKETİN UNSURLARI\n\nKASLAR\n\nHAREKET\n\nEKLEMLER\nKEMİKLER",
+      "image": "/course-content/pages/6/002.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 3,
+      "title": "SYSTEMA MUSCULARE",
+      "blocks": [
+        "SYSTEMA MUSCULARE",
+        "(KAS SİSTEMİ)",
+        "Kas, kelime olarak vücudun hareket etmesini sağlayan liflerden\nmüteşekkil et parçası, adele demektir.",
+        "Bulunduğumuz\nortamda\nyer\ndeğiştirmemiz\nveya\nvücudumuzun\nherhangi\nbir\norganının\nkonumunun\ndeğiştirilmesi\nkasların\nçalışmasıyla\nmümkündür.",
+        "İnsan vücudundaki kaslar üç gruba ayrılarak incelenir.",
+        "Çizgili kaslar: Çizgili kaslar isteğimiz dahilinde (beyin omurilik sistemi\nkontrolünde) çalışan kaslar olup iskelet kasları olarak da isimlendirilir.",
+        "Düz kaslar: Düz kaslar damarların, bağırsakların ve iç organların\nduvarlarında bulunur ve isteğimiz dışında (otonom sinir sisteminin kontrolünde)\nçalışırlar.",
+        "Kalp kası: Kalp kası ise yapı olarak çizgili kaslara benzemekle beraber\nçalışması otonom sinir sistemi tarafından (isteğimiz dışında) kontrol edilir."
+      ],
+      "text": "SYSTEMA MUSCULARE\n\n(KAS SİSTEMİ)\n\nKas, kelime olarak vücudun hareket etmesini sağlayan liflerden\nmüteşekkil et parçası, adele demektir.\n\nBulunduğumuz\nortamda\nyer\ndeğiştirmemiz\nveya\nvücudumuzun\nherhangi\nbir\norganının\nkonumunun\ndeğiştirilmesi\nkasların\nçalışmasıyla\nmümkündür.\n\nİnsan vücudundaki kaslar üç gruba ayrılarak incelenir.\n\nÇizgili kaslar: Çizgili kaslar isteğimiz dahilinde (beyin omurilik sistemi\nkontrolünde) çalışan kaslar olup iskelet kasları olarak da isimlendirilir.\n\nDüz kaslar: Düz kaslar damarların, bağırsakların ve iç organların\nduvarlarında bulunur ve isteğimiz dışında (otonom sinir sisteminin kontrolünde)\nçalışırlar.\n\nKalp kası: Kalp kası ise yapı olarak çizgili kaslara benzemekle beraber\nçalışması otonom sinir sistemi tarafından (isteğimiz dışında) kontrol edilir.",
+      "image": "/course-content/pages/6/003.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 4,
+      "title": "İskelet kasları vücut ağırlığının %40’ını oluşturur. Kasların yaklaşık %75’i sudan ibarettir.",
+      "blocks": [
+        "İskelet kasları vücut ağırlığının %40’ını oluşturur. Kasların yaklaşık %75’i\nsudan ibarettir.",
+        "Düzenli çalışma sonucu kas dokusunda meydana gelen kitlesel artışa\nhipertrofi denir.",
+        "Eğer kas dokusu uzun süre hareketsiz olarak kalırsa ya da kas\ndokusunun innervasyonunu sağlayan sinirlerde bir hasar meydana gelirse kas\ndokusunda kitlesel olarak azalma ortaya çıkar. Bu duruma atrofi denir."
+      ],
+      "text": "İskelet kasları vücut ağırlığının %40’ını oluşturur. Kasların yaklaşık %75’i\nsudan ibarettir.\n\nDüzenli çalışma sonucu kas dokusunda meydana gelen kitlesel artışa\nhipertrofi denir.\n\nEğer kas dokusu uzun süre hareketsiz olarak kalırsa ya da kas\ndokusunun innervasyonunu sağlayan sinirlerde bir hasar meydana gelirse kas\ndokusunda kitlesel olarak azalma ortaya çıkar. Bu duruma atrofi denir.",
+      "image": "/course-content/pages/6/004.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 5,
+      "title": "Bir kasın hareket meydana getirebilmesi için en az iki ayrı kemiğe tutunması ve bir eklemi…",
+      "blocks": [
+        "Bir\nkasın\nhareket\nmeydana\ngetirebilmesi için en az iki ayrı kemiğe\ntutunması\nve\nbir\neklemi\nçaprazlaması\ngerekmektedir.",
+        "Basit\nbir\niskelet\nkasına\nbaktığımızda\nkasın\niki\nucu\nve\nbir\ngövdesinin (karın) olduğunu görürüz.",
+        "Tendon veya kiriş denilen yapılar\nkasların kemiklere tutunmasını sağlar ve\nkasların\nmeydana\ngetirdiği\nkuvveti\nkemiklere\naktarır.\nTendonlar\ngenellikle\nyuvarlaktır.",
+        "Kasın\nkemiklere\nyapışan\nuçlarından birine origo, diğerine insertio\ndenir.\nOrigo\ngenellikle\ngövdeye\nyakın,\ninsertio ise gövdeye uzaktır."
+      ],
+      "text": "Bir\nkasın\nhareket\nmeydana\ngetirebilmesi için en az iki ayrı kemiğe\ntutunması\nve\nbir\neklemi\nçaprazlaması\ngerekmektedir.\n\nBasit\nbir\niskelet\nkasına\nbaktığımızda\nkasın\niki\nucu\nve\nbir\ngövdesinin (karın) olduğunu görürüz.\n\nTendon veya kiriş denilen yapılar\nkasların kemiklere tutunmasını sağlar ve\nkasların\nmeydana\ngetirdiği\nkuvveti\nkemiklere\naktarır.\nTendonlar\ngenellikle\nyuvarlaktır.\n\nKasın\nkemiklere\nyapışan\nuçlarından birine origo, diğerine insertio\ndenir.\nOrigo\ngenellikle\ngövdeye\nyakın,\ninsertio ise gövdeye uzaktır.",
+      "image": "/course-content/pages/6/005.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 6,
+      "title": "Kasın 1 mm2’lik kesitinde, yaklaşık 200 çizgili kas lifi ile 600-700 civarında kapiller damar bulunur.",
+      "blocks": [
+        "Kasın\n1 mm2’lik\nkesitinde,\nyaklaşık\n200 çizgili\nkas lifi ile\n600-700\ncivarında\nkapiller\ndamar\nbulunur."
+      ],
+      "text": "Kasın\n1 mm2’lik\nkesitinde,\nyaklaşık\n200 çizgili\nkas lifi ile\n600-700\ncivarında\nkapiller\ndamar\nbulunur.",
+      "image": "/course-content/pages/6/006.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 7,
+      "title": "Bir hareketin olabilmesi için, 3 karşı gücün aşılması gerekir.",
+      "blocks": [
+        "Bir hareketin olabilmesi için,\n3 karşı gücün aşılması gerekir.",
+        "Diz eklemi",
+        "Kas",
+        "1. Yerçekimi ve diğer\ndış etkiler",
+        "Tendon",
+        "Patella",
+        "2. Başka kas\ngruplarının aktiviteleri",
+        "Kıkırdak",
+        "3. Diğer dokuların\npasif direnci"
+      ],
+      "text": "Bir hareketin olabilmesi için,\n3 karşı gücün aşılması gerekir.\n\nDiz eklemi\n\nKas\n\n1. Yerçekimi ve diğer\ndış etkiler\n\nTendon\n\nPatella\n\n2. Başka kas\ngruplarının aktiviteleri\n\nKıkırdak\n\n3. Diğer dokuların\npasif direnci",
+      "image": "/course-content/pages/6/007.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 8,
+      "title": "2. Eklemlerin stabilizasyonu •Kas tendonu aracılığıyla eklemi sağlamlaştırır ve yerinde tutar",
+      "blocks": [
+        "1. Hareketin yapılması\n•Vücut kaslarının hareketi\n•Kanın kalpten dokulara gönderilmesi ve kalbe geri dönüşünün sağlanması\n•Lenfin dokulardan toplanması\n•Gıda ve artıklarının GIS boyunca hareketinin sağlanması\n•Safra salgısı hareketinin sağlanması\n•İdrarın üriner sistem içinde taşınması\n•Semen sıvısının her iki cinse ait genital sistemler içindeki yolculuğu\n•Yeni doğan bebeğin doğum kanalındaki yolculuğunun sağlanması",
+        "2. Eklemlerin stabilizasyonu\n•Kas tendonu aracılığıyla eklemi sağlamlaştırır ve yerinde tutar",
+        "3. Postürün ayarlanması (Yerçekimine karşı koyulması)\n•Ayakta dik durmamızı sağlar\n•Boyun kasları başın dik durmasını sağlar\n•Ayağa kalkıldığında bacak kasları iki ayak üstünde dengeli durmamızı sağlar",
+        "4. Isı üretimi\n•Titremek suretiyle, çizgili kasların istem dışı çalışmasıyla ısı üretilir"
+      ],
+      "text": "1. Hareketin yapılması\n•Vücut kaslarının hareketi\n•Kanın kalpten dokulara gönderilmesi ve kalbe geri dönüşünün sağlanması\n•Lenfin dokulardan toplanması\n•Gıda ve artıklarının GIS boyunca hareketinin sağlanması\n•Safra salgısı hareketinin sağlanması\n•İdrarın üriner sistem içinde taşınması\n•Semen sıvısının her iki cinse ait genital sistemler içindeki yolculuğu\n•Yeni doğan bebeğin doğum kanalındaki yolculuğunun sağlanması\n\n2. Eklemlerin stabilizasyonu\n•Kas tendonu aracılığıyla eklemi sağlamlaştırır ve yerinde tutar\n\n3. Postürün ayarlanması (Yerçekimine karşı koyulması)\n•Ayakta dik durmamızı sağlar\n•Boyun kasları başın dik durmasını sağlar\n•Ayağa kalkıldığında bacak kasları iki ayak üstünde dengeli durmamızı sağlar\n\n4. Isı üretimi\n•Titremek suretiyle, çizgili kasların istem dışı çalışmasıyla ısı üretilir",
+      "image": "/course-content/pages/6/008.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 9,
+      "title": "Kas çeşitleri",
+      "blocks": [
+        "Kas çeşitleri",
+        "Kalp kası",
+        "Çizgili kas",
+        "Düz kas"
+      ],
+      "text": "Kas çeşitleri\n\nKalp kası\n\nÇizgili kas\n\nDüz kas",
+      "image": "/course-content/pages/6/009.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 10,
+      "title": "Kasın yapısı",
+      "blocks": [
+        "Kasın yapısı",
+        "Fasciculus",
+        "Bir kas lifi",
+        "Myofibril",
+        "Actin",
+        "Myosin"
+      ],
+      "text": "Kasın yapısı\n\nFasciculus\n\nBir kas lifi\n\nMyofibril\n\nActin\n\nMyosin",
+      "image": "/course-content/pages/6/010.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 11,
+      "title": "Kas hücresinde hücre zarına sarkolemma ve içindeki sitoplazmaya sarkoplazma ve mitokondriye de…",
+      "blocks": [
+        "Kas hücresinde hücre zarına sarkolemma ve içindeki\nsitoplazmaya sarkoplazma ve mitokondriye de sarkozom denilir.",
+        "Tendon",
+        "Kas",
+        "Epimysium",
+        "Fasciculus",
+        "Endomysium",
+        "Sarcolemma",
+        "Sarcoplasma",
+        "Perimysium",
+        "Bir kas lifi"
+      ],
+      "text": "Kas hücresinde hücre zarına sarkolemma ve içindeki\nsitoplazmaya sarkoplazma ve mitokondriye de sarkozom denilir.\n\nTendon\n\nKas\n\nEpimysium\n\nFasciculus\n\nEndomysium\n\nSarcolemma\n\nSarcoplasma\n\nPerimysium\n\nBir kas lifi",
+      "image": "/course-content/pages/6/011.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 12,
+      "title": "sinir, bir arter ve bir ven (veya daha",
+      "blocks": [
+        "sinir, bir arter ve bir ven (veya daha",
+        "fazla) tarafından desteklenir.",
+        "•Her bir iskelet kası:\n“Bir sinir",
+        "•Bunların hepsi\nkası çevreleyen bağ doku aracılığıyla kas",
+        "içine\ngiriş veya çıkış yaparlar."
+      ],
+      "text": "sinir, bir arter ve bir ven (veya daha\n\nfazla) tarafından desteklenir.\n\n•Her bir iskelet kası:\n“Bir sinir\n\n•Bunların hepsi\nkası çevreleyen bağ doku aracılığıyla kas\n\niçine\ngiriş veya çıkış yaparlar.",
+      "image": "/course-content/pages/6/012.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 13,
+      "title": "Origo",
+      "blocks": [
+        "Origo",
+        "Origo\n(başlangıç):\nNormal\nanatomik\npozisyonda kas kasıldığında hareketsiz\nveya az hareketli olan tendonun yapışma\nyeri\nkasın\norigosudur.\nGenellikle\nproksimalde yer alır.",
+        "İnsertio (sonlanışı): Anatomik pozisyonda\nkasın\nkasıldığı\nanda\nhareket\neden\ntendonun\nyapışma\nyeri\nkasın\ninsertiosudur. Genellikle distalde yer alır.",
+        "Intertio"
+      ],
+      "text": "Origo\n\nOrigo\n(başlangıç):\nNormal\nanatomik\npozisyonda kas kasıldığında hareketsiz\nveya az hareketli olan tendonun yapışma\nyeri\nkasın\norigosudur.\nGenellikle\nproksimalde yer alır.\n\nİnsertio (sonlanışı): Anatomik pozisyonda\nkasın\nkasıldığı\nanda\nhareket\neden\ntendonun\nyapışma\nyeri\nkasın\ninsertiosudur. Genellikle distalde yer alır.\n\nIntertio",
+      "image": "/course-content/pages/6/013.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 14,
+      "title": "Aponeurosis",
+      "blocks": [
+        "Aponeurosis",
+        "Tendonların bağlı oldukları kasın\nşekline uyar bir şekilde, yassı bir\nlevha şeklini almalarıdır.",
+        "Venter"
+      ],
+      "text": "Aponeurosis\n\nTendonların bağlı oldukları kasın\nşekline uyar bir şekilde, yassı bir\nlevha şeklini almalarıdır.\n\nVenter",
+      "image": "/course-content/pages/6/014.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 15,
+      "title": "ETKİ ŞEKİLLERİNE GÖRE KASLAR",
+      "blocks": [
+        "ETKİ ŞEKİLLERİNE GÖRE KASLAR",
+        "Agonist kas: Hareketi oluşturan esas kastır.\nÖrneğin su bardağını ağzınıza götürürken, kolun\nönünde bulunan biseps agonist kastır.",
+        "AGONIST",
+        "ANTAGONIST",
+        "Antagonist Kas: Agonist kasın aksi yönünde\nçalışabilen, ancak hareket sırasında gevşeyerek\nharekete izin veren kastır. Örnekteki harekette\nüstkolun arkasındaki triseps kası, gevşeyerek\nbiseps'in kasılmasına izin vermektedir.",
+        "FIKSATÖR",
+        "SİNERJİST",
+        "Sinerjist Kas: Bunlar agoniste yardımcı olan daha\nzayıf kaslardır. Örnekte bu görevi önkol kasları\nüstlenmektedir.",
+        "Fiksatör (Stabilizör) Kas: Hareketin oluşması için\nvücudun diğer kısımlarını fikse eden kaslardır.\nÖrnekte bel, karın ve bacak kasları vücudu fikse\netmektedir."
+      ],
+      "text": "ETKİ ŞEKİLLERİNE GÖRE KASLAR\n\nAgonist kas: Hareketi oluşturan esas kastır.\nÖrneğin su bardağını ağzınıza götürürken, kolun\nönünde bulunan biseps agonist kastır.\n\nAGONIST\n\nANTAGONIST\n\nAntagonist Kas: Agonist kasın aksi yönünde\nçalışabilen, ancak hareket sırasında gevşeyerek\nharekete izin veren kastır. Örnekteki harekette\nüstkolun arkasındaki triseps kası, gevşeyerek\nbiseps'in kasılmasına izin vermektedir.\n\nFIKSATÖR\n\nSİNERJİST\n\nSinerjist Kas: Bunlar agoniste yardımcı olan daha\nzayıf kaslardır. Örnekte bu görevi önkol kasları\nüstlenmektedir.\n\nFiksatör (Stabilizör) Kas: Hareketin oluşması için\nvücudun diğer kısımlarını fikse eden kaslardır.\nÖrnekte bel, karın ve bacak kasları vücudu fikse\netmektedir.",
+      "image": "/course-content/pages/6/015.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 16,
+      "title": "2. İzometrik (statik) kasılma; kasın boyu değişmez fakat gerimi artar. Örn; duvar itme",
+      "blocks": [
+        "Kas Kasılmaları\n1. İzotonik (dinamik, konsantrik kasılma); İzotonik kontraksiyonlarda\nkasın boyu kısalır ama tonusu (gerilimi) değişmez. (Örnek, bir\nağırlığın yerden kaldırılması)\nİzotonik kasılmanın diğer formu olan Eksentrik kasılmada ise, kasın\ntonusu artarken boyu uzar. (Örnek, merdiven inme)",
+        "2. İzometrik (statik) kasılma; kasın boyu değişmez fakat gerimi artar. Örn;\nduvar itme"
+      ],
+      "text": "Kas Kasılmaları\n1. İzotonik (dinamik, konsantrik kasılma); İzotonik kontraksiyonlarda\nkasın boyu kısalır ama tonusu (gerilimi) değişmez. (Örnek, bir\nağırlığın yerden kaldırılması)\nİzotonik kasılmanın diğer formu olan Eksentrik kasılmada ise, kasın\ntonusu artarken boyu uzar. (Örnek, merdiven inme)\n\n2. İzometrik (statik) kasılma; kasın boyu değişmez fakat gerimi artar. Örn;\nduvar itme",
+      "image": "/course-content/pages/6/016.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 17,
+      "title": "2. İzometrik (statik) kasılma; kasın boyu değişmez fakat gerimi artar. Örn; duvar itme",
+      "blocks": [],
+      "text": "",
+      "image": "/course-content/pages/6/017.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": false
+    },
+    {
+      "number": 18,
+      "title": "1. ŞEKİLLERİNE GÖRE",
+      "blocks": [
+        "1. ŞEKİLLERİNE GÖRE",
+        "İKİ KARINLI\n(M. BİVENTER)\nMEKİK\n(M. FUSİFORMİS)",
+        "YASSI\n(M. PLANUS)",
+        "Kaslar değişik kriterler dikkate alınarak\nisimlendirilir.",
+        "Bazı kasların isimlendirilmesinde bir kriter\nyeterli iken,",
+        "bazı kasların isimlendirilmesinde birden\nfazla kriter kullanılır.",
+        "Örnek; m. piriformis, m. trapezius"
+      ],
+      "text": "1. ŞEKİLLERİNE GÖRE\n\nİKİ KARINLI\n(M. BİVENTER)\nMEKİK\n(M. FUSİFORMİS)\n\nYASSI\n(M. PLANUS)\n\nKaslar değişik kriterler dikkate alınarak\nisimlendirilir.\n\nBazı kasların isimlendirilmesinde bir kriter\nyeterli iken,\n\nbazı kasların isimlendirilmesinde birden\nfazla kriter kullanılır.\n\nÖrnek; m. piriformis, m. trapezius",
+      "image": "/course-content/pages/6/018.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 19,
+      "title": "Lifleri kasın uzun eksenine veya çekim çizgisine PARALEL olanlar",
+      "blocks": [
+        "Lifleri kasın uzun eksenine veya\nçekim çizgisine PARALEL olanlar",
+        "Şerit şekilli\n(m. sartorius)",
+        "•M. rectus abdominis\n•M. transversus abdominis\n•M. obliquus abdominis",
+        "Kas lifleri kasın uzun eksenine\nveya çekim çizgisine OBLİK\nolanlar (m. pennatus)",
+        "m. unipennatus",
+        "(m. flexor pollicis longus)",
+        "m. bipennatus\n(m. rectus femoris)",
+        "Dörtgen şekilli Dörtgen şekilli\n(m. rhomboideus",
+        "m. multipennatus\n(m. deltoideus)",
+        "major)"
+      ],
+      "text": "Lifleri kasın uzun eksenine veya\nçekim çizgisine PARALEL olanlar\n\nŞerit şekilli\n(m. sartorius)\n\n•M. rectus abdominis\n•M. transversus abdominis\n•M. obliquus abdominis\n\nKas lifleri kasın uzun eksenine\nveya çekim çizgisine OBLİK\nolanlar (m. pennatus)\n\nm. unipennatus\n\n(m. flexor pollicis longus)\n\nm. bipennatus\n(m. rectus femoris)\n\nDörtgen şekilli Dörtgen şekilli\n(m. rhomboideus\n\nm. multipennatus\n(m. deltoideus)\n\nmajor)",
+      "image": "/course-content/pages/6/019.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 20,
+      "title": "ŞERİT (M. SARTORİUS) DAİRESEL (M. ORBİCULARİS)",
+      "blocks": [
+        "ŞERİT (M. SARTORİUS)\nDAİRESEL (M. ORBİCULARİS)"
+      ],
+      "text": "ŞERİT (M. SARTORİUS)\nDAİRESEL (M. ORBİCULARİS)",
+      "image": "/course-content/pages/6/020.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 21,
+      "title": "3. YERLEŞİM YERLERİNE GÖRE",
+      "blocks": [
+        "3. YERLEŞİM YERLERİNE GÖRE",
+        "YÜZEYEL GRUP\n(MM. SUPERFICIALES)",
+        "DERİN GRUP\n(MM. PROFUNDI)",
+        "ÖN GRUP\n(MM. ANTERIORES)",
+        "ARKA GRUP\n(MM. POSTERIORES)",
+        "ÜST GRUP\n(MM. SUPRAHYOIDEI)",
+        "ALT GRUP\n(MM. INFRAHYOIDEI)",
+        "•M. temporalis\n•M. pectoralis"
+      ],
+      "text": "3. YERLEŞİM YERLERİNE GÖRE\n\nYÜZEYEL GRUP\n(MM. SUPERFICIALES)\n\nDERİN GRUP\n(MM. PROFUNDI)\n\nÖN GRUP\n(MM. ANTERIORES)\n\nARKA GRUP\n(MM. POSTERIORES)\n\nÜST GRUP\n(MM. SUPRAHYOIDEI)\n\nALT GRUP\n(MM. INFRAHYOIDEI)\n\n•M. temporalis\n•M. pectoralis",
+      "image": "/course-content/pages/6/021.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 22,
+      "title": "4. FONKSİYONLARINA GÖRE",
+      "blocks": [
+        "4. FONKSİYONLARINA GÖRE",
+        "FLEKSOR",
+        "GRUP",
+        "EKSTANSOR",
+        "GRUP",
+        "ABDUKTOR",
+        "GRUP",
+        "ADDUKTOR",
+        "GRUP",
+        "ROTATOR",
+        "GRUP\n•\nM. supinator\n•\nM. pronator teres"
+      ],
+      "text": "4. FONKSİYONLARINA GÖRE\n\nFLEKSOR\n\nGRUP\n\nEKSTANSOR\n\nGRUP\n\nABDUKTOR\n\nGRUP\n\nADDUKTOR\n\nGRUP\n\nROTATOR\n\nGRUP\n•\nM. supinator\n•\nM. pronator teres",
+      "image": "/course-content/pages/6/022.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 23,
+      "title": "5. BÜYÜKLÜĞÜNE GÖRE",
+      "blocks": [
+        "5. BÜYÜKLÜĞÜNE GÖRE",
+        "•\nM. gluteus maximus",
+        "•\nM. gluteus minimus"
+      ],
+      "text": "5. BÜYÜKLÜĞÜNE GÖRE\n\n•\nM. gluteus maximus\n\n•\nM. gluteus minimus",
+      "image": "/course-content/pages/6/023.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 24,
+      "title": "6. UZUNLUĞUNA GÖRE",
+      "blocks": [
+        "6. UZUNLUĞUNA GÖRE",
+        "•\nM. extensor carpi radialis longus",
+        "•\nM. extensor carpi radialis brevis"
+      ],
+      "text": "6. UZUNLUĞUNA GÖRE\n\n•\nM. extensor carpi radialis longus\n\n•\nM. extensor carpi radialis brevis",
+      "image": "/course-content/pages/6/024.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 25,
+      "title": "7. ORİJİN SAYISINA GÖRE",
+      "blocks": [
+        "7. ORİJİN SAYISINA GÖRE",
+        "• M. biceps brachii",
+        "• M. quadriceps femoris"
+      ],
+      "text": "7. ORİJİN SAYISINA GÖRE\n\n• M. biceps brachii\n\n• M. quadriceps femoris",
+      "image": "/course-content/pages/6/025.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 26,
+      "title": "8. BAŞLAMA VE BİTME YERİNE GÖRE",
+      "blocks": [
+        "8. BAŞLAMA VE BİTME YERİNE GÖRE",
+        "• M. sternocleidomastoideus",
+        "• M. sternohyoideus"
+      ],
+      "text": "8. BAŞLAMA VE BİTME YERİNE GÖRE\n\n• M. sternocleidomastoideus\n\n• M. sternohyoideus",
+      "image": "/course-content/pages/6/026.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 27,
+      "title": "FASCIA SUPERFICIALIS",
+      "blocks": [
+        "FASCIA SUPERFICIALIS",
+        "(Fascia Subcutanea=Tela Subcutanea):",
+        "*Deriyi alttaki yapılara\nbirleştirir. Yağ ve gevşek\nareolar doku karışımıdır.",
+        "Kutanöz sinirler, kan ve",
+        "lenf damarları içerir.\n*Ayak tabanları ve avuç\niçleri istisna olmak üzere\nvücudun çoğu bölgesinde",
+        "kısmi olarak hareketlidir."
+      ],
+      "text": "FASCIA SUPERFICIALIS\n\n(Fascia Subcutanea=Tela Subcutanea):\n\n*Deriyi alttaki yapılara\nbirleştirir. Yağ ve gevşek\nareolar doku karışımıdır.\n\nKutanöz sinirler, kan ve\n\nlenf damarları içerir.\n*Ayak tabanları ve avuç\niçleri istisna olmak üzere\nvücudun çoğu bölgesinde\n\nkısmi olarak hareketlidir.",
+      "image": "/course-content/pages/6/027.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 28,
+      "title": "FASCIA PROFUNDA",
+      "blocks": [
+        "FASCIA PROFUNDA",
+        "*Fascia profunda göğüs ve karın boşluğunu ince bir\ntabaka halinde çevreler.\n*Ekstremitelerde kas ve diğer yapıların etrafında bir kılıf\noluşturur.\n*Kas grupları arasına uzantılar (septum intermusculare)\ngöndererek ekstremiteleri birçok kompartmana ayırırlar.",
+        "*Fascia profunda eklemlerin bulunduğu bölgelerde\nönemli ölçüde kalınlaşarak ‘retinaculum’ denen bantları",
+        "oluştururlar.\n*Retinaculumlar tendonları belli bir pozisyonda tutarak\nkirişlerin hareketlerine yardımcı olurlar.\nYüz, meme, penis, ön abdominal duvarda",
+        "bulunmaz!!!\nUylukta en kalın (fascia lata, tractus iliotibialis)"
+      ],
+      "text": "FASCIA PROFUNDA\n\n*Fascia profunda göğüs ve karın boşluğunu ince bir\ntabaka halinde çevreler.\n*Ekstremitelerde kas ve diğer yapıların etrafında bir kılıf\noluşturur.\n*Kas grupları arasına uzantılar (septum intermusculare)\ngöndererek ekstremiteleri birçok kompartmana ayırırlar.\n\n*Fascia profunda eklemlerin bulunduğu bölgelerde\nönemli ölçüde kalınlaşarak ‘retinaculum’ denen bantları\n\noluştururlar.\n*Retinaculumlar tendonları belli bir pozisyonda tutarak\nkirişlerin hareketlerine yardımcı olurlar.\nYüz, meme, penis, ön abdominal duvarda\n\nbulunmaz!!!\nUylukta en kalın (fascia lata, tractus iliotibialis)",
+      "image": "/course-content/pages/6/028.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 29,
+      "title": "BAŞ KASLARI (mm. Capitis)",
+      "blocks": [
+        "BAŞ KASLARI (mm. Capitis)",
+        "Yüz; yukarıda alın, aşağıda çene, yanlarda ise kulaklar arasında kalan kafanın ön\nbölümüdür."
+      ],
+      "text": "BAŞ KASLARI (mm. Capitis)\n\nYüz; yukarıda alın, aşağıda çene, yanlarda ise kulaklar arasında kalan kafanın ön\nbölümüdür.",
+      "image": "/course-content/pages/6/029.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 30,
+      "title": "YÜZÜN MOTOR ve DUYUSAL",
+      "blocks": [
+        "YÜZÜN MOTOR ve DUYUSAL",
+        "İNNERVASYONU",
+        "1. N. facialis (7. kranial sinir) (yüz ve scalp kasları\nmotor)",
+        "2. N. trigeminus (5. kranial sinir)\nn. ophthalmicus\n(yüz ve scalp duyu)\nn. maxillaris\n(yüz duyu)\nn. mandibularis\n(yüz duyu & çiğneme\nkasları motor)",
+        "30"
+      ],
+      "text": "YÜZÜN MOTOR ve DUYUSAL\n\nİNNERVASYONU\n\n1. N. facialis (7. kranial sinir) (yüz ve scalp kasları\nmotor)\n\n2. N. trigeminus (5. kranial sinir)\nn. ophthalmicus\n(yüz ve scalp duyu)\nn. maxillaris\n(yüz duyu)\nn. mandibularis\n(yüz duyu & çiğneme\nkasları motor)\n\n30",
+      "image": "/course-content/pages/6/030.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 31,
+      "title": "M. epicranius: Saçlı deriyi hareket ettirir, alnı buruşturur",
+      "blocks": [
+        "BAŞ KASLARI\nA) MİMİK KASLARI (mm. fasciei)\nBir uçları kemik veya kıkırdağa, diğer uçları deriye tutunur.\nMimik, çiğneme ve konuşma işlevlerinde görev alırlar.",
+        "M. epicranius: Saçlı deriyi hareket ettirir, alnı buruşturur",
+        "x",
+        "x",
+        "x"
+      ],
+      "text": "BAŞ KASLARI\nA) MİMİK KASLARI (mm. fasciei)\nBir uçları kemik veya kıkırdağa, diğer uçları deriye tutunur.\nMimik, çiğneme ve konuşma işlevlerinde görev alırlar.\n\nM. epicranius: Saçlı deriyi hareket ettirir, alnı buruşturur\n\nx\n\nx\n\nx",
+      "image": "/course-content/pages/6/031.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 32,
+      "title": "M. epicranius: Saçlı deriyi hareket ettirir, alnı buruşturur",
+      "blocks": [
+        "2",
+        "1",
+        "BAŞ KASLARI\nA) MİMİK KASLARI (mm. fasciei)\n1) M. orbicularis oculi: Göz kapağını\nsıkıca kapatır.\n2) M. corrugator supercilii: Kaşları\nçattırır.\n3) M. orbicularis oris: Dudakları kapatır.\n4) M. risorius: Gülümseme yaptırır.\n5) M. buccinator: Üfleme hareketi\nyaptırır, yanakları ağza doğru\nbastırır.\n3",
+        "4",
+        "5"
+      ],
+      "text": "2\n\n1\n\nBAŞ KASLARI\nA) MİMİK KASLARI (mm. fasciei)\n1) M. orbicularis oculi: Göz kapağını\nsıkıca kapatır.\n2) M. corrugator supercilii: Kaşları\nçattırır.\n3) M. orbicularis oris: Dudakları kapatır.\n4) M. risorius: Gülümseme yaptırır.\n5) M. buccinator: Üfleme hareketi\nyaptırır, yanakları ağza doğru\nbastırır.\n3\n\n4\n\n5",
+      "image": "/course-content/pages/6/032.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 33,
+      "title": "BAŞ KASLARI B) ÇİĞNEME KASLARI (mm. masticatorii) M. temporalis M. pterygoideus lateralis (ağzı açar)…",
+      "blocks": [
+        "BAŞ KASLARI\nB) ÇİĞNEME KASLARI (mm. masticatorii)\nM. temporalis\nM. pterygoideus lateralis (ağzı açar)\nM. masseter\nM. pterygoideus medialis",
+        "T",
+        "M"
+      ],
+      "text": "BAŞ KASLARI\nB) ÇİĞNEME KASLARI (mm. masticatorii)\nM. temporalis\nM. pterygoideus lateralis (ağzı açar)\nM. masseter\nM. pterygoideus medialis\n\nT\n\nM",
+      "image": "/course-content/pages/6/033.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 34,
+      "title": "BAŞ KASLARI B) ÇİĞNEME KASLARI (mm. masticatorii) M. temporalis M. pterygoideus lateralis (ağzı açar)…",
+      "blocks": [
+        "BAŞ KASLARI\nB) ÇİĞNEME KASLARI (mm. masticatorii)\nM. temporalis\nM. pterygoideus lateralis (ağzı açar)\nM. masseter\nM. pterygoideus medialis"
+      ],
+      "text": "BAŞ KASLARI\nB) ÇİĞNEME KASLARI (mm. masticatorii)\nM. temporalis\nM. pterygoideus lateralis (ağzı açar)\nM. masseter\nM. pterygoideus medialis",
+      "image": "/course-content/pages/6/034.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 35,
+      "title": "yöne-yukarı çevirir, aynı yöne lateral fleksiyon yaptırır; iki taraflı kasıldığında boyna fleksiyon…",
+      "blocks": [
+        "BOYUN KASLARI\nA) YÜZEYSEL BOYUN KASLARI\nM. platysma: Mimik kasıdır, ağzı açmaya yardım eder.\nM. sternocleidomastoideus: Tek taraflı kasıldığında başı ters",
+        "yöne-yukarı çevirir, aynı yöne lateral fleksiyon yaptırır; iki\ntaraflı kasıldığında boyna fleksiyon yaptırır.",
+        "M. sternocleidomastoideus",
+        "M. platysma"
+      ],
+      "text": "BOYUN KASLARI\nA) YÜZEYSEL BOYUN KASLARI\nM. platysma: Mimik kasıdır, ağzı açmaya yardım eder.\nM. sternocleidomastoideus: Tek taraflı kasıldığında başı ters\n\nyöne-yukarı çevirir, aynı yöne lateral fleksiyon yaptırır; iki\ntaraflı kasıldığında boyna fleksiyon yaptırır.\n\nM. sternocleidomastoideus\n\nM. platysma",
+      "image": "/course-content/pages/6/035.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 36,
+      "title": "BOYUN KASLARI B) ORTA TABAKA BOYUN KASLARI 1) SUPRAHYOİD KASLAR: M. mylohyoideus M. digastricus M.…",
+      "blocks": [
+        "BOYUN KASLARI\nB) ORTA TABAKA BOYUN KASLARI\n1) SUPRAHYOİD KASLAR:\nM. mylohyoideus\nM. digastricus\nM. geniohyoideus\nM. stylohyoideus"
+      ],
+      "text": "BOYUN KASLARI\nB) ORTA TABAKA BOYUN KASLARI\n1) SUPRAHYOİD KASLAR:\nM. mylohyoideus\nM. digastricus\nM. geniohyoideus\nM. stylohyoideus",
+      "image": "/course-content/pages/6/036.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 37,
+      "title": "BOYUN KASLARI B) ORTA TABAKA BOYUN KASLARI 2) İNFRAHYOİD KASLAR: M. sternohyoideus M.…",
+      "blocks": [
+        "BOYUN KASLARI\nB) ORTA TABAKA BOYUN KASLARI\n2) İNFRAHYOİD KASLAR:\nM. sternohyoideus\nM. sternothyroideus\nM. thyrohyoideus\nM. omohyoideus"
+      ],
+      "text": "BOYUN KASLARI\nB) ORTA TABAKA BOYUN KASLARI\n2) İNFRAHYOİD KASLAR:\nM. sternohyoideus\nM. sternothyroideus\nM. thyrohyoideus\nM. omohyoideus",
+      "image": "/course-content/pages/6/037.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 38,
+      "title": "BOYUN KASLARI B) ORTA TABAKA BOYUN KASLARI 2) İNFRAHYOİD KASLAR: M. sternohyoideus M.…",
+      "blocks": [
+        "BOYUN KASLARI\nB) ORTA TABAKA BOYUN KASLARI\n2) İNFRAHYOİD KASLAR:\nM. sternohyoideus\nM. sternothyroideus\nM. thyrohyoideus\nM. omohyoideus"
+      ],
+      "text": "BOYUN KASLARI\nB) ORTA TABAKA BOYUN KASLARI\n2) İNFRAHYOİD KASLAR:\nM. sternohyoideus\nM. sternothyroideus\nM. thyrohyoideus\nM. omohyoideus",
+      "image": "/course-content/pages/6/038.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 39,
+      "title": "(KLİNİK BİLGİ: FACİAL PARALİZİ)",
+      "blocks": [
+        "(KLİNİK BİLGİ: FACİAL PARALİZİ)",
+        "•\nN. facialis ve dallarını etkileyen bazı durumlar yüz\nkaslarının felcine neden olur.",
+        "•\nEn sık görülen yüz felci nedeni, n.facialis’in foramen\nstylomastoideum civarındaki enflamasyonudur\n(BELL’S PALSY).",
+        "•\nEnflamasyon, bu bölgede ödem ve şişmeye, buna\nbağlı olarak da n.facialis basısına neden olur.",
+        "•\nBu tipte yüz felci olanlarda ipsilateral yüz\nhareketlerinin paralizisi görülür. Etkilenen tarafta\ndudaklarını ve göz kapaklarını kapatamaz. Burun ve\nalında çizgiler kaybolur. Nazolabial oluk kaybolur.\nKornea’da kuruma görülebilir. Hasta ıslık çalamaz,\nüfleyemez, yemek yemede zorlanır.",
+        "39"
+      ],
+      "text": "(KLİNİK BİLGİ: FACİAL PARALİZİ)\n\n•\nN. facialis ve dallarını etkileyen bazı durumlar yüz\nkaslarının felcine neden olur.\n\n•\nEn sık görülen yüz felci nedeni, n.facialis’in foramen\nstylomastoideum civarındaki enflamasyonudur\n(BELL’S PALSY).\n\n•\nEnflamasyon, bu bölgede ödem ve şişmeye, buna\nbağlı olarak da n.facialis basısına neden olur.\n\n•\nBu tipte yüz felci olanlarda ipsilateral yüz\nhareketlerinin paralizisi görülür. Etkilenen tarafta\ndudaklarını ve göz kapaklarını kapatamaz. Burun ve\nalında çizgiler kaybolur. Nazolabial oluk kaybolur.\nKornea’da kuruma görülebilir. Hasta ıslık çalamaz,\nüfleyemez, yemek yemede zorlanır.\n\n39",
+      "image": "/course-content/pages/6/039.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 40,
+      "title": "(KLİNİK BİLGİ: FACİAL PARALİZİ)",
+      "blocks": [],
+      "text": "",
+      "image": "/course-content/pages/6/040.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": false
+    },
+    {
+      "number": 41,
+      "title": "(KLİNİK BİLGİ: FACİAL PARALİZİ)",
+      "blocks": [],
+      "text": "",
+      "image": "/course-content/pages/6/041.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": false
+    },
+    {
+      "number": 42,
+      "title": "GÖVDE KASLARI SIRT KASLARI A) YÜZEYSEL SIRT KASLARI B) DERİN SIRT KASLARI",
+      "blocks": [
+        "GÖVDE KASLARI\nSIRT KASLARI\nA) YÜZEYSEL SIRT KASLARI\nB) DERİN SIRT KASLARI"
+      ],
+      "text": "GÖVDE KASLARI\nSIRT KASLARI\nA) YÜZEYSEL SIRT KASLARI\nB) DERİN SIRT KASLARI",
+      "image": "/course-content/pages/6/042.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 43,
+      "title": "GÖVDE KASLARI SIRT KASLARI A) YÜZEYSEL SIRT KASLARI B) DERİN SIRT KASLARI",
+      "blocks": [
+        "GÖVDE KASLARI\nA) YÜZEYSEL SIRT KASLARI\nM. trapezius\nF: Scapula’ya elevasyon,\nretraksiyon, depresyon,\nrotasyon [omuza abdüksiyon\n(>90°)], boyna lateral fleksiyon"
+      ],
+      "text": "GÖVDE KASLARI\nA) YÜZEYSEL SIRT KASLARI\nM. trapezius\nF: Scapula’ya elevasyon,\nretraksiyon, depresyon,\nrotasyon [omuza abdüksiyon\n(>90°)], boyna lateral fleksiyon",
+      "image": "/course-content/pages/6/043.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 44,
+      "title": "GÖVDE KASLARI A) YÜZEYSEL SIRT KASLARI M. latissimus dorsi F: Kola ekstansiyon, addüksiyon ve iç rotasyon",
+      "blocks": [
+        "GÖVDE KASLARI\nA) YÜZEYSEL SIRT KASLARI\nM. latissimus dorsi\nF: Kola ekstansiyon, addüksiyon\nve iç rotasyon"
+      ],
+      "text": "GÖVDE KASLARI\nA) YÜZEYSEL SIRT KASLARI\nM. latissimus dorsi\nF: Kola ekstansiyon, addüksiyon\nve iç rotasyon",
+      "image": "/course-content/pages/6/044.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 45,
+      "title": "GÖVDE KASLARI A) YÜZEYSEL SIRT KASLARI M. rhomboideus major ve minor F: Scapula’ya addüksiyon ve…",
+      "blocks": [
+        "GÖVDE KASLARI\nA) YÜZEYSEL SIRT KASLARI\nM. rhomboideus major ve minor\nF: Scapula’ya addüksiyon ve\nelevasyon",
+        "m",
+        "M"
+      ],
+      "text": "GÖVDE KASLARI\nA) YÜZEYSEL SIRT KASLARI\nM. rhomboideus major ve minor\nF: Scapula’ya addüksiyon ve\nelevasyon\n\nm\n\nM",
+      "image": "/course-content/pages/6/045.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 46,
+      "title": "GÖVDE KASLARI A) YÜZEYSEL SIRT KASLARI M. levator scapulae F: Scapula’ya elevasyon, boyna lateral…",
+      "blocks": [
+        "GÖVDE KASLARI\nA) YÜZEYSEL SIRT KASLARI\nM. levator scapulae\nF: Scapula’ya elevasyon, boyna\nlateral fleksiyon",
+        "L"
+      ],
+      "text": "GÖVDE KASLARI\nA) YÜZEYSEL SIRT KASLARI\nM. levator scapulae\nF: Scapula’ya elevasyon, boyna\nlateral fleksiyon\n\nL",
+      "image": "/course-content/pages/6/046.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 47,
+      "title": "GÖVDE KASLARI B) DERİN SIRT KASLARI M. erector spinae Üç bölümü vardır: M. iliocostalis M.…",
+      "blocks": [
+        "S",
+        "L",
+        "GÖVDE KASLARI\nB) DERİN SIRT KASLARI\nM. erector spinae\nÜç bölümü vardır:\nM. iliocostalis\nM. longissimus\nM. spinalis",
+        "İ",
+        "F: Tek: Columna vertebralis’e lateral fleksiyon",
+        "Çift: Columna vertebralis’e ekstansiyon"
+      ],
+      "text": "S\n\nL\n\nGÖVDE KASLARI\nB) DERİN SIRT KASLARI\nM. erector spinae\nÜç bölümü vardır:\nM. iliocostalis\nM. longissimus\nM. spinalis\n\nİ\n\nF: Tek: Columna vertebralis’e lateral fleksiyon\n\nÇift: Columna vertebralis’e ekstansiyon",
+      "image": "/course-content/pages/6/047.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 48,
+      "title": "GÖVDE KASLARI GÖĞÜS KASLARI Mm. pectoralis major F: Omuza fleksiyon, addüksiyon, iç rotasyon",
+      "blocks": [
+        "GÖVDE KASLARI\nGÖĞÜS KASLARI\nMm. pectoralis major\nF: Omuza fleksiyon, addüksiyon, iç rotasyon",
+        "P"
+      ],
+      "text": "GÖVDE KASLARI\nGÖĞÜS KASLARI\nMm. pectoralis major\nF: Omuza fleksiyon, addüksiyon, iç rotasyon\n\nP",
+      "image": "/course-content/pages/6/048.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 49,
+      "title": "GÖVDE KASLARI GÖĞÜS KASLARI Mm. pectoralis minor F: Scapula’ya depresyon,",
+      "blocks": [
+        "GÖVDE KASLARI\nGÖĞÜS KASLARI\nMm. pectoralis minor\nF: Scapula’ya depresyon,",
+        "protraksiyon, inspirasyon",
+        "P"
+      ],
+      "text": "GÖVDE KASLARI\nGÖĞÜS KASLARI\nMm. pectoralis minor\nF: Scapula’ya depresyon,\n\nprotraksiyon, inspirasyon\n\nP",
+      "image": "/course-content/pages/6/049.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 50,
+      "title": "GÖVDE KASLARI GÖĞÜS KASLARI Mm. serratus anterior F: Protraksiyon, kola abdüksiyon (>90°)",
+      "blocks": [
+        "GÖVDE KASLARI\nGÖĞÜS KASLARI\nMm. serratus anterior\nF: Protraksiyon, kola abdüksiyon (>90°)"
+      ],
+      "text": "GÖVDE KASLARI\nGÖĞÜS KASLARI\nMm. serratus anterior\nF: Protraksiyon, kola abdüksiyon (>90°)",
+      "image": "/course-content/pages/6/050.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 51,
+      "title": "Arkadan görünüm",
+      "blocks": [
+        "Arkadan\ngörünüm",
+        "GÖVDE KASLARI\nGÖĞÜS KASLARI\nDiaphragma\nSolunumun ana kasıdır. İnspirasyon yaptırır.\nLumbal, kostal ve sternal bölümleri vardır.",
+        "Üç deliği vardır: aort, v. cava inferior, yemek borusu geçer.",
+        "Yukarıdan görünüm\nAşağıdan görünüm\nÖnden görünüm"
+      ],
+      "text": "Arkadan\ngörünüm\n\nGÖVDE KASLARI\nGÖĞÜS KASLARI\nDiaphragma\nSolunumun ana kasıdır. İnspirasyon yaptırır.\nLumbal, kostal ve sternal bölümleri vardır.\n\nÜç deliği vardır: aort, v. cava inferior, yemek borusu geçer.\n\nYukarıdan görünüm\nAşağıdan görünüm\nÖnden görünüm",
+      "image": "/course-content/pages/6/051.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 52,
+      "title": "GÖVDE KASLARI KARIN KASLARI (Ön grup) M. rectus abdominis F: Gövdeye fleksiyon",
+      "blocks": [
+        "GÖVDE KASLARI\nKARIN KASLARI (Ön grup)\nM. rectus abdominis\nF: Gövdeye fleksiyon",
+        "Linea alba",
+        "R\nR"
+      ],
+      "text": "GÖVDE KASLARI\nKARIN KASLARI (Ön grup)\nM. rectus abdominis\nF: Gövdeye fleksiyon\n\nLinea alba\n\nR\nR",
+      "image": "/course-content/pages/6/052.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 53,
+      "title": "GÖVDE KASLARI KARIN KASLARI (Yan grup) M. obliquus externus abdominis F: Tek: Aynı taraftaki omuzu…",
+      "blocks": [
+        "GÖVDE KASLARI\nKARIN KASLARI (Yan grup)\nM. obliquus externus abdominis\nF: Tek: Aynı taraftaki omuzu öne getirir,",
+        "lateral fleksiyon yaptırır\nÇift: Gövdeye fleksiyon",
+        "E"
+      ],
+      "text": "GÖVDE KASLARI\nKARIN KASLARI (Yan grup)\nM. obliquus externus abdominis\nF: Tek: Aynı taraftaki omuzu öne getirir,\n\nlateral fleksiyon yaptırır\nÇift: Gövdeye fleksiyon\n\nE",
+      "image": "/course-content/pages/6/053.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 54,
+      "title": "GÖVDE KASLARI KARIN KASLARI (Yan grup) M. obliquus internus abdominis F: Tek: Ters taraftaki omuzu…",
+      "blocks": [
+        "GÖVDE KASLARI\nKARIN KASLARI (Yan grup)\nM. obliquus internus abdominis\nF: Tek: Ters taraftaki omuzu öne getirir,",
+        "lateral fleksiyon yaptırır\nÇift: Gövdeye fleksiyon",
+        "İ",
+        "M. transversus abdominis\nKarın içi basıncı arttırır.",
+        "T"
+      ],
+      "text": "GÖVDE KASLARI\nKARIN KASLARI (Yan grup)\nM. obliquus internus abdominis\nF: Tek: Ters taraftaki omuzu öne getirir,\n\nlateral fleksiyon yaptırır\nÇift: Gövdeye fleksiyon\n\nİ\n\nM. transversus abdominis\nKarın içi basıncı arttırır.\n\nT",
+      "image": "/course-content/pages/6/054.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 55,
+      "title": "GÖVDE KASLARI KARIN KASLARI (Arka grup) M. psoas major F: Gövdeye fleksiyon, uyluğa fleksiyon",
+      "blocks": [
+        "GÖVDE KASLARI\nKARIN KASLARI (Arka grup)\nM. psoas major\nF: Gövdeye fleksiyon, uyluğa fleksiyon",
+        "*",
+        "M. psoas minor (*)\nDistalde lig. inguinale’ye tutunur.\nGövdeye fleksiyon yaptırır.",
+        "P"
+      ],
+      "text": "GÖVDE KASLARI\nKARIN KASLARI (Arka grup)\nM. psoas major\nF: Gövdeye fleksiyon, uyluğa fleksiyon\n\n*\n\nM. psoas minor (*)\nDistalde lig. inguinale’ye tutunur.\nGövdeye fleksiyon yaptırır.\n\nP",
+      "image": "/course-content/pages/6/055.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 56,
+      "title": "ÜST EKSTREMİTE KASLARI Üst ekstremiteler iki ana bölüme ayrılır:",
+      "blocks": [
+        "ÜST EKSTREMİTE KASLARI\nÜst ekstremiteler iki ana bölüme ayrılır:",
+        "-Üst ekstremite kavşağı\n-Serbest üst ekstremite",
+        "-Kol (brachium)\n-Antebrachium (önkol)\n-Manus (el)",
+        "Kaslar da aynı biçimde sınıflandırılır:\n-Omuz kasları\n-Serbest üst taraf",
+        "-Kol kasları\n-Önkol kasları\n-El kasları"
+      ],
+      "text": "ÜST EKSTREMİTE KASLARI\nÜst ekstremiteler iki ana bölüme ayrılır:\n\n-Üst ekstremite kavşağı\n-Serbest üst ekstremite\n\n-Kol (brachium)\n-Antebrachium (önkol)\n-Manus (el)\n\nKaslar da aynı biçimde sınıflandırılır:\n-Omuz kasları\n-Serbest üst taraf\n\n-Kol kasları\n-Önkol kasları\n-El kasları",
+      "image": "/course-content/pages/6/056.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 57,
+      "title": "rotasyon",
+      "blocks": [
+        "ÜST EKSTREMİTE KASLARI\nOMUZ KASLARI\nM. deltoideus\nÜç bölümü vardır:\nÖn, yan, arka\nO: Clavicula, acromion, spina scapulae\nI: Humerus (tuberositas deltoidea)\nF: Omuza fleksiyon, abdüksiyon, ekstansiyon, iç rotasyon, dış",
+        "rotasyon"
+      ],
+      "text": "ÜST EKSTREMİTE KASLARI\nOMUZ KASLARI\nM. deltoideus\nÜç bölümü vardır:\nÖn, yan, arka\nO: Clavicula, acromion, spina scapulae\nI: Humerus (tuberositas deltoidea)\nF: Omuza fleksiyon, abdüksiyon, ekstansiyon, iç rotasyon, dış\n\nrotasyon",
+      "image": "/course-content/pages/6/057.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 58,
+      "title": "ÜST EKSTREMİTE KASLARI OMUZ KASLARI M. supraspinatus F: Omuza abdüksiyon",
+      "blocks": [
+        "ÜST EKSTREMİTE KASLARI\nOMUZ KASLARI\nM. supraspinatus\nF: Omuza abdüksiyon",
+        "S\nS",
+        "D",
+        "Sağ omuz arkadan görünüm"
+      ],
+      "text": "ÜST EKSTREMİTE KASLARI\nOMUZ KASLARI\nM. supraspinatus\nF: Omuza abdüksiyon\n\nS\nS\n\nD\n\nSağ omuz arkadan görünüm",
+      "image": "/course-content/pages/6/058.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 59,
+      "title": "ÜST EKSTREMİTE KASLARI OMUZ KASLARI M. infraspinatus F: Omuza dış rotasyon M. teres minör F: Omuza…",
+      "blocks": [
+        "ÜST EKSTREMİTE KASLARI\nOMUZ KASLARI\nM. infraspinatus\nF: Omuza dış rotasyon\nM. teres minör\nF: Omuza dış rotasyon ve addüksiyon",
+        "İ",
+        "D",
+        "İ",
+        "M",
+        "Sağ omuz arkadan görünüm"
+      ],
+      "text": "ÜST EKSTREMİTE KASLARI\nOMUZ KASLARI\nM. infraspinatus\nF: Omuza dış rotasyon\nM. teres minör\nF: Omuza dış rotasyon ve addüksiyon\n\nİ\n\nD\n\nİ\n\nM\n\nSağ omuz arkadan görünüm",
+      "image": "/course-content/pages/6/059.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 60,
+      "title": "ÜST EKSTREMİTE KASLARI OMUZ KASLARI M. teres major F: Omuza iç rotasyon, addüksiyon, ekstansiyon",
+      "blocks": [
+        "ÜST EKSTREMİTE KASLARI\nOMUZ KASLARI\nM. teres major\nF: Omuza iç rotasyon, addüksiyon, ekstansiyon",
+        "M",
+        "Sağ omuz",
+        "arkadan\ngörünüm"
+      ],
+      "text": "ÜST EKSTREMİTE KASLARI\nOMUZ KASLARI\nM. teres major\nF: Omuza iç rotasyon, addüksiyon, ekstansiyon\n\nM\n\nSağ omuz\n\narkadan\ngörünüm",
+      "image": "/course-content/pages/6/060.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 61,
+      "title": "ÜST EKSTREMİTE KASLARI OMUZ KASLARI M. subscapularis",
+      "blocks": [
+        "ÜST EKSTREMİTE KASLARI\nOMUZ KASLARI\nM. subscapularis",
+        "S",
+        "S",
+        "Sağ omuz",
+        "önden\ngörünüm"
+      ],
+      "text": "ÜST EKSTREMİTE KASLARI\nOMUZ KASLARI\nM. subscapularis\n\nS\n\nS\n\nSağ omuz\n\nönden\ngörünüm",
+      "image": "/course-content/pages/6/061.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 62,
+      "title": "ÜST EKSTREMİTE KASLARI OMUZ KASLARI Döndürücü kılıf (rotator cuff) kasları",
+      "blocks": [
+        "ÜST EKSTREMİTE KASLARI\nOMUZ KASLARI\nDöndürücü kılıf (rotator cuff) kasları",
+        "M. supraspinatus (tuberculum majus)\nM. infraspinatus (tuberculum majus)\nM. teres minor (tuberculum majus)\nM. subscapularis (tuberculum minus)",
+        "Bu kaslar omuz eklemini önden ve arkadan destekleyerek",
+        "stabilizasyonuna katkı sağlarlar!"
+      ],
+      "text": "ÜST EKSTREMİTE KASLARI\nOMUZ KASLARI\nDöndürücü kılıf (rotator cuff) kasları\n\nM. supraspinatus (tuberculum majus)\nM. infraspinatus (tuberculum majus)\nM. teres minor (tuberculum majus)\nM. subscapularis (tuberculum minus)\n\nBu kaslar omuz eklemini önden ve arkadan destekleyerek\n\nstabilizasyonuna katkı sağlarlar!",
+      "image": "/course-content/pages/6/062.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 63,
+      "title": "ÜST EKSTREMİTE KASLARI KOL ÖN LOJ (KOMPARTMAN) KASLARI",
+      "blocks": [
+        "ÜST EKSTREMİTE KASLARI\nKOL ÖN LOJ (KOMPARTMAN) KASLARI",
+        "M. biceps brachii\nİki başı vardır. F: Omuza fleksiyon, dirseğe fleksiyon, supinasyon",
+        "M. coracobrachialis Omuza fleksiyon, addüksiyon",
+        "M. brachialis Dirseğe fleksiyon",
+        "C",
+        "B\nB",
+        "B"
+      ],
+      "text": "ÜST EKSTREMİTE KASLARI\nKOL ÖN LOJ (KOMPARTMAN) KASLARI\n\nM. biceps brachii\nİki başı vardır. F: Omuza fleksiyon, dirseğe fleksiyon, supinasyon\n\nM. coracobrachialis Omuza fleksiyon, addüksiyon\n\nM. brachialis Dirseğe fleksiyon\n\nC\n\nB\nB\n\nB",
+      "image": "/course-content/pages/6/063.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 64,
+      "title": "ÜST EKSTREMİTE KASLARI KOL ARKA LOJ (KOMPARTMAN) KASI M. triceps brachii Üç başı vardır. F: Omuza…",
+      "blocks": [
+        "ÜST EKSTREMİTE KASLARI\nKOL ARKA LOJ (KOMPARTMAN) KASI\nM. triceps brachii\nÜç başı vardır.\nF: Omuza ekstansiyon, addüksiyon,",
+        "dirseğe ekstansiyon"
+      ],
+      "text": "ÜST EKSTREMİTE KASLARI\nKOL ARKA LOJ (KOMPARTMAN) KASI\nM. triceps brachii\nÜç başı vardır.\nF: Omuza ekstansiyon, addüksiyon,\n\ndirseğe ekstansiyon",
+      "image": "/course-content/pages/6/064.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 65,
+      "title": "ÜST EKSTREMİTE KASLARI EL KASLARI Tenar kaslar (başparmak kabartısını yapan)",
+      "blocks": [
+        "ÜST EKSTREMİTE KASLARI\nEL KASLARI\nTenar kaslar (başparmak kabartısını yapan)"
+      ],
+      "text": "ÜST EKSTREMİTE KASLARI\nEL KASLARI\nTenar kaslar (başparmak kabartısını yapan)",
+      "image": "/course-content/pages/6/065.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 66,
+      "title": "ÜST EKSTREMİTE KASLARI EL KASLARI Hipotenar kaslar (küçük parmak kabartısını yapan)",
+      "blocks": [
+        "ÜST EKSTREMİTE KASLARI\nEL KASLARI\nHipotenar kaslar (küçük parmak kabartısını yapan)"
+      ],
+      "text": "ÜST EKSTREMİTE KASLARI\nEL KASLARI\nHipotenar kaslar (küçük parmak kabartısını yapan)",
+      "image": "/course-content/pages/6/066.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 67,
+      "title": "ALT EKSTREMİTE KASLARI KALÇA KASLARI Ön bölüm kasları M. iliopsoas (m. iliacus + m. psoas major)",
+      "blocks": [
+        "ALT EKSTREMİTE KASLARI\nKALÇA KASLARI\nÖn bölüm kasları\nM. iliopsoas (m. iliacus + m. psoas major)",
+        "M. İliacus - M. psoas major",
+        "F: Kalçaya fleksiyon, dış rotasyon",
+        "İ\nP"
+      ],
+      "text": "ALT EKSTREMİTE KASLARI\nKALÇA KASLARI\nÖn bölüm kasları\nM. iliopsoas (m. iliacus + m. psoas major)\n\nM. İliacus - M. psoas major\n\nF: Kalçaya fleksiyon, dış rotasyon\n\nİ\nP",
+      "image": "/course-content/pages/6/067.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 68,
+      "title": "ALT EKSTREMİTE KASLARI KALÇA KASLARI Ön bölüm kasları M. iliopsoas (m. iliacus + m. psoas major)",
+      "blocks": [
+        "Med",
+        "Max",
+        "ALT EKSTREMİTE KASLARI\nKALÇA KASLARI\nArka bölüm kasları\nM. gluteus maximus\nF: Kalçaya ekstansiyon, dış rotasyon, abdüksiyon, addüksiyon\nM. gluteus medius ve minimus\nF: Kalçaya abdüksiyon",
+        "Med",
+        "Min"
+      ],
+      "text": "Med\n\nMax\n\nALT EKSTREMİTE KASLARI\nKALÇA KASLARI\nArka bölüm kasları\nM. gluteus maximus\nF: Kalçaya ekstansiyon, dış rotasyon, abdüksiyon, addüksiyon\nM. gluteus medius ve minimus\nF: Kalçaya abdüksiyon\n\nMed\n\nMin",
+      "image": "/course-content/pages/6/068.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 69,
+      "title": "ALT EKSTREMİTE KASLARI KALÇA KASLARI Arka bölüm kasları M. tensor fasciae latae F: Kalçaya fleksiyon,…",
+      "blocks": [
+        "T\nT",
+        "ALT EKSTREMİTE KASLARI\nKALÇA KASLARI\nArka bölüm kasları\nM. tensor fasciae latae\nF: Kalçaya fleksiyon, abdüksiyon",
+        "dize ekstansiyon"
+      ],
+      "text": "T\nT\n\nALT EKSTREMİTE KASLARI\nKALÇA KASLARI\nArka bölüm kasları\nM. tensor fasciae latae\nF: Kalçaya fleksiyon, abdüksiyon\n\ndize ekstansiyon",
+      "image": "/course-content/pages/6/069.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 70,
+      "title": "ALT EKSTREMİTE KASLARI KALÇA KASLARI Arka bölüm kasları Dış rotator kaslar 1- M. piriformis",
+      "blocks": [
+        "ALT EKSTREMİTE KASLARI\nKALÇA KASLARI\nArka bölüm kasları\nDış rotator kaslar\n1- M. piriformis",
+        "1",
+        "Enjeksiyon yapılırken n.\nischiadicus’un seyri göz önüne\nalınmalı ve enjeksiyon gluteal\nbölgenin 1/4 üst-dış kısmına\nyapılmalıdır.\nN. İschiadicus (Siyatik Sinir):\nVücudumuzdaki en kalın sinir.\nUyluğun arkasında seyreder.\nEnjeksiyon esnasında çok dikkatli\nolunmalıdır."
+      ],
+      "text": "ALT EKSTREMİTE KASLARI\nKALÇA KASLARI\nArka bölüm kasları\nDış rotator kaslar\n1- M. piriformis\n\n1\n\nEnjeksiyon yapılırken n.\nischiadicus’un seyri göz önüne\nalınmalı ve enjeksiyon gluteal\nbölgenin 1/4 üst-dış kısmına\nyapılmalıdır.\nN. İschiadicus (Siyatik Sinir):\nVücudumuzdaki en kalın sinir.\nUyluğun arkasında seyreder.\nEnjeksiyon esnasında çok dikkatli\nolunmalıdır.",
+      "image": "/course-content/pages/6/070.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 71,
+      "title": "ALT EKSTREMİTE KASLARI UYLUK KASLARI Ön bölüm kasları M. sartorius F: Kalçaya fleksiyon, abdüksiyon,",
+      "blocks": [
+        "S",
+        "ALT EKSTREMİTE KASLARI\nUYLUK KASLARI\nÖn bölüm kasları\nM. sartorius\nF: Kalçaya fleksiyon, abdüksiyon,",
+        "dış rotasyon; dize fleksiyon"
+      ],
+      "text": "S\n\nALT EKSTREMİTE KASLARI\nUYLUK KASLARI\nÖn bölüm kasları\nM. sartorius\nF: Kalçaya fleksiyon, abdüksiyon,\n\ndış rotasyon; dize fleksiyon",
+      "image": "/course-content/pages/6/071.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 72,
+      "title": "ALT EKSTREMİTE KASLARI UYLUK KASLARI Ön bölüm kasları M. quadriceps femoris F: Dört parça da dize…",
+      "blocks": [
+        "ALT EKSTREMİTE KASLARI\nUYLUK KASLARI\nÖn bölüm kasları\nM. quadriceps femoris\nF: Dört parça da dize ekstansiyon yaptırır",
+        "R",
+        "Vm\nVl"
+      ],
+      "text": "ALT EKSTREMİTE KASLARI\nUYLUK KASLARI\nÖn bölüm kasları\nM. quadriceps femoris\nF: Dört parça da dize ekstansiyon yaptırır\n\nR\n\nVm\nVl",
+      "image": "/course-content/pages/6/072.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 73,
+      "title": "St Sm",
+      "blocks": [
+        "ALT EKSTREMİTE KASLARI\nUYLUK KASLARI\nArka bölüm kasları (hamstring kaslar)\nM. biceps femoris\nM. semimembranosus\nM. semitendinosus\nF: Kalçaya ekstansiyon, dize fleksiyon",
+        "B",
+        "St\nSm",
+        "B"
+      ],
+      "text": "ALT EKSTREMİTE KASLARI\nUYLUK KASLARI\nArka bölüm kasları (hamstring kaslar)\nM. biceps femoris\nM. semimembranosus\nM. semitendinosus\nF: Kalçaya ekstansiyon, dize fleksiyon\n\nB\n\nSt\nSm\n\nB",
+      "image": "/course-content/pages/6/073.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 74,
+      "title": "ALT EKSTREMİTE KASLARI UYLUK KASLARI İç yan bölüm kasları M. pectineus",
+      "blocks": [
+        "ALT EKSTREMİTE KASLARI\nUYLUK KASLARI\nİç yan bölüm kasları\nM. pectineus",
+        "M. adductor longus\nF: Kalçaya addüksiyon, fleksiyon\nP",
+        "A"
+      ],
+      "text": "ALT EKSTREMİTE KASLARI\nUYLUK KASLARI\nİç yan bölüm kasları\nM. pectineus\n\nM. adductor longus\nF: Kalçaya addüksiyon, fleksiyon\nP\n\nA",
+      "image": "/course-content/pages/6/074.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 75,
+      "title": "ALT EKSTREMİTE KASLARI UYLUK KASLARI İç yan bölüm kasları M. adductor brevis F: Kalçaya addüksiyon,…",
+      "blocks": [
+        "ALT EKSTREMİTE KASLARI\nUYLUK KASLARI\nİç yan bölüm kasları\nM. adductor brevis\nF: Kalçaya addüksiyon, fleksiyon",
+        "A",
+        "M. gracilis\nF: Kalçaya addüksiyon, bacağa fleksiyon",
+        "G"
+      ],
+      "text": "ALT EKSTREMİTE KASLARI\nUYLUK KASLARI\nİç yan bölüm kasları\nM. adductor brevis\nF: Kalçaya addüksiyon, fleksiyon\n\nA\n\nM. gracilis\nF: Kalçaya addüksiyon, bacağa fleksiyon\n\nG",
+      "image": "/course-content/pages/6/075.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 76,
+      "title": "ALT EKSTREMİTE KASLARI UYLUK KASLARI İç yan bölüm kasları M. adductor magnus F: Kalçaya addüksiyon,…",
+      "blocks": [
+        "ALT EKSTREMİTE KASLARI\nUYLUK KASLARI\nİç yan bölüm kasları\nM. adductor magnus\nF: Kalçaya addüksiyon, ekstansiyon",
+        "A"
+      ],
+      "text": "ALT EKSTREMİTE KASLARI\nUYLUK KASLARI\nİç yan bölüm kasları\nM. adductor magnus\nF: Kalçaya addüksiyon, ekstansiyon\n\nA",
+      "image": "/course-content/pages/6/076.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 77,
+      "title": "ALT EKSTREMİTE KASLARI UYLUK KASLARI Pes anserinus (kaz ayağı) M. sartorius M. gracilis M.…",
+      "blocks": [
+        "ALT EKSTREMİTE KASLARI\nUYLUK KASLARI\nPes anserinus (kaz ayağı)\nM. sartorius\nM. gracilis\nM. semitendinosus tendonlarının",
+        "birleşmesi ile oluşur.",
+        "Sar",
+        "Gra",
+        "Sem",
+        "PA"
+      ],
+      "text": "ALT EKSTREMİTE KASLARI\nUYLUK KASLARI\nPes anserinus (kaz ayağı)\nM. sartorius\nM. gracilis\nM. semitendinosus tendonlarının\n\nbirleşmesi ile oluşur.\n\nSar\n\nGra\n\nSem\n\nPA",
+      "image": "/course-content/pages/6/077.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 78,
+      "title": "ALT EKSTREMİTE KASLARI BACAK KASLARI Ön bölüm kasları M. tibialis anterior F: Ayak bileğine…",
+      "blocks": [
+        "ALT EKSTREMİTE KASLARI\nBACAK KASLARI\nÖn bölüm kasları\nM. tibialis anterior\nF: Ayak bileğine dorsifleksiyon",
+        "T",
+        "Ed\nEh"
+      ],
+      "text": "ALT EKSTREMİTE KASLARI\nBACAK KASLARI\nÖn bölüm kasları\nM. tibialis anterior\nF: Ayak bileğine dorsifleksiyon\n\nT\n\nEd\nEh",
+      "image": "/course-content/pages/6/078.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 79,
+      "title": "ALT EKSTREMİTE KASLARI BACAK KASLARI Dış yan bölüm kasları M. fibularis longus ve brevis F: Ayak…",
+      "blocks": [
+        "ALT EKSTREMİTE KASLARI\nBACAK KASLARI\nDış yan bölüm kasları\nM. fibularis longus ve brevis\nF: Ayak bileğine plantar fleksiyon",
+        "ve eversiyon",
+        "Fl",
+        "Fb"
+      ],
+      "text": "ALT EKSTREMİTE KASLARI\nBACAK KASLARI\nDış yan bölüm kasları\nM. fibularis longus ve brevis\nF: Ayak bileğine plantar fleksiyon\n\nve eversiyon\n\nFl\n\nFb",
+      "image": "/course-content/pages/6/079.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 80,
+      "title": "ALT EKSTREMİTE KASLARI BACAK KASLARI Arka bölüm kasları Yüzeysel kaslar M. gastrocnemius (caput…",
+      "blocks": [
+        "ALT EKSTREMİTE KASLARI\nBACAK KASLARI\nArka bölüm kasları\nYüzeysel kaslar\nM. gastrocnemius\n(caput laterale ve mediale)\nF: Dize fleksiyon; ayak bileğine",
+        "Gl\nGm",
+        "plantar fleksiyon",
+        "Tendo\ncalcaneus (Aşil",
+        "tendonu)"
+      ],
+      "text": "ALT EKSTREMİTE KASLARI\nBACAK KASLARI\nArka bölüm kasları\nYüzeysel kaslar\nM. gastrocnemius\n(caput laterale ve mediale)\nF: Dize fleksiyon; ayak bileğine\n\nGl\nGm\n\nplantar fleksiyon\n\nTendo\ncalcaneus (Aşil\n\ntendonu)",
+      "image": "/course-content/pages/6/080.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 81,
+      "title": "ALT EKSTREMİTE KASLARI BACAK KASLARI Arka bölüm kasları Yüzeysel kaslar",
+      "blocks": [
+        "P",
+        "ALT EKSTREMİTE KASLARI\nBACAK KASLARI\nArka bölüm kasları\nYüzeysel kaslar",
+        "M. triceps surae\nM. gastrocnemius + m. soleus",
+        "S\nGl\nGm",
+        "Tendo\ncalcaneus (Aşil",
+        "tendonu)"
+      ],
+      "text": "P\n\nALT EKSTREMİTE KASLARI\nBACAK KASLARI\nArka bölüm kasları\nYüzeysel kaslar\n\nM. triceps surae\nM. gastrocnemius + m. soleus\n\nS\nGl\nGm\n\nTendo\ncalcaneus (Aşil\n\ntendonu)",
+      "image": "/course-content/pages/6/081.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 82,
+      "title": "VÜCUDUMUZUN ENLERİ",
+      "blocks": [
+        "VÜCUDUMUZUN ENLERİ",
+        "• En uzun kemik: os femur\n• En büyük eklem: art. genus\n• En uzun kas: m. sartorius\n• En kalın kas: m. gluteus maximus\n• En geniş kas: m. latissimus dorsi\n• En büyük kas: m. quadriceps femoris"
+      ],
+      "text": "VÜCUDUMUZUN ENLERİ\n\n• En uzun kemik: os femur\n• En büyük eklem: art. genus\n• En uzun kas: m. sartorius\n• En kalın kas: m. gluteus maximus\n• En geniş kas: m. latissimus dorsi\n• En büyük kas: m. quadriceps femoris",
+      "image": "/course-content/pages/6/082.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 83,
+      "title": "ÖRNEK SORULAR",
+      "blocks": [
+        "ÖRNEK SORULAR",
+        "Aşağıdakilerden hangisi uyluğa ekstansiyon yaptırır?\na) M. gracilis\nb) M. rectus femoris\nc) M. sartorius\nd) M. adductor magnus\ne) M. pectineus",
+        "Aşağıdaki kaslardan hangisi iki eklemi çaprazlar?\na) M. vastus lateralis\nb) M. iliacus\nc) M. psoas major\nd) M. pectineus\ne) M. tibialis anterior"
+      ],
+      "text": "ÖRNEK SORULAR\n\nAşağıdakilerden hangisi uyluğa ekstansiyon yaptırır?\na) M. gracilis\nb) M. rectus femoris\nc) M. sartorius\nd) M. adductor magnus\ne) M. pectineus\n\nAşağıdaki kaslardan hangisi iki eklemi çaprazlar?\na) M. vastus lateralis\nb) M. iliacus\nc) M. psoas major\nd) M. pectineus\ne) M. tibialis anterior",
+      "image": "/course-content/pages/6/083.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 84,
+      "title": "ÖRNEK SORULAR",
+      "blocks": [
+        "ÖRNEK SORULAR",
+        "M. sartorius’un işlevlerini yazınız.",
+        "Humerus’un üst bölümüne tutunan kaslardan üç tanesinin",
+        "Latince adını yazınız."
+      ],
+      "text": "ÖRNEK SORULAR\n\nM. sartorius’un işlevlerini yazınız.\n\nHumerus’un üst bölümüne tutunan kaslardan üç tanesinin\n\nLatince adını yazınız.",
+      "image": "/course-content/pages/6/084.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 85,
+      "title": "ÖRNEK SORULAR",
+      "blocks": [
+        "ÖRNEK SORULAR",
+        "Şekilde belirtilen kasların Latince adlarını yazınız.",
+        "A",
+        "B",
+        "C\nD"
+      ],
+      "text": "ÖRNEK SORULAR\n\nŞekilde belirtilen kasların Latince adlarını yazınız.\n\nA\n\nB\n\nC\nD",
+      "image": "/course-content/pages/6/085.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 86,
+      "title": "ÖRNEK SORULAR",
+      "blocks": [
+        "G",
+        "F",
+        "E"
+      ],
+      "text": "G\n\nF\n\nE",
+      "image": "/course-content/pages/6/086.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    }
+  ]
+}

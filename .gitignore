@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.playwright/
+test-results/
+
+.venv/
+
+# Local source PDFs used for complete web conversion; never commit originals.
+google_drive/
