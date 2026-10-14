@@ -14,7 +14,7 @@
         "HAREKET SİSTEMİ\nSISTEMA LOCOMOTORIUM"
       ],
       "text": "HAREKET SİSTEMİ\nSISTEMA LOCOMOTORIUM",
-      "image": "/course-content/pages/2/001.webp",
+      "image": "pages/2/001.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -29,7 +29,7 @@
         "•KASLAR (Tekil= Musculus, Çoğul= Musculi)"
       ],
       "text": "BU BÖLÜMDE NELER\nÖĞRENECEĞİZ?\n\n•KEMİKLER (Tekil= Os, Çoğul=ossa)\n\n•EKLEMLER (Tekil= Articulatio, Çoğul= Articulationes)\n\n•KASLAR (Tekil= Musculus, Çoğul= Musculi)",
-      "image": "/course-content/pages/2/002.webp",
+      "image": "pages/2/002.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -46,7 +46,7 @@
         "•Kan Hücreleri Üretimi"
       ],
       "text": "KEMİĞİN FONKSİYONLARI\n\n•Destek\n\n•Koruma\n\n•Hareket\n\n•Mineral Deposu (Ca, P Vb.)\n\n•Kan Hücreleri Üretimi",
-      "image": "/course-content/pages/2/003.webp",
+      "image": "pages/2/003.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -59,7 +59,7 @@
         "Substantia compacta: Kemiğin dış kısmını oluşturan sert yapı\nSubstantia spongiosa: Kemiğini iç kısmını oluşturan süngerimsi yapı"
       ],
       "text": "MORFOLOJİK OLARAK KEMİKLER İKİ KISIMDAN OLUŞUR\n\nSubstantia compacta: Kemiğin dış kısmını oluşturan sert yapı\nSubstantia spongiosa: Kemiğini iç kısmını oluşturan süngerimsi yapı",
-      "image": "/course-content/pages/2/004.webp",
+      "image": "pages/2/004.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -74,7 +74,7 @@
         "Ossa pneumatica (havalı kemikler)\nOssa irregularia (düzensiz kemikler)\nOssa sesamoidea (yapışma açısını artıran)"
       ],
       "text": "Kemik tipleri\n\nOssa longa (uzun kemikler)\n\nDiaphysis (tubuler kemik gövdesi)\nEpiphysis (her iki uç kısımlar)\nKorteks\nMedulla\nOssa brevia (kısa kemikler)\nOssa plana (yassı kemikler)\n\nOssa pneumatica (havalı kemikler)\nOssa irregularia (düzensiz kemikler)\nOssa sesamoidea (yapışma açısını artıran)",
-      "image": "/course-content/pages/2/005.webp",
+      "image": "pages/2/005.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -92,7 +92,7 @@
         "Sesamoid"
       ],
       "text": "Yassı\n\nHavalı Kemikler:\n\nOs Pneumaticum\n\nDüzensiz:İrregül\ner\n\nUzun\n\nKısa\n\nSesamoid",
-      "image": "/course-content/pages/2/006.webp",
+      "image": "pages/2/006.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -109,7 +109,7 @@
         "- Metafiz kemiğin boyuna büyümesi ile ilgilidir"
       ],
       "text": "Ossa longa (uzun kemikler)\n\n- İki uç kısmı, bir gövdesi vardır\n\n- Orta kısmına Diaphysis (diafiz)\n\n- Uç kısmına Epiphysis (epifiz)\n\n- Orta kısım ile uç kısım arasındaki kısma Metaphysis (metafiz)\n\n- Metafiz kemiğin boyuna büyümesi ile ilgilidir",
-      "image": "/course-content/pages/2/007.webp",
+      "image": "pages/2/007.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -123,7 +123,7 @@
         "- Ossa carpi (el bileği kemikleri) ve ossa tarsi (ayak bileği kemikleri)"
       ],
       "text": "Ossa breve (kısa kemikler)\n\n- Eni, boyu ve kalınlığı birbirine denk olan kemiklerdir\n\n- Ossa carpi (el bileği kemikleri) ve ossa tarsi (ayak bileği kemikleri)",
-      "image": "/course-content/pages/2/008.webp",
+      "image": "pages/2/008.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -137,7 +137,7 @@
         "- Kafa kemiklerinin çoğu (örneğin os parietale, os occipitale) yassı\nkemiklerdir"
       ],
       "text": "Ossa plana (yassı kemikler)\n\n- İnce ve geniş kemiklerdir\n\n- Kafa kemiklerinin çoğu (örneğin os parietale, os occipitale) yassı\nkemiklerdir",
-      "image": "/course-content/pages/2/009.webp",
+      "image": "pages/2/009.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -152,7 +152,7 @@
         "- Vücudun en büyük sesamoid kemiği patella’dır"
       ],
       "text": "Ossa sesamoidea (sesamoid kemikler)\n\n- Tendonlar içerisinde yer alan küçük kemiklerdir\n\n- Ayak ve el parmaklarında bulunur\n\n- Vücudun en büyük sesamoid kemiği patella’dır",
-      "image": "/course-content/pages/2/010.webp",
+      "image": "pages/2/010.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -166,7 +166,7 @@
         "- Maxilla, os sphenoidale"
       ],
       "text": "Ossa pneumatica (havalı kemikler)\n\n- İçinde sinus denilen hava boşlukları vardır\n\n- Maxilla, os sphenoidale",
-      "image": "/course-content/pages/2/011.webp",
+      "image": "pages/2/011.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -178,7 +178,7 @@
         "Ossa irregularia (düzensiz kemikler)\n- Mandibula, os sacrum, os coxae"
       ],
       "text": "Ossa irregularia (düzensiz kemikler)\n- Mandibula, os sacrum, os coxae",
-      "image": "/course-content/pages/2/012.webp",
+      "image": "pages/2/012.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -193,7 +193,7 @@
         "•Çocukta 222-223 adet kemik vardır."
       ],
       "text": "İSKELET SİSTEMİ (SYSTEMA\nSKELETALE)\n\n•KEMİKLER (Tekil= Os, Çoğul=ossa)\n\n•Vücudumuzda 206 adet kemik bulunmaktadır.\n\n•Çocukta 222-223 adet kemik vardır.",
-      "image": "/course-content/pages/2/013.webp",
+      "image": "pages/2/013.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -207,7 +207,7 @@
         "Caput : Baş\nCondylus: Yumruk şeklinde çıkıntı\nEpicondylus: Kondillerin üst tarafındaki\nçıkıntılar"
       ],
       "text": "Kemik oluşumların adlandırılması\n\n•Eklemleşmeler için geniş çıkıntılar:\n\nCaput : Baş\nCondylus: Yumruk şeklinde çıkıntı\nEpicondylus: Kondillerin üst tarafındaki\nçıkıntılar",
-      "image": "/course-content/pages/2/014.webp",
+      "image": "pages/2/014.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -220,7 +220,7 @@
         "•Yuvarlak olmayan çıkıntılar:\nSpina: Dikensi çıkıntı\nProcessus: Belirgin keskin çıkıntı\nLinea: Çizgisel çıkıntı\nCrista: Kabarık çizgisel çıkıntı"
       ],
       "text": "•Yuvarlak çıkıntılar:\nTuberculum: Küçük yuvarlak çıkıntı\nTuberositas: Pürüzlü kabarıklık\nProtuberantia: Küçük yükseklik,tümsek\nMalleolus: Küçük çekiç ucu şeklinde çıkıntı\nTrochanter: Yumru, yuvarlak çıkıntı\n\n•Yuvarlak olmayan çıkıntılar:\nSpina: Dikensi çıkıntı\nProcessus: Belirgin keskin çıkıntı\nLinea: Çizgisel çıkıntı\nCrista: Kabarık çizgisel çıkıntı",
-      "image": "/course-content/pages/2/015.webp",
+      "image": "pages/2/015.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -233,7 +233,7 @@
         "•Çeşitli açıklıklar:\nForamen: Delik\nCanalis:Kanal\nMeatus: Geçit, yol\nFissura: Yarık şeklinde açıklık\nApertura: Açıklık,ağız"
       ],
       "text": "•Çeşitli çöküntüler:\nİncisura: Çentik\nSulcus: Oluk\nFossa, fovea, foveola, fossula: Çukurluk ve\nçukurcuklar\nImpressio: Kemik üzerinde oluşan sığ çukurluk,iz\n\n•Çeşitli açıklıklar:\nForamen: Delik\nCanalis:Kanal\nMeatus: Geçit, yol\nFissura: Yarık şeklinde açıklık\nApertura: Açıklık,ağız",
-      "image": "/course-content/pages/2/016.webp",
+      "image": "pages/2/016.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -243,7 +243,7 @@
       "title": "Çeşitli açıklıklar: Foramen: Delik Canalis:Kanal Meatus: Geçit, yol Fissura: Yarık şeklinde açıklık…",
       "blocks": [],
       "text": "",
-      "image": "/course-content/pages/2/017.webp",
+      "image": "pages/2/017.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": false
@@ -253,7 +253,7 @@
       "title": "Çeşitli açıklıklar: Foramen: Delik Canalis:Kanal Meatus: Geçit, yol Fissura: Yarık şeklinde açıklık…",
       "blocks": [],
       "text": "",
-      "image": "/course-content/pages/2/018.webp",
+      "image": "pages/2/018.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": false
@@ -271,7 +271,7 @@
         "•Ossa Manus"
       ],
       "text": "ÜST EKSTREMİTE ÜST EKSTREMİTE\nKEMİKLERİKEMİKLERİ\n\n•Os Scapula\n\n•Os Clavicula\n\n•Os Humerus\n\n•Os Radius\n\n•Os Ulna\n\n•Ossa Manus",
-      "image": "/course-content/pages/2/019.webp",
+      "image": "pages/2/019.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -288,7 +288,7 @@
         "-OS HUMERUS"
       ],
       "text": "OS\nCLAVİCULA\n\n--OS\n\nSCAPULA\n\n--OS\n\nOS SCAPULA\n\n-OS HUMERUS",
-      "image": "/course-content/pages/2/020.webp",
+      "image": "pages/2/020.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -304,7 +304,7 @@
         "EMİĞİ”"
       ],
       "text": "”\n\nKEMİĞİ\n\nOS CLAVİCULAOS CLAVİCULA\n“K“KÖPRÜCÜK\n\nÖPRÜCÜKK\n\nEMİĞİ”",
-      "image": "/course-content/pages/2/021.webp",
+      "image": "pages/2/021.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -327,7 +327,7 @@
         "gövdeye\nbağlayan önemli bir bağlayan önemli bir\nkemiktir.kemiktir.\n••“S” harfi şeklindedir"
       ],
       "text": "”\n\nKEMİĞİ\n\nOS CLAVİCULAOS CLAVİCULA\n“K“KÖPRÜCÜK\n\nÖPRÜCÜKK\n\nEMİĞİ”\n\n-Üst\n\nÜst ekstremiteyi\n\nekstremiteyigövdeye\n\n••-\n\n.\n\n“S” harfi şeklindedir.\n\ngövdeye\nbağlayan önemli bir bağlayan önemli bir\nkemiktir.kemiktir.\n••“S” harfi şeklindedir",
-      "image": "/course-content/pages/2/022.webp",
+      "image": "pages/2/022.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -344,7 +344,7 @@
         "ÜÇGEN ŞEKLİNDEDİR."
       ],
       "text": "”\n\nKEMİĞİ\n\nOS SCAPULAOS SCAPULA\n“ K“ KÜREK\n\nÜREKK\n\nEMİĞİ”\n\nÜÇGEN ŞEKLİNDEDİR.",
-      "image": "/course-content/pages/2/023.webp",
+      "image": "pages/2/023.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -356,7 +356,7 @@
         "SPİNA SCAPULA"
       ],
       "text": "SPİNA SCAPULA",
-      "image": "/course-content/pages/2/024.webp",
+      "image": "pages/2/024.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -373,7 +373,7 @@
         "KEMİĞİ”"
       ],
       "text": "SHUMERUS\n\n”\n\nOOS\n\nOLKEMİĞİ\n\nHUMERUS\n“K“KOL\n\nKEMİĞİ”",
-      "image": "/course-content/pages/2/025.webp",
+      "image": "pages/2/025.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -390,7 +390,7 @@
         "KEMİĞİ”"
       ],
       "text": "SHUMERUS\n\n”\n\nOOS\n\nOLKEMİĞİ\n\nHUMERUS\n“K“KOL\n\nKEMİĞİ”",
-      "image": "/course-content/pages/2/026.webp",
+      "image": "pages/2/026.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -400,7 +400,7 @@
       "title": "SHUMERUS",
       "blocks": [],
       "text": "",
-      "image": "/course-content/pages/2/027.webp",
+      "image": "pages/2/027.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": false
@@ -412,7 +412,7 @@
         "OS RADİUS\n(DÖNER KEMİK)"
       ],
       "text": "OS RADİUS\n(DÖNER KEMİK)",
-      "image": "/course-content/pages/2/028.webp",
+      "image": "pages/2/028.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -427,7 +427,7 @@
         "KEMİĞİ)"
       ],
       "text": ")\n\nİRSEKKEMİĞİ\n\nOS ULNA OS ULNA\n(D(DİRSEK\n\nKEMİĞİ)",
-      "image": "/course-content/pages/2/029.webp",
+      "image": "pages/2/029.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -440,7 +440,7 @@
         "•Ulnar kemiğin bir bölümüdür."
       ],
       "text": "OLECRANON (DİRSEK)\n\n•Ulnar kemiğin bir bölümüdür.",
-      "image": "/course-content/pages/2/030.webp",
+      "image": "pages/2/030.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -452,7 +452,7 @@
         "OSSA MANUS"
       ],
       "text": "OSSA MANUS",
-      "image": "/course-content/pages/2/031.webp",
+      "image": "pages/2/031.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -464,7 +464,7 @@
         "ALT EXTREMİTE KEMİKLERİ"
       ],
       "text": "ALT EXTREMİTE KEMİKLERİ",
-      "image": "/course-content/pages/2/032.webp",
+      "image": "pages/2/032.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -482,7 +482,7 @@
         "•Ossa pedis"
       ],
       "text": "ALT EXTREMİTE KEMİKLERİ\n\n•Os coxae\n\n•Os femur\n\n•Patella\n\n•Os tibia\n\n•Os fibula\n\n•Ossa pedis",
-      "image": "/course-content/pages/2/033.webp",
+      "image": "pages/2/033.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -497,7 +497,7 @@
         "•C) Os pubis"
       ],
       "text": "OS COXAE\n\n•A) Os ilium\n\n•B) Os ischium\n\n•C) Os pubis",
-      "image": "/course-content/pages/2/034.webp",
+      "image": "pages/2/034.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -515,7 +515,7 @@
         "Os ischium"
       ],
       "text": "Os coxae-Arka Dıştan Görünüş-Sağ\n\nOS İLİUM\n\nOs pubis\n\n•A) Corpus ossis ilii\n\nOs ilium\n\n•B) Ala ossis ilii\n\nOs ischium",
-      "image": "/course-content/pages/2/035.webp",
+      "image": "pages/2/035.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -529,7 +529,7 @@
         "Os ischium"
       ],
       "text": "Os ilium\n\nOs\npubis\n\nOs ischium",
-      "image": "/course-content/pages/2/036.webp",
+      "image": "pages/2/036.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -541,7 +541,7 @@
         "TUBER İSCHİADİCUM"
       ],
       "text": "TUBER İSCHİADİCUM",
-      "image": "/course-content/pages/2/037.webp",
+      "image": "pages/2/037.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -562,7 +562,7 @@
         "•Diamater Obliqua: 12,5"
       ],
       "text": "KADIN PELVİS ÇAPLARI\n\n•Conjugata Anatomica: 11,5-\n\n12 cm\n\n•Conjugata Vera: normalde\n\n11 cm, 9 cm altında doğum\nzorlaşır.\n\n•Congugata Diagonalis:\n\n12,5-13 cm\n\n•Diamater Transversa: 13,5\n\ncm\n\n•Diamater Obliqua: 12,5",
-      "image": "/course-content/pages/2/038.webp",
+      "image": "pages/2/038.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -574,7 +574,7 @@
         "SİAS (SPİNA İLİACA ANTERİOR\nSUPERİOR)"
       ],
       "text": "SİAS (SPİNA İLİACA ANTERİOR\nSUPERİOR)",
-      "image": "/course-content/pages/2/039.webp",
+      "image": "pages/2/039.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -586,7 +586,7 @@
         "OS FEMUR"
       ],
       "text": "OS FEMUR",
-      "image": "/course-content/pages/2/040.webp",
+      "image": "pages/2/040.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -598,7 +598,7 @@
         "PATELLA (DİZ KAPAĞI)"
       ],
       "text": "PATELLA (DİZ KAPAĞI)",
-      "image": "/course-content/pages/2/041.webp",
+      "image": "pages/2/041.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -610,7 +610,7 @@
         "OS TİBİA"
       ],
       "text": "OS TİBİA",
-      "image": "/course-content/pages/2/042.webp",
+      "image": "pages/2/042.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -622,7 +622,7 @@
         "OS FİBULA"
       ],
       "text": "OS FİBULA",
-      "image": "/course-content/pages/2/043.webp",
+      "image": "pages/2/043.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -634,7 +634,7 @@
         "OSSA PEDİS"
       ],
       "text": "OSSA PEDİS",
-      "image": "/course-content/pages/2/044.webp",
+      "image": "pages/2/044.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -646,7 +646,7 @@
         "COLUMNA VERTEBRALİS"
       ],
       "text": "COLUMNA VERTEBRALİS",
-      "image": "/course-content/pages/2/045.webp",
+      "image": "pages/2/045.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -663,7 +663,7 @@
         "•Halk arasında “omurga” olarak adlandılır."
       ],
       "text": "•Yetişkin bir bireyde toplam 26 adet kemikten\n\noluşur.\n\n•Vertebra 24 adet\n\n•Os sacrum 1 adet\n\n•Os coccyx 1 adet\n\n•Halk arasında “omurga” olarak adlandılır.",
-      "image": "/course-content/pages/2/046.webp",
+      "image": "pages/2/046.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -677,7 +677,7 @@
         "Discus\nİntervertebralis"
       ],
       "text": "DİSCUS İNTERVERTEBRALİS (23\n\nADET)\n\nDiscus\nİntervertebralis",
-      "image": "/course-content/pages/2/047.webp",
+      "image": "pages/2/047.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -689,7 +689,7 @@
         "OS SACRUM"
       ],
       "text": "OS SACRUM",
-      "image": "/course-content/pages/2/048.webp",
+      "image": "pages/2/048.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -701,7 +701,7 @@
         "OS COCCYX"
       ],
       "text": "OS COCCYX",
-      "image": "/course-content/pages/2/049.webp",
+      "image": "pages/2/049.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -715,7 +715,7 @@
         "•Costae (Kaburga)"
       ],
       "text": "OSSA THORACİS (GÖĞÜS\nİSKELETİ)\n\n•Sternum\n\n•Costae (Kaburga)",
-      "image": "/course-content/pages/2/050.webp",
+      "image": "pages/2/050.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -727,7 +727,7 @@
         "STERNUM"
       ],
       "text": "STERNUM",
-      "image": "/course-content/pages/2/051.webp",
+      "image": "pages/2/051.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -739,7 +739,7 @@
         "COSTAE (KABURGA)"
       ],
       "text": "COSTAE (KABURGA)",
-      "image": "/course-content/pages/2/052.webp",
+      "image": "pages/2/052.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -749,7 +749,7 @@
       "title": "COSTAE (KABURGA)",
       "blocks": [],
       "text": "",
-      "image": "/course-content/pages/2/053.webp",
+      "image": "pages/2/053.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": false
@@ -763,7 +763,7 @@
         "•Splanchnocranium (Yüz Kemikleri)"
       ],
       "text": "CRANİUM (KAFATASI KEMİKLERİ)\n\n•Neurocranium (Beyni Çevreleyen Kemikler)\n\n•Splanchnocranium (Yüz Kemikleri)",
-      "image": "/course-content/pages/2/054.webp",
+      "image": "pages/2/054.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -782,7 +782,7 @@
         "•Os ethmoidale"
       ],
       "text": "NEUROCRANİUM (BEYNİ ÇEVRELEYEN\n\nKEMİKLER)\n\n•Os frontale\n\n•Os parietale\n\n•Os occipitale\n\n•Os temporale\n\n•Os sphenoidale\n\n•Os ethmoidale",
-      "image": "/course-content/pages/2/055.webp",
+      "image": "pages/2/055.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -794,7 +794,7 @@
         "OS FRONTALE (ALIN KEMİĞİ)"
       ],
       "text": "OS FRONTALE (ALIN KEMİĞİ)",
-      "image": "/course-content/pages/2/056.webp",
+      "image": "pages/2/056.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -806,7 +806,7 @@
         "OS PARİETALE (ÇEPER KEMİK)"
       ],
       "text": "OS PARİETALE (ÇEPER KEMİK)",
-      "image": "/course-content/pages/2/057.webp",
+      "image": "pages/2/057.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -819,7 +819,7 @@
         "KEMİĞİ)"
       ],
       "text": "OS OCCİPİTALE (ARDKAFA\n\nKEMİĞİ)",
-      "image": "/course-content/pages/2/058.webp",
+      "image": "pages/2/058.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -831,7 +831,7 @@
         "OS TEMPORALE (ŞAKAK KEMİĞİ)"
       ],
       "text": "OS TEMPORALE (ŞAKAK KEMİĞİ)",
-      "image": "/course-content/pages/2/059.webp",
+      "image": "pages/2/059.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -845,7 +845,7 @@
         "•Kanatlarını açmış yarasaya benzer."
       ],
       "text": "OS SPHENOİDALE (TEMEL\n\nKEMİK)\n\n•Kanatlarını açmış yarasaya benzer.",
-      "image": "/course-content/pages/2/060.webp",
+      "image": "pages/2/060.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -858,7 +858,7 @@
         "KEMİK)"
       ],
       "text": "OS SPHENOİDALE (TEMEL\n\nKEMİK)",
-      "image": "/course-content/pages/2/061.webp",
+      "image": "pages/2/061.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -871,7 +871,7 @@
         "KEMİK)"
       ],
       "text": "OS ETHMOİDALE (KALBUR\n\nKEMİK)",
-      "image": "/course-content/pages/2/062.webp",
+      "image": "pages/2/062.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -884,7 +884,7 @@
         "KEMİK)"
       ],
       "text": "OS ETHMOİDALE (KALBUR\n\nKEMİK)",
-      "image": "/course-content/pages/2/063.webp",
+      "image": "pages/2/063.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -904,7 +904,7 @@
         "•Concha nasalis inferior"
       ],
       "text": "VİSCEROCRANİUM (YÜZ KEMİKLERİ)\n\n•Maxilla\n\n•Mandibula\n\n•Os zygomaticum\n\n•Os lacrimale\n\n•Os nasale\n\n•Os palatinum\n\n•Os hyoideum\n\n•Concha nasalis inferior",
-      "image": "/course-content/pages/2/064.webp",
+      "image": "pages/2/064.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -916,7 +916,7 @@
         "MAXİLLA (ÜST ÇENE KEMİĞİ)"
       ],
       "text": "MAXİLLA (ÜST ÇENE KEMİĞİ)",
-      "image": "/course-content/pages/2/065.webp",
+      "image": "pages/2/065.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -928,7 +928,7 @@
         "MANDİBULA (ALT ÇENE KEMİĞİ)"
       ],
       "text": "MANDİBULA (ALT ÇENE KEMİĞİ)",
-      "image": "/course-content/pages/2/066.webp",
+      "image": "pages/2/066.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -941,7 +941,7 @@
         "KEMİĞİ)"
       ],
       "text": "OS ZYGOMATİCUM (ELMACIK\n\nKEMİĞİ)",
-      "image": "/course-content/pages/2/067.webp",
+      "image": "pages/2/067.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -953,7 +953,7 @@
         "OS NASALE (BURUN KEMİĞİ)"
       ],
       "text": "OS NASALE (BURUN KEMİĞİ)",
-      "image": "/course-content/pages/2/068.webp",
+      "image": "pages/2/068.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true
@@ -965,7 +965,7 @@
         "OS HYOİDEUM (DİL KEMİĞİ)"
       ],
       "text": "OS HYOİDEUM (DİL KEMİĞİ)",
-      "image": "/course-content/pages/2/069.webp",
+      "image": "pages/2/069.webp",
       "width": 1600,
       "height": 1200,
       "hasExtractableText": true

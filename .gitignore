@@ -5,5 +5,5 @@ test-results/
 
 .venv/
 
-# Local source PDFs used for complete web conversion; never commit originals.
+# Local source PDFs used for editorial source review; never commit originals.
 google_drive/

@@ -1,60 +1,78 @@
-# Web çalışma notlarının kapsamı ve yayın kontrolü
+# Web konu anlatımları — editoryal kayıt
 
-## Son sürüm: 697 sayfanın tamamının aktarımı
+## 14 Ekim 2026: slayt aktarımı yerine yazılmış dersler
 
-İlk özet çalışmasının ardından, “konu anlatımları eksiksiz olsun” isteği üzerine 12 PDF’nin tamamı yerelde indirildi ve PyMuPDF ile **bütün sayfalar** işlendi. Güncel web görünümü varsayılan olarak “Kaynağın tamamı” seçeneğini açar. İlk turdaki özetler yalnızca ayrı “Hızlı tekrar” seçeneğinde kullanılır.
+Kullanıcı, PDF sayfalarının metin ve görüntülerini art arda gösteren önceki okuyucuyu açıkça reddetti. Bu sürümde `FullCourseContent` ve “Kaynağın tamamı / Hızlı tekrar” seçimi kaldırıldı. `Sitede oku` doğrudan kendi cümleleriyle yazılmış, tematik olarak düzenlenen açıklamaları gösterir. Özgün PDF ayrı seçenek olarak korunur.
 
-- Kaynak rehberi: 7; anatomiye giriş: 55; hareket sistemi: 69; arthrologia: 58; ekstremite kemikleri: 49; kranium/vertebra: 67; myologia: 86; dolaşım: 51; sindirim: 138; sinir sistemi: 44; ürogenital: 31; solunum: 42 sayfa. **Toplam 697.**
-- Her sayfanın metin katmanı tam olarak çıkarılır; her sayfanın özgün renkleri ve etiketleri korunan görüntüsü de sunulur. Metin katmanı olmayan sayfalar atlanmaz, görsel olarak gösterilir.
-- Her kayıt gerçek kaynak sayfa numarasına bağlıdır. Dosya SHA-256 özetleri ve sayfa sayıları `src/courseManifest.json` içinde kaydedilir.
-- Yazı çıkarımı otomatik olduğundan dizilim, karakter ve tablo hatası ihtimali vardır. Görseldeki yazılar OCR yapılmadığından metin aramasına dahil değildir. Görsel büyütme ile kaynaktan okunabilirler.
-- Tüm kaynak sayfalarının dahil olması, metinlerin tıbbi açıdan yeniden doğrulandığı anlamına gelmez. Ham kaynak içeriğindeki hatalar aktarımda da bulunabilir; öğretim elemanı denetimi gerekir. Hızlı tekrardaki editoryal düzeltmeler tam kaynak metnine sessizce uygulanmamıştır.
-- Ham PDF dosyaları git tarafından yok sayılan `google_drive/` içinde tutulur. Metinler ve özgün sayfa görselleri kullanıcı isteği doğrultusunda web çıktısına eklenmiştir; yayında Drive izinlerinden bağımsız erişilebilir olur.
+11 ders ve kaynak rehberinde 109 başlık, ana anlatımda yaklaşık 14.700 kelime ve 49 tekrar sorusu vardır. Sayılar ürünün büyüklüğünü tarif eder; içerik doğruluğu veya her şekil etiketinin eksiksiz açıklanması hakkında bir sertifika değildir.
 
-## İlk turdaki hızlı tekrar özetlerinin kökeni
+## Kaynak incelemesi
 
-14 Ekim 2026 tarihinde kullanıcı tarafından paylaşılan Drive klasörünün 12 dosyasındaki metinler Google Drive `read_file_text` aracıyla okundu. Metinler birebir kopyalanmış tam ders dökümleri olarak değil, seçilmiş konuların yeniden düzenlenmiş öğrenci çalışma özetleri olarak işlendi. Kaynak sahibi Öğr. Gör. Bekir Dağdeviren, web düzenlemesi ise ANATOMİ öğrenci projesi olarak ayrı belirtilir.
+12 PDF’nin yerel tam metin çıkarımları okundu; eski bağlayıcı yanıtlarının karakter sınırına dayanılmadı. Kaynakların toplamı 697 sayfadır. Metinsiz veya şekil ağırlıklı sayfalardan aşağıdaki görseller ayrıca incelendi:
 
-Sayfa numarası eşlemesi elde edilmedi. Bu nedenle web bölümlerinde yalnızca okunan kaynak başlıkları kullanılır; sayfa numarası uydurulmaz. PDF içindeki resimlerin metin çıkarımında yer almaması, görsel anlatımların tam aktarımını engeller.
+| Ders | Görsel incelemenin başlıca sayfaları |
+|---|---|
+| 0 | 5: Prometheus kapağı; metin katmanında bulunmayan atlas önerisi anlatıma eklendi |
+| 1 | 24, 26, 33–36, 38, 40, 42, 47: düzlem, eksen, hareket, yön ve bölgeler |
+| 2 | 17–18, 27, 38, 53: iskelet sayımı, omuz, pelvis ve göğüs kafesi |
+| 3 | 15, 34, 48: kıkırdak bağlantılar, eklem tipleri ve deltoid bağ |
+| 4 | 4, 8, 32, 34, 38, 48: appendiküler iskelet, glenoid çevresi, pelvis, femur, kemerler |
+| 5 | 23–24, 26–27, 29, 43–47, 49, 60: orbita, maxilla, mandibula, kafa tabanı, omurga ve kaburga ilişkileri |
+| 6 | 17, 40–41, 61, 65–66, 72, 85–86: kasılma, mimik, subscapularis, el kasları ve şekil soruları |
+| 7 | 6, 20, 31, 37, 40, 43–44: devreler, arter ağacı, yüzeyel ve derin venler |
+| 8 | 11, 32, 40, 43, 52, 61, 66, 75, 80–81, 98, 111, 129, 137: ağız/dil, çiğneme, tonsiller, yutak, mide, duodenum, bağırsak damarları, anal kanal ve portal sistem |
+| 9 | 26, 32, 38, 40: beyin bölümlemesi, loblar, omurilik kesiti, meninksler |
+| 10 | 12, 18, 21: prostat komşuluğu, genital yapılar ve vulva |
+| 11 | 4, 11, 27, 31, 39: solunum yolu, mediastinum, larynx ve hilum |
 
-## Yalnızca hızlı tekrar özetleri için ilk okuma sınırları
+Bu liste **697 şeklin her küçük etiketinin tek tek uzman denetiminden geçirildiği** iddiasını içermez. Kapak/kapanışlar ve tekrarlanan slaytlar ders paragrafına dönüştürülmedi. Referans arşivi kapsam kontrolüne yardım eder; otomatik kaynak varlık testi anlamsal eksiksizlik ölçmez.
 
-| Ders | Okunan metin | Web kapsamı |
-|---|---|---|
-| 0 — Kaynak rehberi | Metin çıkarımı tamamlandı | Girişteki öneri yaklaşımı, Sobotta, Netter, Mehmet Yıldırım, Kaplan Arıncı ve kurumsal iletişim |
-| 1 — Anatomiye giriş | Çıkarım başarılı; araç yanıtının orta kısmı sunumda kısaltıldı | Görülebilen tanım, dallar, duruş, düzlemler, eksenler, yön ve hareket terimleri |
-| 2 — Hareket sistemi | Metin çıkarımı tamamlandı | Temel bileşenler, kemik görev/yapı/tipleri, yüzey terimleri ve genel iskelet haritası |
-| 3 — Arthrologia | Metin çıkarımı tamamlandı | Sınıflama, sinoviyal yapı, eklem tipleri ve seçilmiş bölgesel örnekler |
-| 4 — Ekstremite kemikleri | Metin çıkarımı tamamlandı | Omuz/kalça kuşakları, kol/önkol, uyluk/bacak, el ve ayak |
-| 5 — Kranium ve vertebra | Metin çıkarımı tamamlandı | Neurocranium, yüz iskeleti, omurga, tipik/özel vertebralar, göğüs iskeleti |
-| 6 — Myologia | İlk 10.000 karakter okundu, devamı kısaltıldı | Temel kas yapısı ve işlevi ile seçilmiş baş–boyun kasları; tüm bölgesel kaslar kapsanmaz |
-| 7 — Dolaşım | İlk 8.500 karakter okundu, devamı kısaltıldı | Görevler, kalp, boşluklar, kapaklar, büyük damarlar, tabakalar, koroner dolaşım ve lenfe giriş |
-| 8 — Sindirim | İlk 9.000 karakter okundu, devamı kısaltıldı | Genel kanal haritası ve ağız, damak, diş, dil, büyük tükürük bezleri; distal organ ayrıntıları kapsanmaz |
-| 9 — Sinir sistemi | İlk 9.000 karakter okundu, devamı kısaltıldı | Temel hücreler/yollar, sınıflandırma, beyin sapı, beyincik, diencephalon ve serebral loblara giriş |
-| 10 — Ürogenital | Metin çıkarımı tamamlandı | Dosyanın çıkarılan metni üreme organlarını içerir; ayrı üriner/böbrek anlatımı varsayılmaz |
-| 11 — Solunum | Metin çıkarımı tamamlandı | İç/dış solunum, burun/sinüs, yutak/gırtlak, trachea/bronşlar, akciğerler ve diaphragma |
+## Konu kapsamı
 
-“Çıkarım tamamlandı” ifadesi bütün slaytların görsel içeriğinin incelendiği veya web sayfasına eksiksiz aktarıldığı anlamına gelmez. Tüm web sayfaları, kapsam kutularında belirtildiği gibi özet niteliğindedir.
+| Dosya | Yazılan ders örgüsü |
+|---|---|
+| 0 · 7 sayfa | Zorunlu olmayan kaynak önerileri; Sobotta, Netter, Prometheus; Mehmet Yıldırım ve Kaplan Arıncı; atlasla çalışma |
+| 1 · 55 sayfa | Tanım/tarih, bütün ana anatomi yaklaşımları, sistemler, duruş, düzlem/eksen, yön/hareket, bölge/boşluk ve Latince |
+| 2 · 69 sayfa | Kemik görevi/yapısı/şekli/yüzey terimleri, iskelet organizasyonu, üst-alt taraf, pelvis ölçü yönleri, aksiyel harita |
+| 3 · 58 sayfa | Yapısal ve fonksiyonel sınıflama, sinoviyal yardımcı yapılar, yedi yüzey tipi, bölgesel eklemler, klinik terimler |
+| 4 · 49 sayfa | Omuz kuşağı, humerus, radius-ulna, 8 karpal, tarak/falanks, pelvis, femur-patella, tibia-fibula, 7 tarsal ve kemerler |
+| 5 · 67 sayfa | Kafa kemikleri/bölümleri, orbita, yüz ve kafa tabanı işaretleri, beş bakış yönü, vertebralar, diskler, sacrum-coccyx, kaburga/sternum |
+| 6 · 86 sayfa | Doku/yapı/fasya/roller/kasılma; baş-boyun, sırt, göğüs, karın, omuz-kol-el, kalça-uyluk-bacak grupları |
+| 7 · 51 sayfa | Kalp boşlukları/kapakları/duvarı, koroner ve ileti sistemi, iki devre, aorta/arterler, venler, nabız/varis ve lenf |
+| 8 · 138 sayfa | Ağızdan anal kanala bütün organ sırası; dil innervasyonu, tükürük, pharynx/oesophagus, mide/bağırsaklar, karaciğer/safra/pankreas ve portal dolaşım |
+| 9 · 44 sayfa | Hücreler, sınıflamalar, beyin bölümleri/loblar, omurilik segment-kök-kesit, meninks/BOS ve 12 çift kraniyal sinir |
+| 10 · 31 sayfa | Erkek/kadın üreme organları, yollar, bezler, komşuluklar; kaynak ayrı bir üriner sistem dersi içermiyor |
+| 11 · 42 sayfa | Gaz değişimi, terimler, toraks/mediastinum, burun/sinüs, pharynx/larynx, bronş ağacı, akciğer ve diaphragma |
 
-## Editoryal yaklaşım
+## Yeniden yazım ilkeleri
 
-- Tekrarlanan slayt başlıkları birleştirildi; yazım ve okunabilirlik için metin yeniden düzenlendi.
-- Tekrar soruları bu proje için yazıldı; hocanın sınav soruları olduğu iddia edilmez.
-- Kaynaklarda görülebilen bariz terminoloji karışıklıkları web metninde yeniden üretilmedi. Örneğin pharynx “yutak”, larynx “gırtlak” olarak ayrılır; arter/ven tanımı akım yönüne göre verilir.
-- Ürogenital kaynak metnindeki hymen üzerinden cinsel geçmişe ilişkin genelleme web özetine aktarılmadı. Klinik değerlendirme ve kişiye özel tıbbi öneri verilmez.
-- Web metni ve tekrar cevapları henüz dersin öğretim görevlisi tarafından doğrulanmış/onaylanmış olarak sunulmaz.
+- Başlıklar slayt numaralarına göre değil öğrenme sırasına göre birleştirildi. Tekrarlar ayıklandı; yapı–konum–komşuluk–işlev ilişkileri açıklandı.
+- Tablolar karşılaştırma, akışlar geçiş sırası, kısa çağrı kutuları kavramsal ayrım için kullanıldı. Aynı bilgi sırf kelime sayısını artırmak için tekrarlanmadı.
+- Bölüm kaynak aralıkları `sourcePages` alanında saklanır. Bunlar ilgili konuya dönüş referanslarıdır; yeni açıklamaları hocadan yapılmış doğrudan alıntıya dönüştürmez.
+- Terim açıklamaları ve bağlantı kuran genel anatomi bilgileri editoryal olarak eklendi. Güncel, lisanslı atlas ve öğretim elemanı denetimi yerine geçmez.
+- Tekrar soruları proje için yazıldı; hocanın sınav soruları olarak tanıtılmaz.
+- Metinlerin hocanın kendi yazdığı veya onayladığı yayınlar olduğu iddia edilmez.
 
-## Görseller
+## Kaynakta görülen hataları aynen tekrarlamamak için korunan ayrımlar
 
-Ana sayfadaki mevcut göğüs kafesi görseli stil referansı olarak kullanıldı. Dokuz ayrı yeni konu görseli üretildi: iskelet, diz, kafatası, kol kasları, kalp, sindirim organları, beyin, üreme organları, akciğerler.
+1. Önkol pronasyon/supinasyonu, omuz iç/dış rotasyonuyla eş anlamlı değildir.
+2. Fibröz eklem ile hiyalin kıkırdak bağlantısı farklıdır; distal radioulnar eklem sinoviyal, interosseöz membran syndesmosistir. Plana eklemler küresel eklem gibi serbest dönme modeliyle açıklanmadı.
+3. Hyoid yüz iskeletinin 14 kemiğine katılmadı. Omurga kemikleriyle omurilik segmentleri ayrıldı: spinal segment sayısı **31**.
+4. Kasların tümünün mutlaka iki kemiğe tutunması, kalp kasının her atım için dış sinir uyarısına ihtiyaç duyması gibi mutlak ifadeler kullanılmadı. Eksantrik kasılma gevşeme olarak anlatılmadı.
+5. Arter/ven tanımı oksijenle değil akım yönüyle yapıldı. Pulmoner devrenin başlangıç-bitişi ve kapak sırası düzeltildi. İstirahat taşikardisi için eski >90 eşiği veya evrensel bir “normal tansiyon” aralığı tekrarlanmadı.
+6. Kesin bölgelere ayrılmış tat haritası reddedildi. Dilin epiglottis çevresi için vagusun superior laryngeal sinirinin internal dalı belirtildi. Sert damakta palatin kemiğin horizontal laminası kullanıldı.
+7. Bütün kalın bağırsağa tek periton yerleşimi atfedilmedi. Portal sistem iki kapiller yatak ilişkisiyle açıklandı; karaciğer glikojen metabolizması tek başına “iç salgı” diye sınıflanmadı.
+8. Beyinde derin gri çekirdekler de bulunduğu, BOS’un subaraknoid aralık/ventrikül ilişkisi ve lateral boynuzun düzey özelliği korundu.
+9. Hymenin görünümünden cinsel geçmiş çıkarılamayacağı açıklandı; zorunlu ilk ilişki yırtılması/kanaması miti aktarılmadı. Skene/paraüretral bezlerle küçük vestibüler bezler eşitlenmedi. Eski semen değerleri tanı eşiği yapılmadı.
+10. Pharynx yutak, larynx gırtlak olarak ayrıldı. Havanın toraksın serbest boşluğuna değil akciğer hava yollarına girdiği anlatıldı. Oksijen yüzdesi farkı yanlış bir kullanım oranına dönüştürülmedi.
+11. Pelvik çaplar, kaslar veya damar bölgeleri klinik karar ya da girişim talimatı olarak sunulmadı. Özellikle gluteal enjeksiyon yönlendirmesi yapılmadı.
 
-Bunlar yapay zekâ ile üretilmiş **dekoratif, temsili kapak illüstrasyonlarıdır**. Etiketli anatomik diyagram veya uzman denetiminden geçmiş atlas görüntüsü değildir; yapı, oran ve bağlantılarda hata içerebilir. Her web notunda bu durum görünür biçimde belirtilir. Görseller hocanın PDF’sinden alınmamıştır. Eğitimde doğru etiketli PDF/atlas çizimlerinin yerini almamalıdır.
+## Dosyalar ve yayın
 
-## Kalıcı yayın öncesi
+- `src/content/lessons/`: Düzenlenebilir, yazılmış asıl ders metni. Artık eski kısa özetler üzerine runtime yama uygulanmaz.
+- `reference/course-content/`: Kaynak metin ve bütün sayfa görselleri. Eski `public/course-content/` buraya taşındı; production build’de bulunmaz. Ham PDF’ler `google_drive/` içinde git tarafından yok sayılır.
+- `scripts/import-course-content.py`: Yalnız referans arşivi üretir; kaynak metni okuyucuya otomatik aktaran bir süreç değildir.
+- `src/courseManifest.json`: PDF kimlik ve bütünlük bilgileri.
+- Kapaklar evvelki atlas estetiğinde bırakıldı. Yapay zekâ ile üretilmiş dekoratif çizimlerdir; kaynak görseller gibi anatomik doğruluk iddiası taşımaz.
 
-1. Hocadan hem PDF bağlantıları hem web özetleri için paylaşım ve düzenleme onayı alın.
-2. Her web notunu kaynak PDF ve güncel, güvenilir atlasla karşılaştırarak öğretim elemanı denetiminden geçirin.
-3. Tam aktarımın sayfa eşlemelerini kontrol edin. Hızlı tekrar özetleri genişletilecekse eklenen anlatımları kaynak ve güncel atlaslarla tek tek doğrulayın.
-4. Kaynak görsellerin birebir kullanımı istenirse üçüncü taraf atlas/telif haklarını ayrıca kontrol edin.
-5. Gizli tarayıcıyla PDF erişimini kontrol edin; web özetlerinin statik yayın sonrasında Drive izinlerinden bağımsız erişilebilir olduğunu unutmayın.
-6. Hak sahibi kaldırma talep ederse ilgili web metnini ve PDF bağlantısını kaldırıp yeniden derleyin/yayımlayın.
+Kalıcı yayın öncesi hocanın konu kapsamı ve doğruluk kontrolü, PDF/web yeniden kullanım izinleri, üçüncü taraf atlas görsellerinin hakları ve anonim Drive erişimi doğrulanmalıdır. Statik barındırmada yalnız `dist` yayımlanmalıdır; referans arşivini veya depo kökünü yanlışlıkla web kökü olarak kullanmayın. Testler bu editoryal/izin incelemesinin yerine geçmez.

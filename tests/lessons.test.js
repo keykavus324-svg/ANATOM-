@@ -57,11 +57,11 @@ test('site name is ANATOMİ in title and visible branding', () => {
   assert.doesNotMatch(app, /ANATOM(?!İ)/);
 });
 
-test('full web edition preserves all 697 source pages with text and an image fallback', () => {
+test('editorial reference archive preserves 697 source pages without shipping them in public/', () => {
   const manifest=JSON.parse(readFileSync(new URL('../src/courseManifest.json',import.meta.url),'utf8'));
   let total=0;
   for (const note of notes) {
-    const content=JSON.parse(readFileSync(new URL(`../public/course-content/${note.number}.json`,import.meta.url),'utf8'));
+    const content=JSON.parse(readFileSync(new URL(`../reference/course-content/${note.number}.json`,import.meta.url),'utf8'));
     assert.equal(content.sourceId,note.id);
     assert.equal(content.totalPages,manifest[note.number].totalPages);
     assert.equal(content.pages.length,content.totalPages);
@@ -72,10 +72,53 @@ test('full web edition preserves all 697 source pages with text and an image fal
       assert.ok(Array.isArray(page.blocks));
       assert.equal(page.text,page.blocks.join('\n\n'));
       assert.ok(page.title);
-      assert.ok(existsSync(new URL(`../public${page.image}`,import.meta.url)),page.image);
+      assert.ok(existsSync(new URL(`../reference/course-content/${page.image}`,import.meta.url)),page.image);
       assert.ok(page.width>0 && page.height>0);
     }
     total+=content.totalPages;
   }
   assert.equal(total,697);
+});
+
+test('authored chapters cover previously omitted regional and distal topics', () => {
+  const required={
+    0:['Prometheus'], 1:['latince','bolgeler','bosluklar'], 2:['pelvis','aksiyel'],
+    3:['usteklemler','alteklemler','aksiyel-eklemler','klinik-terimler'],
+    4:['scaphoideum','naviculare','tuberculum supraglenoidale'],
+    5:['canalis opticus','foramen jugulare','linea','promontorium'],
+    6:['fasya','sirt','govde','omuzkol','elkas','kalca','uyluk','bacak'],
+    7:['ileti','arter-agaci','venler','lenf'],
+    8:['dilsinir','pharynx','oesophagus','mide','duodenum','jejunum-ileum','kolon','rectum','hepar','pankreas','portal'],
+    9:['omurilik','meninks','kraniyal'], 10:['vagina','vulva','epididymis'],
+    11:['toraks','diaphragma','hilum','rima glottidis']
+  };
+  for(const [n,terms]of Object.entries(required)){
+    const text=JSON.stringify(lessons[n]).toLocaleLowerCase('tr-TR');
+    for(const term of terms) assert.ok(text.includes(term.toLocaleLowerCase('tr-TR')), `${n}: missing ${term}`);
+  }
+  const text=JSON.stringify(lessons);
+  assert.doesNotMatch(text,/Bölgesel kasların tümü bu özette yer almaz|Mide, bağırsak ve yardımcı organların ayrıntıları için PDF/);
+  assert.ok(Object.values(lessons).reduce((n,l)=>n+l.sections.length,0)>100);
+});
+
+test('every authored section references real source page ranges', () => {
+  const manifest=JSON.parse(readFileSync(new URL('../src/courseManifest.json',import.meta.url),'utf8'));
+  for(const [n,l]of Object.entries(lessons)){
+    for(const section of l.sections){
+      assert.ok(section.sourcePages, `${n}/${section.id}`);
+      for(const part of section.sourcePages.split(', ')){
+        const [a,b=a]=part.split('–').map(Number);
+        assert.ok(a>=1 && a<=b && b<=manifest[n].totalPages, `${n}/${section.id}: ${part}`);
+      }
+    }
+  }
+  assert.equal(existsSync(new URL('../public/course-content',import.meta.url)),false);
+});
+
+test('corrected teaching distinctions are explicit and legacy dump UI is absent', () => {
+  assert.match(JSON.stringify(lessons[8]),/birbirinden kesin çizgilerle ayrılmış adacıklarda algılanmaz/);
+  assert.match(JSON.stringify(lessons[9]),/31 spinal segment/);
+  assert.match(JSON.stringify(lessons[10]),/Görünümü cinsel ilişki geçmişini kanıtlamaz/);
+  const ui=readFileSync(new URL('../src/LessonPage.jsx',import.meta.url),'utf8');
+  assert.doesNotMatch(ui,/FullCourseContent|edition-switch|Kaynağın tamamı|Hızlı tekrar/);
 });

@@ -2,7 +2,7 @@
 """Reproducibly import every page of the instructor's supplied PDFs.
 
 Input PDFs stay in ignored google_drive/. Output includes ALL extracted text and
-an unaltered-color full-page visual fallback for EVERY page, including pages with
+an unaltered-color editorial reference image for EVERY page, including pages with
 no text layer. Nothing is silently dropped. This is not OCR or medical review.
 """
 import hashlib
@@ -15,7 +15,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 INPUT = ROOT / 'google_drive'
-OUTPUT = ROOT / 'public/course-content'
+OUTPUT = ROOT / 'reference/course-content'
 OUTPUT.mkdir(parents=True, exist_ok=True)
 CATALOG = json.loads(subprocess.check_output(['node', '--input-type=module', '-e', "import {notes} from './src/data.js';console.log(JSON.stringify(notes));"], cwd=ROOT, text=True))
 manifest = {}
@@ -62,7 +62,7 @@ for note in CATALOG:
         image.save(asset, 'WEBP', quality=84, method=4)
         pages.append({
             'number': i+1, 'title': title, 'blocks': blocks, 'text': text,
-            'image': f'/course-content/pages/{number}/{i+1:03d}.webp',
+            'image': f'pages/{number}/{i+1:03d}.webp',
             'width': pix.width, 'height': pix.height,
             'hasExtractableText': bool(text),
         })
