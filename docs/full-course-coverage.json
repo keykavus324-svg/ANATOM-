@@ -1,0 +1,926 @@
+{
+  "edition": "expanded-explanations-2026-10-14",
+  "note": "Source ranges identify related topics, not literal quotations. Added explanations are editorial prose, not instructor-approved text. This map checks topic placement, not exhaustive figure-label equivalence.",
+  "chapters": [
+    {
+      "lesson": 1,
+      "chapter": "anatomi",
+      "sourcePages": "2–4",
+      "addedHeadings": [
+        "Yapı bilgisinin ölçekleri ve tarihsel yöntemi"
+      ]
+    },
+    {
+      "lesson": 1,
+      "chapter": "dallar",
+      "sourcePages": "5–17",
+      "addedHeadings": [
+        "Aynı bölgeyi farklı anatomi dallarıyla incelemek"
+      ]
+    },
+    {
+      "lesson": 1,
+      "chapter": "durus",
+      "sourcePages": "18",
+      "addedHeadings": [
+        "Duruş değişse de anatomik yönlerin korunması"
+      ]
+    },
+    {
+      "lesson": 1,
+      "chapter": "duzlemler",
+      "sourcePages": "19–27",
+      "addedHeadings": [
+        "Eksen çevresinde dönme ve kesit düzlemi"
+      ]
+    },
+    {
+      "lesson": 1,
+      "chapter": "hareket",
+      "sourcePages": "28–36",
+      "addedHeadings": [
+        "Özel bölgelerde hareketlerin nasıl adlandırıldığı"
+      ]
+    },
+    {
+      "lesson": 1,
+      "chapter": "yonler",
+      "sourcePages": "37–43",
+      "addedHeadings": [
+        "Bir anatomik tarifin birden fazla referans içermesi"
+      ]
+    },
+    {
+      "lesson": 1,
+      "chapter": "bolgeler",
+      "sourcePages": "44–47",
+      "addedHeadings": [
+        "Büyük boşlukların içindeki zarlar ve alt bölgeler"
+      ]
+    },
+    {
+      "lesson": 1,
+      "chapter": "latince",
+      "sourcePages": "48–54",
+      "addedHeadings": [
+        "Anatomik adın kökünü ve dilbilgisel yapısını çözmek"
+      ]
+    },
+    {
+      "lesson": 2,
+      "chapter": "hareket-sistemi",
+      "sourcePages": "1–3",
+      "addedHeadings": [
+        "Yükün zeminden iskelete ve gövdeye aktarılması"
+      ]
+    },
+    {
+      "lesson": 2,
+      "chapter": "kemik-yapisi",
+      "sourcePages": "4–7",
+      "addedHeadings": [
+        "Kemik hücreleri, matriks ve yeniden yapılanma"
+      ]
+    },
+    {
+      "lesson": 2,
+      "chapter": "kemik-tipleri",
+      "sourcePages": "5–13",
+      "addedHeadings": [
+        "Biçim, iç mimari ve kemikleşme arasındaki ayrım"
+      ]
+    },
+    {
+      "lesson": 2,
+      "chapter": "kemik-isaretleri",
+      "sourcePages": "14–18",
+      "addedHeadings": [
+        "Kemik yüzeyindeki işaretin neyi gösterdiği"
+      ]
+    },
+    {
+      "lesson": 2,
+      "chapter": "ust-taraf",
+      "sourcePages": "19–31",
+      "addedHeadings": [
+        "Omuz kuşağından ele kuvvet ve hareket zinciri"
+      ]
+    },
+    {
+      "lesson": 2,
+      "chapter": "alt-taraf",
+      "sourcePages": "32–44",
+      "addedHeadings": [
+        "Pelvik halka, femur açısı ve yük taşıyan ayak"
+      ]
+    },
+    {
+      "lesson": 2,
+      "chapter": "govde",
+      "sourcePages": "45–69",
+      "addedHeadings": [
+        "Aksiyel iskeletin koruma ve esneklik görevleri"
+      ]
+    },
+    {
+      "lesson": 3,
+      "chapter": "siniflama",
+      "sourcePages": "1–7",
+      "addedHeadings": [
+        "Bir eklemi tanımlarken izlenen yapısal sıra"
+      ]
+    },
+    {
+      "lesson": 3,
+      "chapter": "fibroz",
+      "sourcePages": "8–15",
+      "addedHeadings": [
+        "Sutura, syndesmosis, synchondrosis ve symphysisin farkı"
+      ]
+    },
+    {
+      "lesson": 3,
+      "chapter": "sinoviyal",
+      "sourcePages": "16–24",
+      "addedHeadings": [
+        "Kapsül, sinovya ve eklem içi yardımcı yapılar"
+      ]
+    },
+    {
+      "lesson": 3,
+      "chapter": "tipler",
+      "sourcePages": "25–34",
+      "addedHeadings": [
+        "Yuvarlanma, kayma ve dönmenin birleşmesi"
+      ]
+    },
+    {
+      "lesson": 3,
+      "chapter": "ust-eklemler",
+      "sourcePages": "35–41",
+      "addedHeadings": [
+        "Omuz, dirsek ve el bileğinde stabiliteyi sağlayan düzen"
+      ]
+    },
+    {
+      "lesson": 3,
+      "chapter": "alt-eklemler",
+      "sourcePages": "42–48",
+      "addedHeadings": [
+        "Kalça bağları, diz menisküsleri ve ayak bileği çatalı"
+      ]
+    },
+    {
+      "lesson": 3,
+      "chapter": "aksiyel",
+      "sourcePages": "49–53",
+      "addedHeadings": [
+        "Çeneden göğüs kafesine farklı eklem düzenleri"
+      ]
+    },
+    {
+      "lesson": 3,
+      "chapter": "klinik",
+      "sourcePages": "54–57",
+      "addedHeadings": [
+        "Klinik terimleri doku değişikliğine göre ayırmak"
+      ]
+    },
+    {
+      "lesson": 4,
+      "chapter": "organizasyon",
+      "sourcePages": "2–5",
+      "addedHeadings": [
+        "Ekstremitede kemik işaretinden eklem ilişkisine"
+      ]
+    },
+    {
+      "lesson": 4,
+      "chapter": "kusak",
+      "sourcePages": "6–9",
+      "addedHeadings": [
+        "Clavicula ve scapulanın ayrıntılı tutunma haritası"
+      ]
+    },
+    {
+      "lesson": 4,
+      "chapter": "humerus",
+      "sourcePages": "10–14",
+      "addedHeadings": [
+        "Proksimal humerus ve distal eklem yüzlerinin ayrıntıları"
+      ]
+    },
+    {
+      "lesson": 4,
+      "chapter": "onkol",
+      "sourcePages": "15–21",
+      "addedHeadings": [
+        "Önkol gövdeleri, interosseöz kenarlar ve distal uçlar"
+      ]
+    },
+    {
+      "lesson": 4,
+      "chapter": "el",
+      "sourcePages": "22–27",
+      "addedHeadings": [
+        "Karpal kemikleri sıra, komşuluk ve işlevle öğrenmek"
+      ]
+    },
+    {
+      "lesson": 4,
+      "chapter": "pelvis",
+      "sourcePages": "28–34",
+      "addedHeadings": [
+        "Os coxaenin üç parçası ve küçük pelvisin sınırları"
+      ]
+    },
+    {
+      "lesson": 4,
+      "chapter": "femur",
+      "sourcePages": "35–39",
+      "addedHeadings": [
+        "Femur torsiyonu, linea aspera ve patellanın yüzleri"
+      ]
+    },
+    {
+      "lesson": 4,
+      "chapter": "bacak",
+      "sourcePages": "40–43",
+      "addedHeadings": [
+        "Tibial plato ve distal tibiofibular ilişki"
+      ]
+    },
+    {
+      "lesson": 4,
+      "chapter": "ayak",
+      "sourcePages": "44–48",
+      "addedHeadings": [
+        "Tarsal kemiklerden metatarsallere yük dağılımı"
+      ]
+    },
+    {
+      "lesson": 5,
+      "chapter": "kafatasi",
+      "sourcePages": "2–6",
+      "addedHeadings": [
+        "Neurocranium ve viscerocraniumun bağlantıları"
+      ]
+    },
+    {
+      "lesson": 5,
+      "chapter": "frontal-parietal",
+      "sourcePages": "7–11, 38, 47",
+      "addedHeadings": [
+        "Kubbe suturaları ve bebek kafatasındaki açıklıklar"
+      ]
+    },
+    {
+      "lesson": 5,
+      "chapter": "taban-kemikleri",
+      "sourcePages": "12–16",
+      "addedHeadings": [
+        "Kafa tabanının büyük geçitleri"
+      ]
+    },
+    {
+      "lesson": 5,
+      "chapter": "temporal-ethmoid",
+      "sourcePages": "17–20",
+      "addedHeadings": [
+        "Temporal kemiğin parçaları ve ethmoidin ince duvarları"
+      ]
+    },
+    {
+      "lesson": 5,
+      "chapter": "yuz",
+      "sourcePages": "21–36",
+      "addedHeadings": [
+        "Yüz kemiklerinin boşluklara yaptığı katkılar"
+      ]
+    },
+    {
+      "lesson": 5,
+      "chapter": "gorunum",
+      "sourcePages": "23–29, 37–47",
+      "addedHeadings": [
+        "Orbita ve dış kafa tabanını bütün halinde okumak"
+      ]
+    },
+    {
+      "lesson": 5,
+      "chapter": "omurga",
+      "sourcePages": "48–54",
+      "addedHeadings": [
+        "Tipik vertebranın kanal ve eklem düzeni"
+      ]
+    },
+    {
+      "lesson": 5,
+      "chapter": "ozel-omurlar",
+      "sourcePages": "55–61",
+      "addedHeadings": [
+        "Servikal, torakal ve lumbal vertebraları ayırt etmek"
+      ]
+    },
+    {
+      "lesson": 5,
+      "chapter": "sakrum",
+      "sourcePages": "62–64",
+      "addedHeadings": [
+        "Sacrumun yüzleri, kanalı ve pelvis bağlantısı"
+      ]
+    },
+    {
+      "lesson": 5,
+      "chapter": "gogus",
+      "sourcePages": "65–66",
+      "addedHeadings": [
+        "Tipik kaburga, kıkırdak arkı ve sternum işaretleri"
+      ]
+    },
+    {
+      "lesson": 6,
+      "chapter": "doku",
+      "sourcePages": "2–9",
+      "addedHeadings": [
+        "Kasılabilir dokunun uyarı, enerji ve kuvvet üretimi"
+      ]
+    },
+    {
+      "lesson": 6,
+      "chapter": "mikroyapi",
+      "sourcePages": "10–14",
+      "addedHeadings": [
+        "Motor ünite, lif yönü ve tendonun kuvvet iletimi"
+      ]
+    },
+    {
+      "lesson": 6,
+      "chapter": "kas-iliskileri",
+      "sourcePages": "15–17",
+      "addedHeadings": [
+        "Konsantrik, eksantrik ve izometrik çalışma örnekleri"
+      ]
+    },
+    {
+      "lesson": 6,
+      "chapter": "adlandirma",
+      "sourcePages": "18–28",
+      "addedHeadings": [
+        "Fasyadan kompartmana anatomik organizasyon"
+      ]
+    },
+    {
+      "lesson": 6,
+      "chapter": "yuz",
+      "sourcePages": "29–34, 39–41",
+      "addedHeadings": [
+        "Mimik kasları ile çiğneme kaslarının ayrı motor yolları"
+      ]
+    },
+    {
+      "lesson": 6,
+      "chapter": "boyun",
+      "sourcePages": "35–38",
+      "addedHeadings": [
+        "Hyoid çevresindeki kasların başlangıç ve görev ilişkisi"
+      ]
+    },
+    {
+      "lesson": 6,
+      "chapter": "sirt",
+      "sourcePages": "42–47",
+      "addedHeadings": [
+        "Sırt kaslarında yüzeyel kuşak hareketi ve derin postür"
+      ]
+    },
+    {
+      "lesson": 6,
+      "chapter": "gogus-karin",
+      "sourcePages": "48–55",
+      "addedHeadings": [
+        "Göğüs duvarı, abdominal aponevrozlar ve gövde kontrolü"
+      ]
+    },
+    {
+      "lesson": 6,
+      "chapter": "omuz",
+      "sourcePages": "56–62",
+      "addedHeadings": [
+        "Deltoid ve cuff arasında kuvvet dengesi"
+      ]
+    },
+    {
+      "lesson": 6,
+      "chapter": "kol-el",
+      "sourcePages": "63–66",
+      "addedHeadings": [
+        "Kol kaslarında başlangıç, tutunma ve sinir"
+      ]
+    },
+    {
+      "lesson": 6,
+      "chapter": "el-kaslari",
+      "sourcePages": "65–66",
+      "addedHeadings": [
+        "Önkol tendonları ile intrinsik el kaslarının görev paylaşımı"
+      ]
+    },
+    {
+      "lesson": 6,
+      "chapter": "kalca",
+      "sourcePages": "67–70",
+      "addedHeadings": [
+        "Tek ayak desteğinde pelvisin neden düşmediği"
+      ]
+    },
+    {
+      "lesson": 6,
+      "chapter": "uyluk",
+      "sourcePages": "71–77",
+      "addedHeadings": [
+        "Uyluk kaslarını tek tek eklem etkileriyle ayırmak"
+      ]
+    },
+    {
+      "lesson": 6,
+      "chapter": "bacak",
+      "sourcePages": "78–86",
+      "addedHeadings": [
+        "Bacak kompartmanlarının tendon yolları"
+      ]
+    },
+    {
+      "lesson": 7,
+      "chapter": "dolasim",
+      "sourcePages": "2–7, 19–21",
+      "addedHeadings": [
+        "Damar duvarı ve lenfatik geri dönüşün ayrıntıları"
+      ]
+    },
+    {
+      "lesson": 7,
+      "chapter": "yerlesim",
+      "sourcePages": "8–11",
+      "addedHeadings": [
+        "Perikardın yaprakları ve kalbin yüzey işaretleri"
+      ]
+    },
+    {
+      "lesson": 7,
+      "chapter": "odaciklar",
+      "sourcePages": "12–17, 22",
+      "addedHeadings": [
+        "Kalp boşluklarının iç yüzünü ayırt etmek"
+      ]
+    },
+    {
+      "lesson": 7,
+      "chapter": "kapaklar",
+      "sourcePages": "14–15, 20–24",
+      "addedHeadings": [
+        "Kapak yapraklarının desteklenmesi ve basınçla açılması"
+      ]
+    },
+    {
+      "lesson": 7,
+      "chapter": "katman-ileti",
+      "sourcePages": "23–26",
+      "addedHeadings": [
+        "İleti sırasının pompalama sırasını oluşturması"
+      ]
+    },
+    {
+      "lesson": 7,
+      "chapter": "koroner",
+      "sourcePages": "18, 27–29",
+      "addedHeadings": [
+        "Koroner arter dağılımı ve venöz toplama yolları"
+      ]
+    },
+    {
+      "lesson": 7,
+      "chapter": "arterler",
+      "sourcePages": "30–37",
+      "addedHeadings": [
+        "Boyun ve üst ekstremitede ana arterlerin devamı"
+      ]
+    },
+    {
+      "lesson": 7,
+      "chapter": "karin-alt-arterler",
+      "sourcePages": "35–37",
+      "addedHeadings": [
+        "Abdominal aortanın tek ve çift organ dalları"
+      ]
+    },
+    {
+      "lesson": 7,
+      "chapter": "venler",
+      "sourcePages": "38–44",
+      "addedHeadings": [
+        "Büyük venlerin sağ-sol asimetrisi ve venöz rezervuar"
+      ]
+    },
+    {
+      "lesson": 7,
+      "chapter": "iki-devre",
+      "sourcePages": "45–47",
+      "addedHeadings": [
+        "Fetal dolaşımın erişkin dolaşımdan ayrıldığı noktalar"
+      ]
+    },
+    {
+      "lesson": 7,
+      "chapter": "klinik",
+      "sourcePages": "48–50",
+      "addedHeadings": [
+        "Yüzeyel nabız alanları ve venöz basınç ilişkisi"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "sindirim",
+      "sourcePages": "2–4",
+      "addedHeadings": [
+        "Sindirim kanalında mekanik ve kimyasal işlerin paylaşımı"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "agiz",
+      "sourcePages": "5–18",
+      "addedHeadings": [
+        "Ağız tabanı, yanak ve lenfoid halka"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "damak",
+      "sourcePages": "15–18, 36–37",
+      "addedHeadings": [
+        "Yumuşak damak kasları ve yutak açıklığının kontrolü"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "disler",
+      "sourcePages": "19–28",
+      "addedHeadings": [
+        "Diş formülü, yüzeyler ve destek dokusunun işlevi"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "dil",
+      "sourcePages": "29–35",
+      "addedHeadings": [
+        "Dilin yüzey bölümleri, damarları ve duyusal yolları"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "cigneme",
+      "sourcePages": "38–45",
+      "addedHeadings": [
+        "Mandibulanın kapanması, öğütmesi ve lokmanın taşınması"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "tukuruk",
+      "sourcePages": "46–52",
+      "addedHeadings": [
+        "Tükürük bezlerinin kanal ve salgı özellikleri"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "pharynx",
+      "sourcePages": "53–66",
+      "addedHeadings": [
+        "Yutağın duvar katmanları ve kasların sıralı çalışması"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "ozofagus",
+      "sourcePages": "67–71",
+      "addedHeadings": [
+        "Dört darlığın yapısal nedeni ve kas tabakası değişimi"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "mide",
+      "sourcePages": "72–84",
+      "addedHeadings": [
+        "Midenin komşulukları ve beş bölümün sınırları"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "mide-duvari",
+      "sourcePages": "85–91",
+      "addedHeadings": [
+        "Mide mukozasında farklı hücrelerin görevleri"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "duodenum",
+      "sourcePages": "92–101",
+      "addedHeadings": [
+        "Duodenumun dört parçasını komşularıyla izlemek"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "jejunum-ileum",
+      "sourcePages": "102–111",
+      "addedHeadings": [
+        "Emilim yüzeyinin üç ölçeği ve mezenterin içeriği"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "kalin-bagirsak",
+      "sourcePages": "112–117",
+      "addedHeadings": [
+        "Caecum, ileal açıklık ve appendix lümeni"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "kolon",
+      "sourcePages": "118–123",
+      "addedHeadings": [
+        "Kolon bölümlerinin askıları ve damar sınırları"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "rectum",
+      "sourcePages": "124–129",
+      "addedHeadings": [
+        "Rectum duvarı ile anal kanal sınırının farklılaşması"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "hepar",
+      "sourcePages": "130–133",
+      "addedHeadings": [
+        "Karaciğerin yüzleri, porta ve safra yollarının birleşmesi"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "pankreas",
+      "sourcePages": "134–135",
+      "addedHeadings": [
+        "Pankreasın büyük damar komşulukları ve salgının denetlenmesi"
+      ]
+    },
+    {
+      "lesson": 8,
+      "chapter": "portal",
+      "sourcePages": "136–137",
+      "addedHeadings": [
+        "Portal sistemin girişleri ve sistemik bağlantı bölgeleri"
+      ]
+    },
+    {
+      "lesson": 9,
+      "chapter": "haberlesme",
+      "sourcePages": "2–3",
+      "addedHeadings": [
+        "Reseptörden merkezi işlemeye, oradan efektöre"
+      ]
+    },
+    {
+      "lesson": 9,
+      "chapter": "hucreler",
+      "sourcePages": "4–6",
+      "addedHeadings": [
+        "Akson taşınması, sinaps ve gri-beyaz cevher ayrımı"
+      ]
+    },
+    {
+      "lesson": 9,
+      "chapter": "bolumler",
+      "sourcePages": "7–12",
+      "addedHeadings": [
+        "Merkezi-periferik ve somatik-otonom sınıflamalar"
+      ]
+    },
+    {
+      "lesson": 9,
+      "chapter": "beyin",
+      "sourcePages": "13–15",
+      "addedHeadings": [
+        "Gelişimsel bölümler ile erişkin anatomiyi eşleştirmek"
+      ]
+    },
+    {
+      "lesson": 9,
+      "chapter": "sap-beyincik",
+      "sourcePages": "16–20",
+      "addedHeadings": [
+        "Beyin sapının iç örgüsü ve cerebellar bağlantılar"
+      ]
+    },
+    {
+      "lesson": 9,
+      "chapter": "ara-beyin",
+      "sourcePages": "21–26",
+      "addedHeadings": [
+        "Diencephalonda çekirdekler, hipofiz ve homeostaz"
+      ]
+    },
+    {
+      "lesson": 9,
+      "chapter": "korteks",
+      "sourcePages": "27–32",
+      "addedHeadings": [
+        "Lobların temel işlevleri ve bağlantı alanları"
+      ]
+    },
+    {
+      "lesson": 9,
+      "chapter": "omurilik",
+      "sourcePages": "33–36",
+      "addedHeadings": [
+        "Spinal sinirlerin çıkış sırası ve pleksus oluşumu"
+      ]
+    },
+    {
+      "lesson": 9,
+      "chapter": "kesit",
+      "sourcePages": "37–38",
+      "addedHeadings": [
+        "Gri boynuzlar, beyaz kordonlar ve refleks bağlantısı"
+      ]
+    },
+    {
+      "lesson": 9,
+      "chapter": "meninks",
+      "sourcePages": "39–41",
+      "addedHeadings": [
+        "Ventriküler akıştan venöz geri emilime BOS"
+      ]
+    },
+    {
+      "lesson": 9,
+      "chapter": "kranial",
+      "sourcePages": "42–44",
+      "addedHeadings": [
+        "Kranial sinirlerde somatik, özel duyu ve otonom bileşenler"
+      ]
+    },
+    {
+      "lesson": 10,
+      "chapter": "kapsam",
+      "sourcePages": "1–3, 19–21",
+      "addedHeadings": [
+        "Üreme sistemini üretim, taşıma ve destek basamaklarıyla anlamak"
+      ]
+    },
+    {
+      "lesson": 10,
+      "chapter": "testis",
+      "sourcePages": "4–5, 17–18",
+      "addedHeadings": [
+        "Testis örtüleri ve sperm üretim biriminin kanala açılması"
+      ]
+    },
+    {
+      "lesson": 10,
+      "chapter": "kanallar",
+      "sourcePages": "6–10",
+      "addedHeadings": [
+        "Spermatic kordon ve pelvis içindeki deferens komşulukları"
+      ]
+    },
+    {
+      "lesson": 10,
+      "chapter": "bezler",
+      "sourcePages": "8–14",
+      "addedHeadings": [
+        "Seminal bez, prostat ve bulbourethral bezin ayrıntıları"
+      ]
+    },
+    {
+      "lesson": 10,
+      "chapter": "penis",
+      "sourcePages": "3, 15–18",
+      "addedHeadings": [
+        "Penis kökü, tunica albuginea ve urethra bölümleri"
+      ]
+    },
+    {
+      "lesson": 10,
+      "chapter": "ovarium",
+      "sourcePages": "20, 22–23",
+      "addedHeadings": [
+        "Overin askıları, follikül gelişimi ve tubal taşıma"
+      ]
+    },
+    {
+      "lesson": 10,
+      "chapter": "uterus",
+      "sourcePages": "24",
+      "addedHeadings": [
+        "Uterusun boşluğu, serviks kanalı ve pelvik destekleri"
+      ]
+    },
+    {
+      "lesson": 10,
+      "chapter": "vagina",
+      "sourcePages": "25–26",
+      "addedHeadings": [
+        "Vagina duvarı, fornixler ve periton komşuluğu"
+      ]
+    },
+    {
+      "lesson": 10,
+      "chapter": "vulva",
+      "sourcePages": "21, 27–30",
+      "addedHeadings": [
+        "Dış genital bölgedeki deri, mukoza ve erektil dokular"
+      ]
+    },
+    {
+      "lesson": 11,
+      "chapter": "gaz",
+      "sourcePages": "2–7",
+      "addedHeadings": [
+        "Alveol hücreleri, surfactant ve difüzyon yüzeyi"
+      ]
+    },
+    {
+      "lesson": 11,
+      "chapter": "thorax",
+      "sourcePages": "8–11",
+      "addedHeadings": [
+        "Mediastinumun bölümleri ve thorax sınırları"
+      ]
+    },
+    {
+      "lesson": 11,
+      "chapter": "burun",
+      "sourcePages": "12–18",
+      "addedHeadings": [
+        "Burun iskeleti, septum ve mukozanın görev ayrımı"
+      ]
+    },
+    {
+      "lesson": 11,
+      "chapter": "sinus",
+      "sourcePages": "19–21",
+      "addedHeadings": [
+        "Sinüslerin kemikler içindeki komşulukları"
+      ]
+    },
+    {
+      "lesson": 11,
+      "chapter": "yutak",
+      "sourcePages": "22–23",
+      "addedHeadings": [
+        "Üç yutak bölümünün hava yolu açısından farkı"
+      ]
+    },
+    {
+      "lesson": 11,
+      "chapter": "larynx",
+      "sourcePages": "24–31",
+      "addedHeadings": [
+        "Dokuz kıkırdak, eklemler ve laryngeal boşluk"
+      ]
+    },
+    {
+      "lesson": 11,
+      "chapter": "trachea",
+      "sourcePages": "32–36",
+      "addedHeadings": [
+        "Bronş duvarının küçülen dallarda değişmesi"
+      ]
+    },
+    {
+      "lesson": 11,
+      "chapter": "akciger",
+      "sourcePages": "37–39",
+      "addedHeadings": [
+        "Akciğer kökü, çift dolaşım ve pleural recessler"
+      ]
+    },
+    {
+      "lesson": 11,
+      "chapter": "diaphragma",
+      "sourcePages": "40–41",
+      "addedHeadings": [
+        "Diaphragmanın tutunmaları ve solunum kaslarının eşgüdümü"
+      ]
+    }
+  ]
+}

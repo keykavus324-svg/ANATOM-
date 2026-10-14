@@ -1,4 +1,7 @@
 export const PROFILE_URL = 'https://abs.firat.edu.tr/tr/bdagdeviren';
+// Portrait URL published on the instructor's official ABS profile, checked 2026-10-14.
+// Loaded only on the About page; no generated or unverified substitute is used.
+export const INSTRUCTOR_PHOTO_URL = 'https://apiabs.firat.edu.tr/images/userProfilePicture/6771957e-d99c-4285-a146-5f646d594830.jpeg';
 export const DRIVE_URL = 'https://drive.google.com/drive/folders/1iAuY6LhNDTXsT6exyIzJiojeB_CLaeSz';
 export const categories = ['Tüm notlar', 'Temel anatomi', 'Hareket sistemi', 'Organ sistemleri', 'Kaynaklar'];
 // Metadata from the instructor's linked Drive folder. Original PDFs are not copied.

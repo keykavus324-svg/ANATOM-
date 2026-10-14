@@ -27,9 +27,22 @@ export const lessons = {
   11: lesson11,
 };
 
+import { diagrams } from './content/diagrams.js';
+
+// Count the visible instructional material, including nested prose and figure keys.
+// Navigation, review answers and repeated UI labels are deliberately excluded.
 export function lessonWords(lesson) {
-  const text = [lesson.intro, ...lesson.sections.map(s => [s.title, ...(s.paragraphs || []), ...(s.bullets || []), ...(s.flow || []), ...(s.table?.rows.flat() || []), s.callout || ''].join(' '))].join(' ');
-  return text.trim().split(/\s+/).length;
+  const sectionText = section => {
+    const diagram = diagrams[section.diagram];
+    return [section.title, ...(section.paragraphs || []), ...(section.bullets || []),
+      ...(section.flow || []), ...(section.table?.headers || []),
+      ...(section.table?.rows.flat() || []), section.callout || '',
+      ...(section.subsections || []).map(sectionText),
+      ...(diagram ? [diagram.title, diagram.caption, diagram.takeaway,
+        ...diagram.labels.flatMap(label => [label.name, label.text])] : [])].join(' ');
+  };
+  const text = [lesson.intro, ...lesson.sections.map(sectionText)].join(' ').trim();
+  return text ? text.split(/\s+/).length : 0;
 }
 export function readingMinutes(lesson) {
   return Math.max(2, Math.ceil(lessonWords(lesson) / 180));

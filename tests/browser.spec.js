@@ -226,3 +226,171 @@ test('maximum reading size remains usable in long tables and mobile contents', a
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
   await expect(page.locator('.reading-progress')).toHaveAttribute('aria-valuenow',/^[0-9]{1,3}$/);
 });
+
+test('all 26 inline diagrams load locally with captions and no console errors', async ({ page }) => {
+  test.setTimeout(60000);
+  const errors = [];
+  const external = [];
+  page.on('pageerror', error => errors.push(error.message));
+  page.on('request', request => { if (!request.url().startsWith('http://localhost:5175')) external.push(request.url()); });
+  let count = 0;
+  for (let number = 1; number <= 11; number++) {
+    await page.goto(`/#/ders/${number}`);
+    await expect(page.locator('.lesson-subsection').first()).toBeAttached();
+    const figures = page.locator('.instructional-figure');
+    const figureCount = await figures.count();
+    expect(figureCount).toBeGreaterThanOrEqual(2);
+    for (let i = 0; i < figureCount; i++) {
+      const figure = figures.nth(i);
+      const image = figure.locator('.figure-plate>img');
+      await image.scrollIntoViewIfNeeded();
+      await expect.poll(() => image.evaluate(img => img.complete && img.naturalWidth > 0)).toBeTruthy();
+      await expect(figure.locator('figcaption h3')).toBeVisible();
+      expect(await figure.locator('.figure-legend dt').count()).toBeGreaterThanOrEqual(3);
+      count++;
+    }
+  }
+  expect(count).toBe(26);
+  expect(errors).toEqual([]);
+  expect(external).toEqual([]);
+});
+
+test('diagram dialog traps focus, zooms, closes on Escape and restores reader focus', async ({ page }) => {
+  await page.goto('/#/ders/8');
+  const figure = page.locator('[data-diagram="tooth"]');
+  const trigger = figure.getByRole('button', {name:/Şemayı büyüt/});
+  await trigger.click();
+  const dialog = page.getByRole('dialog', {name:'Bir dişin katmanları'});
+  await expect(dialog).toBeVisible();
+  const close = dialog.getByRole('button', {name:'Şemayı kapat'});
+  await expect(close).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  expect(await page.evaluate(() => !!document.activeElement.closest('dialog'))).toBeTruthy();
+  await dialog.getByRole('button', {name:'Şemayı yakınlaştır'}).click();
+  await expect(dialog.locator('output')).toHaveText('%125');
+  expect(await dialog.locator('.figure-zoom-viewport img').evaluate(img => img.getBoundingClientRect().width)).toBe(950);
+  await page.keyboard.press('Escape');
+  await expect(dialog).toHaveCount(0);
+  await expect(trigger).toBeFocused();
+  expect(await page.evaluate(() => document.body.style.overflow)).not.toBe('hidden');
+  await trigger.click();
+  await expect(page.getByRole('dialog').locator('output')).toHaveText('%100');
+  await page.getByRole('button', {name:'Şemayı kapat'}).click();
+  await expect(trigger).toBeFocused();
+  await figure.screenshot({path:'.playwright/inline-tooth-desktop.png',animations:'disabled'});
+});
+
+test('mobile figures keep readable legends and contain zoom scrolling at maximum reading size', async ({ page }) => {
+  await page.setViewportSize({width:320,height:844});
+  await page.goto('/#/ders/7');
+  await page.getByRole('button',{name:'Yazıyı büyüt'}).click();
+  await page.getByRole('button',{name:'Yazıyı büyüt'}).click();
+  const figure = page.locator('[data-diagram="heart-flow"]');
+  await figure.scrollIntoViewIfNeeded();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+  expect(await figure.locator('.figure-legend dd').first().evaluate(el => parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(17);
+  await figure.getByRole('button', {name:/Şemayı büyüt/}).click();
+  const viewport = page.getByRole('region', {name:'Büyütülmüş şema; kaydırarak incele'});
+  expect(await viewport.evaluate(el => el.scrollWidth > el.clientWidth)).toBeTruthy();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+  await page.getByRole('button',{name:'Şemayı kapat'}).click();
+  await figure.screenshot({path:'.playwright/inline-heart-mobile.png',animations:'disabled'});
+});
+
+test('full chapter explanations and nested topic navigation render on desktop and mobile', async ({ page }) => {
+  await page.goto('/#/ders/6');
+  await expect(page.locator('.lesson-subsection')).toHaveCount(28);
+  const toc = page.getByRole('navigation', {name:'Ders içindekiler'});
+  await toc.getByRole('button', {name:'Kol kompartmanları ve el kas grupları'}).click();
+  await toc.getByRole('button', {name:'Ayrıntı: Kol kaslarında başlangıç, tutunma ve sinir',exact:true}).click();
+  await expect(page.locator('#lesson-kol-el-detail-2')).toBeFocused();
+  await expect(page.locator('#lesson-kol-el-detail-2')).toBeInViewport();
+  const detail = page.locator('#lesson-kol-el-detail-2').locator('..');
+  await expect(detail.locator('p')).toHaveCount(2);
+  await expect(detail.locator('table')).toContainText('Musculocutaneous');
+  await page.screenshot({path:'.playwright/full-course-muscles.png',animations:'disabled'});
+
+  await page.setViewportSize({width:320,height:844});
+  await page.goto('/#/ders/8');
+  await expect(page.locator('.lesson-subsection')).toHaveCount(38);
+  await page.getByRole('button',{name:'Yazıyı büyüt'}).click();
+  await page.getByRole('button',{name:'Yazıyı büyüt'}).click();
+  await page.locator('.mobile-toc summary').click();
+  const mobile = page.getByRole('navigation', {name:'Mobil içindekiler'});
+  await mobile.getByRole('button',{name:'Jejunum ve ileum; emilim yüzeyinin düzeni'}).click();
+  await page.locator('.mobile-toc summary').click();
+  await mobile.getByRole('button',{name:'Ayrıntı: Emilim yüzeyinin üç ölçeği ve mezenterin içeriği',exact:true}).click();
+  await expect(page.locator('#lesson-jejunum-ileum-detail-2')).toBeFocused();
+  await expect(page.locator('.mobile-toc')).not.toHaveAttribute('open','');
+  await expect(page.locator('#lesson-jejunum-ileum-detail-2').locator('..')).toContainText('B12');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
+});
+
+test('instructor profile uses the official portrait URL with responsive framing', async ({ page }) => {
+  const source='https://apiabs.firat.edu.tr/images/userProfilePicture/6771957e-d99c-4285-a146-5f646d594830.jpeg';
+  // A neutral fixture verifies rendering; it does not stand in for a real identity photo.
+  await page.route(source, route => route.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="180" height="240"><rect width="180" height="240" fill="#a8b69a"/></svg>'}));
+  await page.goto('/#/hakkinda');
+  const photo=page.getByRole('img',{name:'Öğr. Gör. Bekir Dağdeviren’in portresi'});
+  await expect(photo).toBeVisible();
+  await expect(photo).toHaveAttribute('src',source);
+  await expect(photo).toHaveAttribute('referrerpolicy','no-referrer');
+  await expect.poll(()=>photo.evaluate(img=>img.complete && img.naturalWidth>0)).toBeTruthy();
+  await expect(page.getByRole('link',{name:'Fotoğraf: Akademik Bilgi Sistemi'})).toHaveAttribute('href','https://abs.firat.edu.tr/tr/bdagdeviren');
+  for(const width of [320,390,768]) {
+    await page.setViewportSize({width,height:844});
+    await expect(photo).toBeVisible();
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
+  }
+});
+
+test('unavailable official photo falls back without a broken image or invented portrait', async ({ page }) => {
+  await page.route('https://apiabs.firat.edu.tr/images/userProfilePicture/**',route=>route.abort());
+  await page.goto('/#/hakkinda');
+  await expect(page.getByRole('img',{name:'Bekir Dağdeviren — fotoğraf yüklenemedi'})).toBeVisible();
+  await expect(page.locator('.instructor-portrait img')).toHaveCount(0);
+  await expect(page.getByRole('link',{name:'Fotoğrafı akademik profilde gör'})).toHaveAttribute('href','https://abs.firat.edu.tr/tr/bdagdeviren');
+  await expect(page.getByRole('link',{name:'Akademik profilini incele'})).toBeVisible();
+});
+
+test('site creator credit is shared across pages and distinct from the instructor attribution', async ({ page }) => {
+  await page.route('https://apiabs.firat.edu.tr/**',route=>route.abort());
+  for(const width of [1440,320]) {
+    await page.setViewportSize({width,height:900});
+    for(const route of ['/', '/#/hakkinda', '/#/ders/1']) {
+      await page.goto(route);
+      const credit=page.locator('.site-footer .site-maker');
+      await expect(credit).toHaveText('Tasarım ve geliştirme: Muhammet TUĞRUL');
+      await expect(credit.locator('strong')).toHaveText('Muhammet TUĞRUL');
+      await credit.scrollIntoViewIfNeeded();
+      await expect(credit).toBeInViewport();
+      await page.evaluate(()=>document.fonts.ready);
+      expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
+      if(route.includes('hakkinda')) await expect(page.locator('.profile-panel')).toContainText('Bekir Dağdeviren');
+      if(route.includes('ders')) await expect(page.locator('.lesson-credit')).toContainText('Kaynak: Öğr. Gör. Bekir Dağdeviren');
+    }
+  }
+});
+
+test('anatomy logo is local, crisp and shared by desktop, mobile and footer navigation', async ({ page }) => {
+  await page.goto('/');
+  const primary = page.locator('.brand-button .brand-symbol');
+  await expect(primary).toHaveAttribute('src','/brand/anatomi-mark.svg');
+  await expect.poll(()=>primary.evaluate(img=>img.complete && img.naturalWidth>0)).toBeTruthy();
+  await expect(page.locator('.site-footer .brand-symbol')).toHaveAttribute('src','/brand/anatomi-mark-small.svg');
+  const favicon=await page.request.get('/favicon.svg');
+  expect(favicon.ok()).toBeTruthy();
+  expect(await favicon.text()).not.toContain('<ellipse');
+  await page.locator('.brand-button').screenshot({path:'.playwright/anatomi-brand-desktop.png'});
+  await page.goto('/#/ders/1');
+  await page.locator('.brand-button').click();
+  await expect(page.locator('.hero')).toBeVisible();
+  for(const width of [320,390]) {
+    await page.setViewportSize({width,height:844});
+    const mobile=page.locator('.mobile-brand img');
+    await expect(mobile).toBeVisible();
+    await expect.poll(()=>mobile.evaluate(img=>img.complete && img.naturalWidth>0)).toBeTruthy();
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
+  }
+  await page.screenshot({path:'.playwright/anatomi-brand-mobile.png'});
+});

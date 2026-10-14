@@ -4,7 +4,7 @@
 
 Kullanıcı, PDF sayfalarının metin ve görüntülerini art arda gösteren önceki okuyucuyu açıkça reddetti. Bu sürümde `FullCourseContent` ve “Kaynağın tamamı / Hızlı tekrar” seçimi kaldırıldı. `Sitede oku` doğrudan kendi cümleleriyle yazılmış, tematik olarak düzenlenen açıklamaları gösterir. Özgün PDF ayrı seçenek olarak korunur.
 
-11 ders ve kaynak rehberinde 119 başlık, ana anlatımda yaklaşık 14.700 kelime ve 58 tekrar sorusu vardır. Sayılar ürünün büyüklüğünü tarif eder; içerik doğruluğu veya her şekil etiketinin eksiksiz açıklanması hakkında bir sertifika değildir.
+Genişletilmiş sürümde 11 ders ve kaynak rehberinde 119 ana başlık, 230 açıklayıcı alt başlık ve 58 tekrar sorusu vardır. Şema dışı anlatım 43.680 kelime; 26 şemanın başlıkları ve numaralı açıklamalarıyla 45.510 kelimedir. Sayım giriş, bölüm/alt bölüm metinleri, tablo başlık ve hücreleri, akışlar ve çağrı kutularını içerir; tekrar soruları, gezinme ve diyalogda yinelenen etiketler dahil değildir. Sayılar ürünün büyüklüğünü tarif eder; içerik doğruluğu veya her şekil etiketinin eksiksiz açıklanması hakkında bir sertifika değildir.
 
 ## Kaynak incelemesi
 
@@ -82,3 +82,81 @@ Kalıcı yayın öncesi hocanın konu kapsamı ve doğruluk kontrolü, PDF/web y
 - Anlatım 119 tematik bölüme ayrıldı. Bölgesel ayrıntılar akıcı paragraflarla genişletildi; elin intrinsik kasları ve karın–alt ekstremite arterleri ayrı başlıklar oldu. 58 proje sorusu gerekçeli cevaplarla sunuluyor.
 - 14 Ekim 2026 tarihli Drive klasör listesi dosya adı–kimlik eşleşmelerini tekrar doğruladı. Mevcut katalog doğrudur: örneğin giriş `15OxNPqApSUJ2-rnQoui2EVshH-MdM_IC`, eklem `1EV_rNsXJJT_rJatlDwPG8s0q18WOvjnp`, dolaşım `185OzTu2BEO6gO-EQB1okCEuXNu7S9E-c`. Dosya sırasından çıkarılan alternatif eşleştirme kullanılmadı. Bu kontrol erişim izinlerini değiştirmez veya anonim erişimi kanıtlamaz.
 - Yeni kontroller, 320 px ekranda en büyük yazı boyutuyla kranial sinir tablosunu ve içindekiler odağını; arşiv istekleri engellenmişken sindirim dersinin son başlıklarına erişimi kapsar.
+
+
+## Birleştirme sonrası genişletme: konu içi açıklamalar ve çizimler
+
+Önceki 119 bölümlük sürüm kullanıcı tarafından hâlâ kısa ve metin ağırlıklı bulundu. Yeni düzenleme bütün 115 anatomi bölümüne iki veya daha fazla paragraftan oluşan açıklayıcı alt bölümler ekler. Kaynak rehberindeki dört bölüm korunur. Bunlar kaynak sayfalardan çıkarılmış bir metin akışı değil, yapısal ilişkileri açıklayan editoryal anlatımlardır. `sourcePages` ve mevcut bölüm bağlantıları korunmuştur; sayfa referansı eklenen her cümlenin slaytta birebir bulunduğu anlamına gelmez.
+
+- Temel konular: düzlem–eksen ilişkisi, katmanlar, büyüme, bağ/kapsül ve eklem biçimi.
+- Hareket sistemi: bölgesel kemik işaretleri, kemerler, kas grupları ve karşılaştırma tabloları.
+- Organ sistemleri: odacık/kapak sırası, damar devamlılığı, kanal duvarları, salgı–emilim ilişkisi, sinir kökü/dalı ayrımı, üreme kanalları ve solunum mekaniği.
+- Sinir sistemi tekrar sorularında aynı beyin sapı sorusunun ikinci bir biçimi yerine somatik–otonom yol karşılaştırması kullanıldı; toplam soru sayısı değişmedi.
+
+### Konu içi görsel dağılımı
+
+| Ders | Özgün SVG şemalar |
+|---|---|
+| 1 | Anatomik düzlemler; vücut boşlukları |
+| 2 | Uzun kemik kesiti; büyüme plağının düzeni |
+| 3 | Sinoviyal eklem kesiti; menteşe–pivot mekanik modelleri |
+| 4 | Supinasyon/pronasyonda radius–ulna; medial ayak kemeri |
+| 5 | Kafatasının yandan kemik haritası; omurganın bölge ve eğrilikleri |
+| 6 | Kas–demet–lif–miyofibril; dirsekte antagonist ilişki |
+| 7 | İki dolaşım devresi ve dört odacık; aortanın ana dalları |
+| 8 | Sindirim kanalı; diş kesiti; villus; portal yol |
+| 9 | Nöron; omurilik kök ve dalları; meningeal katmanlar |
+| 10 | Sperm iletim yolu; over–tuba–uterus ilişkisi |
+| 11 | Trachea ve lober dallanma; alveoler gaz geçişi; diaphragma hareketi |
+
+SVG geometrileri `scripts/build-diagrams.mjs` içinde elle tanımlandı. Başlık, açıklama, numara ve metin anahtarı `src/content/diagrams.js` içindedir. Görseller hocanın şekillerinin kopyası değildir; kapak resimlerinden farklı olarak belirli bir ilişkiyi öğretmek için çizilmiştir. Her figürün yönü/kesit türü, sadeleştirme sınırı ve metinsel anahtarı görünür. Renkler şematiktir; venöz kanın mavi olduğu izlenimi verilmez. Omurga eğrilikleri anterior/posterior yönlerine göre, deferens bağlantısı epididymis kuyruğuna göre kontrol edilmiştir.
+
+Büyütme penceresi yerel SVG'yi %100–200 ölçekte gösterir; dar ekranlarda çizim kendi alanı içinde kaydırılır. Metinsel açıklamalar mobilde tek sütuna döner ve okuyucunun yazı boyutu ayarına uyar. Klavye odağı pencere içinde tutulur; Escape veya kapat düğmesiyle tetikleyiciye döner. Şemalar, kaynak PDF'yi veya editoryal arşivi indirmeden yüklenir.
+
+### Doğrulama ve yayın durumu
+
+- 20 birim/içerik testi ve 16 tarayıcı senaryosu geçti; üretim derlemesi başarılı.
+- 26 SVG'nin XML yapısı ve yüklenmesi, numara–açıklama eşleşmesi, masaüstü yerleşimi, mobil taşma, yakınlaştırma ve odak dönüşü kontrol edildi.
+- Şemalar sadeleştirilmiş ve ölçeksizdir. Bu kontroller tıbbi uzman denetimi veya PDF'deki her küçük şekil etiketinin birebir eşdeğerliği anlamına gelmez. Öğretim elemanı kapsam/doğruluk incelemesi hâlâ gereklidir.
+- PR #1 önceki sürüm için birleştirildi. Bu genişletme **sonraki yerel çalışma**dır; kapanmış kodlama oturumundan yeni bir uzak işlem veya kalıcı yayın yapılmadı. Yayına devam etmek için yeni kodlama oturumu gerekir.
+
+
+## Son kapsamlı anlatım düzenlemesi — 14 Ekim 2026
+
+Kullanıcı önceki genişletmeyi de fazla özet buldu. Bu çalışmada kaynak sayfaların başlıkları mevcut bölümlerle karşılaştırıldı; özellikle dolaşım ve sindirimin ilgili sayfalarındaki ayrıntılar yeniden okundu. Bütün 115 anatomi bölümüne ayrı ayrı yazılmış yeni anlatım eklendi. Kaynak rehberinin dört bölümü değiştirilmedi. Metinler slayt çıkarımı veya tekrarlanan paragraf şablonu değildir; canonical ders dosyalarına statik, düzenlenebilir içerik olarak işlendi.
+
+Toplam: **119 ana bölüm, 230 alt bölüm, 43.680 anlatım kelimesi, şema açıklamaları dahil 45.510 kelime, 53 karşılaştırma tablosu, 26 öğretici şema ve 58 tekrar sorusu.** Önceki sürüme 16.215 kelimelik başlık/anlatım/tablo içeriği eklendi. Sayım yöntemi `lessonWords` ile aynı; arayüz, yinelenen diyalog metni ve tekrar soruları dahil değil.
+
+| Ders | Bu düzenlemede ayrıntılandırılan ilişkiler |
+|---|---|
+| 1 | Anatominin yöntem ve ölçekleri; yön/duruş/kesit ayrımları; özel hareketler; seröz boşluklar ve karın bölgeleri; Latin ad yapıları |
+| 2 | Kuvvet–moment kolu; kemik hücreleri ve matriks; kemikleşme; kemik yüzey işaretleri; ekstremitelerde yük aktarımı |
+| 3 | Kapsül–sinovya–kıkırdak; disk/menisküs/labrum; kuşak ve ekstremite bağları; aksiyel eklemler; klinik terimlerin doku karşılıkları |
+| 4 | Kuşak tutunmaları, humerus tüberkülleri, önkol membranı, karpal sıra ve tünel, pelvis geçitleri, femur torsiyonu, ayak kemik ve kemer bağlantıları |
+| 5 | Kafa kemiklerinin boşluklara katkısı; foraminal geçişler; sutura/fontanel; temporal-ethmoid ayrıntıları; vertebra, sacrum ve kaburga özellikleri |
+| 6 | Kasılma mekanizması, motor ünite ve pennasyon; bölgesel kasların tutunma–sinir–hareket ilişkileri; el ve bacak kompartmanları |
+| 7 | Damar katmanları ve lenf; kalp iç yüzleri; kapakların basınçla çalışması; koroner ve büyük damar dalları; fetal yollar; venöz dönüş |
+| 8 | Duvar katları ve enterik ağlar; ağız/yutak kasları; diş formülü; dil papillaları ve sinirler; bez kanalları; mide hücreleri; duodenum, emilim, kolon, safra ve portal sistem |
+| 9 | Transdüksiyon ve refleks; sinaps ve glia; merkezi yollar; gelişimsel beyin bölümleri; lob, çekirdek ve peduncleler; spinal kök/pleksus; BOS ve kranial bileşenler |
+| 10 | Testis üretim yolu ve örtüler; kordon–deferens ayrımı; bez açıklıkları; urethra; over askıları; uterus katman/destekleri; vagina ve vulvanın ayrı yapıları |
+| 11 | Alveol hücreleri ve surfactant; mediastinal bölümler; burun-sinüs komşulukları; laryngeal eklemler; hava yolu duvar değişimi; pleura ve solunum kasları |
+
+`docs/full-course-coverage.json`, 115 bölümün eklenen başlığını ilgili kaynak sayfa aralığıyla eşleştirir. Bu bir editoryal yerleşim kaydıdır; kaynak şekillerdeki her küçük etiketin uzman onaylı, birebir eşdeğer anlatıldığına dair sertifika değildir. Ek açıklamalardaki ayrıntıların tümü kaynakta kelimesi kelimesine bulunmaz; hocanın yazdığı/onayladığı yayın olduğu iddia edilmez.
+
+### Okuyucu ve doğrulama
+
+- Alt başlıklar odaklanabilir bağlantı hedefleridir. Masaüstünde etkin bölümün alt başlıkları, mobil içindekilerde tüm bölümlerin alt başlıkları erişilebilirdir. Mobil listeye dönmek için yukarı kaydırmanın etkin bölümü değiştirmesi, alt başlıkları artık listeden kaldırmaz.
+- **22 içerik/birim testi + 17 tarayıcı senaryosu** geçti; üretim build'i başarılı. Yeni kontroller 115 bölüm eşleştirmesini, somut bölgesel terimlerin varlığını, uzun kas/sindirim anlatımlarının render edilmesini, 320 px ve 20 px yazı boyutunda alt başlık gezinmesini kapsar.
+- Önceki 26 şema, PDF kimlikleri, kaynak sayfa referansları, tasarım ve okuma araçları korunmuştur.
+- Çalışma yerel önizleme sürümüdür. Kapanmış oturumda uzak GitHub işlemi veya kalıcı yayın yapılmadı; yayın için yeni kodlama oturumu gerekir.
+
+
+## Resmî profil fotoğrafı — 14 Ekim 2026
+
+Kullanıcının isteğiyle “Hocamız Hakkında” sayfasındaki büyük BD monogramı yerine `InstructorPortrait` bileşeni eklendi. Kaynak, https://abs.firat.edu.tr/tr/bdagdeviren sayfasında yayımlanan şu fotoğraf URL'sidir:
+
+`https://apiabs.firat.edu.tr/images/userProfilePicture/6771957e-d99c-4285-a146-5f646d594830.jpeg`
+
+Fotoğraf üretilmedi veya başka kişiye ait arama görseli kullanılmadı. Resmî profil sayfasından URL doğrulandı; çalışma ortamında görüntünün kendisini indirme girişimi SSL bağlantı hatasıyla sonuçlandı. Bu nedenle portre resmî sunucudan ziyaretçinin tarayıcısında doğrudan yüklenir, yerel kopyası yoktur. Gerçek sunucunun tarayıcıdan yüklenmesi bu ortamda doğrulanmış değildir. Ağ hatasında kırık resim yerine baş harfler ve resmî profile bağlantı görünür. Kaynak bağlantısı fotoğraf altında yer alır; üniversite onayı veya yeniden kullanım izni iddiası oluşturmaz.
+
+22 birim testi, 19 tarayıcı senaryosu ve üretim build'i başarılı. Yeni fotoğraf testleri doğru kaynak URL'sini, mobil yerleşimi ve hata davranışını kontrollü görüntü fixture'ı/engellenmiş ağ isteğiyle sınar; gerçek fotoğraf sunucusunun erişilebilirliğini kanıtlamaz. Değişiklik önizlemededir; uzak yayın yapılmadı.
