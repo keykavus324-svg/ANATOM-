@@ -1,0 +1,98 @@
+{
+  "1": {
+    "sourceId": "15OxNPqApSUJ2-rnQoui2EVshH-MdM_IC",
+    "sourceName": "1-Anatomiye-giriş-B.-D..pdf",
+    "totalPages": 55,
+    "wordCount": 1689,
+    "sourceSha256": "b7a62c854fbc0ee9cfe97c2bea0b584878c0d319de0514d0a9f97d17e2f01647",
+    "imageOnlyPages": 7
+  },
+  "2": {
+    "sourceId": "1EROXvatdJFgIuqLSAq1080PRIZYrmvgy",
+    "sourceName": "2. HAREKET SİSTEMİ B.D..pdf",
+    "totalPages": 69,
+    "wordCount": 703,
+    "sourceSha256": "4a47b9700f5cc38484314bd18b636821cbb28812fa6b7332d87aa25d0cc3a17c",
+    "imageOnlyPages": 4
+  },
+  "3": {
+    "sourceId": "1EV_rNsXJJT_rJatlDwPG8s0q18WOvjnp",
+    "sourceName": "3-Hem, Ebe, B.D. Arthrologia dersi.pdf",
+    "totalPages": 58,
+    "wordCount": 1515,
+    "sourceSha256": "e3ace456318de3640582b43d66e5b378554ad92621ccdfb847157b3a30f54af8",
+    "imageOnlyPages": 1
+  },
+  "4": {
+    "sourceId": "1ETxzf8aYw6TPmqfZ86iAQasfAPCYAG9g",
+    "sourceName": "4-hem, ebe ÜST VE ALT EKST. Kemikler.pdf",
+    "totalPages": 49,
+    "wordCount": 1074,
+    "sourceSha256": "969d3933cc5b96c19a0bf6dceb592023ce58b3379aa79c3f2368d72b57d511be",
+    "imageOnlyPages": 4
+  },
+  "5": {
+    "sourceId": "188CRP3E62PIJ1cP7cCmZFODIzTAiTJGL",
+    "sourceName": "5-hem, ebe KRANİUM VE VERTEBRA kemikleri.pdf",
+    "totalPages": 67,
+    "wordCount": 1289,
+    "sourceSha256": "bbd064df4aa42b1598f9e05bdbdd5426d7c6408d3da4f705853b8038c76120f5",
+    "imageOnlyPages": 12
+  },
+  "6": {
+    "sourceId": "18C2JaGV5Wm7kXwMpgKm_lY7dU1PsOxRc",
+    "sourceName": "6-Hem, Ebe, B.D. myologia dersi pdf.pdf",
+    "totalPages": 86,
+    "wordCount": 2332,
+    "sourceSha256": "c498f86d28735784cbdad34a08849fc54bdae6069f42d15cfe78f2c4980d8473",
+    "imageOnlyPages": 3
+  },
+  "7": {
+    "sourceId": "185OzTu2BEO6gO-EQB1okCEuXNu7S9E-c",
+    "sourceName": "7-DOLAŞIM SİSTEMİ B.D hem, ebe.pdf",
+    "totalPages": 51,
+    "wordCount": 1348,
+    "sourceSha256": "c7a7bd4243c1b0a5d6c07a247714ed17b387378b46f70775d520d998df8b4a60",
+    "imageOnlyPages": 0
+  },
+  "8": {
+    "sourceId": "12hn9pwsNtznMtEz1aPRDrdnkhui9eDgR",
+    "sourceName": "8-Sindirim Sistemi B.D..pdf",
+    "totalPages": 138,
+    "wordCount": 3898,
+    "sourceSha256": "1df0037c9b5cad17d0a8418bd35f8cc3607506b2555ef365451749a16fbf973c",
+    "imageOnlyPages": 13
+  },
+  "9": {
+    "sourceId": "1A11xUnKZUnLgplM0J961T96wLYMJ74_B",
+    "sourceName": "9-Systema nervosum B.D..pdf",
+    "totalPages": 44,
+    "wordCount": 1776,
+    "sourceSha256": "ccb44ec9a81b76074cb165a42938d3b8082386d5ffdbf90c2c19f4cd75e8d2e9",
+    "imageOnlyPages": 3
+  },
+  "10": {
+    "sourceId": "1A5bZk8u6HiFIXukYCbnRizu3a8q_8lMI",
+    "sourceName": "10-Ürogenital sistem anatomisi B.D..pdf",
+    "totalPages": 31,
+    "wordCount": 746,
+    "sourceSha256": "5a394db1d132a86685652f67041660ba49471ef4d1732f09abcfa17aa1094a9d",
+    "imageOnlyPages": 2
+  },
+  "11": {
+    "sourceId": "1A3NHH_BjunRlYqAATPruig4wOadjD4_3",
+    "sourceName": "11-Systema. respiratorium (B.D ).pdf",
+    "totalPages": 42,
+    "wordCount": 1001,
+    "sourceSha256": "4f45c8d4f9b053ad02945be7bd77d3bce11f6550b08ab76f99ba94b4f19bc866",
+    "imageOnlyPages": 5
+  },
+  "0": {
+    "sourceId": "17uPVDSN1Q0Dl9_0kJa09S7f-WuRT1jhD",
+    "sourceName": "0-Önerilebilir-atlaslar-ve-kitaplar.pdf",
+    "totalPages": 7,
+    "wordCount": 123,
+    "sourceSha256": "86aec186d256b31dd88e751bef184131230b82eef9ec268686fe7ced38fadeea",
+    "imageOnlyPages": 1
+  }
+}

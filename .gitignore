@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.playwright/
+test-results/
+
+.venv/
+
+# Local source PDFs used for editorial source review; never commit originals.
+google_drive/
+
+.work/

@@ -1,0 +1,670 @@
+{
+  "number": 9,
+  "sourceId": "1A11xUnKZUnLgplM0J961T96wLYMJ74_B",
+  "sourceName": "9-Systema nervosum B.D..pdf",
+  "totalPages": 44,
+  "sourceSha256": "ccb44ec9a81b76074cb165a42938d3b8082386d5ffdbf90c2c19f4cd75e8d2e9",
+  "importedAt": "2026-10-14",
+  "extraction": "PyMuPDF native text blocks; every page has a rendered visual fallback; no OCR",
+  "pages": [
+    {
+      "number": 1,
+      "title": "SİNİR SİSTEMİ (SYSTEMA NERVOSUM)",
+      "blocks": [
+        "SİNİR SİSTEMİ\n(SYSTEMA NERVOSUM)"
+      ],
+      "text": "SİNİR SİSTEMİ\n(SYSTEMA NERVOSUM)",
+      "image": "pages/9/001.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 2,
+      "title": "Tüm sistemlerin fonksiyonlarını kontrol ve koordine eden bir sistemdir.",
+      "blocks": [
+        "Tüm sistemlerin fonksiyonlarını kontrol ve koordine eden bir sistemdir.",
+        "Vücuttan alınan uyarılar reseptörler Merkez Cevap",
+        "Uyarıları merkeze ileten lifler ----Afferent yollar\nUyarıları merkezden perifere gönderen ----Efferent yollar"
+      ],
+      "text": "Tüm sistemlerin fonksiyonlarını kontrol ve koordine eden bir sistemdir.\n\nVücuttan alınan uyarılar reseptörler Merkez Cevap\n\nUyarıları merkeze ileten lifler ----Afferent yollar\nUyarıları merkezden perifere gönderen ----Efferent yollar",
+      "image": "pages/9/002.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 3,
+      "title": "Sinir sistemi ve endokrin sistem birlikte çalışırlar (Haberleşme ve düzenleme)",
+      "blocks": [
+        "Sinir sistemi ve endokrin sistem birlikte çalışırlar (Haberleşme ve düzenleme)",
+        "Canlıların iç ve dış olaylarla uyarılabilme yeteneğine irritabilite denir.\nİrritabilite canlının temel özelliklerinden biridir.",
+        "Gerek çevre ve vücuttan sinir sistemine ve gerekse sinir sisteminden organlara\ngiden uyarılara impuls denir.\nAmaçları:\n•Vücudun bir bütün olarak hareket etmesini sağlamak,\n•İçerden ve dışarıdan gelen uyarılara uygun yanıtları vemek,\n•Vücut iç ortamının dengesini korumak (homeostasis)"
+      ],
+      "text": "Sinir sistemi ve endokrin sistem birlikte çalışırlar (Haberleşme ve düzenleme)\n\nCanlıların iç ve dış olaylarla uyarılabilme yeteneğine irritabilite denir.\nİrritabilite canlının temel özelliklerinden biridir.\n\nGerek çevre ve vücuttan sinir sistemine ve gerekse sinir sisteminden organlara\ngiden uyarılara impuls denir.\nAmaçları:\n•Vücudun bir bütün olarak hareket etmesini sağlamak,\n•İçerden ve dışarıdan gelen uyarılara uygun yanıtları vemek,\n•Vücut iç ortamının dengesini korumak (homeostasis)",
+      "image": "pages/9/003.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 4,
+      "title": "Vücudun her hangi bir kısmının merkezi sinir sistemi ile olan bağlantısına innervasyon denir.",
+      "blocks": [
+        "Vücudun her hangi bir kısmının merkezi sinir sistemi ile olan\nbağlantısına innervasyon denir.",
+        "Sinir sistemi içerisinde yapı ve fonksiyon bakımından iki tip\nhücre görülür. Glia hücreleri destek hücreleridir.",
+        "Bunlardan uyarıyı alabilen, nakledebilen ve verilecek cevabı\noluşturan hücreye neuron, sinir hücrelerini destekleyen, besleyen\nve hasarlı sinir dokusunun tamirini sağlayan hücrelere glia\n(neuroglia) hücreleri denir. Glia hücreleri neuronların 5-10 katı\ndaha fazladır."
+      ],
+      "text": "Vücudun her hangi bir kısmının merkezi sinir sistemi ile olan\nbağlantısına innervasyon denir.\n\nSinir sistemi içerisinde yapı ve fonksiyon bakımından iki tip\nhücre görülür. Glia hücreleri destek hücreleridir.\n\nBunlardan uyarıyı alabilen, nakledebilen ve verilecek cevabı\noluşturan hücreye neuron, sinir hücrelerini destekleyen, besleyen\nve hasarlı sinir dokusunun tamirini sağlayan hücrelere glia\n(neuroglia) hücreleri denir. Glia hücreleri neuronların 5-10 katı\ndaha fazladır.",
+      "image": "pages/9/004.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 5,
+      "title": "Sinir hücresinden çıkan tek ve uzun olan uzantıya akson, kısa ve çok sayıda olan uzantılara ise…",
+      "blocks": [
+        "Tüm uzantılarıyla birlikte bir sinir hücresine neuron denir. Neuron’un bir\ngövdesi (perikaryon) ve bir de bu gövdeye bağlanan uzantıları vardır.\nBunlara da neurit / sinir lifi denir.",
+        "Sinir hücresinden çıkan tek ve uzun olan uzantıya akson, kısa ve\nçok sayıda olan uzantılara ise dentrit denir.",
+        "Aksonlar hücre gövdesinden perifere impuls götürür, dentritler\nise periferden hücre gövdesine impuls taşır.\nNöronların çoğalma yeteneklerleri yok\nDendrit ve akson genellikle sinir lifi olarak adlandırılır."
+      ],
+      "text": "Tüm uzantılarıyla birlikte bir sinir hücresine neuron denir. Neuron’un bir\ngövdesi (perikaryon) ve bir de bu gövdeye bağlanan uzantıları vardır.\nBunlara da neurit / sinir lifi denir.\n\nSinir hücresinden çıkan tek ve uzun olan uzantıya akson, kısa ve\nçok sayıda olan uzantılara ise dentrit denir.\n\nAksonlar hücre gövdesinden perifere impuls götürür, dentritler\nise periferden hücre gövdesine impuls taşır.\nNöronların çoğalma yeteneklerleri yok\nDendrit ve akson genellikle sinir lifi olarak adlandırılır.",
+      "image": "pages/9/005.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 6,
+      "title": "FONKSİYONLARINA GÖRE NÖRONLARIN SINIFLANDIRILMASI",
+      "blocks": [
+        "FONKSİYONLARINA GÖRE NÖRONLARIN SINIFLANDIRILMASI",
+        "1-Motor nöronlar: Merkezi\nsinir sisteminden kas, organ,\nbezlere uyarılar taşır.\n2-Duyusal nöronlar:\nPeriferden aldığı duyuları\nmerkezi sinir sistemine\ngetirir.\n3-Ara nöronlar(internöron):\nMerkezi sinir sistemindeki\nnöronlar arasındaki\nbağlantıyı sağlar."
+      ],
+      "text": "FONKSİYONLARINA GÖRE NÖRONLARIN SINIFLANDIRILMASI\n\n1-Motor nöronlar: Merkezi\nsinir sisteminden kas, organ,\nbezlere uyarılar taşır.\n2-Duyusal nöronlar:\nPeriferden aldığı duyuları\nmerkezi sinir sistemine\ngetirir.\n3-Ara nöronlar(internöron):\nMerkezi sinir sistemindeki\nnöronlar arasındaki\nbağlantıyı sağlar.",
+      "image": "pages/9/006.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 7,
+      "title": "Sinir sisteminin bölümleri",
+      "blocks": [
+        "Sinir sisteminin bölümleri",
+        "Anatomik olarak:",
+        "Merkezi sinir sistemi (beyin, omurilik)",
+        "Periferik sinir sistemi (Çevresel)",
+        "Fonksiyonel olarak:",
+        "Somatik sinir sistemi",
+        "Visseral (otonom) sinir sistemi"
+      ],
+      "text": "Sinir sisteminin bölümleri\n\nAnatomik olarak:\n\nMerkezi sinir sistemi (beyin, omurilik)\n\nPeriferik sinir sistemi (Çevresel)\n\nFonksiyonel olarak:\n\nSomatik sinir sistemi\n\nVisseral (otonom) sinir sistemi",
+      "image": "pages/9/007.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 8,
+      "title": "FONKS YONEL OLARAK S N R S STEM N N BÖLÜMLER İ İ İ İ İ İ İ",
+      "blocks": [
+        "FONKS YONEL OLARAK S N R S STEM N N BÖLÜMLER\nİ\nİ İ\nİ\nİ İ\nİ",
+        "Somatik sinir sistemi: ( STEML )\nİ\nİ",
+        "- Afferent kısmı: Duyuyu çevreden alarak omurilik ve beyne ta ır\nş",
+        "- Efferent kısmı: Cerebrumdan ba layarak beyin sapına ve omurili e\nş\nğ",
+        "iner, sonuçta çizgili kasları kontraksiyona getirir.",
+        "Visseral, Otonom sinir sistemi: ( STEMS Z)\nİ\nİ",
+        "- Afferent kısmı: Duyuyu visseral organlardan beyne ta ır\nş",
+        "- Efferent kısmı: Düz kas, kalp kası, visser bezlerinin çalı masını\nş",
+        "sa layan motor kısmıdır\nğ"
+      ],
+      "text": "FONKS YONEL OLARAK S N R S STEM N N BÖLÜMLER\nİ\nİ İ\nİ\nİ İ\nİ\n\nSomatik sinir sistemi: ( STEML )\nİ\nİ\n\n- Afferent kısmı: Duyuyu çevreden alarak omurilik ve beyne ta ır\nş\n\n- Efferent kısmı: Cerebrumdan ba layarak beyin sapına ve omurili e\nş\nğ\n\niner, sonuçta çizgili kasları kontraksiyona getirir.\n\nVisseral, Otonom sinir sistemi: ( STEMS Z)\nİ\nİ\n\n- Afferent kısmı: Duyuyu visseral organlardan beyne ta ır\nş\n\n- Efferent kısmı: Düz kas, kalp kası, visser bezlerinin çalı masını\nş\n\nsa layan motor kısmıdır\nğ",
+      "image": "pages/9/008.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 9,
+      "title": "SİNİR SİSTEMİ",
+      "blocks": [
+        "SİNİR SİSTEMİ",
+        "PERİFERİK SİNİR SİSTEMİ\nMERKEZİ SİNİR SİSTEMİ",
+        "BEYİN",
+        "OMURİLİK",
+        "SİNİRLER\n(NERVİ SPİNALES,\nNERVİ CRANIALES)",
+        "PLEKSUSLAR",
+        "GANGLIONLAR"
+      ],
+      "text": "SİNİR SİSTEMİ\n\nPERİFERİK SİNİR SİSTEMİ\nMERKEZİ SİNİR SİSTEMİ\n\nBEYİN\n\nOMURİLİK\n\nSİNİRLER\n(NERVİ SPİNALES,\nNERVİ CRANIALES)\n\nPLEKSUSLAR\n\nGANGLIONLAR",
+      "image": "pages/9/009.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 10,
+      "title": "◦1. Merkezi sinir sistemi ◦ Encephalon (Tüm Beyin)",
+      "blocks": [
+        "◦1. Merkezi sinir sistemi\n◦ Encephalon\n(Tüm Beyin)",
+        "◦ Medulla spinalis\n(Omurilik)",
+        "◦2. Periferik sinir sistemi\n◦ Kraniyal sinirler\n(12 çift)",
+        "◦ Spinal sinirler\n(31 çift)"
+      ],
+      "text": "◦1. Merkezi sinir sistemi\n◦ Encephalon\n(Tüm Beyin)\n\n◦ Medulla spinalis\n(Omurilik)\n\n◦2. Periferik sinir sistemi\n◦ Kraniyal sinirler\n(12 çift)\n\n◦ Spinal sinirler\n(31 çift)",
+      "image": "pages/9/010.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 11,
+      "title": "Medulla spinalis (omurilik) • Encephalon (beyin)",
+      "blocks": [
+        "MERKEZİ SİNİR SİSTEMİ\nBu gruba dahil olan organlar tümüyle cavitas cranii (kafa boşluğu)\nve canalis vertebralis (omurilik kanalı) içerisinde yer alırlar.\nBölümleri:",
+        "• Medulla spinalis (omurilik)\n• Encephalon (beyin)"
+      ],
+      "text": "MERKEZİ SİNİR SİSTEMİ\nBu gruba dahil olan organlar tümüyle cavitas cranii (kafa boşluğu)\nve canalis vertebralis (omurilik kanalı) içerisinde yer alırlar.\nBölümleri:\n\n• Medulla spinalis (omurilik)\n• Encephalon (beyin)",
+      "image": "pages/9/011.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 12,
+      "title": "Merkezî Sinir Sisteminin Yapısal Bölümleri",
+      "blocks": [
+        "Merkezî Sinir Sisteminin Yapısal Bölümleri",
+        "Merkezî sinir sistemi yapısal olarak substantia grisea ve",
+        "substantia alba olmak üzere iki bölümden meydana gelmiştir.",
+        "Substantia grisea (Gri cevher) Gri cevher merkezî sinir sisteminin",
+        "medulla spinalis bölümünün iç tarafında bulunmasına karşılık\nencephalon bölümünde dış yüzeyde bulunur.",
+        "Substantia alba (Beyaz cevher) Beyaz cevher medulla spinalis’in",
+        "dış tarafında, encephalon bölümünde ise iç tarafta bulunur."
+      ],
+      "text": "Merkezî Sinir Sisteminin Yapısal Bölümleri\n\nMerkezî sinir sistemi yapısal olarak substantia grisea ve\n\nsubstantia alba olmak üzere iki bölümden meydana gelmiştir.\n\nSubstantia grisea (Gri cevher) Gri cevher merkezî sinir sisteminin\n\nmedulla spinalis bölümünün iç tarafında bulunmasına karşılık\nencephalon bölümünde dış yüzeyde bulunur.\n\nSubstantia alba (Beyaz cevher) Beyaz cevher medulla spinalis’in\n\ndış tarafında, encephalon bölümünde ise iç tarafta bulunur.",
+      "image": "pages/9/012.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 13,
+      "title": "Merkezî Sinir Sisteminin Yapısal Bölümleri",
+      "blocks": [
+        "Encephalon (tüm beyin)\nKafatası içerisindeki tüm yapıları (cerebrum, cerebellum ve truncus encephali) kapsar.\n1-Prosencephalon (ön beyin)\na)Diencephalon (thalamus, hypothalamus, epithalamus, subthalamus)\nb)Telencephalon\n2-Mesencephalon\n3-Rhombencephalon\na) Myelencephalon: Medulla oblangata\nb) Metencephalon: Pons+ cerebellum\nMesencephalon, pons ve bulbus’a birlikte truncus encephali (beyin sapı) denir"
+      ],
+      "text": "Encephalon (tüm beyin)\nKafatası içerisindeki tüm yapıları (cerebrum, cerebellum ve truncus encephali) kapsar.\n1-Prosencephalon (ön beyin)\na)Diencephalon (thalamus, hypothalamus, epithalamus, subthalamus)\nb)Telencephalon\n2-Mesencephalon\n3-Rhombencephalon\na) Myelencephalon: Medulla oblangata\nb) Metencephalon: Pons+ cerebellum\nMesencephalon, pons ve bulbus’a birlikte truncus encephali (beyin sapı) denir",
+      "image": "pages/9/013.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 14,
+      "title": "Encephalon Bölümleri",
+      "blocks": [
+        "Encephalon Bölümleri",
+        "Telencephalon",
+        "Diencephalon\n1. 1. Prosencephalon",
+        "2. Mesencephalon",
+        "Pons",
+        "Cerebellum",
+        "Medulla oblongata\n(Bulbus)",
+        "3. Rhombencephalon"
+      ],
+      "text": "Encephalon Bölümleri\n\nTelencephalon\n\nDiencephalon\n1. 1. Prosencephalon\n\n2. Mesencephalon\n\nPons\n\nCerebellum\n\nMedulla oblongata\n(Bulbus)\n\n3. Rhombencephalon",
+      "image": "pages/9/014.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 15,
+      "title": "Truncus encephalicus (beyin sapı):",
+      "blocks": [
+        "• Truncus encephalicus (beyin sapı):",
+        "- Medulla oblangata",
+        "- Pons\n- Mesencephalon\n• Cerebellum",
+        "• Cerebrum\n- Diencephalon: thalamus, hypothalamus, epithalamus, subthalamus\n- Telencephalon"
+      ],
+      "text": "• Truncus encephalicus (beyin sapı):\n\n- Medulla oblangata\n\n- Pons\n- Mesencephalon\n• Cerebellum\n\n• Cerebrum\n- Diencephalon: thalamus, hypothalamus, epithalamus, subthalamus\n- Telencephalon",
+      "image": "pages/9/015.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 16,
+      "title": "MEDULLA OBLANGATA (BULBUS)",
+      "blocks": [
+        "MEDULLA OBLANGATA (BULBUS)",
+        "Sinir sisteminin pons ile medulla spinalis arasında kalan bölümüne\nmedulla oblongata (bulbus) denir. Beyin sapının en alt bölümünü\noluşturur. Solunum Ritmi, kan basıncı refleksi, kalp hızı refleksi,\nyutma, kusma merkezleri kontrol edildiği yerdir."
+      ],
+      "text": "MEDULLA OBLANGATA (BULBUS)\n\nSinir sisteminin pons ile medulla spinalis arasında kalan bölümüne\nmedulla oblongata (bulbus) denir. Beyin sapının en alt bölümünü\noluşturur. Solunum Ritmi, kan basıncı refleksi, kalp hızı refleksi,\nyutma, kusma merkezleri kontrol edildiği yerdir.",
+      "image": "pages/9/016.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 17,
+      "title": "MEDULLA OBLONGATA’DA Kİ VİTAL (HAYATİ MERKEZLER) Kardiak merkez Vazomotor merkez Respiratuar merkez…",
+      "blocks": [
+        "MEDULLA OBLONGATA’DA Kİ VİTAL (HAYATİ MERKEZLER)\nKardiak merkez\nVazomotor merkez\nRespiratuar merkez\nRefleks merkezleri"
+      ],
+      "text": "MEDULLA OBLONGATA’DA Kİ VİTAL (HAYATİ MERKEZLER)\nKardiak merkez\nVazomotor merkez\nRespiratuar merkez\nRefleks merkezleri",
+      "image": "pages/9/017.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 18,
+      "title": "MEDULLA OBLONGATA’DA Kİ VİTAL (HAYATİ MERKEZLER) Kardiak merkez Vazomotor merkez Respiratuar merkez…",
+      "blocks": [
+        "PONS\nBeynin bu bölümünün üst tarafında\nmesencephalon, alt bölümünde ise bulbus\nbulunur.\nArka tarafta cerebellum ile bağlantısı\nbulunmaktadır\nUyku/Uyanıklık Döngüsü\nYutkunma refleksi\nİdrar Kesesi Kontrolü\nİşitme\nGöz Hareketlerini Destekleme\nYüzdeki Hisleri Kontrol Etme\nDuruş kontrolü üzerinde etkileri\nvardır."
+      ],
+      "text": "PONS\nBeynin bu bölümünün üst tarafında\nmesencephalon, alt bölümünde ise bulbus\nbulunur.\nArka tarafta cerebellum ile bağlantısı\nbulunmaktadır\nUyku/Uyanıklık Döngüsü\nYutkunma refleksi\nİdrar Kesesi Kontrolü\nİşitme\nGöz Hareketlerini Destekleme\nYüzdeki Hisleri Kontrol Etme\nDuruş kontrolü üzerinde etkileri\nvardır.",
+      "image": "pages/9/018.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 19,
+      "title": "MEDULLA OBLONGATA’DA Kİ VİTAL (HAYATİ MERKEZLER) Kardiak merkez Vazomotor merkez Respiratuar merkez…",
+      "blocks": [
+        "MEZENCEPHALON\nBeyin sapının en üst tarafında yer alan\nbölümdür. Mesencephalon’un arka tarafta\ncerebellum ile bağlantısı bulunmaktadır. Bu\nbağlantı sayesinde vücut hareketlerimiz\nüzerinde etkili fonksiyon görmektedir.\nGörme ve işitme\nKas tonusunun sağlanması\nGöz hareketleri sonucu oluşan refleksler\nDikkat ve konsantrasyon üzerinde önemli\netkileri vardır."
+      ],
+      "text": "MEZENCEPHALON\nBeyin sapının en üst tarafında yer alan\nbölümdür. Mesencephalon’un arka tarafta\ncerebellum ile bağlantısı bulunmaktadır. Bu\nbağlantı sayesinde vücut hareketlerimiz\nüzerinde etkili fonksiyon görmektedir.\nGörme ve işitme\nKas tonusunun sağlanması\nGöz hareketleri sonucu oluşan refleksler\nDikkat ve konsantrasyon üzerinde önemli\netkileri vardır.",
+      "image": "pages/9/019.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 20,
+      "title": "MEDULLA OBLONGATA’DA Kİ VİTAL (HAYATİ MERKEZLER) Kardiak merkez Vazomotor merkez Respiratuar merkez…",
+      "blocks": [
+        "Cerebellum\nBeyincik, pons ve bulbus bölümlerinin arka tarafında bulunur. Bu beyin\nbölümünün en önemli görevi hareketlerimizin koordinasyonunu\nsağlamaktır. Yani dengemizi sağlamaktır. 150 gr ağırlığındaki bu organ\nMSS’nin 1/10’unu oluşturur.\n(MSS deki nöron sayısının yarısından fazla nöron içerir.)\nKomplike bir harekette kasların durumu:\n1.Agonist kaslar hareketin yapılması için kasılırlar.\n2.Antagonistler gevşerler.\n3.Sinerjistler hareketi desteklerler.\n4.Fiksatörler ekstremitenin yer değiştirmesini önler, uygun postür sağlar.\nBurada orkestra şefliğini CEREBELLUM yapar."
+      ],
+      "text": "Cerebellum\nBeyincik, pons ve bulbus bölümlerinin arka tarafında bulunur. Bu beyin\nbölümünün en önemli görevi hareketlerimizin koordinasyonunu\nsağlamaktır. Yani dengemizi sağlamaktır. 150 gr ağırlığındaki bu organ\nMSS’nin 1/10’unu oluşturur.\n(MSS deki nöron sayısının yarısından fazla nöron içerir.)\nKomplike bir harekette kasların durumu:\n1.Agonist kaslar hareketin yapılması için kasılırlar.\n2.Antagonistler gevşerler.\n3.Sinerjistler hareketi desteklerler.\n4.Fiksatörler ekstremitenin yer değiştirmesini önler, uygun postür sağlar.\nBurada orkestra şefliğini CEREBELLUM yapar.",
+      "image": "pages/9/020.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 21,
+      "title": "Diencephalon",
+      "blocks": [
+        "Diencephalon",
+        "epithalamus",
+        "hypothalamus",
+        "thalamus",
+        "subthalamus"
+      ],
+      "text": "Diencephalon\n\nepithalamus\n\nhypothalamus\n\nthalamus\n\nsubthalamus",
+      "image": "pages/9/021.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 22,
+      "title": "hypothalamus",
+      "blocks": [
+        "Hypothalamus: vücut iç dengesinin düzenlenmesinde önemli rol alır. (OSS merkezi)\nAşağıdaki mekanizmaları doğrudan veya dolaylı olarak etkiler\n- Sıvı dengesinin düzenlenmesi\n- vücut ısısının ayarı\n- açlık ve tokluk merkezi buradadır\n- seksual davranışların etkilenmesi\n- alınan bir duyunun ağrılı veya hoşnut olunan bir duyu olup olmadığına karar\nverilmesi\n- sinir sistemi ile endokrin sistem arasındada bağlantı sağlar",
+        "hypothalamus"
+      ],
+      "text": "Hypothalamus: vücut iç dengesinin düzenlenmesinde önemli rol alır. (OSS merkezi)\nAşağıdaki mekanizmaları doğrudan veya dolaylı olarak etkiler\n- Sıvı dengesinin düzenlenmesi\n- vücut ısısının ayarı\n- açlık ve tokluk merkezi buradadır\n- seksual davranışların etkilenmesi\n- alınan bir duyunun ağrılı veya hoşnut olunan bir duyu olup olmadığına karar\nverilmesi\n- sinir sistemi ile endokrin sistem arasındada bağlantı sağlar\n\nhypothalamus",
+      "image": "pages/9/022.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 23,
+      "title": "Hipofiz bezi/ gl.pituitaria: Sphenoid kemiğin içine yerleşmiş",
+      "blocks": [
+        "Hipofiz bezi/ gl.pituitaria: Sphenoid kemiğin içine yerleşmiş",
+        "olan hipofiz bezi, hypothalamusa bir sapla bağlanmıştır.\nVücuttaki birçok salgı bezinin işlevlerini düzenler."
+      ],
+      "text": "Hipofiz bezi/ gl.pituitaria: Sphenoid kemiğin içine yerleşmiş\n\nolan hipofiz bezi, hypothalamusa bir sapla bağlanmıştır.\nVücuttaki birçok salgı bezinin işlevlerini düzenler.",
+      "image": "pages/9/023.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 24,
+      "title": "Hipofiz bezi/ gl.pituitaria: Sphenoid kemiğin içine yerleşmiş",
+      "blocks": [
+        "Thalamus\n•Merkezî sinir sistemi dışından gelen duyular talamusa iletilir.\nTalamus’un bu duyuları kortekse iletme fonksiyonu vardır. Ancak\nduyuları kortekse iletilmeden önce talamus’un düzenleme\n(duyunun şiddetini artırma veya azaltma gibi) görevini de yerine\ngetirir. Koku duyusu hariç, bütün duyuların korteksten önce\nuğradığı önemli bir ara istasyon görevi üstlenir."
+      ],
+      "text": "Thalamus\n•Merkezî sinir sistemi dışından gelen duyular talamusa iletilir.\nTalamus’un bu duyuları kortekse iletme fonksiyonu vardır. Ancak\nduyuları kortekse iletilmeden önce talamus’un düzenleme\n(duyunun şiddetini artırma veya azaltma gibi) görevini de yerine\ngetirir. Koku duyusu hariç, bütün duyuların korteksten önce\nuğradığı önemli bir ara istasyon görevi üstlenir.",
+      "image": "pages/9/024.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 25,
+      "title": "Pineal bez/ epifiz/gl.pinealis: Retina üzerine düşen çevresel ışığa",
+      "blocks": [
+        "Pineal bez/ epifiz/gl.pinealis: Retina üzerine düşen çevresel ışığa",
+        "ait bilgileri alıp buna cevap oluşturmaktadır. Karanlıkta aktivitesi\nartmaktadır. Vücut ısısının ayarlanması, metabolizma, immün\nsistem vb. rol oynar. Epithalamusta yer alır. Bol miktarda\nMelatonin ve Serotonin mevcuttur.",
+        "gl.pinealis",
+        "gl.pituitaria"
+      ],
+      "text": "Pineal bez/ epifiz/gl.pinealis: Retina üzerine düşen çevresel ışığa\n\nait bilgileri alıp buna cevap oluşturmaktadır. Karanlıkta aktivitesi\nartmaktadır. Vücut ısısının ayarlanması, metabolizma, immün\nsistem vb. rol oynar. Epithalamusta yer alır. Bol miktarda\nMelatonin ve Serotonin mevcuttur.\n\ngl.pinealis\n\ngl.pituitaria",
+      "image": "pages/9/025.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 26,
+      "title": "Pineal bez/ epifiz/gl.pinealis: Retina üzerine düşen çevresel ışığa",
+      "blocks": [],
+      "text": "",
+      "image": "pages/9/026.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": false
+    },
+    {
+      "number": 27,
+      "title": "BEYNİN LOBLARI (LOBİ CEREBRİ)",
+      "blocks": [
+        "BEYNİN LOBLARI (LOBİ CEREBRİ)",
+        "Beyin yarım küreleri çeşitli oluklarla loblara ayrılır.",
+        "lobus parietalis",
+        "lobus\nfrontalis",
+        "lobus\noccipitalis",
+        "lobus\ntemporalis"
+      ],
+      "text": "BEYNİN LOBLARI (LOBİ CEREBRİ)\n\nBeyin yarım küreleri çeşitli oluklarla loblara ayrılır.\n\nlobus parietalis\n\nlobus\nfrontalis\n\nlobus\noccipitalis\n\nlobus\ntemporalis",
+      "image": "pages/9/027.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 28,
+      "title": "BEYNİN LOBLARI (LOBİ CEREBRİ)",
+      "blocks": [
+        "Lobus frontalis Bu lob beyinde ön tarafta bulunur .Genel olarak vücuttaki\nmotor aktiviteden sorumlu kortikal merkezler bulunur. Örneğin iskelet kaslarını\nçalıştıran emirler bu lobdan çıkar.\nLobus parietalis Bu lob beyinin üst tarafında bulunur. Parietal lob korteksi\nvücuttaki sensitif (dokunma, basınç, ağrı ve ısı gibi) duyuların sonlandığı\nmerkezler bulunur.\nLobus occipitalis Bu lob beyinde arka tarafta yer alır (Şekil 10). Görme\nmerkezinin bulunduğu lobdur. Ayrıca renklerin ayırt edilmesi merkezi de bu\nlobda bulunur.\nLobus temporalis Temporal lob, beynin lateral ve alt tarafında lokalizedir.\nİşitme ile ilgili merkez bu\nlobda bulunur."
+      ],
+      "text": "Lobus frontalis Bu lob beyinde ön tarafta bulunur .Genel olarak vücuttaki\nmotor aktiviteden sorumlu kortikal merkezler bulunur. Örneğin iskelet kaslarını\nçalıştıran emirler bu lobdan çıkar.\nLobus parietalis Bu lob beyinin üst tarafında bulunur. Parietal lob korteksi\nvücuttaki sensitif (dokunma, basınç, ağrı ve ısı gibi) duyuların sonlandığı\nmerkezler bulunur.\nLobus occipitalis Bu lob beyinde arka tarafta yer alır (Şekil 10). Görme\nmerkezinin bulunduğu lobdur. Ayrıca renklerin ayırt edilmesi merkezi de bu\nlobda bulunur.\nLobus temporalis Temporal lob, beynin lateral ve alt tarafında lokalizedir.\nİşitme ile ilgili merkez bu\nlobda bulunur.",
+      "image": "pages/9/028.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 29,
+      "title": "Duyuların değerlendirilmesi",
+      "blocks": [
+        "•Duyuların\ndeğerlendirilmesi",
+        "•Görme",
+        "•Düşünme ve\nfikir üretme",
+        "•Hareketin\nplanlanması\nve motor\nemri",
+        "•Kişilik\nmerkezi",
+        "•Karar verme",
+        "•Farkındalık\n(kendisi ve\nçevresinin)",
+        "•Lisan",
+        "•İşitme\n•Hafıza"
+      ],
+      "text": "•Duyuların\ndeğerlendirilmesi\n\n•Görme\n\n•Düşünme ve\nfikir üretme\n\n•Hareketin\nplanlanması\nve motor\nemri\n\n•Kişilik\nmerkezi\n\n•Karar verme\n\n•Farkındalık\n(kendisi ve\nçevresinin)\n\n•Lisan\n\n•İşitme\n•Hafıza",
+      "image": "pages/9/029.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 30,
+      "title": "Sulcus centralis",
+      "blocks": [
+        "Sulcus centralis",
+        "Beyin dış yüzündeki büyük oluklar:\nBeynin dış yüzünde bulunan ve\nlobları birbirinden ayıran oluklar\nşunlardır:",
+        "Sulcus\nParietooccipitalis",
+        "-Sulcus centralis (Rolando yarığı);\nHemisferlerin üst kenarının\nortasına yakın olarak iç yüzden\nbaşlar ve üst kenarı çaprazlayarak\ndış yüzde aşağı doğru uzanır.\nFrontal ve parietal lobları\nbirbirinden ayırır.",
+        "-Sulcus lateralis (Sylvius yarığı);",
+        "-Sulcus Parietooccipitalis",
+        "Sulcus lateralis",
+        "Sylvius yarığı);"
+      ],
+      "text": "Sulcus centralis\n\nBeyin dış yüzündeki büyük oluklar:\nBeynin dış yüzünde bulunan ve\nlobları birbirinden ayıran oluklar\nşunlardır:\n\nSulcus\nParietooccipitalis\n\n-Sulcus centralis (Rolando yarığı);\nHemisferlerin üst kenarının\nortasına yakın olarak iç yüzden\nbaşlar ve üst kenarı çaprazlayarak\ndış yüzde aşağı doğru uzanır.\nFrontal ve parietal lobları\nbirbirinden ayırır.\n\n-Sulcus lateralis (Sylvius yarığı);\n\n-Sulcus Parietooccipitalis\n\nSulcus lateralis\n\nSylvius yarığı);",
+      "image": "pages/9/030.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 31,
+      "title": "Sulcus centralis",
+      "blocks": [
+        "Hemisferlerin yüzeyi  cortex cerebri [girinti(sulcus) ve çıkıntı(gyrus)]\nPrimer sulcuslar  sulcus centralis, sulcus lateralis,sulcus parietooccipitalis\nBu sulcuslar hemisferleri loblara ayırır."
+      ],
+      "text": "Hemisferlerin yüzeyi  cortex cerebri [girinti(sulcus) ve çıkıntı(gyrus)]\nPrimer sulcuslar  sulcus centralis, sulcus lateralis,sulcus parietooccipitalis\nBu sulcuslar hemisferleri loblara ayırır.",
+      "image": "pages/9/031.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 32,
+      "title": "Sulcus centralis",
+      "blocks": [],
+      "text": "",
+      "image": "pages/9/032.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": false
+    },
+    {
+      "number": 33,
+      "title": "MEDULLA SPİNALİS",
+      "blocks": [
+        "MEDULLA SPİNALİS",
+        "Merkezi sinir sisteminin canalis vertebralis içerisindeki bölümüne medulla\nspinalis (omurilik) denir.\nAtlas’ın üst kenarından başlayan medulla spinalis, L1-2 omurları arasında\nbulunan discus intervertebralis hizasında son bulur.\nOrtalama 40-45 cm uzunluğunda, 1 cm çapında ve 30 gr ağırlığındadır.\nOmuriliğin alt kısmından çıkan sinirler kendilerine ait foramen\nintervertebrale’ye ulaşıncaya kadar aşağıya doğru uzanırlar"
+      ],
+      "text": "MEDULLA SPİNALİS\n\nMerkezi sinir sisteminin canalis vertebralis içerisindeki bölümüne medulla\nspinalis (omurilik) denir.\nAtlas’ın üst kenarından başlayan medulla spinalis, L1-2 omurları arasında\nbulunan discus intervertebralis hizasında son bulur.\nOrtalama 40-45 cm uzunluğunda, 1 cm çapında ve 30 gr ağırlığındadır.\nOmuriliğin alt kısmından çıkan sinirler kendilerine ait foramen\nintervertebrale’ye ulaşıncaya kadar aşağıya doğru uzanırlar",
+      "image": "pages/9/033.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 34,
+      "title": "Medulla spinalis 33 segmenten oluşur.",
+      "blocks": [
+        "Medulla spinalis 33 segmenten oluşur.",
+        "Pars cervicalis (8 segment)",
+        "Pars thoracica (12 segment)",
+        "Pars lumbalis (5 segment)",
+        "Pars sacralis (5 segment)",
+        "Pars coccygea (1/3 segment)",
+        "Her bir segmentten 1 çift spinal sinir\nçıkar. Ancak son iki segment’in (2. ve 3.",
+        "koksigeal segment) iyi gelişmemiş",
+        "olmasından dolayı bunlardan sinir",
+        "çıkmaz ve böylelikle medulla\nspinalis’ten 31 çift spinal sinir çıkar."
+      ],
+      "text": "Medulla spinalis 33 segmenten oluşur.\n\nPars cervicalis (8 segment)\n\nPars thoracica (12 segment)\n\nPars lumbalis (5 segment)\n\nPars sacralis (5 segment)\n\nPars coccygea (1/3 segment)\n\nHer bir segmentten 1 çift spinal sinir\nçıkar. Ancak son iki segment’in (2. ve 3.\n\nkoksigeal segment) iyi gelişmemiş\n\nolmasından dolayı bunlardan sinir\n\nçıkmaz ve böylelikle medulla\nspinalis’ten 31 çift spinal sinir çıkar.",
+      "image": "pages/9/034.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 35,
+      "title": "Medulla spinalis 33 segmenten oluşur.",
+      "blocks": [
+        "Her bir spinal sinir iki\nkökten oluşur. Arka kökler\n(radix posterior) duyusal\nkarakterli olup üzerinde\nganglion spinale bulunur,\nön kökler (radix anterior)\nmotor karakterlidir.",
+        "Her bir spinal sinir for.\nintervertebrale’den\nçıktıktan sonra tekrar iki\ndala ayrılır. Ramus anterior\nve ramus posterior denilen\nbu dallar periferik sinirleri\noluşturur."
+      ],
+      "text": "Her bir spinal sinir iki\nkökten oluşur. Arka kökler\n(radix posterior) duyusal\nkarakterli olup üzerinde\nganglion spinale bulunur,\nön kökler (radix anterior)\nmotor karakterlidir.\n\nHer bir spinal sinir for.\nintervertebrale’den\nçıktıktan sonra tekrar iki\ndala ayrılır. Ramus anterior\nve ramus posterior denilen\nbu dallar periferik sinirleri\noluşturur.",
+      "image": "pages/9/035.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 36,
+      "title": "Medulla spinalis’in dış yapısı",
+      "blocks": [
+        "Medulla spinalis’in dış yapısı",
+        "Radix posterior",
+        "*",
+        "*",
+        "*",
+        "Ganglion spinale",
+        "*",
+        "*",
+        "*",
+        "Nervus spinalis",
+        "*\n*",
+        "Radix anterior",
+        "Fissura mediana anterior"
+      ],
+      "text": "Medulla spinalis’in dış yapısı\n\nRadix posterior\n\n*\n\n*\n\n*\n\nGanglion spinale\n\n*\n\n*\n\n*\n\nNervus spinalis\n\n*\n*\n\nRadix anterior\n\nFissura mediana anterior",
+      "image": "pages/9/036.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 37,
+      "title": "Cornu anteriorlarda somotomotor nöronlar.",
+      "blocks": [
+        "Medulla spinalisten transvers bir kesit yapıldığında ortada görülen H harfi\nşeklindeki gri cevher kitlesine substantia gricea, bunun etrafındaki beyaz\ncevher kitlesine substantia alba denilir.\nGri cevher kitlesinin merkezinde\nyer alan ve tüm medulla spinalis boyunca uzanan kanala canalis centralis\ndenir. Bu kanalın içerisinde BOS (beyin omurilik sıvısı) bulunur.",
+        "H harfi şeklindeki gri cevher\nkitlesinin öne doğru uzanan\nçıkıntılarına cornu anterior arkaya\ndoğru uzanan çıkıntılarına cornu\nposterior denir. Boyun ve göğüs\nbölgelerinde ön ve arka çıkıntılara\nilave olarak cornu laterale\nbulunur.",
+        "Cornu anteriorlarda somotomotor\nnöronlar.",
+        "cornu posteriorlarda duysal\nnöronlar.",
+        "cornu lateralelerde otonom\nsistemle ilgili nöronlar bulunur"
+      ],
+      "text": "Medulla spinalisten transvers bir kesit yapıldığında ortada görülen H harfi\nşeklindeki gri cevher kitlesine substantia gricea, bunun etrafındaki beyaz\ncevher kitlesine substantia alba denilir.\nGri cevher kitlesinin merkezinde\nyer alan ve tüm medulla spinalis boyunca uzanan kanala canalis centralis\ndenir. Bu kanalın içerisinde BOS (beyin omurilik sıvısı) bulunur.\n\nH harfi şeklindeki gri cevher\nkitlesinin öne doğru uzanan\nçıkıntılarına cornu anterior arkaya\ndoğru uzanan çıkıntılarına cornu\nposterior denir. Boyun ve göğüs\nbölgelerinde ön ve arka çıkıntılara\nilave olarak cornu laterale\nbulunur.\n\nCornu anteriorlarda somotomotor\nnöronlar.\n\ncornu posteriorlarda duysal\nnöronlar.\n\ncornu lateralelerde otonom\nsistemle ilgili nöronlar bulunur",
+      "image": "pages/9/037.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 38,
+      "title": "Cornu anteriorlarda somotomotor nöronlar.",
+      "blocks": [],
+      "text": "",
+      "image": "pages/9/038.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": false
+    },
+    {
+      "number": 39,
+      "title": "Medulla spinalis’in zarları:(meninges)",
+      "blocks": [
+        "Medulla spinalis’in zarları:(meninges)",
+        "Dura mater",
+        "Arachnoidea mater",
+        "Pia mater"
+      ],
+      "text": "Medulla spinalis’in zarları:(meninges)\n\nDura mater\n\nArachnoidea mater\n\nPia mater",
+      "image": "pages/9/039.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 40,
+      "title": "Medulla spinalis’in zarları:(meninges)",
+      "blocks": [
+        "2\n3",
+        "1"
+      ],
+      "text": "2\n3\n\n1",
+      "image": "pages/9/040.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 41,
+      "title": "BOS DOLAŞIMI",
+      "blocks": [
+        "BOS DOLAŞIMI",
+        "Medulla spinalisin orta kısmında bulunan canalis vertebralis ve beyni\nçevreleyen zarların arasında BOS (beyin-omurilik sıvısı) bulunur.",
+        "Sıvının içerisinde az miktarda protein, glukoz ve inorganik tuzlar\nbulunur.",
+        "Miktarı toplam 80-150 cm3 kadardır.",
+        "BOS merkezi sinir sistemini travmalara karşı korur."
+      ],
+      "text": "BOS DOLAŞIMI\n\nMedulla spinalisin orta kısmında bulunan canalis vertebralis ve beyni\nçevreleyen zarların arasında BOS (beyin-omurilik sıvısı) bulunur.\n\nSıvının içerisinde az miktarda protein, glukoz ve inorganik tuzlar\nbulunur.\n\nMiktarı toplam 80-150 cm3 kadardır.\n\nBOS merkezi sinir sistemini travmalara karşı korur.",
+      "image": "pages/9/041.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 42,
+      "title": "PERİFERİK SİNİR SİSTEMİ",
+      "blocks": [
+        "PERİFERİK SİNİR SİSTEMİ",
+        "Beyin tabanından çıkan 12 çift kranial sinir ve medulla spinalisten çıkan 31\nçift spinal sinirden oluşmaktadır."
+      ],
+      "text": "PERİFERİK SİNİR SİSTEMİ\n\nBeyin tabanından çıkan 12 çift kranial sinir ve medulla spinalisten çıkan 31\nçift spinal sinirden oluşmaktadır.",
+      "image": "pages/9/042.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 43,
+      "title": "I. I. N. olfactorius N. olfactorius",
+      "blocks": [
+        "I.\nI.\nN. olfactorius\nN. olfactorius",
+        "II.\nII. N. opticus\nN. opticus",
+        "III.\nIII.N. oculomotorius\nN. oculomotorius",
+        "IV.\nIV. N. trochlearis\nN. trochlearis",
+        "V.\nV. N. trigeminus\nN. trigeminus",
+        "VI.\nVI. N. abducens\nN. abducens",
+        "VII.\nVII.N. facialis\nN. facialis",
+        "VIII.\nVIII.N. vestibulocochlearis\nN. vestibulocochlearis",
+        "IX.\nIX.N. glossopharyngeus\nN. glossopharyngeus",
+        "X.\nX. N. vagus\nN. vagus",
+        "XI.\nXI.N. accessorius\nN. accessorius",
+        "XII.\nXII.N. hypoglossus\nN. hypoglossus"
+      ],
+      "text": "I.\nI.\nN. olfactorius\nN. olfactorius\n\nII.\nII. N. opticus\nN. opticus\n\nIII.\nIII.N. oculomotorius\nN. oculomotorius\n\nIV.\nIV. N. trochlearis\nN. trochlearis\n\nV.\nV. N. trigeminus\nN. trigeminus\n\nVI.\nVI. N. abducens\nN. abducens\n\nVII.\nVII.N. facialis\nN. facialis\n\nVIII.\nVIII.N. vestibulocochlearis\nN. vestibulocochlearis\n\nIX.\nIX.N. glossopharyngeus\nN. glossopharyngeus\n\nX.\nX. N. vagus\nN. vagus\n\nXI.\nXI.N. accessorius\nN. accessorius\n\nXII.\nXII.N. hypoglossus\nN. hypoglossus",
+      "image": "pages/9/043.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 44,
+      "title": "I- N. olfactorius (Fila olfactoria): Duyu - Koku siniri",
+      "blocks": [
+        "I- N. olfactorius (Fila olfactoria): Duyu - Koku siniri",
+        "II- N. opticus: Duyu - Görme siniri",
+        "III- N. oculomotorius: Motor, Parasempatik - Gözün hareketleri; ışık refleksi, akkomodasyon.",
+        "IV- N. trochlearis:  Motor - Orbitadaki M. obliquus superior’u innerve eder.",
+        "V- N. trigeminus (üçüz sinir): Motor, Duyu – Yüz ve saçlı deri ön bölümünün duyusu; çiğneme kasları,\nm.tensor tympani, m.tensor veli palatini, m.mylohyoideus ve m.digastricus’un ön karnı.",
+        "VI- N. abducens: Motor - Orbitadaki M. rectus lateralis'i innerve eder.",
+        "VII- N. facialis: Motor, Duyu, Parasempatik - Mimik kasları, m.stapedius, m.stylohyoideus ve\nm.digastricus’un arka karnı; tad duyusu, dış kulak yolu, yumuşak damak ve komşu pharynx bölümü\nduyusu; gl.submandibularis, gl.sublingualis, gl.lacrimalis.",
+        "VIII- N. vestibulocohlearis (n. statoacusticus):  Duyu - İşitme ve denge siniri.",
+        "IX- N. glossopharyngeus: Motor, Duyu, Parasempatik – m.stylopharyngeus; dilin arka kısmı ve\nkomşu pharynx bezleri; oropharynx, tonsilla palatina ve dilin 1/3 arka kısmı (tad ve genel duyu).",
+        "X- N. vagus: Motor, Duyu, Parasempatik – Larynx, pharynx, oesophagus’un 1/3 üst kısmı ve yumuşak\ndamak kasları; oesophagus’tan flexura coli sinistra yakınına kadar sindirim kanalı, trachea,\nbronşlar, safra yolları, kalp; Toraks ve abdomendeki visseral yapıların innervasyonunu sağlar.",
+        "XI- N. accessorius: Motor - Cranial ve spinal iki kökten oluşur. Başlıca m.trapezius,\nm.sternocleidomastoideus’un motor innervasyonu.",
+        "XII- N. hypoglossus: Motor - Dilin motor siniri. Dil hareketleri."
+      ],
+      "text": "I- N. olfactorius (Fila olfactoria): Duyu - Koku siniri\n\nII- N. opticus: Duyu - Görme siniri\n\nIII- N. oculomotorius: Motor, Parasempatik - Gözün hareketleri; ışık refleksi, akkomodasyon.\n\nIV- N. trochlearis:  Motor - Orbitadaki M. obliquus superior’u innerve eder.\n\nV- N. trigeminus (üçüz sinir): Motor, Duyu – Yüz ve saçlı deri ön bölümünün duyusu; çiğneme kasları,\nm.tensor tympani, m.tensor veli palatini, m.mylohyoideus ve m.digastricus’un ön karnı.\n\nVI- N. abducens: Motor - Orbitadaki M. rectus lateralis'i innerve eder.\n\nVII- N. facialis: Motor, Duyu, Parasempatik - Mimik kasları, m.stapedius, m.stylohyoideus ve\nm.digastricus’un arka karnı; tad duyusu, dış kulak yolu, yumuşak damak ve komşu pharynx bölümü\nduyusu; gl.submandibularis, gl.sublingualis, gl.lacrimalis.\n\nVIII- N. vestibulocohlearis (n. statoacusticus):  Duyu - İşitme ve denge siniri.\n\nIX- N. glossopharyngeus: Motor, Duyu, Parasempatik – m.stylopharyngeus; dilin arka kısmı ve\nkomşu pharynx bezleri; oropharynx, tonsilla palatina ve dilin 1/3 arka kısmı (tad ve genel duyu).\n\nX- N. vagus: Motor, Duyu, Parasempatik – Larynx, pharynx, oesophagus’un 1/3 üst kısmı ve yumuşak\ndamak kasları; oesophagus’tan flexura coli sinistra yakınına kadar sindirim kanalı, trachea,\nbronşlar, safra yolları, kalp; Toraks ve abdomendeki visseral yapıların innervasyonunu sağlar.\n\nXI- N. accessorius: Motor - Cranial ve spinal iki kökten oluşur. Başlıca m.trapezius,\nm.sternocleidomastoideus’un motor innervasyonu.\n\nXII- N. hypoglossus: Motor - Dilin motor siniri. Dil hareketleri.",
+      "image": "pages/9/044.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    }
+  ]
+}

@@ -1,0 +1,662 @@
+{
+  "number": 11,
+  "sourceId": "1A3NHH_BjunRlYqAATPruig4wOadjD4_3",
+  "sourceName": "11-Systema. respiratorium (B.D ).pdf",
+  "totalPages": 42,
+  "sourceSha256": "4f45c8d4f9b053ad02945be7bd77d3bce11f6550b08ab76f99ba94b4f19bc866",
+  "importedAt": "2026-10-14",
+  "extraction": "PyMuPDF native text blocks; every page has a rendered visual fallback; no OCR",
+  "pages": [
+    {
+      "number": 1,
+      "title": "Systema Respiratorium",
+      "blocks": [
+        "Systema Respiratorium",
+        "Uzm. Fzt. Bekir DA DEV REN\nĞ\nİ"
+      ],
+      "text": "Systema Respiratorium\n\nUzm. Fzt. Bekir DA DEV REN\nĞ\nİ",
+      "image": "pages/11/001.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 2,
+      "title": "İnsan vücudunda dokuların, besinler kadar oksijene de",
+      "blocks": [
+        "•İnsan vücudunda dokuların, besinler kadar oksijene de",
+        "gereksinimi vardır.",
+        "• Solunum sisteminin primer görevi, solunan havadan",
+        "oksijeni almak ve vücut metabolizması sonucunda\noluşan toksit ürün olan karbondioksiti atmaktır."
+      ],
+      "text": "•İnsan vücudunda dokuların, besinler kadar oksijene de\n\ngereksinimi vardır.\n\n• Solunum sisteminin primer görevi, solunan havadan\n\noksijeni almak ve vücut metabolizması sonucunda\noluşan toksit ürün olan karbondioksiti atmaktır.",
+      "image": "pages/11/002.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 3,
+      "title": "Cavitas thoracis",
+      "blocks": [
+        "•Cavitas thoracis",
+        "•Mediastinum",
+        "•Nasus",
+        "•Sinus Paranasales",
+        "•Larynx (yutak)",
+        "•Trachea",
+        "•Pulmones"
+      ],
+      "text": "•Cavitas thoracis\n\n•Mediastinum\n\n•Nasus\n\n•Sinus Paranasales\n\n•Larynx (yutak)\n\n•Trachea\n\n•Pulmones",
+      "image": "pages/11/003.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 4,
+      "title": "Cavitas thoracis",
+      "blocks": [],
+      "text": "",
+      "image": "pages/11/004.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": false
+    },
+    {
+      "number": 5,
+      "title": "Solunum, atmosferden alınan oksijen ile vücuttaki karbondioksitin yer",
+      "blocks": [
+        "•Solunum, atmosferden alınan oksijen ile vücuttaki karbondioksitin yer",
+        "değiştirmesidir. Bunu sağlayan sisteme solunum sistemi denir.",
+        "•Solunum 2 kısma ayrılır.",
+        "•Dış solunum (external solunum) akciğerlerde olur. Oksijen havadan kana",
+        "geçer,kandaki karbondioksit dışarı verilir.Alınan hava %20 oksijen içerir ve\nbunun sadece %4 ü kullanılır.",
+        "•İç solunum (internal solunum), kanla dokular arasında olur. Oksijen kılcal",
+        "damarlardaki kandan dokuya girer, karbondioksit dokudan kana geçer"
+      ],
+      "text": "•Solunum, atmosferden alınan oksijen ile vücuttaki karbondioksitin yer\n\ndeğiştirmesidir. Bunu sağlayan sisteme solunum sistemi denir.\n\n•Solunum 2 kısma ayrılır.\n\n•Dış solunum (external solunum) akciğerlerde olur. Oksijen havadan kana\n\ngeçer,kandaki karbondioksit dışarı verilir.Alınan hava %20 oksijen içerir ve\nbunun sadece %4 ü kullanılır.\n\n•İç solunum (internal solunum), kanla dokular arasında olur. Oksijen kılcal\n\ndamarlardaki kandan dokuya girer, karbondioksit dokudan kana geçer",
+      "image": "pages/11/005.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 6,
+      "title": "Solunum sırasındaki yanma sonunda",
+      "blocks": [
+        "Solunum sırasındaki yanma sonunda",
+        "-karbondioksit",
+        "-su buharı",
+        "-ısı",
+        "-kas çalışması için serbest enerji açığa çıkar.",
+        "•Bir insan günde 1000 lt. CO2 açığa çıkarır."
+      ],
+      "text": "Solunum sırasındaki yanma sonunda\n\n-karbondioksit\n\n-su buharı\n\n-ısı\n\n-kas çalışması için serbest enerji açığa çıkar.\n\n•Bir insan günde 1000 lt. CO2 açığa çıkarır.",
+      "image": "pages/11/006.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 7,
+      "title": "Solunum sisteminin fonksiyonlarının normal olmadığı bazı durumlar",
+      "blocks": [
+        "Solunum sisteminin fonksiyonlarının normal olmadığı bazı durumlar",
+        "•Apne = Solunum durması",
+        "•Taşipne veya takipne : Solunum hızlanması",
+        "•Bradipne : Solunum yavaşlaması",
+        "•Hiperkapni : Karbondioksit fazlalığı",
+        "•Hipokapni : Karbondioksit azlığı",
+        "•Hipoksi : Oksijen azlığı",
+        "•Asfiksi : Solunum güçlüğü (Boğulma)."
+      ],
+      "text": "Solunum sisteminin fonksiyonlarının normal olmadığı bazı durumlar\n\n•Apne = Solunum durması\n\n•Taşipne veya takipne : Solunum hızlanması\n\n•Bradipne : Solunum yavaşlaması\n\n•Hiperkapni : Karbondioksit fazlalığı\n\n•Hipokapni : Karbondioksit azlığı\n\n•Hipoksi : Oksijen azlığı\n\n•Asfiksi : Solunum güçlüğü (Boğulma).",
+      "image": "pages/11/007.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 8,
+      "title": "Cavitas Thoracis",
+      "blocks": [
+        "Cavitas Thoracis",
+        "Aperura thoracis\nsuperior",
+        "Manubrium\nsterni",
+        "Angulus sterni",
+        "Corpus sterni",
+        "Processus\nxiphoideus",
+        "Aperura thoracis\ninferior"
+      ],
+      "text": "Cavitas Thoracis\n\nAperura thoracis\nsuperior\n\nManubrium\nsterni\n\nAngulus sterni\n\nCorpus sterni\n\nProcessus\nxiphoideus\n\nAperura thoracis\ninferior",
+      "image": "pages/11/008.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 9,
+      "title": "Mediastinum",
+      "blocks": [
+        "Mediastinum",
+        "• Thorax’da bulunan akciğer ve pleura\nhariç tüm yapıları içerir."
+      ],
+      "text": "Mediastinum\n\n• Thorax’da bulunan akciğer ve pleura\nhariç tüm yapıları içerir.",
+      "image": "pages/11/009.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 10,
+      "title": "Mediastinum",
+      "blocks": [
+        "• Önde angulus sterni’den başlayıp arkada\n4. thorakal vertebranın alt sınırından geçen\nhorizontal bir çizgi ile iki kısma ayrılır.\n• Bu horizontal çizginin üzerinde kalan kısma\nmediastinum superius, altında kalan kısma\nise mediastinum inferius adı verilir."
+      ],
+      "text": "• Önde angulus sterni’den başlayıp arkada\n4. thorakal vertebranın alt sınırından geçen\nhorizontal bir çizgi ile iki kısma ayrılır.\n• Bu horizontal çizginin üzerinde kalan kısma\nmediastinum superius, altında kalan kısma\nise mediastinum inferius adı verilir.",
+      "image": "pages/11/010.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 11,
+      "title": "Mediastinum",
+      "blocks": [],
+      "text": "",
+      "image": "pages/11/011.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": false
+    },
+    {
+      "number": 12,
+      "title": "Nasus",
+      "blocks": [
+        "Nasus",
+        "•Solunum sisteminin dışarıdan görülen tek parçasıdır.",
+        "•Fonksiyonları:",
+        "Solunum için hava yolu oluşturur",
+        "Havayı ısıtır ve nemlendirir",
+        "Havayı filtre eder",
+        "Konuşmada sesin tınısını oluşturur",
+        "Koku reseptörlerini barındırır."
+      ],
+      "text": "Nasus\n\n•Solunum sisteminin dışarıdan görülen tek parçasıdır.\n\n•Fonksiyonları:\n\nSolunum için hava yolu oluşturur\n\nHavayı ısıtır ve nemlendirir\n\nHavayı filtre eder\n\nKonuşmada sesin tınısını oluşturur\n\nKoku reseptörlerini barındırır.",
+      "image": "pages/11/012.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 13,
+      "title": "Nasus",
+      "blocks": [
+        "Nasus",
+        "Os Nasale",
+        "Apertura piriformis",
+        "Maxilla",
+        "Spina nasalis anterior"
+      ],
+      "text": "Nasus\n\nOs Nasale\n\nApertura piriformis\n\nMaxilla\n\nSpina nasalis anterior",
+      "image": "pages/11/013.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 14,
+      "title": "-Nares: Burun boşluğunun dış deliği (tekil:naris) -Choana: Burun boşluğunun nasophryx’e açılan deliği",
+      "blocks": [
+        "-Kemik ve kıkırdaktan yapılmıştır.Kas ve deri ile örtülü\nsolunum yolu ve koku organıdır.\n-Burun, nasus externus ve cavitas nasi olmak üzere 2\nkısımda incelenir.\n-Burun boşluğu mukoza ile kaplıdır. Bu mukozada mukus\nsalgısı yapan özelleşmiş hücreler vardır.\n-Burun yoluyla alınan hava içerisinde toz parçacıkları burun\nkılları (Vibrissae) tarafından tutulmaya çalışılır. Böylece\nakciğerlere mümkün olan en temiz hava ulaşmış olur.",
+        "-Nares: Burun boşluğunun dış deliği\n(tekil:naris)\n-Choana: Burun boşluğunun nasophryx’e\naçılan deliği"
+      ],
+      "text": "-Kemik ve kıkırdaktan yapılmıştır.Kas ve deri ile örtülü\nsolunum yolu ve koku organıdır.\n-Burun, nasus externus ve cavitas nasi olmak üzere 2\nkısımda incelenir.\n-Burun boşluğu mukoza ile kaplıdır. Bu mukozada mukus\nsalgısı yapan özelleşmiş hücreler vardır.\n-Burun yoluyla alınan hava içerisinde toz parçacıkları burun\nkılları (Vibrissae) tarafından tutulmaya çalışılır. Böylece\nakciğerlere mümkün olan en temiz hava ulaşmış olur.\n\n-Nares: Burun boşluğunun dış deliği\n(tekil:naris)\n-Choana: Burun boşluğunun nasophryx’e\naçılan deliği",
+      "image": "pages/11/014.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 15,
+      "title": "Nasus externus",
+      "blocks": [
+        "Nasus externus",
+        "Os nasale",
+        "Cartilago\nsepti nasi",
+        "Cartilago\nnasi lateralis",
+        "Cartilago\nalaris major",
+        "Cartilago alaris\nminores\nNares"
+      ],
+      "text": "Nasus externus\n\nOs nasale\n\nCartilago\nsepti nasi\n\nCartilago\nnasi lateralis\n\nCartilago\nalaris major\n\nCartilago alaris\nminores\nNares",
+      "image": "pages/11/015.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 16,
+      "title": "Cavitas Nasi",
+      "blocks": [
+        "Cavitas Nasi",
+        "nares",
+        "•\nNares yolu ile dış ortamla\n•\nChoana yoluyla nasopharynx\nile bağlanır.\n•\nSeptum nasi ile iki eş parçaya\nayrılır.\n•\nCanalis nasolacrimalis ile\norbita’ya açılır ve paranasal\nsinus’lerle bağlantısı vardır.",
+        "choana"
+      ],
+      "text": "Cavitas Nasi\n\nnares\n\n•\nNares yolu ile dış ortamla\n•\nChoana yoluyla nasopharynx\nile bağlanır.\n•\nSeptum nasi ile iki eş parçaya\nayrılır.\n•\nCanalis nasolacrimalis ile\norbita’ya açılır ve paranasal\nsinus’lerle bağlantısı vardır.\n\nchoana",
+      "image": "pages/11/016.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 17,
+      "title": "Cavitas Nasi",
+      "blocks": [
+        "Septum Nasi oluşturan yapılar\nBurun boşluğu ortadan bir bölme ile ikiye ayrılır. Bu bölmeye septum nasi denir.\nLamina perpendicularis ossis ethmoidalis + vomer + Cartilago septi nasi"
+      ],
+      "text": "Septum Nasi oluşturan yapılar\nBurun boşluğu ortadan bir bölme ile ikiye ayrılır. Bu bölmeye septum nasi denir.\nLamina perpendicularis ossis ethmoidalis + vomer + Cartilago septi nasi",
+      "image": "pages/11/017.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 18,
+      "title": "Ductus nasolacrimalis, Meatus nasi inferior’a açılır. Açılma deliğinin",
+      "blocks": [
+        "•Ductus nasolacrimalis, Meatus nasi inferior’a açılır. Açılma deliğinin",
+        "(apertum ductus nasolacrimalis) medial kenarında plica ductus\nnasolacrimalis (Hasner kapağı) denilen bir mukoza plikası bulunur."
+      ],
+      "text": "•Ductus nasolacrimalis, Meatus nasi inferior’a açılır. Açılma deliğinin\n\n(apertum ductus nasolacrimalis) medial kenarında plica ductus\nnasolacrimalis (Hasner kapağı) denilen bir mukoza plikası bulunur.",
+      "image": "pages/11/018.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 19,
+      "title": "Sinus Paranasales",
+      "blocks": [
+        "Sinus Paranasales",
+        "•Burun boşluğunun oluşumuna katılan kemiklerde bulunan değişik şekil ve",
+        "büyüklükteki dört çift boşluktur.",
+        "•İç yüzlerini döşeyen mukoza (silialı), burun boşluğu mukozasıyla devamlıdır.",
+        "•Normalde hava dolu ile olan bu boşluklar, birer kanal aracılığıyla burun",
+        "boşluğu dış duvarına açılırlar.",
+        "•Boşluklarının toplam hacmi 80 cm3 kadardır."
+      ],
+      "text": "Sinus Paranasales\n\n•Burun boşluğunun oluşumuna katılan kemiklerde bulunan değişik şekil ve\n\nbüyüklükteki dört çift boşluktur.\n\n•İç yüzlerini döşeyen mukoza (silialı), burun boşluğu mukozasıyla devamlıdır.\n\n•Normalde hava dolu ile olan bu boşluklar, birer kanal aracılığıyla burun\n\nboşluğu dış duvarına açılırlar.\n\n•Boşluklarının toplam hacmi 80 cm3 kadardır.",
+      "image": "pages/11/019.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 20,
+      "title": "Sinus",
+      "blocks": [
+        "•Sinus",
+        "ethmoidales",
+        "•Sinus frontalis",
+        "•Sinus maxillaris"
+      ],
+      "text": "•Sinus\n\nethmoidales\n\n•Sinus frontalis\n\n•Sinus maxillaris",
+      "image": "pages/11/020.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 21,
+      "title": "Sinus frontalis",
+      "blocks": [
+        "•Sinus frontalis",
+        "•Sinus maxillaris",
+        "•Sinus",
+        "sphenoidalis"
+      ],
+      "text": "•Sinus frontalis\n\n•Sinus maxillaris\n\n•Sinus\n\nsphenoidalis",
+      "image": "pages/11/021.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 22,
+      "title": "Pharynx",
+      "blocks": [
+        "Pharynx",
+        "•Hem solunum, hemde sindirim sitemi ile ilgilidir.",
+        "•Burun boşluğu, ağız boşluğu ve larynx boşluğunun",
+        "arkasında bulunur. 3 kısma ayrılır.",
+        "•Nasopharynx:Burun boşluğunun arkasında bulunan",
+        "yutak bölümü (choana)",
+        "• Oropharynx:\nAğız boşluğunun arkasında\nbulunan yutak bölümü (isthmus fausium)",
+        "• Laryngopharynx:Larynx (gırtlak)’ın arkasında",
+        "bulunan yutak bölümü (aditus laryngis-larynx ve\noeshophagus)"
+      ],
+      "text": "Pharynx\n\n•Hem solunum, hemde sindirim sitemi ile ilgilidir.\n\n•Burun boşluğu, ağız boşluğu ve larynx boşluğunun\n\narkasında bulunur. 3 kısma ayrılır.\n\n•Nasopharynx:Burun boşluğunun arkasında bulunan\n\nyutak bölümü (choana)\n\n• Oropharynx:\nAğız boşluğunun arkasında\nbulunan yutak bölümü (isthmus fausium)\n\n• Laryngopharynx:Larynx (gırtlak)’ın arkasında\n\nbulunan yutak bölümü (aditus laryngis-larynx ve\noeshophagus)",
+      "image": "pages/11/022.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 23,
+      "title": "PHARYNX",
+      "blocks": [
+        "PHARYNX",
+        "NASOPHARYNX",
+        "choana narium",
+        "OROPHARYNX",
+        "LARYNGOPHARYNX",
+        "isthmus faucium",
+        "aditus laryngis"
+      ],
+      "text": "PHARYNX\n\nNASOPHARYNX\n\nchoana narium\n\nOROPHARYNX\n\nLARYNGOPHARYNX\n\nisthmus faucium\n\naditus laryngis",
+      "image": "pages/11/023.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 24,
+      "title": "Larynx",
+      "blocks": [
+        "Larynx"
+      ],
+      "text": "Larynx",
+      "image": "pages/11/024.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 25,
+      "title": "C3-C6 arasındadır.",
+      "blocks": [
+        "•C3-C6 arasındadır.",
+        "•Fonksiyonları:",
+        "•Ses üretimi (konuşma)",
+        "•Hava yolunun açık durmasını sağlar",
+        "(solunum)",
+        "•Havanın ve besin maddelerinin uygun",
+        "kanallara geçişini ayarlar (yutma\nsırasında kapanır, solunumda açılır)",
+        "•En önemli görevi akciğerlerde sıkışmış",
+        "havanın larynx’ten geçerken ses tellerini\n(plica vocalis) titreştirmesi suretiyle sesi\noluşturmasıdır."
+      ],
+      "text": "•C3-C6 arasındadır.\n\n•Fonksiyonları:\n\n•Ses üretimi (konuşma)\n\n•Hava yolunun açık durmasını sağlar\n\n(solunum)\n\n•Havanın ve besin maddelerinin uygun\n\nkanallara geçişini ayarlar (yutma\nsırasında kapanır, solunumda açılır)\n\n•En önemli görevi akciğerlerde sıkışmış\n\nhavanın larynx’ten geçerken ses tellerini\n(plica vocalis) titreştirmesi suretiyle sesi\noluşturmasıdır.",
+      "image": "pages/11/025.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 26,
+      "title": "9 tane kıkırdağı vardır:",
+      "blocks": [
+        "9 tane kıkırdağı vardır:",
+        "•Cartilago thyroidea (prominencia laryngis= adem elması)",
+        "•Cartilago cricoidea (tek tam halka yapısındaki kıkırdak)",
+        "•3 çift küçük kıkırdak:",
+        "Cartilago arytenoidea",
+        "Cartilago corniculata",
+        "Cartilago cuneiforme",
+        "•9. kıkırdak da cartilago epiglottica (epiglottis)",
+        "TEK KIKIRDAK ÇİFT KIKIRDAK",
+        "Cartilago Thyroidea Cartilago Arytenoidea",
+        "Cartilago Epiglottica Cartilago corniculata",
+        "Cartilago Cricoidea Cartilago cuneiforme"
+      ],
+      "text": "9 tane kıkırdağı vardır:\n\n•Cartilago thyroidea (prominencia laryngis= adem elması)\n\n•Cartilago cricoidea (tek tam halka yapısındaki kıkırdak)\n\n•3 çift küçük kıkırdak:\n\nCartilago arytenoidea\n\nCartilago corniculata\n\nCartilago cuneiforme\n\n•9. kıkırdak da cartilago epiglottica (epiglottis)\n\nTEK KIKIRDAK ÇİFT KIKIRDAK\n\nCartilago Thyroidea Cartilago Arytenoidea\n\nCartilago Epiglottica Cartilago corniculata\n\nCartilago Cricoidea Cartilago cuneiforme",
+      "image": "pages/11/026.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 27,
+      "title": "9 tane kıkırdağı vardır:",
+      "blocks": [],
+      "text": "",
+      "image": "pages/11/027.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": false
+    },
+    {
+      "number": 28,
+      "title": "Larynx boşluğu (cavitas laryngis)",
+      "blocks": [
+        "•Larynx boşluğu (cavitas laryngis)",
+        "•Larynx girişi (aditus laryngis).",
+        "•. Üstteki plicaya plica vestibularis *,\nalttaki plicaya plica vocalis** adı verilir.)",
+        "***"
+      ],
+      "text": "•Larynx boşluğu (cavitas laryngis)\n\n•Larynx girişi (aditus laryngis).\n\n•. Üstteki plicaya plica vestibularis *,\nalttaki plicaya plica vocalis** adı verilir.)\n\n***",
+      "image": "pages/11/028.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 29,
+      "title": "Mizmar aralığı (rima glottidis) Yalancı ses telleri (plica vestibularis) Gerçek ses telleri (plica…",
+      "blocks": [
+        "Mizmar aralığı (rima glottidis)\nYalancı ses telleri (plica vestibularis)\nGerçek ses telleri (plica vocalis)"
+      ],
+      "text": "Mizmar aralığı (rima glottidis)\nYalancı ses telleri (plica vestibularis)\nGerçek ses telleri (plica vocalis)",
+      "image": "pages/11/029.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 30,
+      "title": "Cart.thyroidea (tek) – En büyüğü – Prominentia laryngea (adem elması) – Ses telleri önde bu kıkırdağa…",
+      "blocks": [
+        "• Cart.thyroidea (tek)\n– En büyüğü\n– Prominentia laryngea (adem elması)\n– Ses telleri önde bu kıkırdağa tutunur."
+      ],
+      "text": "• Cart.thyroidea (tek)\n– En büyüğü\n– Prominentia laryngea (adem elması)\n– Ses telleri önde bu kıkırdağa tutunur.",
+      "image": "pages/11/030.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 31,
+      "title": "Cart.thyroidea (tek) – En büyüğü – Prominentia laryngea (adem elması) – Ses telleri önde bu kıkırdağa…",
+      "blocks": [],
+      "text": "",
+      "image": "pages/11/031.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": false
+    },
+    {
+      "number": 32,
+      "title": "Trachea",
+      "blocks": [
+        "Trachea",
+        "•-C6-T4 üst kenarı arasında uzanır.",
+        "•-Yaklaşık 11 cm uzunlukta ve 2-2.5",
+        "cm çaptadır.",
+        "•-16-20 adet C (at nalı) şeklinde",
+        "kıkırdaktan oluşur.",
+        "•-Trakea sağ ve sol 2 tane ana bronşa",
+        "ayrılır. Bir bronş sağ, bir bronş sol\nakciğere gider.",
+        "•-Bronşların ince dallarına bronşiol",
+        "denir"
+      ],
+      "text": "Trachea\n\n•-C6-T4 üst kenarı arasında uzanır.\n\n•-Yaklaşık 11 cm uzunlukta ve 2-2.5\n\ncm çaptadır.\n\n•-16-20 adet C (at nalı) şeklinde\n\nkıkırdaktan oluşur.\n\n•-Trakea sağ ve sol 2 tane ana bronşa\n\nayrılır. Bir bronş sağ, bir bronş sol\nakciğere gider.\n\n•-Bronşların ince dallarına bronşiol\n\ndenir",
+      "image": "pages/11/032.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 33,
+      "title": "Ana bronş",
+      "blocks": [
+        "•\nAna bronş",
+        "– Bronchus principalis\n•\nLober bronş",
+        "– Bronchus lobaris\n•\nSegmental bronş",
+        "– Bronchus segmentalis",
+        "Bronchus principalis",
+        "Dexter 3 lober dala ayrılır\nSinister 2 lober dala ayrılır",
+        "•\nSağ ana bronş sola göre daha geniş, daha kısa\nve daha dik seyirlidir."
+      ],
+      "text": "•\nAna bronş\n\n– Bronchus principalis\n•\nLober bronş\n\n– Bronchus lobaris\n•\nSegmental bronş\n\n– Bronchus segmentalis\n\nBronchus principalis\n\nDexter 3 lober dala ayrılır\nSinister 2 lober dala ayrılır\n\n•\nSağ ana bronş sola göre daha geniş, daha kısa\nve daha dik seyirlidir.",
+      "image": "pages/11/033.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 34,
+      "title": "Carina trachea",
+      "blocks": [
+        "Carina trachea",
+        "Trachea",
+        "Bronchus principalis\nsinister",
+        "Bifurcatio tracheae",
+        "Bronchus principalis dexter",
+        "70 o"
+      ],
+      "text": "Carina trachea\n\nTrachea\n\nBronchus principalis\nsinister\n\nBifurcatio tracheae\n\nBronchus principalis dexter\n\n70 o",
+      "image": "pages/11/034.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 35,
+      "title": "Bronchus principalis dexter",
+      "blocks": [
+        "Bronchus principalis dexter",
+        "•Trachea’nın iki bronchus’a",
+        "ayrıldığı yere bifurcatio\ntrachea denir.",
+        "•Sol taraftakinden daha kısa,",
+        "kalın ve vertikal seyirlidir.",
+        "•bronchus lobaris superior",
+        "dexter",
+        "•bronchus lobaris medius",
+        "dexter",
+        "•bronchus lobaris inferior",
+        "dexter"
+      ],
+      "text": "Bronchus principalis dexter\n\n•Trachea’nın iki bronchus’a\n\nayrıldığı yere bifurcatio\ntrachea denir.\n\n•Sol taraftakinden daha kısa,\n\nkalın ve vertikal seyirlidir.\n\n•bronchus lobaris superior\n\ndexter\n\n•bronchus lobaris medius\n\ndexter\n\n•bronchus lobaris inferior\n\ndexter",
+      "image": "pages/11/035.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 36,
+      "title": "Bronchus principalis sinister",
+      "blocks": [
+        "Bronchus principalis sinister",
+        "•Daha uzun, ince ve obliktir.",
+        "•bronchus lobaris superior",
+        "•bronchus lobaris inferior"
+      ],
+      "text": "Bronchus principalis sinister\n\n•Daha uzun, ince ve obliktir.\n\n•bronchus lobaris superior\n\n•bronchus lobaris inferior",
+      "image": "pages/11/036.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 37,
+      "title": "Tepesi (apex pulmonis)",
+      "blocks": [
+        "•\nTepesi (apex pulmonis)",
+        "•\nTabanı (basis pulmonis)",
+        "Akciğerin 3-4 yüzü vardır;",
+        "•Facies costales:Kaburga ve göğüs duvarının iç yüzü,",
+        "•Facies mediastinalis: Akciğerin birbirine ve mediastinuma bakan yüzü,",
+        "•Facies interlobalis: Loblar arasındaki yüzü,",
+        "•Facies diaphragmatica: Diafragma üstüne oturan yüzeyine denir"
+      ],
+      "text": "•\nTepesi (apex pulmonis)\n\n•\nTabanı (basis pulmonis)\n\nAkciğerin 3-4 yüzü vardır;\n\n•Facies costales:Kaburga ve göğüs duvarının iç yüzü,\n\n•Facies mediastinalis: Akciğerin birbirine ve mediastinuma bakan yüzü,\n\n•Facies interlobalis: Loblar arasındaki yüzü,\n\n•Facies diaphragmatica: Diafragma üstüne oturan yüzeyine denir",
+      "image": "pages/11/037.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 38,
+      "title": "Fissura’larla loblara ayrılırlar",
+      "blocks": [
+        "•\nFissura’larla loblara ayrılırlar",
+        "•\nSağ akciğer (3 lob)",
+        "– Fissura obliqua\n– Fissura horizontalis",
+        "•\nSol akciğer (2 lob)",
+        "– Fissura obliqua"
+      ],
+      "text": "•\nFissura’larla loblara ayrılırlar\n\n•\nSağ akciğer (3 lob)\n\n– Fissura obliqua\n– Fissura horizontalis\n\n•\nSol akciğer (2 lob)\n\n– Fissura obliqua",
+      "image": "pages/11/038.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 39,
+      "title": "Fissura’larla loblara ayrılırlar",
+      "blocks": [],
+      "text": "",
+      "image": "pages/11/039.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": false
+    },
+    {
+      "number": 40,
+      "title": "Diaphragma",
+      "blocks": [
+        "Diaphragma",
+        "•Göğüs ve karın boşluklarını birbirinden ayıran kubbe şekilli, kas ve zarlardan",
+        "oluşan bir yapıdır.",
+        "•\nKasıldığı zaman düzleşerek abdomen boşluğuna doğru iner.",
+        "•\nToraks boşluğundaki hacmin büyümesine ve basıncın düşmesine neden\nolur.",
+        "•\nToraks içi basıncın düşmesinden dolayı toraks hava ile dolar.",
+        "•\nDiaphragma’nın motor siniri n.phrenicus’tur."
+      ],
+      "text": "Diaphragma\n\n•Göğüs ve karın boşluklarını birbirinden ayıran kubbe şekilli, kas ve zarlardan\n\noluşan bir yapıdır.\n\n•\nKasıldığı zaman düzleşerek abdomen boşluğuna doğru iner.\n\n•\nToraks boşluğundaki hacmin büyümesine ve basıncın düşmesine neden\nolur.\n\n•\nToraks içi basıncın düşmesinden dolayı toraks hava ile dolar.\n\n•\nDiaphragma’nın motor siniri n.phrenicus’tur.",
+      "image": "pages/11/040.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 41,
+      "title": "- Pars Sternalis Diaphragmatica,",
+      "blocks": [
+        "-\nPars Sternalis Diaphragmatica,",
+        "-\nPars Costalis Diaphragmatica, 3’e ayrılır.",
+        "-\nPars Lumbalis Diaphragmatica\n•\nDiaphragma’da thoraks ve abdomen boşluğunda yer alan bazı oluşumların\ngeçişine izin veren üç büyük ve birkaç küçük açıklık bulunur.\n•\nBunlar;",
+        "•-Hiatus aorticus\n•-Hiatus oesphageus",
+        "•-Foramen venae cavae"
+      ],
+      "text": "-\nPars Sternalis Diaphragmatica,\n\n-\nPars Costalis Diaphragmatica, 3’e ayrılır.\n\n-\nPars Lumbalis Diaphragmatica\n•\nDiaphragma’da thoraks ve abdomen boşluğunda yer alan bazı oluşumların\ngeçişine izin veren üç büyük ve birkaç küçük açıklık bulunur.\n•\nBunlar;\n\n•-Hiatus aorticus\n•-Hiatus oesphageus\n\n•-Foramen venae cavae",
+      "image": "pages/11/041.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    },
+    {
+      "number": 42,
+      "title": "İYİ GÜNLER",
+      "blocks": [
+        "İYİ GÜNLER"
+      ],
+      "text": "İYİ GÜNLER",
+      "image": "pages/11/042.webp",
+      "width": 1600,
+      "height": 900,
+      "hasExtractableText": true
+    }
+  ]
+}

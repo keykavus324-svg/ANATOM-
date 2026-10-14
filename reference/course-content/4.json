@@ -1,0 +1,822 @@
+{
+  "number": 4,
+  "sourceId": "1ETxzf8aYw6TPmqfZ86iAQasfAPCYAG9g",
+  "sourceName": "4-hem, ebe ÜST VE ALT EKST. Kemikler.pdf",
+  "totalPages": 49,
+  "sourceSha256": "969d3933cc5b96c19a0bf6dceb592023ce58b3379aa79c3f2368d72b57d511be",
+  "importedAt": "2026-10-14",
+  "extraction": "PyMuPDF native text blocks; every page has a rendered visual fallback; no OCR",
+  "pages": [
+    {
+      "number": 1,
+      "title": "KEMİKLER (OSTEOLOGİA)",
+      "blocks": [
+        "KEMİKLER (OSTEOLOGİA)"
+      ],
+      "text": "KEMİKLER (OSTEOLOGİA)",
+      "image": "pages/4/001.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 2,
+      "title": "Appendiculare",
+      "blocks": [
+        "Appendiculare",
+        "SkeletonSkeletonAppendiculare"
+      ],
+      "text": "Appendiculare\n\nSkeletonSkeletonAppendiculare",
+      "image": "pages/4/002.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 3,
+      "title": "Skeleton",
+      "blocks": [
+        "Skeleton",
+        "(206)",
+        "Skeleton",
+        "axiale",
+        "Skeleton\nappendiculare",
+        "(80)",
+        "(126)",
+        "Cranium (22)",
+        "Ossa membri",
+        "Ossa membri\nsuperioris (64)",
+        "inferioris (62)",
+        "Ossicula\nauditoria (6)",
+        "Cingulum",
+        "Pars libera",
+        "Cingulum",
+        "Pars libera",
+        "membri\nsuperioris (4)",
+        "membri\nsuperioris (60)",
+        "membri\ninferioris (2)",
+        "membri\ninferioris (60)",
+        "Os hyoideum",
+        "(1)",
+        "Columna\nvertebralis (26)",
+        "Costae ve\nsternum (25)"
+      ],
+      "text": "Skeleton\n\n(206)\n\nSkeleton\n\naxiale\n\nSkeleton\nappendiculare\n\n(80)\n\n(126)\n\nCranium (22)\n\nOssa membri\n\nOssa membri\nsuperioris (64)\n\ninferioris (62)\n\nOssicula\nauditoria (6)\n\nCingulum\n\nPars libera\n\nCingulum\n\nPars libera\n\nmembri\nsuperioris (4)\n\nmembri\nsuperioris (60)\n\nmembri\ninferioris (2)\n\nmembri\ninferioris (60)\n\nOs hyoideum\n\n(1)\n\nColumna\nvertebralis (26)\n\nCostae ve\nsternum (25)",
+      "image": "pages/4/003.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 4,
+      "title": "Skeleton",
+      "blocks": [],
+      "text": "",
+      "image": "pages/4/004.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": false
+    },
+    {
+      "number": 5,
+      "title": "Üst Ekstremite Kemikleri",
+      "blocks": [
+        "Üst Ekstremite Kemikleri",
+        "A. Cingulum membri superior (Omuz Kavşağı\nKemikleri)",
+        "•Scapula\n•Clavicula",
+        "B. Pars libera membri superioris (Üst Taraf",
+        "Serbest Kemkleri)\n•Humerus\n•Radius\n•Ulna\n•Ossa carpi (8)\n•Ossa metacarpi (5)\nOssa manus\n•Phalanges (14)"
+      ],
+      "text": "Üst Ekstremite Kemikleri\n\nA. Cingulum membri superior (Omuz Kavşağı\nKemikleri)\n\n•Scapula\n•Clavicula\n\nB. Pars libera membri superioris (Üst Taraf\n\nSerbest Kemkleri)\n•Humerus\n•Radius\n•Ulna\n•Ossa carpi (8)\n•Ossa metacarpi (5)\nOssa manus\n•Phalanges (14)",
+      "image": "pages/4/005.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 6,
+      "title": "Scapula",
+      "blocks": [
+        "Scapula",
+        "2.-7. thoracal vertebra hizasında\nve dorsumda yer alır",
+        "•Üç köşesi (angulus)",
+        "•Üç kenarı (margo)",
+        "•İki yüzü (facies)"
+      ],
+      "text": "Scapula\n\n2.-7. thoracal vertebra hizasında\nve dorsumda yer alır\n\n•Üç köşesi (angulus)\n\n•Üç kenarı (margo)\n\n•İki yüzü (facies)",
+      "image": "pages/4/006.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 7,
+      "title": "Scapula",
+      "blocks": [
+        "Scapula",
+        "Üç çıkıntısı\nvardır",
+        "•Processus",
+        "coracoideus",
+        "•Spina scapulae",
+        "•Acromion"
+      ],
+      "text": "Scapula\n\nÜç çıkıntısı\nvardır\n\n•Processus\n\ncoracoideus\n\n•Spina scapulae\n\n•Acromion",
+      "image": "pages/4/007.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 8,
+      "title": "Scapula",
+      "blocks": [],
+      "text": "",
+      "image": "pages/4/008.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": false
+    },
+    {
+      "number": 9,
+      "title": "Clavicula",
+      "blocks": [
+        "Clavicula",
+        "•En yüzeyel yerleşimli,",
+        "•En kolay kırılabilen,",
+        "•Kemikleşmesi ilk",
+        "başlayan ve en son\ntamamlanan kemiktir.",
+        "•S harfi şeklinde ve",
+        "horizontal\nyerleşimlidir",
+        "•Medialde manibrium",
+        "sterni, lateralde ise\nacromion ile eklem\nyapar"
+      ],
+      "text": "Clavicula\n\n•En yüzeyel yerleşimli,\n\n•En kolay kırılabilen,\n\n•Kemikleşmesi ilk\n\nbaşlayan ve en son\ntamamlanan kemiktir.\n\n•S harfi şeklinde ve\n\nhorizontal\nyerleşimlidir\n\n•Medialde manibrium\n\nsterni, lateralde ise\nacromion ile eklem\nyapar",
+      "image": "pages/4/009.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 10,
+      "title": "Humerus",
+      "blocks": [
+        "Humerus",
+        "•\nÜst ekstremitenin en uzun ve en kalın\nkemiğidir.\n•\nExtremitas proximalis\n•\nExtremitas distalis\n•\nCorpus humeri"
+      ],
+      "text": "Humerus\n\n•\nÜst ekstremitenin en uzun ve en kalın\nkemiğidir.\n•\nExtremitas proximalis\n•\nExtremitas distalis\n•\nCorpus humeri",
+      "image": "pages/4/010.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 11,
+      "title": "Extremitas proximalis",
+      "blocks": [
+        "Extremitas proximalis",
+        "•\nCaput humeri\n•\nCollum anatomicum\n•\nTuberculum majus\n•\nTuberculum minus"
+      ],
+      "text": "Extremitas proximalis\n\n•\nCaput humeri\n•\nCollum anatomicum\n•\nTuberculum majus\n•\nTuberculum minus",
+      "image": "pages/4/011.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 12,
+      "title": "Corpus humeri",
+      "blocks": [
+        "Corpus humeri",
+        "•\nÖn-dış yüzünde\ntuberositas deltoidea\nbulunur."
+      ],
+      "text": "Corpus humeri\n\n•\nÖn-dış yüzünde\ntuberositas deltoidea\nbulunur.",
+      "image": "pages/4/012.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 13,
+      "title": "Extremitas distalis",
+      "blocks": [
+        "Extremitas distalis",
+        "• Epicondylus medialis\n(daha belirgindir)\n• Epicondylus lateralis",
+        "• Arkada: fossa olecrani"
+      ],
+      "text": "Extremitas distalis\n\n• Epicondylus medialis\n(daha belirgindir)\n• Epicondylus lateralis\n\n• Arkada: fossa olecrani",
+      "image": "pages/4/013.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 14,
+      "title": "Extremitas distalis",
+      "blocks": [
+        "• Alt uçta iki eklem yüzü vardır.\n• Dış tarafta: capitulum humeri bulunur. Burası caput radii ile eklem\nyapar.\n• İç tarafta: trochlea humeri bulunur. Burası ise ulna’daki inc.\ntrochlearis ile eklem yapar."
+      ],
+      "text": "• Alt uçta iki eklem yüzü vardır.\n• Dış tarafta: capitulum humeri bulunur. Burası caput radii ile eklem\nyapar.\n• İç tarafta: trochlea humeri bulunur. Burası ise ulna’daki inc.\ntrochlearis ile eklem yapar.",
+      "image": "pages/4/014.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 15,
+      "title": "Ossa antebrachii",
+      "blocks": [
+        "Ossa antebrachii",
+        "• İçte ulna\n• Dışta radius"
+      ],
+      "text": "Ossa antebrachii\n\n• İçte ulna\n• Dışta radius",
+      "image": "pages/4/015.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 16,
+      "title": "RadiusRadius",
+      "blocks": [
+        "RadiusRadius",
+        "••Ön kolun dış tarafında",
+        "Alt ucu daha kalındır",
+        "Ön kolun dış tarafında\nbulunan kemiktir.bulunan kemiktir.\n••Alt ucu daha kalındır"
+      ],
+      "text": "RadiusRadius\n\n••Ön kolun dış tarafında\n\nAlt ucu daha kalındır\n\nÖn kolun dış tarafında\nbulunan kemiktir.bulunan kemiktir.\n••Alt ucu daha kalındır",
+      "image": "pages/4/016.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 17,
+      "title": "Alt uç daha geniştir. • Proc. Styloideus radi (dışta)",
+      "blocks": [
+        "• Alt uç daha geniştir.\n• Proc. Styloideus radi (dışta)",
+        "ön\narka\niç"
+      ],
+      "text": "• Alt uç daha geniştir.\n• Proc. Styloideus radi (dışta)\n\nön\narka\niç",
+      "image": "pages/4/017.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 18,
+      "title": "Eklem yaptığı kemikler",
+      "blocks": [
+        "Eklem yaptığı kemikler",
+        "•\nHumerus\n•\nUlna\n•\nOs scaphoideum\n•\nOs lunatum"
+      ],
+      "text": "Eklem yaptığı kemikler\n\n•\nHumerus\n•\nUlna\n•\nOs scaphoideum\n•\nOs lunatum",
+      "image": "pages/4/018.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 19,
+      "title": "UlnaUlna",
+      "blocks": [
+        "UlnaUlna",
+        "• Ön kolda ve içte bulunur.\n• Proksimal ucu daha kalın."
+      ],
+      "text": "UlnaUlna\n\n• Ön kolda ve içte bulunur.\n• Proksimal ucu daha kalın.",
+      "image": "pages/4/019.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 20,
+      "title": ", üst uç",
+      "blocks": [
+        ", üst uç",
+        "UlnaUlna, üst uç",
+        "• Olecranon: Dirsek çıkıntısı olarakta bilinir.\n• Olecranon’un üst noktası humerus’un fossa\nolecrani’sine oturur.\n• Inc. trochlearis: Humerus’un trochlea\nhumeri’si ile eklem yapar."
+      ],
+      "text": ", üst uç\n\nUlnaUlna, üst uç\n\n• Olecranon: Dirsek çıkıntısı olarakta bilinir.\n• Olecranon’un üst noktası humerus’un fossa\nolecrani’sine oturur.\n• Inc. trochlearis: Humerus’un trochlea\nhumeri’si ile eklem yapar.",
+      "image": "pages/4/020.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 21,
+      "title": "Eklem Yaptığı Kemikler",
+      "blocks": [
+        "Eklem Yaptığı Kemikler",
+        "•\nRadius ve humerus ile direkt eklem yapar.\n•\nEl bileği kemikleri ile doğrudan teması yoktur.\nAralarında bir diskus bulunur."
+      ],
+      "text": "Eklem Yaptığı Kemikler\n\n•\nRadius ve humerus ile direkt eklem yapar.\n•\nEl bileği kemikleri ile doğrudan teması yoktur.\nAralarında bir diskus bulunur.",
+      "image": "pages/4/021.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 22,
+      "title": "Ossa manus",
+      "blocks": [
+        "Ossa manus",
+        "• El iskeleti 27 kemikten oluşur.\n• Ossa carpi (El bileği kemikleri)\n• Ossa metacarpi (El tarak kemikleri)\n• Ossa digitorum manus (El parmak kemikleri)"
+      ],
+      "text": "Ossa manus\n\n• El iskeleti 27 kemikten oluşur.\n• Ossa carpi (El bileği kemikleri)\n• Ossa metacarpi (El tarak kemikleri)\n• Ossa digitorum manus (El parmak kemikleri)",
+      "image": "pages/4/022.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 23,
+      "title": "Ossa carpi: 8 Ossa metacarpi:5 Ossa digitorum manus:14",
+      "blocks": [
+        "Ossa carpi: 8\nOssa metacarpi:5\nOssa digitorum manus:14"
+      ],
+      "text": "Ossa carpi: 8\nOssa metacarpi:5\nOssa digitorum manus:14",
+      "image": "pages/4/023.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 24,
+      "title": "Ossa carpi (El bileği kemikleri)",
+      "blocks": [
+        "Ossa carpi (El bileği kemikleri)",
+        "Proksimal sıra (Dıştan-içe)\nDistal sıra (Dıştan-içe)\nOs scaphoideum\nOs trapezium\nOs lunatum\nOs trapezoideum\nOs triquetrum\nOs capitatum\nOs psiforme\nOs hamatum"
+      ],
+      "text": "Ossa carpi (El bileği kemikleri)\n\nProksimal sıra (Dıştan-içe)\nDistal sıra (Dıştan-içe)\nOs scaphoideum\nOs trapezium\nOs lunatum\nOs trapezoideum\nOs triquetrum\nOs capitatum\nOs psiforme\nOs hamatum",
+      "image": "pages/4/024.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 25,
+      "title": "Ossa metacarpi (El tarağı kemikleri)",
+      "blocks": [
+        "Ossa metacarpi (El tarağı kemikleri)",
+        "• 5 adet ince ve uzun kemiklerdir.",
+        "lateralden mediale doğru\n• Os metacarpale I\n• Os metacarpale II\n• Os metacarpale III\n• Os metacarpale IV\n• Os metacarpale V"
+      ],
+      "text": "Ossa metacarpi (El tarağı kemikleri)\n\n• 5 adet ince ve uzun kemiklerdir.\n\nlateralden mediale doğru\n• Os metacarpale I\n• Os metacarpale II\n• Os metacarpale III\n• Os metacarpale IV\n• Os metacarpale V",
+      "image": "pages/4/025.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 26,
+      "title": "Ossa metacarpii",
+      "blocks": [
+        "Ossa metacarpii",
+        "•\nCorpus\nmetacarpalis\n(gövdesi)\n•\nBasis metacarpalis\n(Proksimal ucu)\n•\nCaput\nmetacarpalis\n(Distal ucu)"
+      ],
+      "text": "Ossa metacarpii\n\n•\nCorpus\nmetacarpalis\n(gövdesi)\n•\nBasis metacarpalis\n(Proksimal ucu)\n•\nCaput\nmetacarpalis\n(Distal ucu)",
+      "image": "pages/4/026.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 27,
+      "title": "Ossa digitorum manus",
+      "blocks": [
+        "Ossa digitorum manus",
+        "• Başparmakta iki, diğer\nparmaklarda üçer adet falanks\n(phalanx) bulunur. Toplam 14\nadettir.\n• Phalanx proximalis,\n• Phalanx media,\n• Phalanx distalis\n(ya da 1. 2. 3. falanks olarakta",
+        "isimlendirilir)."
+      ],
+      "text": "Ossa digitorum manus\n\n• Başparmakta iki, diğer\nparmaklarda üçer adet falanks\n(phalanx) bulunur. Toplam 14\nadettir.\n• Phalanx proximalis,\n• Phalanx media,\n• Phalanx distalis\n(ya da 1. 2. 3. falanks olarakta\n\nisimlendirilir).",
+      "image": "pages/4/027.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 28,
+      "title": "Alt Ekstremite Kemikleri",
+      "blocks": [
+        "Alt Ekstremite Kemikleri",
+        "A. Alt Taraf Kavşağı Kemikleri\n•Os Coxae (Kalça kemiği)\n-Os ilium\n-Os Pubis\n-Os İschii",
+        "B. Alt taraf Serbest Kemikleri",
+        "•Os Femoris (Uyluk Kemiği)\n•Bacak Kemikleri\n-Tibia (Kaval Kemiği)\n-Fibula (Kamış Kemiği)\n• Patella (Diz Kapağı Kemiği)\n•Ayak Kemikleri\n-Ossa tarsi (Ayak bileği kemikleri)\n-Ossa metattarsi (Ayak Tarak Kemikleri)\n-Ossa digitorum pedis, Phlanges Ayak\nParmak Kemikleri)"
+      ],
+      "text": "Alt Ekstremite Kemikleri\n\nA. Alt Taraf Kavşağı Kemikleri\n•Os Coxae (Kalça kemiği)\n-Os ilium\n-Os Pubis\n-Os İschii\n\nB. Alt taraf Serbest Kemikleri\n\n•Os Femoris (Uyluk Kemiği)\n•Bacak Kemikleri\n-Tibia (Kaval Kemiği)\n-Fibula (Kamış Kemiği)\n• Patella (Diz Kapağı Kemiği)\n•Ayak Kemikleri\n-Ossa tarsi (Ayak bileği kemikleri)\n-Ossa metattarsi (Ayak Tarak Kemikleri)\n-Ossa digitorum pedis, Phlanges Ayak\nParmak Kemikleri)",
+      "image": "pages/4/028.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 29,
+      "title": "Os ilium",
+      "blocks": [
+        "Os ilium",
+        "Os pubis",
+        "Os ischii"
+      ],
+      "text": "Os ilium\n\nOs pubis\n\nOs ischii",
+      "image": "pages/4/029.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 30,
+      "title": "Coxae",
+      "blocks": [
+        "Coxae",
+        "•Geniş, düzensiz ve yassı",
+        "OsOsCoxae",
+        "3 ayrı parçada incelenir.",
+        "Bu üç parçanın birleşim yerinde",
+        "Acetabulum adı verilen bir çukurluk",
+        "bulunur ve bu çukurun ön alt",
+        "kısmında geniş bir delik olan",
+        "Foramen obturatum bulunur",
+        "•Os ilium;",
+        "Kalça kemiğinin en büyük parçasıdır.",
+        "Kanat şeklindedir. Scapula’yı andırır.",
+        "-\nSpina iliaca anterior superior"
+      ],
+      "text": "Coxae\n\n•Geniş, düzensiz ve yassı\n\nOsOsCoxae\n\n3 ayrı parçada incelenir.\n\nBu üç parçanın birleşim yerinde\n\nAcetabulum adı verilen bir çukurluk\n\nbulunur ve bu çukurun ön alt\n\nkısmında geniş bir delik olan\n\nForamen obturatum bulunur\n\n•Os ilium;\n\nKalça kemiğinin en büyük parçasıdır.\n\nKanat şeklindedir. Scapula’yı andırır.\n\n-\nSpina iliaca anterior superior",
+      "image": "pages/4/030.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 31,
+      "title": "Coxae",
+      "blocks": [
+        "Coxae",
+        "•Os pubis;",
+        "OsOsCoxae",
+        "Kalça kemiğinin ön-alt bölümünü",
+        "oluşturur.\nİki kolu Foramen obturatum’u",
+        "çevreler",
+        "- Facies symphysialis",
+        "Sağ ve sol bu iki yüz birleşerek\nSymphysis pubica eklemini",
+        "oluşturur.\n•Os ischiii;",
+        "Kalça kemiğinin arka-alt bölümünü\noluşturur. En sağlam kemiğidir.\nForamen obturatum’u kalan kısmını\nçevreler\n- Tuber ischiadicum"
+      ],
+      "text": "Coxae\n\n•Os pubis;\n\nOsOsCoxae\n\nKalça kemiğinin ön-alt bölümünü\n\noluşturur.\nİki kolu Foramen obturatum’u\n\nçevreler\n\n- Facies symphysialis\n\nSağ ve sol bu iki yüz birleşerek\nSymphysis pubica eklemini\n\noluşturur.\n•Os ischiii;\n\nKalça kemiğinin arka-alt bölümünü\noluşturur. En sağlam kemiğidir.\nForamen obturatum’u kalan kısmını\nçevreler\n- Tuber ischiadicum",
+      "image": "pages/4/031.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 32,
+      "title": "Coxae",
+      "blocks": [],
+      "text": "",
+      "image": "pages/4/032.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": false
+    },
+    {
+      "number": 33,
+      "title": "Apertura pelvis inferior çapları 1. Sagittal çap (9-11.5 cm) 2. Transvers çap (11 cm)",
+      "blocks": [
+        "•Apertura pelvis inferior çapları\n1. Sagittal çap (9-11.5 cm)\n2. Transvers çap (11 cm)"
+      ],
+      "text": "•Apertura pelvis inferior çapları\n1. Sagittal çap (9-11.5 cm)\n2. Transvers çap (11 cm)",
+      "image": "pages/4/033.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 34,
+      "title": "Apertura pelvis inferior çapları 1. Sagittal çap (9-11.5 cm) 2. Transvers çap (11 cm)",
+      "blocks": [],
+      "text": "",
+      "image": "pages/4/034.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": false
+    },
+    {
+      "number": 35,
+      "title": "Os",
+      "blocks": [
+        "••Os",
+        "OsFemoris",
+        "Femoris\nVücudun en kalın en uzun ve en Vücudun en kalın en uzun ve en\nsasağ",
+        "lam kemiğ",
+        "ğlam kemi",
+        "ğidir.",
+        "idir.\nKalça kemiKalça kemiğ",
+        "ği ve bacak",
+        "i ve bacak\nkemikleriyle eklem yapar. kemikleriyle eklem yapar.\nÜst ucuÜst ucu(",
+        "(Extremitas",
+        "Extremitasproksimalis",
+        "proksimalis);",
+        ");\n--Caput",
+        "Caputossis",
+        "ossisfemoris",
+        "femoris\n--Collum",
+        "Collumossis",
+        "ossisfemoris",
+        "femoris(kırık çok",
+        "(kırık çok\nolur)olur)\n--Trochanter",
+        "Trochantermajor",
+        "minor",
+        "major\n--Trochanter",
+        "Trochanterminor"
+      ],
+      "text": "••Os\n\nOsFemoris\n\nFemoris\nVücudun en kalın en uzun ve en Vücudun en kalın en uzun ve en\nsasağ\n\nlam kemiğ\n\nğlam kemi\n\nğidir.\n\nidir.\nKalça kemiKalça kemiğ\n\nği ve bacak\n\ni ve bacak\nkemikleriyle eklem yapar. kemikleriyle eklem yapar.\nÜst ucuÜst ucu(\n\n(Extremitas\n\nExtremitasproksimalis\n\nproksimalis);\n\n);\n--Caput\n\nCaputossis\n\nossisfemoris\n\nfemoris\n--Collum\n\nCollumossis\n\nossisfemoris\n\nfemoris(kırık çok\n\n(kırık çok\nolur)olur)\n--Trochanter\n\nTrochantermajor\n\nminor\n\nmajor\n--Trochanter\n\nTrochanterminor",
+      "image": "pages/4/035.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 36,
+      "title": "Os",
+      "blocks": [
+        "••Os",
+        "OsFemoris",
+        "Femoris\nÜst ucuÜst ucu(",
+        "(Extremitas",
+        "Extremitasproksimalis",
+        "proksimalis);",
+        ");\n--Caput",
+        "Caputossis",
+        "ossisfemoris",
+        "femoris\n--Collum",
+        "Collumossis",
+        "ossisfemoris",
+        "femoris(kırık çok",
+        "(kırık çok\nolur)olur)\n--Trochanter",
+        "Trochantermajor",
+        "minor",
+        "major\n--Trochanter",
+        "Trochanterminor"
+      ],
+      "text": "••Os\n\nOsFemoris\n\nFemoris\nÜst ucuÜst ucu(\n\n(Extremitas\n\nExtremitasproksimalis\n\nproksimalis);\n\n);\n--Caput\n\nCaputossis\n\nossisfemoris\n\nfemoris\n--Collum\n\nCollumossis\n\nossisfemoris\n\nfemoris(kırık çok\n\n(kırık çok\nolur)olur)\n--Trochanter\n\nTrochantermajor\n\nminor\n\nmajor\n--Trochanter\n\nTrochanterminor",
+      "image": "pages/4/036.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 37,
+      "title": "Os",
+      "blocks": [
+        "••Os",
+        "OsFemoris",
+        "Femoris\nAlt ucuAlt ucu(",
+        "(Extremitas",
+        "Extremitasdistalis",
+        "distalis);",
+        ");\n--Condylus",
+        "Condylusmedialis",
+        "lateralis",
+        "medialis\n--Condylus",
+        "Condyluslateralis"
+      ],
+      "text": "••Os\n\nOsFemoris\n\nFemoris\nAlt ucuAlt ucu(\n\n(Extremitas\n\nExtremitasdistalis\n\ndistalis);\n\n);\n--Condylus\n\nCondylusmedialis\n\nlateralis\n\nmedialis\n--Condylus\n\nCondyluslateralis",
+      "image": "pages/4/037.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 38,
+      "title": "Sağ femurun arkadan",
+      "blocks": [
+        "Sağ femurun arkadan",
+        "Caput femoris",
+        "görünümü",
+        "Sağ femurun\nönden görünümü",
+        "Trochanter",
+        "Collum femoris",
+        "major",
+        "Trochanter minor",
+        "Linea\nintertrochanterica",
+        "Crista\nintertrochanterica",
+        "Linea aspera",
+        "Tuberculum\nadductorium",
+        "Epicondylus",
+        "lateralis\nEpicondylus\nmedialis"
+      ],
+      "text": "Sağ femurun arkadan\n\nCaput femoris\n\ngörünümü\n\nSağ femurun\nönden görünümü\n\nTrochanter\n\nCollum femoris\n\nmajor\n\nTrochanter minor\n\nLinea\nintertrochanterica\n\nCrista\nintertrochanterica\n\nLinea aspera\n\nTuberculum\nadductorium\n\nEpicondylus\n\nlateralis\nEpicondylus\nmedialis",
+      "image": "pages/4/038.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 39,
+      "title": "(Diz Kapağ",
+      "blocks": [
+        "i)",
+        "(Diz Kapağ",
+        "ı Kemiğ",
+        "ğı Kemi",
+        "ği)",
+        "PatellaPatella(Diz Kapa"
+      ],
+      "text": "i)\n\n(Diz Kapağ\n\nı Kemiğ\n\nğı Kemi\n\nği)\n\nPatellaPatella(Diz Kapa",
+      "image": "pages/4/039.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 40,
+      "title": "Bacak KemikleriBacak Kemikleri",
+      "blocks": [
+        "Bacak KemikleriBacak Kemikleri",
+        "••Tibia",
+        "Tibia\n--Baca",
+        "ın medialinde",
+        "Bacağ",
+        "ğın",
+        "medialinde\nbulunur.bulunur.\nÜst ucu; Üst ucu;\nConylusConyluslateralis",
+        "lateralis\nCondylusCondylusmedialis",
+        "(Patellar",
+        "Patellarligament",
+        "ligamentyapışır",
+        "medialis\nTuberositasTuberositastibiae",
+        "tibiae(",
+        "yapışır)",
+        "medialis",
+        ")\nAlt ucu;Alt ucu;\nMalleolusMalleolusmedialis"
+      ],
+      "text": "Bacak KemikleriBacak Kemikleri\n\n••Tibia\n\nTibia\n--Baca\n\nın medialinde\n\nBacağ\n\nğın\n\nmedialinde\nbulunur.bulunur.\nÜst ucu; Üst ucu;\nConylusConyluslateralis\n\nlateralis\nCondylusCondylusmedialis\n\n(Patellar\n\nPatellarligament\n\nligamentyapışır\n\nmedialis\nTuberositasTuberositastibiae\n\ntibiae(\n\nyapışır)\n\nmedialis\n\n)\nAlt ucu;Alt ucu;\nMalleolusMalleolusmedialis",
+      "image": "pages/4/040.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 41,
+      "title": "Üst ucu; Üst ucu; ConylusConyluslateralis",
+      "blocks": [
+        "Üst ucu; Üst ucu;\nConylusConyluslateralis",
+        "lateralis\nCondylusCondylusmedialis",
+        "medialis\nTuberositasTuberositastibiae",
+        "Patellarligament",
+        "ligamentyapışır",
+        "tibiae\n((Patellar",
+        "yapışır)",
+        "medialis",
+        ")\nAlt ucu;Alt ucu;\nMalleolusMalleolusmedialis"
+      ],
+      "text": "Üst ucu; Üst ucu;\nConylusConyluslateralis\n\nlateralis\nCondylusCondylusmedialis\n\nmedialis\nTuberositasTuberositastibiae\n\nPatellarligament\n\nligamentyapışır\n\ntibiae\n((Patellar\n\nyapışır)\n\nmedialis\n\n)\nAlt ucu;Alt ucu;\nMalleolusMalleolusmedialis",
+      "image": "pages/4/041.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 42,
+      "title": "Bacak KemikleriBacak Kemikleri",
+      "blocks": [
+        "Bacak KemikleriBacak Kemikleri",
+        "••Fibula",
+        "Fibula\n--Baca",
+        "ın Lateralinde",
+        "Lateralindebulunur.",
+        "Bacağ",
+        "ğın",
+        "bulunur.\n--Proksimal",
+        "ProksimaldeTibianın",
+        "deTibianın\ncondyluscondyluslateralis’i",
+        "lateralis’iile",
+        "ile\neklemleşir.eklemleşir.\n--Distalde",
+        "Distaldeise ayak",
+        "ise ayak\nkemiklerinden kemiklerinden talus",
+        "talusile eklem",
+        "ile eklem\nyapar.yapar.",
+        "lateralis",
+        "••Malleolus",
+        "Malleoluslateralis"
+      ],
+      "text": "Bacak KemikleriBacak Kemikleri\n\n••Fibula\n\nFibula\n--Baca\n\nın Lateralinde\n\nLateralindebulunur.\n\nBacağ\n\nğın\n\nbulunur.\n--Proksimal\n\nProksimaldeTibianın\n\ndeTibianın\ncondyluscondyluslateralis’i\n\nlateralis’iile\n\nile\neklemleşir.eklemleşir.\n--Distalde\n\nDistaldeise ayak\n\nise ayak\nkemiklerinden kemiklerinden talus\n\ntalusile eklem\n\nile eklem\nyapar.yapar.\n\nlateralis\n\n••Malleolus\n\nMalleoluslateralis",
+      "image": "pages/4/042.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 43,
+      "title": "Bacak KemikleriBacak Kemikleri",
+      "blocks": [
+        "Bacak KemikleriBacak Kemikleri",
+        "••Fibula",
+        "Fibula\n--Baca",
+        "ın Lateralinde",
+        "Lateralindebulunur.",
+        "Bacağ",
+        "ğın",
+        "bulunur.\n--Proksimal",
+        "ProksimaldeTibianın",
+        "deTibianın\ncondyluscondyluslateralis’i",
+        "lateralis’iile",
+        "ile\neklemleşir.eklemleşir.\n--Distalde",
+        "Distaldeise ayak",
+        "ise ayak\nkemiklerinden kemiklerinden talus",
+        "talusile eklem",
+        "lateralis",
+        "ile eklem\nyapar.yapar.\nMalleolusMalleoluslateralis"
+      ],
+      "text": "Bacak KemikleriBacak Kemikleri\n\n••Fibula\n\nFibula\n--Baca\n\nın Lateralinde\n\nLateralindebulunur.\n\nBacağ\n\nğın\n\nbulunur.\n--Proksimal\n\nProksimaldeTibianın\n\ndeTibianın\ncondyluscondyluslateralis’i\n\nlateralis’iile\n\nile\neklemleşir.eklemleşir.\n--Distalde\n\nDistaldeise ayak\n\nise ayak\nkemiklerinden kemiklerinden talus\n\ntalusile eklem\n\nlateralis\n\nile eklem\nyapar.yapar.\nMalleolusMalleoluslateralis",
+      "image": "pages/4/043.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 44,
+      "title": "Ayak iskeleti",
+      "blocks": [
+        "Ayak iskeleti",
+        "• 26 kemiğin 37 eklem\naracılığı ile birleşmesiyle\noluşmuştur.\n• Ossa tarsi (Ayak bileği\nkemikleri)\n• Ossa metatarsalia (Ayak\ntarak kemikleri)\n• Ossa digitorum pedis\n(Ayak parmak kemikleri)"
+      ],
+      "text": "Ayak iskeleti\n\n• 26 kemiğin 37 eklem\naracılığı ile birleşmesiyle\noluşmuştur.\n• Ossa tarsi (Ayak bileği\nkemikleri)\n• Ossa metatarsalia (Ayak\ntarak kemikleri)\n• Ossa digitorum pedis\n(Ayak parmak kemikleri)",
+      "image": "pages/4/044.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 45,
+      "title": "Ossa tarsi",
+      "blocks": [
+        "Ossa tarsi",
+        "Proksimal sırada",
+        "•\nTalus (Aşık kemiği)\n•\nCalcaneus (Topuk kemiği)",
+        "Distal sırada\n•\nOs cuboideum (Zar kemik)\n•\nOs naviculare pedis (Ayak sandal\nkemiği)\n•\nOssa cuneiformia (Konik kemikler)"
+      ],
+      "text": "Ossa tarsi\n\nProksimal sırada\n\n•\nTalus (Aşık kemiği)\n•\nCalcaneus (Topuk kemiği)\n\nDistal sırada\n•\nOs cuboideum (Zar kemik)\n•\nOs naviculare pedis (Ayak sandal\nkemiği)\n•\nOssa cuneiformia (Konik kemikler)",
+      "image": "pages/4/045.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 46,
+      "title": "Ossa tarsi",
+      "blocks": [
+        "Ossa tarsi",
+        "Proksimal sırada",
+        "•\nTalus (Aşık kemiği)\n•\nCalcaneus (Topuk kemiği)",
+        "Distal sırada\n•\nOs cuboideum (Zar kemik)\n•\nOs naviculare pedis (Ayak sandal\nkemiği)\n•\nOssa cuneiformia (Konik kemikler)"
+      ],
+      "text": "Ossa tarsi\n\nProksimal sırada\n\n•\nTalus (Aşık kemiği)\n•\nCalcaneus (Topuk kemiği)\n\nDistal sırada\n•\nOs cuboideum (Zar kemik)\n•\nOs naviculare pedis (Ayak sandal\nkemiği)\n•\nOssa cuneiformia (Konik kemikler)",
+      "image": "pages/4/046.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 47,
+      "title": "Ossa tarsi",
+      "blocks": [
+        "Ossa tarsi",
+        "Proksimal sırada",
+        "•\nTalus (Aşık kemiği)\n•\nCalcaneus (Topuk kemiği)",
+        "Distal sırada\n•\nOs cuboideum (Zar kemik)\n•\nOs naviculare pedis (Ayak sandal\nkemiği)\n•\nOssa cuneiformia (Konik kemikler)"
+      ],
+      "text": "Ossa tarsi\n\nProksimal sırada\n\n•\nTalus (Aşık kemiği)\n•\nCalcaneus (Topuk kemiği)\n\nDistal sırada\n•\nOs cuboideum (Zar kemik)\n•\nOs naviculare pedis (Ayak sandal\nkemiği)\n•\nOssa cuneiformia (Konik kemikler)",
+      "image": "pages/4/047.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 48,
+      "title": "Ayak iskeletinin arcus’ları (kemerleri)",
+      "blocks": [
+        "Ayak iskeletinin\narcus’ları (kemerleri)",
+        "Arcus longitudinalis medialis",
+        "Arcus longitudinalis lateralis",
+        "Arcus transversus"
+      ],
+      "text": "Ayak iskeletinin\narcus’ları (kemerleri)\n\nArcus longitudinalis medialis\n\nArcus longitudinalis lateralis\n\nArcus transversus",
+      "image": "pages/4/048.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    },
+    {
+      "number": 49,
+      "title": "TEŞEKKÜRLER",
+      "blocks": [
+        "TEŞEKKÜRLER"
+      ],
+      "text": "TEŞEKKÜRLER",
+      "image": "pages/4/049.webp",
+      "width": 1600,
+      "height": 1200,
+      "hasExtractableText": true
+    }
+  ]
+}
