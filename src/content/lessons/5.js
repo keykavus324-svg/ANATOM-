@@ -1,201 +1,9 @@
-// Authored lesson based on Bekir Dağdeviren’s course notes. See docs/content-notes.md.
+// Authored from Bekir Dağdeviren’s source notes; see docs/content-notes.md.
 export default {
   "subtitle": "Koruyan bir çatı, taşıyan bir sütun.",
   "intro": "Kafatası beyin ve duyu yapıları için bir koruma oluştururken omurga hem yük taşır hem omuriliği çevreler. Aksiyel iskeletin bu parçaları, göğüs kafesiyle birlikte vücudun merkezini şekillendirir.",
-  "scope": "Neurocranium ve yüz kemiklerinin bölümleri; kafatasına bakış yönleri; tipik ve özel vertebralar, diskler, sacrum-coccyx, kaburgalar ve sternum.",
   "image": "/atlas/skull.webp",
   "imageAlt": "Kafatası ve üst boyun omurlarının temsili atlas illüstrasyonu",
-  "sections": [
-    {
-      "id": "kafatasi",
-      "title": "Kafatasının iki ana bölümü",
-      "source": "Kaynak PDF, s. 2–6",
-      "paragraphs": [
-        "Cranium, neurocranium ve viscerocranium olarak incelenir. Neurocranium beyni çevreleyen 8 kemikten, viscerocranium ise yüz iskeletinin 14 kemiğinden oluşur. Hyoid kemik ve işitme kemikçikleri ayrı gruplardır."
-      ],
-      "table": {
-        "headers": [
-          "Neurocranium",
-          "Kemikler"
-        ],
-        "rows": [
-          [
-            "Tek kemikler",
-            "Os frontale, os occipitale, os sphenoidale, os ethmoidale."
-          ],
-          [
-            "Çift kemikler",
-            "Os parietale ve os temporale."
-          ]
-        ]
-      },
-      "sourcePages": "2–6"
-    },
-    {
-      "id": "norokranyum",
-      "title": "Beyni çevreleyen kemikler",
-      "source": "Kaynak PDF, s. 7–20",
-      "bullets": [
-        "Frontal kemik: Alın bölgesini ve orbita tavanının bir bölümünü oluşturur.",
-        "Parietal kemikler: Kafatasının üst ve yan bölümlerine katılır.",
-        "Occipital kemik: Arka ve alt bölgededir; foramen magnumu çevreler.",
-        "Sphenoid kemik: Kafa tabanında; gövde, büyük ve küçük kanatlar ile pterygoid çıkıntılar içerir.",
-        "Temporal kemik: İşitme ve denge organlarıyla ilişkili yapılara ev sahipliği yapar.",
-        "Ethmoid kemik: Burun boşluğunun ve kemik septumun yapısına katılır."
-      ],
-      "paragraphs": [
-        "Frontal kemikte squama frontalis alın bölgesini, pars orbitalis orbita tavanını, pars nasalis burunla ilişkili bölümü oluşturur. Tuber frontale, arcus superciliaris, glabella ve margo supraorbitalis dış yüz işaretleridir. Frontal sinüsler kemik içindeki hava boşluklarıdır. Gelişim sırasında iki taraf arasındaki metopik sütür kapanabilir; erişkinde kalıcı olması da anatomik varyasyon olarak görülebilir.",
-        "Parietal kemikler kafatasının üst ve yan duvarlarına katılır. Dış yüz konveks, iç yüz konkavdır. Lineae temporales kas ve fasya tutunmalarıyla ilişkilidir. Parietallerin birleşimindeki sagittal sütür, önde coronal ve arkada lambdoid sütürle bağlantılıdır. Bregma ve lambda bu birleşimlerin yüzey işaretleridir; yenidoğandaki ön ve arka fontanel bölgeleriyle ilişkilidir.",
-        "Occipital kemik kafa tabanının arka bölümünde foramen magnumu çevreler. Condyli occipitales atlasla eklemleşir. Dış yüzdeki protuberantia occipitalis externa ve iç yüzde beyin/beyincik komşuluğuna ait çukurlar yön tayininde kullanılabilir.",
-        "Sphenoid kemik kafa tabanında merkezi bir bağlantı gibidir: corpus, ala major, ala minor ve processus pterygoideuslar temel bölümleridir. Temporal kemikte squamosa, petrosa, mastoidea ve tympanica bölümleri ayırt edilir. Fossa mandibularis çene eklemine; dış kulak yolu ise işitme organıyla ilgili bölüme aittir.",
-        "Ethmoid kemik burun boşluğu, septum ve orbita duvarıyla ilişkilidir. Lamina perpendicularis kemik septuma katılır; cribriform bölüm koku sinirlerinin geçtiği açıklıkları taşır. Septumun tamamı yalnızca ethmoid kemikten oluşmaz; vomer ve septal kıkırdak da buna katılır."
-      ],
-      "sourcePages": "7–20"
-    },
-    {
-      "id": "yuz",
-      "title": "Yüz iskeleti",
-      "source": "Kaynak PDF, s. 21–36",
-      "table": {
-        "headers": [
-          "Grup",
-          "Kemikler"
-        ],
-        "rows": [
-          [
-            "Çift",
-            "Maxilla, os zygomaticum, os nasale, os lacrimale, os palatinum, concha nasalis inferior."
-          ],
-          [
-            "Tek",
-            "Mandibula ve vomer."
-          ]
-        ]
-      },
-      "paragraphs": [
-        "Maxilla üst çene ve ağız tavanının önemli bir bölümünü oluşturur. Mandibula alt çene kemiğidir; corpus ve ramus bölümleri angulus mandibulae çevresinde birleşir.",
-        "Hyoid kemik, dil kökü ile gırtlak arasında yer alır. Diğer kafatası kemikleriyle doğrudan eklemleşmez.",
-        "Maxillanın alveolar çıkıntısı üst dişleri taşır; palatin çıkıntıları sert damağın ön kısmını oluşturur. Mandibulanın gövdesi alt dişleri taşır, ramusu yukarı uzanır. Ramus ile corpus arasındaki angulusun iç ve dış yüzleri çiğneme kasları için tutunma alanıdır. Zygomatic kemik yanak çıkıntısını, nasal kemikler burun sırtını, lacrimal kemikler orbita medial duvarının ön bölümünü oluşturur. L biçimli palatin kemik sert damağın arka kısmına katılır. Concha nasalis inferior burun lateral duvarında bağımsız bir kemiktir; vomer septumun alt-arka kemik kısmını oluşturur."
-      ],
-      "sourcePages": "21–36"
-    },
-    {
-      "id": "bakislar",
-      "title": "Kafatasını farklı yönlerden okumak",
-      "source": "Kaynak PDF, s. 23–29, 37–47",
-      "sourcePages": "23–29, 37–47",
-      "paragraphs": [
-        "Norma verticalis kafatasına üstten, norma facialis önden, norma lateralis yandan, norma occipitalis arkadan ve norma basilaris alttan bakışı anlatır. Aynı kemiğin farklı görünmesi farklı bir yapı olduğu anlamına gelmez; bakış yönü değişmiştir. Üstten bakışta sütürler, önden bakışta orbita ve burun açıklıkları, alttan bakışta damak ve kafa tabanının açıklıkları daha belirgindir.",
-        "Bir görselde yön tayini yaparken önce ön–arka ve sağ–solu belirle. Sonra büyük işaretleri bul: orbita, mandibula, zygomatic yay, foramen magnum veya occipital kondiller. Küçük delik ve çıkıntıları, bu ana işaretlere göre yerleştirmek tek tek ezberlemeyi azaltır.",
-        "Orbita duvarı tek bir kemikten oluşmaz: frontal, sphenoid, zygomatic, maxilla, ethmoid, lacrimal ve küçük bir palatin katkı birlikte göz çukurunu çevreler. Canalis opticus ile superior ve inferior orbital fissürler farklı geçiş alanlarıdır. Supraorbital, infraorbital ve mental açıklıkları yüzde yukarıdan aşağıya izlemek, kemikteki küçük deliklerin sinir-damar yollarıyla bağlantısını hatırlatır.",
-        "Maxillanın processus frontalis, zygomaticus, palatinus ve alveolarisi farklı komşuluklara uzanır. Medial yüzde hiatus maxillaris sinüsle, crista conchalis burun duvarıyla ilişkilidir. Mandibulada öndeki coronoid çıkıntı kas tutunmasıyla, arkadaki condylar çıkıntı çene eklemiyle ilişkilidir; aralarındaki çentik incisura mandibulaedir. Foramen mentale corpus üzerinde, çene ucu çıkıntıları ön orta bölgede bulunur."
-      ],
-      "table": {
-        "headers": [
-          "Kafa tabanında görülen yapı",
-          "Yerini nasıl anlamalı?"
-        ],
-        "rows": [
-          [
-            "Foramen magnum ve occipital kondiller",
-            "En büyük açıklık ve iki yanındaki atlasla eklemleşen yüzler."
-          ],
-          [
-            "Foramen ovale / foramen lacerum",
-            "Sphenoid çevresindeki farklı açıklıklar; biçimleri benzer bir isim listesi değil, konum işaretleridir."
-          ],
-          [
-            "Canalis caroticus / foramen jugulare",
-            "Temporal kemik ve temporal-occipital sınır çevresindeki damar-sinir geçişleri."
-          ],
-          [
-            "Processus mastoideus / styloideus",
-            "Temporal kemikte iri mastoid ve ince styloid çıkıntılar."
-          ],
-          [
-            "Foramen stylomastoideum",
-            "Mastoid ile styloid bölgeleri arasında; facialisin kafatasını terk ettiği yer."
-          ],
-          [
-            "Fossa mandibularis",
-            "Mandibula başıyla ilişki kuran temporal eklem çukuru."
-          ],
-          [
-            "Sert damak ve vomer",
-            "Ön tabanda ağız tavanı; arkasında burun septumunun alt-arka kemik parçası."
-          ]
-        ]
-      }
-    },
-    {
-      "id": "omurga",
-      "title": "Omurgayı bölgelere ayırmak",
-      "source": "Kaynak PDF, s. 48–54, 62–64",
-      "paragraphs": [
-        "Omurga, tipik olarak 33 vertebral segmentten gelişir. Erişkinde sakral ve koksigeal birleşmeler sonucunda 26 ayrı kemik olarak sayılır. Vertebral kanal omuriliği korur.",
-        "Omurga uzunluğunun yaklaşık dörtte birine katkıda bulunan diskler, iki gövde arasında esnek bir bağlantı oluşturur. Sacrum beş sakral segmentin kaynaşmasıyla oluşur; üstte L5, altta coccyx ve yanlarda kalça kemikleriyle ilişkilidir. Üst ön kenardaki promontorium pelvis için önemli bir işarettir. Coccyx çoğunlukla dört segmentten oluşur, üç-beş arasında değişebilir. Segment sayısı ve birleşme biçimleri için tek bir sayı mutlak bireysel kural olarak kullanılmamalıdır."
-      ],
-      "table": {
-        "headers": [
-          "Bölge",
-          "Sayı"
-        ],
-        "rows": [
-          [
-            "Servikal",
-            "7 ayrı vertebra (C1–C7)."
-          ],
-          [
-            "Torakal",
-            "12 ayrı vertebra (T1–T12)."
-          ],
-          [
-            "Lumbal",
-            "5 ayrı vertebra (L1–L5)."
-          ],
-          [
-            "Sacrum",
-            "5 sakral segmentin birleşmesiyle 1 kemik."
-          ],
-          [
-            "Coccyx",
-            "Genellikle 4 segmentin birleşmesiyle 1 kemik; değişkenlik görülebilir."
-          ]
-        ]
-      },
-      "callout": "“33 vertebral segment” ile “erişkinde 26 kemik” farklı sayım biçimleridir; çelişki değildir.",
-      "sourcePages": "48–54, 62–64"
-    },
-    {
-      "id": "vertebra",
-      "title": "Tipik vertebra ve özel örnekler",
-      "source": "Kaynak PDF, s. 52–61",
-      "paragraphs": [
-        "Tipik bir vertebrada corpus, arcus, foramen vertebrale ve çıkıntılar bulunur. Vertebral deliklerin üst üste gelmesi canalis vertebralisi oluşturur. Omur gövdeleri arasında intervertebral diskler yer alır.",
-        "Tipik vertebranın gövdesi önde yük taşır; arcus arkada kanalı çevreler. Bir spinöz, iki transvers ve eklemleşmeye katılan articular çıkıntılar bulunur. Komşu vertebraların üst ve alt çentikleri birleşerek spinal sinirin geçtiği foramen intervertebraleyi oluşturur. Bu açıklık, omuriliğin bulunduğu foramen vertebraleden farklıdır.",
-        "Servikal vertebralarda küçük gövde ve foramen transversarium ayırt edicidir. Atlas halka biçimindedir; axisin densini çevreleyen bağlantılar dönmeye olanak verir. C7 uzun spinöz çıkıntısıyla yüzeyde belirgin olabilir. Torakal vertebralar kaburgalarla eklemleşen yüzleriyle, lumbal vertebralar büyük gövdeleri ve güçlü yük taşıyan yapılarıyla ayırt edilir."
-      ],
-      "bullets": [
-        "Atlas (C1): Gövdesi ve processus spinosusu yoktur.",
-        "Axis (C2): Dens axis ile ayırt edilir.",
-        "C7: Uzun spinöz çıkıntısıyla vertebra prominens olarak adlandırılır.",
-        "Servikal vertebraların transvers çıkıntılarında foramen transversarium bulunur.",
-        "Lumbal vertebraların gövdeleri yük taşımaya uygun biçimde büyüktür."
-      ],
-      "sourcePages": "52–61"
-    },
-    {
-      "id": "gogus",
-      "title": "Kaburgalar ve sternum",
-      "source": "Kaynak PDF, s. 60, 65–66",
-      "paragraphs": [
-        "İnsanda 12 çift kaburga bulunur. İlk 7 çift gerçek kaburga (costae verae), son 5 çift yalancı kaburga (costae spuriae) olarak adlandırılır. 11. ve 12. çiftler serbest kaburgalardır.",
-        "Sternum üç bölümde incelenir: manubrium sterni, corpus sterni ve processus xiphoideus. Manubrium ile corpusun birleşimindeki angulus sterni, göğüs bölgesinin önemli bir yüzey referansıdır.",
-        "Gerçek kaburgalar kendi kıkırdaklarıyla sternuma bağlanır. 8–10. kaburgalar önde üstteki kıkırdak sistemine katılır; 11 ve 12. kaburgaların ön uçları serbesttir. Kaburgalar arasında 11 çift interkostal aralık bulunur. Angulus sterni, ikinci kaburga kıkırdağının yerini belirlemeye yardımcı olur ve yaklaşık T4–T5 disk düzeyine karşılık gelir. Sternumun altındaki xiphoid çıkıntının biçimi kişiler arasında değişebilir."
-      ],
-      "sourcePages": "60, 65–66"
-    }
-  ],
   "glossary": [
     [
       "Neurocranium",
@@ -224,12 +32,158 @@ export default {
       "a": "Gövdesinin ve processus spinosusunun bulunmaması."
     },
     {
-      "q": "Foramen vertebrale ile foramen intervertebrale aynı mıdır?",
-      "a": "Hayır. İlki vertebral kanalı oluşturan omur deliğidir; ikincisi komşu vertebralar arasında spinal sinirlerin geçtiği açıklıktır."
+      "q": "Ön fontanel hangi kemikler arasındadır; erişkindeki buluşma noktası nedir?",
+      "a": "Frontal ve parietal kemikler arasındadır; erişkindeki karşılığı bregma bölgesidir."
     },
     {
-      "q": "Sert damağın arka kemik bölümünü hangi yapı oluşturur?",
-      "a": "Palatin kemiğin lamina horizontalisi."
+      "q": "Kafatasının alttan görünümünde başın omurgayla bağlantısını hangi yapılar gösterir?",
+      "a": "Foramen magnumun yanındaki occipital kondiller atlasla eklemleşir."
+    },
+    {
+      "q": "Elindeki omurun servikal, torakal veya lumbal olduğunu hangi işaretlerle düşünürsün?",
+      "a": "Servikalde transvers delikler, torakalde kaburga eklem yüzleri, lumbalde büyük corpus ile kısa-kalın spinöz çıkıntı tipiktir; özel vertebralar ayrıca değerlendirilir."
     }
-  ]
+  ],
+  "sections": [
+    {
+      "id": "kafatasi",
+      "title": "Kafa iskeletinin temel ayrımı",
+      "sourcePages": "2–6",
+      "source": "PDF · s. 2–6",
+      "paragraphs": [
+        "Neurocranium beyni çevreleyen sekiz kemikten oluşur. Frontal, occipital, sphenoid ve ethmoid kemikler tek; parietal ve temporal kemikler çifttir. Viscerocranium yüzün on dört kemiğidir. Bu iki bölüm birlikte 22 kemiklik craniumu oluşturur; hyoid ve kulaktaki işitme kemikçikleri bu toplamın dışında sayılır.",
+        "Kafatasını öğrenirken yalnızca kemik sınırlarını değil, oluşturdukları boşlukları da izlemek gerekir. Aynı kemik kafa tabanına, orbitaya ve burun boşluğuna katkı verebilir. Örneğin ethmoid hem neurocraniuma dahildir hem de burun boşluğunun septum ve yan duvar yapısına katılır."
+      ]
+    },
+    {
+      "id": "frontal-parietal",
+      "title": "Frontal ve parietal kemikler; suturalar ve fontaneller",
+      "sourcePages": "7–11, 38, 47",
+      "source": "PDF · s. 7–11, 38, 47",
+      "paragraphs": [
+        "Os frontalenin squama frontalis bölümü alnı, pars orbitalis orbita tavanının büyük bölümünü, pars nasalis burun köküyle ilişkili bölümü oluşturur. Kaş kemerleri arasındaki glabella, supraorbital kenar ve bu kenardaki çentik/delik önden görünümün önemli işaretleridir. Orbita tavanındaki fossa glandulae lacrimalis, gözyaşı beziyle ilişkilidir.",
+        "İki parietal kemik kafa kubbesinin üst ve yan bölümlerini yapar. Aralarında sagittal sutura, frontal kemikle aralarında koronal sutura, occipital kemikle aralarında lambdoid sutura bulunur. İç yüzlerdeki damar olukları, kemiğin komşuluğundaki damarların izlerini taşır.",
+        "Yenidoğanda bazı kemik köşeleri arasında henüz kemikleşmemiş bağ dokusu alanları olan fontaneller bulunur. Ön fontanel frontal ve parietal kemikler arasında, arka fontanel parietaller ile occipital kemik arasındadır. Erişkinde bu buluşma noktaları sırasıyla bregma ve lambda olarak tanınır. Kaynağın üstten görünüm şekli, kemik sınırları ile bu alanları birlikte gösterir.",
+        "Frontal kemikteki tuber frontale ve arcus superciliaris dış yüz işaretleridir; frontal sinüs kemik içinde yer alır. Gelişimdeki metopik sutura erişkinde kalıcı olabilir. Parietalin dış yüzündeki lineae temporales ise temporal kas ve fasya tutunmalarıyla ilişkilidir. Bunlar sutura değil, yüzeydeki tutunma çizgileridir."
+      ]
+    },
+    {
+      "id": "taban-kemikleri",
+      "title": "Occipital ve sphenoid kemikler",
+      "sourcePages": "12–16",
+      "source": "PDF · s. 12–16",
+      "paragraphs": [
+        "Occipital kemik kafatasının arka ve alt bölümünü oluşturur. Foramen magnum çevresinde basilar, lateral ve squamöz parçalar ayırt edilir. Foramen magnum, kafa boşluğu ile vertebral kanal arasındaki büyük geçittir. Yanlarındaki occipital kondiller atlasla eklemleşerek başın omurgaya bağlanmasını sağlar.",
+        "Arka yüzde protuberantia occipitalis externa (inion), crista occipitalis externa ve linea nuchae izlenir. Bunlar ense kasları ve bağlarının tutunmalarıyla ilişkilidir. İç yüzdeki üst çukurlar serebral, alt çukurlar serebellar yapılarla komşudur.",
+        "Sphenoid kemik kafa tabanının merkezindedir; kanatlarını açmış bir şekle benzetilebilir. Corpus, ala major, ala minor ve processus pterygoideus ana parçalarıdır. Gövdedeki sella turcica içinde hipofiz yerleşir; gövde ayrıca sphenoid sinüsü içerir. Kanatlar kafa tabanı ve orbita duvarlarına katılır, pterygoid çıkıntılar aşağı uzanır."
+      ]
+    },
+    {
+      "id": "temporal-ethmoid",
+      "title": "Temporal ve ethmoid kemikler",
+      "sourcePages": "17–20",
+      "source": "PDF · s. 17–20",
+      "paragraphs": [
+        "Temporal kemiğin squamöz bölümü kafa yan duvarında; petroz bölümü kafa tabanında yer alır. İşitme ve denge organları petroz bölümle ilişkilidir. Fossa mandibularis alt çeneyle eklemleşir. Processus zygomaticus elmacık kemeri yapısına katılır; meatus acusticus externus dış kulak yolunun kemik bölümüdür. Mastoid ve styloid çıkıntılar alt tarafta önemli tutunma işaretleridir.",
+        "Ethmoid kemiğin lamina cribrosası delikli yatay bölümdür; koku siniri lifleri buradan geçer. Orta hattaki crista galli yukarı, lamina perpendicularis aşağı uzanır. Perpendiküler lamina burun septumuna katılır. Lateral bölümlerde ethmoid hava hücreleri ve üst/orta burun konkaları bulunur. Alt burun konkası ise ethmoidin parçası değil, bağımsız bir yüz kemiğidir."
+      ]
+    },
+    {
+      "id": "yuz",
+      "title": "Yüz kemikleri ve hyoid",
+      "sourcePages": "21–36",
+      "source": "PDF · s. 21–36",
+      "paragraphs": [
+        "Yüz iskeletinde maxilla, zygomaticum, nasale, lacrimale, palatinum ve concha nasalis inferior çifttir; mandibula ve vomer tektir. Maxilla üst dişleri taşır, orbita tabanına ve sert damağa katılır, içinde maxiller sinüs bulunur. Mandibulanın yatay corpusu ile dik ramusu angulus mandibulae düzeyinde birleşir; processus condylaris ekleme, processus coronoideus kas tutunmasına katılır.",
+        "Zygomaticum yanak çıkıntısını ve orbita lateral kenarını; nasal kemikler burun sırtının kemik çerçevesini oluşturur. Lacrimal kemik orbita medial duvarında gözyaşı drenaj yolu ile ilişkilidir. Palatinumun horizontal laminası sert damağın arka bölümüne katılır. Vomer septumun arka-alt kemik bölümüdür; inferior konka lateral duvarda hava akımını düzenleyen yüzeyi artırır.",
+        "Hyoid, dil kökü ve gırtlak arasında U biçimli bir kemiktir. Başka bir kemikle doğrudan eklemleşmek yerine kas ve bağlarla asılı durur. Bu özelliği dil, yutma ve gırtlak hareketleri için esnek bir tutunma merkezi olmasını sağlar."
+      ]
+    },
+    {
+      "id": "gorunum",
+      "title": "Kafatasını beş görünümden tanımak",
+      "sourcePages": "23–29, 37–47",
+      "source": "PDF · s. 23–29, 37–47",
+      "paragraphs": [
+        "Norma verticalis üstten, facialis önden, lateralis yandan, occipitalis arkadan, basilaris alttan görünümü anlatır. Her bakışta aynı kemiklerin farklı yüzleri görülür. Üstte suturaları, önde orbita ve burun boşluğunu, yanda temporal bölge ile elmacık kemerini, arkada occipital işaretleri izlemek yön duygusunu geliştirir.",
+        "Kaynağın şekillerinde önden supraorbital, infraorbital ve mental delikler; orbita içinde canalis opticus ve superior/inferior orbital fissürler gösterilir. Bunlar düz bir duvarda rastlantısal boşluklar değil, damar ve sinirlerin bölgelere dağıldığı geçişlerdir. Yandan bakışta dış kulak yolu, mastoid ve styloid çıkıntılar ile mandibula kondili birbirine göre yerleştirilebilir.",
+        "Alttan görünümde önde sert damak, ortada sphenoid ve temporal bölgeler, arkada foramen magnum ve occipital kondiller bulunur. Vomer arka burun açıklıkları arasındaki septumu gösterir. Foramen ovale, foramen lacerum, canalis caroticus, foramen jugulare ve foramen stylomastoideum kafa tabanının önemli işaretleridir. Foramen lacerumun canlıda büyük ölçüde kıkırdakla kapalı olduğunu bilmek, kuru kemikte görülen bütün açıklıkları açık bir kanal sanmayı önler.",
+        "Orbita tek kemikten oluşmaz: frontal, sphenoid, zygomatic, maxilla, ethmoid, lacrimal ve küçük bir palatin katkı göz çukurunun duvarlarını oluşturur. Maxillanın frontal, zygomatic, palatin ve alveolar çıkıntıları bu komşuluklara uzanır. İç yüzdeki hiatus maxillaris sinüsle ilişkilidir. Mandibulada coronoid ve condylar çıkıntılar arasındaki incisura mandibulae, çene eklem çıkıntısını kas tutunma çıkıntısından ayıran çentiktir."
+      ],
+      "table": {
+        "headers": [
+          "Geçit",
+          "Temel ilişki"
+        ],
+        "rows": [
+          [
+            "Canalis opticus",
+            "N. opticus ve a. ophthalmica."
+          ],
+          [
+            "Foramen ovale",
+            "N. mandibularis (V3)."
+          ],
+          [
+            "Canalis caroticus",
+            "A. carotis interna."
+          ],
+          [
+            "Foramen jugulare",
+            "IX, X ve XI. kranial sinirler; venöz çıkış."
+          ],
+          [
+            "Foramen stylomastoideum",
+            "N. facialisin kafatasından çıkışı."
+          ],
+          [
+            "Foramen magnum",
+            "Beyin sapı–omurilik devamlılığı ve eşlik eden yapılar."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "omurga",
+      "title": "Omurganın bölümleri ve tipik vertebra",
+      "sourcePages": "48–54",
+      "source": "PDF · s. 48–54",
+      "paragraphs": [
+        "Omurga genellikle 33 vertebral segmentten gelişir: yedi servikal, on iki torakal, beş lumbal, beş sakral ve çoğunlukla dört koksigeal. Erişkinde sakral ve koksigeal birleşmeler nedeniyle 24 ayrı vertebra, bir sacrum ve bir coccyx olmak üzere 26 kemik sayılır. Servikal ve lumbal bölgelerde öne, torakal ve sakral bölgelerde arkaya konveks eğrilikler vardır; bu düzen yükün taşınmasına katkı verir.",
+        "Tipik vertebrada önde corpus, arkada arcus vertebrae bulunur. Arkus pedikül ve laminalardan oluşur; corpusla birlikte foramen vertebraleyi çevreler. Deliklerin üst üste gelmesi vertebral kanalı oluşturur. Processus spinosus arkaya, iki processus transversus yanlara uzanır; üst ve alt eklem çıkıntıları komşu vertebralarla faset eklemler yapar.",
+        "Komşu omurların çentikleri intervertebral delikleri meydana getirir; spinal sinirler buradan çıkar. Omur gövdeleri arasındaki 23 disk C2–C3 seviyesinden L5–S1’e kadar bulunur; atlas ile axis arasında disk yoktur. Diskler omurga uzunluğuna katkı verir, komşu gövdeler arasında yük iletir ve küçük hareketlerin bütün omurgaya dağılmasını sağlar."
+      ]
+    },
+    {
+      "id": "ozel-omurlar",
+      "title": "Servikal, torakal ve lumbal vertebralar",
+      "sourcePages": "55–61",
+      "source": "PDF · s. 55–61",
+      "paragraphs": [
+        "Servikal vertebraların gövdeleri küçük, transvers çıkıntıları foramen transversarium içerir. Tipik servikal spinöz çıkıntılar sıklıkla çatallıdır. Atlasın gövdesi ve gerçek spinöz çıkıntısı yoktur; ön ve arka arkusları ile lateral kitleleri vardır. Axisin densi atlasla kurduğu dönme düzeninin eksenini oluşturur. C7’nin uzun ve çoğunlukla çatalsız spinöz çıkıntısı vertebra prominens adını açıklar.",
+        "Torakal vertebralar kaburgalarla eklemleşen yüzleriyle ayırt edilir; spinöz çıkıntıları genel olarak aşağı eğimlidir. Lumbal vertebralarda ise gövdeler daha büyüktür, spinöz çıkıntılar kısa ve kalındır. Servikalden lumbale gövde büyüklüğünün artışı, aşağı seviyelere doğru taşınan yükün artmasıyla ilişkilidir."
+      ]
+    },
+    {
+      "id": "sakrum",
+      "title": "Sacrum ve coccyx",
+      "sourcePages": "62–64",
+      "source": "PDF · s. 62–64",
+      "paragraphs": [
+        "Sacrum beş sakral vertebranın birleşmesinden oluşur ve pelvisin arka duvarına katılır. Üstte basis, altta apex bulunur. Birinci sakral gövdenin öne çıkıntısı promontorium, pelvis girişinin önemli işaretidir. Ön ve arka sakral delikler sinir dallarının geçişleriyle ilişkilidir; lateral eklem yüzleri kalça kemiklerine bağlanır.",
+        "Coccyx sacrumun distalindedir ve çoğunlukla dört, ancak değişken sayıda segmentten oluşur. Küçük olması işlevsiz olduğu anlamına gelmez; pelvis tabanı yapılarının tutunma ilişkilerine katılır. Omurga sayıları sorulurken segment ile birleşmiş erişkin kemiği ayrımı burada da korunmalıdır."
+      ]
+    },
+    {
+      "id": "gogus",
+      "title": "Kaburgalar ve sternum",
+      "sourcePages": "65–66",
+      "source": "PDF · s. 65–66",
+      "paragraphs": [
+        "On iki çift kaburga arasında her yanda on bir interkostal aralık bulunur. İlk yedi çift kendi kıkırdaklarıyla sternuma bağlanır ve gerçek kaburga olarak adlandırılır. Son beş çift yalancı kaburgadır; sekizinci–onuncu çiftler üstteki kıkırdak düzenine katılır, on birinci ve on ikinci çiftlerin ön uçları serbesttir.",
+        "Tipik bir kaburgada baş, boyun, tüberkül, açı ve gövde ayırt edilir. Alt kenardaki sulcus costae, interkostal damar-sinir demetiyle ilişkilidir. Sternum önde manubrium, corpus ve processus xiphoideustan oluşur. Manubrium–corpus birleşimindeki angulus sterni, ikinci kaburga kıkırdağını bulmak için yüzey işaretidir; arkada yaklaşık T4–T5 disk düzeyine karşılık gelir. Üst thorax açıklığı boyunla devamlılık sağlar; alt açıklık diaphragmayla kapatılır."
+      ]
+    }
+  ],
+  "scope": "Neurocranium ve yüz kemiklerinin bölümleri; kafatasına bakış yönleri; tipik ve özel vertebralar, diskler, sacrum-coccyx, kaburgalar ve sternum."
 };

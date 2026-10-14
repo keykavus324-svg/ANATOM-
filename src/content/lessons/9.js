@@ -1,284 +1,9 @@
-// Authored lesson based on Bekir Dağdeviren’s course notes. See docs/content-notes.md.
+// Authored from Bekir Dağdeviren’s source notes; see docs/content-notes.md.
 export default {
   "subtitle": "Algılamak, işlemek, yanıt vermek.",
   "intro": "Sinir sistemi, çevreden ve vücuttan gelen bilgileri değerlendirir; uygun yanıtların oluşmasına ve iç dengenin korunmasına katılır. Yapısal bölümler ile işlevsel bölümleri ayrı düşünmek konunun temelini kurar.",
-  "scope": "Nöron ve glia, duyu-motor yollar, MSS/PSS ve somatik-otonom ayrımı; beyin bölümleri, loblar, omurilik, spinal kökler, meninksler, BOS ve 12 çift kraniyal sinir.",
   "image": "/atlas/brain.webp",
   "imageAlt": "Beyin, beyincik ve beyin sapının temsili yandan atlas çizimi",
-  "sections": [
-    {
-      "id": "akim",
-      "title": "Bilginin iki yönü",
-      "source": "Kaynak PDF, s. 2–4",
-      "paragraphs": [
-        "Sinir sisteminin görevleri arasında vücudu bir bütün olarak koordine etmek, uyaranlara uygun yanıt vermek ve homeostaza katkıda bulunmak vardır. Sinirsel uyarı için impuls, bir yapının sinir bağlantısı için innervasyon terimi kullanılır."
-      ],
-      "flow": [
-        "Reseptör",
-        "Afferent yol",
-        "Merkezi işlem",
-        "Efferent yol",
-        "Yanıt"
-      ],
-      "table": {
-        "headers": [
-          "Yön",
-          "Tanım"
-        ],
-        "rows": [
-          [
-            "Afferent",
-            "Çevreden merkezi sinir sistemine bilgi taşıyan yol."
-          ],
-          [
-            "Efferent",
-            "Merkezden çevredeki yapılara komut taşıyan yol."
-          ]
-        ]
-      },
-      "sourcePages": "2–4"
-    },
-    {
-      "id": "hucre",
-      "title": "Nöron ve destek hücreleri",
-      "source": "Kaynak PDF, s. 5–6, 12",
-      "paragraphs": [
-        "Nöron; hücre gövdesi ve uzantılarıyla birlikte değerlendirilir. Dendritler bilgiyi genellikle gövdeye doğru alırken akson bilgiyi diğer hücrelere iletir. Glia hücreleri sinir dokusunun destek, beslenme ve korunma işlevlerine katılır.",
-        "Nöron gövdesi perikaryon olarak da adlandırılır. Dendrit, akson ve hücre gövdesini birlikte düşünmek iletinin yönünü anlamayı kolaylaştırır. Nöronların birbirleriyle veya hedef hücreleriyle ileti kurduğu özelleşmiş bağlantılar sinapslardır. Glianın destek rolü yalnızca bir dolgu oluşturmak değildir; hücre çevresinin düzenlenmesi, myelin oluşumu ve savunma gibi farklı görevleri vardır.",
-        "Substantia grisea hücre gövdeleri ve sinaptik ilişkilerin yoğun olduğu, substantia alba ise myelinli aksonların belirgin olduğu alanları anlatır. Beyinde gri madde kortekste olduğu gibi derin çekirdeklerde de bulunur. Omurilikte ise H/kelebek biçimli gri madde içte, iletim yollarını barındıran beyaz madde çevrededir. Bu nedenle “beyinde bütün gri madde yalnız dıştadır” genellemesi yapılmamalıdır."
-      ],
-      "bullets": [
-        "Duyusal nöronlar: Çevreden alınan duyuları merkeze taşır.",
-        "Motor nöronlar: Merkezi sinir sisteminden kas ve bez gibi yapılara uyarı taşır.",
-        "İnternöronlar: Nöronlar arasında bağlantı ve işlem süreçlerine katılır."
-      ],
-      "sourcePages": "5–6, 12"
-    },
-    {
-      "id": "bolumler",
-      "title": "Yapısal ve işlevsel ayrımlar",
-      "source": "Kaynak PDF, s. 7–11",
-      "table": {
-        "headers": [
-          "Sınıflama",
-          "Bölümler"
-        ],
-        "rows": [
-          [
-            "Anatomik",
-            "Merkezi sinir sistemi: beyin ve omurilik. Periferik sinir sistemi: kraniyal/spinal sinirler ve ganglionlar."
-          ],
-          [
-            "Fonksiyonel",
-            "Somatik sistem: somatik duyu ve iskelet kaslarının motor kontrolü. Otonom sistem: iç organların, düz kasın, kalp kasının ve bezlerin düzenlenmesi."
-          ]
-        ]
-      },
-      "paragraphs": [
-        "Kaynakta periferik sistem 12 çift kraniyal ve 31 çift spinal sinirle birlikte ele alınır. Merkezi yapılar kafatası boşluğu ve vertebral kanal tarafından çevrelenir.",
-        "Otonom sistemin sempatik ve parasempatik bölümleri organ işlevlerini farklı örüntülerde düzenler. Sempatik etkinlik genel olarak bedeni artan gereksinime hazırlayan yanıtlarla, parasempatik etkinlik dinlenme ve sindirimle ilişkilendirilir. Bu bir öğrenme çerçevesidir; her organda basitçe biri artırır diğeri azaltır kuralı yoktur. Somatik motor kontrol istemli hareketi içerirken somatik refleksler bilinçli karar olmadan da gerçekleşebilir."
-      ],
-      "callout": "“Merkezi–periferik” bir yerleşim ayrımıdır. “Somatik–otonom” ise işlevsel ayrımdır. Bu iki sınıflama aynı şey değildir.",
-      "sourcePages": "7–11"
-    },
-    {
-      "id": "beyinsapi",
-      "title": "Beyin sapı ve beyincik",
-      "source": "Kaynak PDF, s. 13–20, 26",
-      "table": {
-        "headers": [
-          "Yapı",
-          "Temel ilişki"
-        ],
-        "rows": [
-          [
-            "Medulla oblongata",
-            "Beyin sapının alt bölümüdür; kalp-damar ve solunum düzenlenmesiyle ilgili merkezler içerir."
-          ],
-          [
-            "Pons",
-            "Medulla oblongata ile mesencephalon arasında; cerebellumla bağlantılıdır."
-          ],
-          [
-            "Mesencephalon",
-            "Beyin sapının üst bölümüdür; çeşitli motor ve duyusal devrelere katılır."
-          ],
-          [
-            "Cerebellum",
-            "Hareketin koordinasyonu, denge ve postürle ilişkilidir."
-          ]
-        ]
-      },
-      "paragraphs": [
-        "Mesencephalon, pons ve medulla oblongata birlikte beyin sapını oluşturur. Cerebellumun hareket üzerindeki rolü, farklı kas gruplarının uyumlu çalışmasını desteklemesi üzerinden düşünülebilir.",
-        "Gelişimsel bölümleme farklı bir harita sunar: prosencephalon telencephalon ve diencephalona; rhombencephalon pons, cerebellum ve medulla oblongata ile ilişkili alt bölümlere ayrılır. Mesencephalon arada bulunur. Beyin sapı sözcüğü ise gelişimsel tüm arka beyni değil, mesencephalon + pons + medulla oblongata üçlüsünü ifade eder.",
-        "Medulla oblongata kardiyovasküler ve solunum düzenlenmesinin yanında yutma, öksürme ve kusma gibi refleks ağlarına katılır. Pons beyin ve cerebellum arasındaki bağlantıları taşır. Mesencephalonda görsel ve işitsel uyaranlara yönelmeyle ilişkili merkezler bulunur. Cerebellum ise hareketi doğrudan başlatmaktan çok planlanan ve gerçekleşen hareketin uyumunu, dengeyi ve motor öğrenmeyi destekler."
-      ],
-      "sourcePages": "13–20, 26"
-    },
-    {
-      "id": "loblar",
-      "title": "Ara beyin ve serebral loblar",
-      "source": "Kaynak PDF, s. 21–32",
-      "paragraphs": [
-        "Thalamus, koku dışındaki duyuların kortekse iletilmesinde önemli bir ara istasyondur. Hypothalamus iç denge, ısı, sıvı dengesi, açlık–tokluk ve endokrin bağlantılarla ilişkilidir.",
-        "Diencephalon thalamus ve hypothalamusla sınırlı değildir; epithalamus ve subthalamus da bu gruptadır. Hipofiz, sphenoid kemikteki sella turcicada bulunur ve bir sapla hypothalamusa bağlanır. Epithalamusla ilişkili pineal bez melatonin salınımıyla ışık-karanlık döngüsü ve günlük ritimlere katkıda bulunur.",
-        "Serebral yüzeyde çıkıntılar gyrus, oluklar sulcus adını alır. Sulcus centralis frontal ve parietal lobu ayırır: hemen önünde precentral gyrus, arkasında postcentral gyrus bulunur. Primer motor korteks precentral, primer somatik duyu korteksi postcentral gyrustadır. Sulcus lateralis temporal lobun üst sınırının önemli bölümünü, sulcus parietooccipitalis özellikle medial yüzde parietal-occipital ayrımını gösterir. İki hemisfer arasındaki derin yarık fissura longitudinalis cerebridir."
-      ],
-      "table": {
-        "headers": [
-          "Lob",
-          "Öne çıkan işlev ilişkisi"
-        ],
-        "rows": [
-          [
-            "Frontal",
-            "Motor kontrol, planlama ve karar süreçleri."
-          ],
-          [
-            "Parietal",
-            "Somatik duyuların değerlendirilmesi."
-          ],
-          [
-            "Occipital",
-            "Görsel işleme."
-          ],
-          [
-            "Temporal",
-            "İşitme ve bellekle ilişkili süreçler."
-          ]
-        ]
-      },
-      "callout": "Bu tablo başlangıç haritasıdır. Karmaşık işlevler tek bir noktaya indirgenmez; birbiriyle bağlantılı ağlarda yürütülür.",
-      "sourcePages": "21–32"
-    },
-    {
-      "id": "omurilik",
-      "title": "Omurilik: segment, kök ve sinir ayrımı",
-      "source": "Kaynak PDF, s. 33–38",
-      "sourcePages": "33–38",
-      "paragraphs": [
-        "Medulla spinalis vertebral kanal içinde bulunur, fakat erişkinde kanalın sonuna kadar uzanmaz; alt ucu genellikle L1–L2 vertebra düzeyindedir. Daha aşağıdaki kökler kanal içinde ilerleyerek cauda equina görünümünü oluşturur. Omurilik segmenti, bir çift spinal sinirle ilişkilendirilen işlevsel bölümdür; vertebra sayısıyla aynı değildir.",
-        "Toplam 31 spinal segment ve 31 çift spinal sinir vardır: 8 servikal, 12 torakal, 5 lumbal, 5 sakral ve 1 koksigeal. Yedi servikal vertebraya karşılık sekiz servikal sinir bulunması bu ayrımın en belirgin örneğidir. Kaynaktaki “33 omurilik segmenti” ifadesiyle omurganın gelişimsel vertebra sayısını karıştırmamak gerekir.",
-        "Radix posterior duyusal lifleri taşır ve üzerinde duyu nöronlarının gövdelerini içeren ganglion spinale vardır. Radix anterior motor çıkışı taşır. İki kökün birleşmesinden sonra spinal sinir karışık, yani hem duyusal hem motor lifler içeren bir sinirdir. Sonradan oluşan ön ve arka dallar da bu nedenle köklerle aynı işlevsel ayrımı taşımaz."
-      ],
-      "table": {
-        "headers": [
-          "Yapı",
-          "Kesitte neyi gösterir?"
-        ],
-        "rows": [
-          [
-            "Cornu anterius",
-            "Somatik motor nöron gövdelerinin bulunduğu ön gri madde boynuzu."
-          ],
-          [
-            "Cornu posterius",
-            "Duyusal bilginin işlenmesine katılan arka boynuz."
-          ],
-          [
-            "Cornu laterale",
-            "Özellikle T1–L2 düzeylerinde sempatik nöronlarla ilişkili yan boynuz."
-          ],
-          [
-            "Funiculus anterior, lateralis, posterior",
-            "Beyaz maddenin iletim yollarını barındıran bölümleri."
-          ],
-          [
-            "Canalis centralis",
-            "Merkezdeki ince kanal; vertebral kanalla aynı yapı değildir."
-          ],
-          [
-            "Fissura mediana anterior / sulcus medianus posterior",
-            "Öndeki derin yarık / arkadaki orta hat oluğu."
-          ]
-        ]
-      }
-    },
-    {
-      "id": "meninks",
-      "title": "Meninksler ve beyin-omurilik sıvısı",
-      "source": "Kaynak PDF, s. 39–41",
-      "sourcePages": "39–41",
-      "paragraphs": [
-        "Merkezi sinir sistemi dura mater, arachnoidea mater ve pia mater ile çevrilidir. Dura dıştaki dayanıklı kılıf, arachnoidea ortadaki zar, pia ise sinir dokusunun yüzeyine yakından uyan ince tabakadır. Arachnoidea ile pia arasındaki subaraknoid aralıkta BOS bulunur.",
-        "BOS beyin ventrikülleriyle, subaraknoid aralıkla ve ince merkezi kanalla ilişkilidir. Büyük bölümü ventriküllerdeki choroid pleksuslarda oluşur; dolaşarak beyin ve omuriliğin mekanik korunmasına ve kimyasal ortamının sürdürülmesine katkıda bulunur. “Vertebral kanalın tamamı BOS ile doludur” demek doğru değildir; omurilik, zarlar ve farklı aralıklar aynı kanal içinde yer alır."
-      ],
-      "flow": [
-        "Dura mater",
-        "Arachnoidea",
-        "Subaraknoid aralık · BOS",
-        "Pia mater",
-        "Sinir dokusu"
-      ]
-    },
-    {
-      "id": "kraniyal",
-      "title": "On iki çift kraniyal siniri işlevleriyle öğrenmek",
-      "source": "Kaynak PDF, s. 42–44",
-      "sourcePages": "42–44",
-      "paragraphs": [
-        "Kraniyal sinirler Roma rakamlarıyla I–XII arasında sıralanır. Bazıları yalnız duyusal, bazıları ağırlıklı motor, bazıları ise karışık bileşenlidir. Motor sözcüğü yalnız iskelet kasını anlatmak zorunda değildir; kimi sinirler parasempatik lifler de taşır. Aşağıdaki işlevler temel öğrenme haritasıdır, her sinirin bütün dallarının klinik muayene dökümü değildir."
-      ],
-      "table": {
-        "headers": [
-          "No ve sinir",
-          "Temel işlev ilişkisi"
-        ],
-        "rows": [
-          [
-            "I · N. olfactorius",
-            "Koku duyusu."
-          ],
-          [
-            "II · N. opticus",
-            "Görme duyusu."
-          ],
-          [
-            "III · N. oculomotorius",
-            "Çoğu dış göz kası, üst göz kapağının kaldırılması; pupilla daralması ve yakın odaklama için parasempatik lifler."
-          ],
-          [
-            "IV · N. trochlearis",
-            "M. obliquus superiorun motor siniri."
-          ],
-          [
-            "V · N. trigeminus",
-            "Yüzün başlıca genel duyusu; V3 üzerinden çiğneme kaslarının motor kontrolü. V1 ophthalmicus, V2 maxillaris, V3 mandibularis dallarıdır."
-          ],
-          [
-            "VI · N. abducens",
-            "M. rectus lateralis; gözün dışa hareketi."
-          ],
-          [
-            "VII · N. facialis",
-            "Mimik kasları; dil ön bölümünden tat, gözyaşı ve bazı tükürük bezlerine parasempatik lifler."
-          ],
-          [
-            "VIII · N. vestibulocochlearis",
-            "İşitme ve denge."
-          ],
-          [
-            "IX · N. glossopharyngeus",
-            "Dil arka bölümünden duyu/tat, pharynx ilişkileri ve parotise parasempatik lifler."
-          ],
-          [
-            "X · N. vagus",
-            "Pharynx-larynx motor işlevleri; göğüs ve karındaki birçok organın parasempatik ve duyusal bağlantıları."
-          ],
-          [
-            "XI · N. accessorius",
-            "Sternocleidomastoideus ve trapeziusun motor kontrolü."
-          ],
-          [
-            "XII · N. hypoglossus",
-            "Palatoglossus dışında dil kaslarının motor kontrolü."
-          ]
-        ]
-      },
-      "callout": "Göz hareketinde III–IV–VI; yüzde V duyu/çiğneme ve VII mimik; dilde V–VII–IX–X duyu ilişkileri ile XII motor ayrımını birlikte tekrar et."
-    }
-  ],
   "glossary": [
     [
       "Encephalon",
@@ -307,16 +32,230 @@ export default {
       "a": "Çevreden merkezi sinir sistemine doğru."
     },
     {
-      "q": "Kaç spinal segment vardır ve dağılımı nasıldır?",
-      "a": "31: 8 servikal, 12 torakal, 5 lumbal, 5 sakral ve 1 koksigeal."
+      "q": "Arka kök duyusal olduğuna göre arka dal da yalnız duyusal mıdır?",
+      "a": "Hayır. Ön ve arka kök birleşince karma spinal sinir oluşur; onun ön ve arka dalları da karma lifler taşır."
     },
     {
-      "q": "Arka kök ile spinal sinir aynı lif türlerini mi taşır?",
-      "a": "Hayır. Arka kök duyusaldır; ön kökle birleşen spinal sinir duyusal ve motor lifleri birlikte taşır."
+      "q": "Canalis vertebralis ile canalis centralis arasındaki fark nedir?",
+      "a": "İlki omurların oluşturduğu ve omuriliği barındıran kemik kanal, ikincisi omuriliğin merkezindeki küçük BOS kanalıdır."
     },
     {
-      "q": "BOS hangi iki meninks arasındadır?",
-      "a": "Arachnoidea ile pia arasındaki subaraknoid aralıkta."
+      "q": "Beyin sapının üç bölümü hangileridir?",
+      "a": "Mesencephalon, pons ve medulla oblongata. Cerebellum bunlarla bağlantılıdır ancak beyin sapının bir bölümü değildir."
+    },
+    {
+      "q": "Precentral ve postcentral gyrus neyle ilişkilidir?",
+      "a": "Central sulcusun önündeki precentral gyrus primer motor, arkasındaki postcentral gyrus primer somatosensoriyel korteksle ilişkilidir."
     }
-  ]
+  ],
+  "sections": [
+    {
+      "id": "haberlesme",
+      "title": "Uyarıdan cevaba: sinir sisteminin temel düzeni",
+      "sourcePages": "2–3",
+      "source": "PDF · s. 2–3",
+      "paragraphs": [
+        "Sinir sistemi iç ve dış ortamdan bilgi alır, bu bilgiyi işler ve uygun yanıtların oluşmasını sağlar. Endokrin sistemle birlikte homeostaza, yani iç ortam dengesinin korunmasına katılır. Uyarılabilme özelliğine irritabilite, sinirsel iletilere impuls, bir yapı ile sinirsel bağlantısına innervasyon denir.",
+        "Afferent, merkeze doğru gelen; efferent, merkezden uzaklaşan yolu belirtir. Örneğin derideki bir reseptörden gelen bilgi afferent liflerle taşınırken kasa gönderilen motor çıktı efferent liflerle iletilir. “Giriş–işleme–çıkış” düzeni tek tek sinirleri öğrenmeden önce bütün sistemin mantığını kurar."
+      ],
+      "flow": [
+        "Reseptör / uyarının algılanması",
+        "Afferent yol",
+        "Merkezi işleme",
+        "Efferent yol",
+        "Kas veya bez yanıtı"
+      ]
+    },
+    {
+      "id": "hucreler",
+      "title": "Nöron ve glia",
+      "sourcePages": "4–6",
+      "source": "PDF · s. 4–6",
+      "paragraphs": [
+        "Nöronun gövdesi (soma/perikaryon), dendritleri ve aksonu vardır. Dendritler çoğunlukla hücreye gelen girdileri, akson hücreden diğer hücrelere yönelen çıktıyı taşır. Aksonun hedefi bir başka nöron, kas veya bez olabilir. Nöronlar işlevlerine göre duyusal, motor ve ara nöron olarak gruplandırılır.",
+        "Glia yalnızca pasif bir dolgu değildir; hücresel ortamın sürdürülmesi, destek, miyelinleşme ve savunma gibi görevlere katılır. Glia–nöron oranı bölgeye göre değişir; bütün sinir sisteminde geçerli sabit bir “beş–on kat” oranı olarak ezberlenmemelidir. Olgun nöronların çoğu bölünmez; doku onarımı da bu nedenle sıradan bir hücre çoğalması gibi gerçekleşmez."
+      ]
+    },
+    {
+      "id": "bolumler",
+      "title": "Yapısal ve işlevsel sınıflama",
+      "sourcePages": "7–12",
+      "source": "PDF · s. 7–12",
+      "paragraphs": [
+        "Merkezi sinir sistemi beyin (encephalon) ve omurilikten (medulla spinalis) oluşur. Periferik sinir sisteminde kranial ve spinal sinirler, ganglionlar ve pleksuslar bulunur. Bu ayrım konuma göredir; somatik–otonom ayrımı ise işlevi anlatır.",
+        "Somatik sistem beden duyuları ve iskelet kası kontrolüyle ilişkilidir; bazı somatik yanıtlar refleks olarak istemsiz gerçekleşebilir. Visseral duyular iç organlardan gelir. Otonom motor sistem düz kas, kalp kası ve bezlere gider; sempatik ve parasempatik bölümleri organ işlevini koşullara göre düzenler. Bu iki sistemi yalnızca “biri istemli, diğeri istemsiz” cümlesine indirgemek eksik kalır.",
+        "Gri cevherde nöron gövdeleri, dendritler ve sinaptik bağlantılar; beyaz cevherde çoğunlukla miyelinli akson demetleri öne çıkar. Omurilikte gri cevher merkezde, beyaz cevher çevrededir. Beyinde korteks dışta gri cevher oluşturur; fakat iç bölgelerde de gri cevher çekirdekleri vardır. Dolayısıyla “beynin içi tamamen beyazdır” doğru değildir."
+      ]
+    },
+    {
+      "id": "beyin",
+      "title": "Beynin gelişimsel ve erişkin bölümleri",
+      "sourcePages": "13–15",
+      "source": "PDF · s. 13–15",
+      "paragraphs": [
+        "Encephalon, kafatası içindeki tüm beyin yapılarının adıdır; yalnızca serebral yarımkürelerden ibaret değildir. Ön beyin prosencephalon, orta beyin mesencephalon, arka beyin rhombencephalon olarak adlandırılır. Erişkin yapıların bu gelişimsel adlarla eşleştirilmesi, farklı şemaların neden farklı başlıklar kullandığını açıklar.",
+        "Telencephalon serebral hemisferleri; diencephalon thalamus, hypothalamus, epithalamus ve subthalamusu içerir. Arka beyindeki metencephalondan pons ve cerebellum, myelencephalondan medulla oblongata gelişir. Mesencephalon, pons ve medulla oblongata birlikte beyin sapını oluşturur; cerebellum bu grubun içinde sayılmaz."
+      ]
+    },
+    {
+      "id": "sap-beyincik",
+      "title": "Beyin sapı ve cerebellum",
+      "sourcePages": "16–20",
+      "source": "PDF · s. 16–20",
+      "paragraphs": [
+        "Medulla oblongata (bulbus), omurilik ile pons arasındadır. Solunum, dolaşım ve yutma gibi yaşamsal işlevlerin düzenlenmesine katılan çekirdek ve ağları içerir. Pons onun üstünde, mesencephalonun altındadır; cerebellumla bağlantılar, uyku–uyanıklık, yüz duyusu/hareketleri ve göz hareketleriyle ilişkili yapıları barındırır.",
+        "Mesencephalon beyin sapının üst bölümüdür. Görsel ve işitsel yönelme yanıtları, göz hareketleri ve motor kontrolle ilişkili yapılar içerir. Beyin sapı yalnızca alt ve üst merkezleri birleştiren kablo demeti değildir; kendi işleme merkezleri de vardır.",
+        "Cerebellum pons ve bulbusun arkasındadır. Hareketin zamanlaması, doğruluğu, denge ve motor öğrenmeye katılır. Agonist, antagonist, sinerjist ve fiksatör kasların birlikte çalışmasının ayarlanmasına yardım eder. Hareketi başlatan bütün emirlerin tek kaynağı değildir; planlanan hareketle gerçekleşen hareket arasındaki uyumu destekler."
+      ]
+    },
+    {
+      "id": "ara-beyin",
+      "title": "Diencephalon ve endokrin bağlantı",
+      "sourcePages": "21–26",
+      "source": "PDF · s. 21–26",
+      "paragraphs": [
+        "Thalamus birçok duyusal bilginin kortekse ulaşmadan önce işlendiği ve yönlendirildiği önemli istasyondur. Koku yolu, ilk kortikal ulaşımında tipik thalamik aktarma düzeninin istisnasıdır. Thalamus yalnızca pasif bir geçiş noktası değil, bilgi akışının düzenlenmesine katılan çekirdekler topluluğudur.",
+        "Hypothalamus sıvı dengesi, vücut sıcaklığı, açlık–tokluk, otonom yanıtlar, üreme davranışları ve biyolojik ritimlerle ilişkilidir. Hipofizle bağlantısı, sinirsel düzenlemenin hormonal yanıta dönüşmesini sağlar. Hipofiz sphenoid kemiğin sella turcicasında yer alır ve bir sapla hypothalamusa bağlanır.",
+        "Epithalamustaki pineal bez melatonin salgısıyla çevresel aydınlık–karanlık döngüsünün biyolojik ritimlerle ilişkilendirilmesine katılır; gece etkinliği artar. Subthalamus motor kontrol devreleriyle ilişkilidir. Bu küçük bölgeler, büyük serebral hemisferlerin gölgesinde kalan önemsiz yapılar değildir."
+      ]
+    },
+    {
+      "id": "korteks",
+      "title": "Beyin lobları, oluklar ve işlevler",
+      "sourcePages": "27–32",
+      "source": "PDF · s. 27–32",
+      "paragraphs": [
+        "Serebral hemisferlerin dış yüzü cortex cerebridir. Yüzeydeki çıkıntılara gyrus, oluklara sulcus denir. İki hemisferi longitudinal fissür ayırır. Sulcus centralis frontal ve parietal loblar arasında; sulcus lateralis temporal lob ile üstteki frontal/parietal bölgeler arasında; parietooccipital sulcus özellikle medial yüzde parietal–occipital sınırda bulunur.",
+        "Kaynağın şekillerinde central sulcusun önündeki precentral gyrus ile arkasındaki postcentral gyrus yan yana gösterilir. Precentral bölge primer motor korteks, postcentral bölge primer somatosensoriyel korteksle ilişkilidir. Aynı oluğun iki tarafındaki bu ayrım, hareket emri ile bedenden gelen duyu bilgisinin farklı işlenmesini somutlaştırır.",
+        "Lobların baskın görevlerini öğrenmek yararlıdır; ancak konuşma, bellek, karar verme veya algı tek bir küçük noktada bütünüyle gerçekleşmez. Farklı loblar ve derin yapılar ağlar halinde birlikte çalışır."
+      ],
+      "table": {
+        "headers": [
+          "Lob",
+          "Başlıca ilişkiler"
+        ],
+        "rows": [
+          [
+            "Frontal",
+            "İstemli motor kontrol, planlama, karar verme, davranış ve dil üretimiyle ilişkili alanlar."
+          ],
+          [
+            "Parietal",
+            "Bedensel duyuların değerlendirilmesi ve uzamsal bütünleştirme."
+          ],
+          [
+            "Temporal",
+            "İşitme, bellek ve dilin anlaşılmasıyla ilişkili alanlar."
+          ],
+          [
+            "Occipital",
+            "Görsel bilginin işlenmesi."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "omurilik",
+      "title": "Omuriliğin düzeyi, segmentleri ve kökleri",
+      "sourcePages": "33–36",
+      "source": "PDF · s. 33–36",
+      "paragraphs": [
+        "Omurilik vertebral kanal içinde, medulla oblongatanın devamı olarak uzanır; erişkinde çoğunlukla L1–L2 seviyesinde conus medullarisle biter. Omurga omurilikten daha uzun olduğundan alt segmentlerden çıkan kökler kendi çıkış deliklerine ulaşmak için aşağı ilerler ve cauda equina düzenini oluşturur.",
+        "Standart sayım 31 omurilik segmenti ve 31 çift spinal sinirdir: sekiz servikal, on iki torakal, beş lumbal, beş sakral ve bir koksigeal. Yedi boyun omuruna karşılık sekiz servikal spinal sinir olması bir hata değil, kemik ve sinir sayımlarının farklı olmasıdır. Kaynaktaki 33 segment ifadesi standart omurilik sayımı yerine kullanılmamalıdır.",
+        "Arka kök duyusal, ön kök motor lifleri taşır. Arka kökteki ganglion spinale duyusal nöron gövdelerini içerir. Kökler birleşince karma spinal sinir oluşur; sonra ön ve arka dallara ayrılır. Bu dalların ikisi de karma lifler taşır: “arka kök duyusal” bilgisi, arka dalın yalnız duyusal olduğu anlamına gelmez."
+      ],
+      "flow": [
+        "Duyusal arka kök + motor ön kök",
+        "Karma spinal sinir",
+        "Karma ön ve arka dallar"
+      ]
+    },
+    {
+      "id": "kesit",
+      "title": "Omuriliğin kesiti ve refleks bağlantısı",
+      "sourcePages": "37–38",
+      "source": "PDF · s. 37–38",
+      "paragraphs": [
+        "Enine kesitte gri cevher H veya kelebek biçiminde merkezde yer alır. Ön boynuzlar somatik motor nöronlarla, arka boynuzlar duyusal bilgiyi işleyen bağlantılarla ilişkilidir. Belirgin lateral boynuz özellikle thorakolumbal seviyelerde otonom nöronları içerir. Duyusal birinci nöron gövdeleri arka boynuzda değil, spinal gangliondadır.",
+        "Çevredeki beyaz cevherde yukarı çıkan duyusal ve aşağı inen motor yollar seyreder. Ortadaki canalis centralis küçük bir kanaldır; omuriliği çevreleyen büyük kemik kanal olan canalis vertebralisle aynı değildir. Bir refleks devresinde afferent girdi, merkezdeki bağlantılar ve efferent çıktı, bilinçli bir karar beklemeden yanıt oluşturabilir."
+      ]
+    },
+    {
+      "id": "meninks",
+      "title": "Meninksler ve beyin-omurilik sıvısı",
+      "sourcePages": "39–41",
+      "source": "PDF · s. 39–41",
+      "paragraphs": [
+        "Merkezi sinir sistemini dıştan içe dura mater, arachnoidea mater ve pia mater çevreler. Dura dayanıklı dış kılıf, arachnoid onun içindeki zar, pia ise sinir dokusunun yüzeyine yakından uyan ince örtüdür. Kaynağın kesit şekli bu sıralamayı omurilik çevresinde gösterir.",
+        "Beyin-omurilik sıvısı (BOS) ventriküllerde ve arachnoid ile pia arasındaki subarachnoid aralıkta bulunur; central kanal da bu sistemle ilişkilidir. BOS doğrudan vertebral kanalın kemik duvarıyla omurilik arasındaki bütün boşluğu dolduruyor gibi düşünülmemelidir. Sıvı mekanik koruma, kaldırma etkisi ve kimyasal ortamın sürdürülmesine katkı verir.",
+        "BOS büyük ölçüde koroid pleksuslarda oluşur; lateral ventriküllerden üçüncü, aqueductus yoluyla dördüncü ventriküle, oradan subarachnoid aralığa ulaşır ve geri emilir. Bu devamlı oluşum ve geri dönüş, sıvıyı durağan bir yastık olmaktan çıkarır."
+      ]
+    },
+    {
+      "id": "kranial",
+      "title": "On iki çift kranial sinir",
+      "sourcePages": "42–44",
+      "source": "PDF · s. 42–44",
+      "paragraphs": [
+        "Kranial sinirler Roma rakamlarıyla I–XII olarak sıralanır. Bazıları duyusal, bazıları motor, bazıları karma ve parasempatik bileşenlidir. Aşağıdaki tablo sinirlerin temel görevlerini birbirinden ayırır; özellikle yüz duyusu ile mimik hareketi, görme ile göz hareketi ve tat ile dil hareketi aynı sinire bağlanmamalıdır."
+      ],
+      "table": {
+        "headers": [
+          "Sinir",
+          "Temel görev"
+        ],
+        "rows": [
+          [
+            "I — N. olfactorius",
+            "Koku."
+          ],
+          [
+            "II — N. opticus",
+            "Görme."
+          ],
+          [
+            "III — N. oculomotorius",
+            "Çoğu dış göz kası, üst göz kapağı; pupilla ve akkomodasyonun parasempatik kontrolü."
+          ],
+          [
+            "IV — N. trochlearis",
+            "M. obliquus superior."
+          ],
+          [
+            "V — N. trigeminus",
+            "Yüz duyusu; V3 ile çiğneme kasları, mylohyoid ve digastricin ön karnı gibi kaslar."
+          ],
+          [
+            "VI — N. abducens",
+            "M. rectus lateralis; gözün dışa hareketi."
+          ],
+          [
+            "VII — N. facialis",
+            "Mimik kasları; ön dilin tat duyusu; gözyaşı, submandibular ve sublingual bezlerin parasempatik innervasyonu."
+          ],
+          [
+            "VIII — N. vestibulocochlearis",
+            "İşitme ve denge."
+          ],
+          [
+            "IX — N. glossopharyngeus",
+            "Arka dilin tat/genel duyusu, stylopharyngeus; parotisin parasempatik innervasyonu."
+          ],
+          [
+            "X — N. vagus",
+            "Yutak ve gırtlak işlevleri; thorax ve abdomen organlarının önemli bölümünde visseral duyu ve parasempatik kontrol."
+          ],
+          [
+            "XI — N. accessorius",
+            "Sternocleidomastoideus ve trapezius."
+          ],
+          [
+            "XII — N. hypoglossus",
+            "Dil kaslarının çoğunun motor kontrolü; palatoglossus istisnadır."
+          ]
+        ]
+      }
+    }
+  ],
+  "scope": "Nöron ve glia, duyu-motor yollar, MSS/PSS ve somatik-otonom ayrımı; beyin bölümleri, loblar, omurilik, spinal kökler, meninksler, BOS ve 12 çift kraniyal sinir."
 };

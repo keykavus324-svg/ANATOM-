@@ -4,7 +4,7 @@
 
 Kullanıcı, PDF sayfalarının metin ve görüntülerini art arda gösteren önceki okuyucuyu açıkça reddetti. Bu sürümde `FullCourseContent` ve “Kaynağın tamamı / Hızlı tekrar” seçimi kaldırıldı. `Sitede oku` doğrudan kendi cümleleriyle yazılmış, tematik olarak düzenlenen açıklamaları gösterir. Özgün PDF ayrı seçenek olarak korunur.
 
-11 ders ve kaynak rehberinde 109 başlık, ana anlatımda yaklaşık 14.700 kelime ve 49 tekrar sorusu vardır. Sayılar ürünün büyüklüğünü tarif eder; içerik doğruluğu veya her şekil etiketinin eksiksiz açıklanması hakkında bir sertifika değildir.
+11 ders ve kaynak rehberinde 119 başlık, ana anlatımda yaklaşık 14.700 kelime ve 58 tekrar sorusu vardır. Sayılar ürünün büyüklüğünü tarif eder; içerik doğruluğu veya her şekil etiketinin eksiksiz açıklanması hakkında bir sertifika değildir.
 
 ## Kaynak incelemesi
 
@@ -76,3 +76,9 @@ Bu liste **697 şeklin her küçük etiketinin tek tek uzman denetiminden geçir
 - Kapaklar evvelki atlas estetiğinde bırakıldı. Yapay zekâ ile üretilmiş dekoratif çizimlerdir; kaynak görseller gibi anatomik doğruluk iddiası taşımaz.
 
 Kalıcı yayın öncesi hocanın konu kapsamı ve doğruluk kontrolü, PDF/web yeniden kullanım izinleri, üçüncü taraf atlas görsellerinin hakları ve anonim Drive erişimi doğrulanmalıdır. Statik barındırmada yalnız `dist` yayımlanmalıdır; referans arşivini veya depo kökünü yanlışlıkla web kökü olarak kullanmayın. Testler bu editoryal/izin incelemesinin yerine geçmez.
+
+## Son düzenleme ve kaynak kimliği kontrolü
+
+- Anlatım 119 tematik bölüme ayrıldı. Bölgesel ayrıntılar akıcı paragraflarla genişletildi; elin intrinsik kasları ve karın–alt ekstremite arterleri ayrı başlıklar oldu. 58 proje sorusu gerekçeli cevaplarla sunuluyor.
+- 14 Ekim 2026 tarihli Drive klasör listesi dosya adı–kimlik eşleşmelerini tekrar doğruladı. Mevcut katalog doğrudur: örneğin giriş `15OxNPqApSUJ2-rnQoui2EVshH-MdM_IC`, eklem `1EV_rNsXJJT_rJatlDwPG8s0q18WOvjnp`, dolaşım `185OzTu2BEO6gO-EQB1okCEuXNu7S9E-c`. Dosya sırasından çıkarılan alternatif eşleştirme kullanılmadı. Bu kontrol erişim izinlerini değiştirmez veya anonim erişimi kanıtlamaz.
+- Yeni kontroller, 320 px ekranda en büyük yazı boyutuyla kranial sinir tablosunu ve içindekiler odağını; arşiv istekleri engellenmişken sindirim dersinin son başlıklarına erişimi kapsar.

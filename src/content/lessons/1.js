@@ -1,374 +1,9 @@
-// Authored lesson based on Bekir Dağdeviren’s course notes. See docs/content-notes.md.
+// Authored from Bekir Dağdeviren’s source notes; see docs/content-notes.md.
 export default {
   "subtitle": "Bir beden. Ortak bir dil.",
   "intro": "Anatomiyi öğrenmenin ilk adımı, yapıları isimlendirmek kadar onların birbirleriyle ilişkilerini de anlayabilmektir. Anatomik duruş, düzlemler ve yön terimleri bu ortak dilin temelini oluşturur.",
-  "scope": "Anatominin tarihi ve dalları; vücut sistemleri, anatomik duruş, düzlemler, eksenler, hareket ve yön terimleri, vücut bölgeleri, boşluklar ve Latince terminoloji.",
   "image": "/anatomy-torso.webp",
   "imageAlt": "Göğüs kafesi ve kasların atlas tarzında temsili çizimi",
-  "sections": [
-    {
-      "id": "tanim",
-      "title": "Anatomi neyi inceler?",
-      "source": "Kaynak PDF, s. 2–4",
-      "paragraphs": [
-        "Anatomi, insan vücudunun biçimini ve yapısını, organların yerleşimini ve birbirleriyle kurdukları ilişkileri inceler. Bir yapıyı öğrenmek yalnızca adını söyleyebilmek değildir: sınırlarını, komşularını ve diğer yapılara göre yönünü de tanımlayabilmektir. “Kalp göğüstedir” ifadesi başlangıçtır; kalbin akciğerler arasında ve diaphragma üzerinde bulunması ise anatomik ilişkinin tarifidir.",
-        "Anatomi sözcüğü keserek ayırma düşüncesiyle ilişkilidir. Diseksiyon, yapıları katman katman ayırarak incelemeye dayanır; anatomi ise bu yöntemden daha geniş bir bilim alanıdır. Günümüzde kadavra ve modellerin yanında kesitsel görüntüler, atlaslar ve bilgisayar uygulamaları birlikte kullanılır.",
-        "Tarihsel gelişimde Hipokrat’ın gözleme dayalı yaklaşımı, Aristo’nun karşılaştırmalı çalışmaları ve Galen’in tanımlamaları önemlidir. Leonardo da Vinci ayrıntılı insan çizimleriyle, Andreas Vesalius insan vücuduna dayalı sistematik incelemeleriyle öne çıkar. İbni Sina’nın El-Kanun fi’t-Tıbb adlı eseri de tıp bilgisinin aktarılmasında önemli bir yere sahiptir. Bu tarih, anatomik bilginin ezberden çok gözlem ve sorgulama ile geliştiğini gösterir."
-      ],
-      "callout": "Önce konum, sonra ilişki: Bir organı tanımlarken “Nerede?” ve “Neye göre?” sorularını birlikte sor.",
-      "sourcePages": "2–4"
-    },
-    {
-      "id": "dallar",
-      "title": "Aynı bedene farklı bakışlar",
-      "source": "Kaynak PDF, s. 5–17",
-      "paragraphs": [
-        "İnceleme ölçeği makroskopik ve mikroskopik anatomiyi birbirinden ayırır. Makroskopik anatomi gözle görülebilen organ ve bölgeleri ele alır. Mikroskopik anatomide sitoloji hücreleri, histoloji dokuları inceler. Gelişim anatomisi ise yapının zaman içindeki değişimini izler; prenatal dönemi inceleyen embriyoloji ile doğum sonrası dönemler bu çerçevede değerlendirilir.",
-        "Aynı organı farklı sorularla incelemek mümkündür. Sistematik anatomi bir sistemin üyelerini bir araya getirir; topografik anatomi belirli bir bölgedeki bütün yapıları birlikte ele alır. Fonksiyonel yaklaşım “Bu biçim hangi işe yarar?” sorusunu sorarken, klinik ve cerrahi yaklaşımlar anatomik ilişkilerin hastalık ve girişimler açısından önemini araştırır.",
-        "Kesitsel/radyolojik anatomi görüntüleme düzlemlerinde yapıları tanımayı; yüzey anatomisi dışarıdan görülebilen veya elle belirlenebilen işaretleri öğrenmeyi sağlar. Komparatif anatomi türler arasındaki benzerlik ve farkları inceler. Spor anatomisi hareket sistemiyle, artistik anatomi ise dış biçim ve oranların sanat çalışmalarında kullanılmasıyla yakından ilişkilidir. Patolojik anatomi normalden sapmış yapısal değişikliklere odaklanır."
-      ],
-      "table": {
-        "headers": [
-          "Yaklaşım",
-          "İnceleme odağı"
-        ],
-        "rows": [
-          [
-            "Makroskopik anatomi",
-            "Çıplak gözle görülebilen yapılar; kadavra, model ve atlaslarla çalışma."
-          ],
-          [
-            "Mikroskopik anatomi",
-            "Mikroskop altında hücreler ve dokular; sitoloji ve histoloji."
-          ],
-          [
-            "Gelişim anatomisi",
-            "Zigot oluşumundan itibaren yaşam boyunca yapısal değişimler."
-          ],
-          [
-            "Sistematik anatomi",
-            "İskelet, kas, dolaşım gibi sistemlerin organizasyonu."
-          ],
-          [
-            "Topografik anatomi",
-            "Baş, önkol veya karın gibi belirli bölgelerin yapıları."
-          ],
-          [
-            "Fonksiyonel anatomi",
-            "Yapı ile işlev arasındaki ilişki."
-          ]
-        ]
-      },
-      "sourcePages": "5–17"
-    },
-    {
-      "id": "sistemler",
-      "title": "Organları bir sistem içinde düşünmek",
-      "source": "Kaynak PDF, s. 11–12",
-      "sourcePages": "11–12",
-      "paragraphs": [
-        "Bir organın tek başına yaptığı iş, çoğu zaman bir sistemin daha geniş işlevinin parçasıdır. İskelet ve kaslar hareketi oluşturur; dolaşım, solunum ve sindirim dokuların ihtiyaçlarını karşılamak üzere birlikte çalışır. Sinir ve endokrin sistemler bu işleyişin koordinasyonuna katılır. Aynı organ birden fazla işlevsel ilişki içinde değerlendirilebilir; örneğin pharynx hem hava hem besin yolu ile bağlantılıdır."
-      ],
-      "table": {
-        "headers": [
-          "Sistem",
-          "Ana yapı ve işlev ilişkisi"
-        ],
-        "rows": [
-          [
-            "İskelet ve kas",
-            "Destek, koruma, hareket ve postür."
-          ],
-          [
-            "Sindirim",
-            "Besinlerin alınması, parçalanması ve emilimi."
-          ],
-          [
-            "Dolaşım",
-            "Kan ve lenfle maddelerin taşınması."
-          ],
-          [
-            "Solunum",
-            "Hava ile kan arasında gaz alışverişi."
-          ],
-          [
-            "Üriner",
-            "İdrar oluşumu ve uzaklaştırılması; iç ortamın düzenlenmesine katkı."
-          ],
-          [
-            "Genital",
-            "Üreme hücreleri, üreme yolları ve ilişkili bezler."
-          ],
-          [
-            "Sinir ve endokrin",
-            "Hızlı sinirsel ileti ve hormonal düzenleme."
-          ],
-          [
-            "Duyu organları",
-            "Çevresel uyaranların algılanması."
-          ]
-        ]
-      }
-    },
-    {
-      "id": "durus",
-      "title": "Referans noktası: anatomik duruş",
-      "source": "Kaynak PDF, s. 18",
-      "paragraphs": [
-        "Yön ve yer tarifleri standart bir vücut pozisyonuna göre yapılır. Kişi ayakta dik durur; başı ve yüzü öne bakar. Kollar vücudun iki yanında, avuç içleri öne dönüktür. Ders notunda topukların bitişik olduğu duruş tarif edilir."
-      ],
-      "bullets": [
-        "Sağ ve sol, gözlemcinin değil incelenen kişinin sağı ve soludur.",
-        "Bir yapı öne, arkaya, içe veya dışa doğru tarif edilirken anatomik duruş esas alınır.",
-        "Örneğin önkolda radius lateral, ulna medial taraftadır."
-      ],
-      "callout": "Avuç içlerinin öne bakması küçük bir ayrıntı değildir; üst ekstremitenin yönlerini doğru okumayı sağlar.",
-      "sourcePages": "18"
-    },
-    {
-      "id": "duzlemler",
-      "title": "Düzlemler ve eksenler",
-      "source": "Kaynak PDF, s. 19–27",
-      "paragraphs": [
-        "Düzlemler vücudu hayali kesitlere ayırır; eksenler ise hareketin etrafında gerçekleştiği hayali çizgilerdir. İkisini birbirine karıştırmadan öğrenmek hareket analizini kolaylaştırır."
-      ],
-      "table": {
-        "headers": [
-          "Düzlem",
-          "Vücudu nasıl ayırır?"
-        ],
-        "rows": [
-          [
-            "Sagittal",
-            "Sağ ve sol bölümlere ayırır."
-          ],
-          [
-            "Median (midsagittal)",
-            "Tam orta hattan geçerek sağ ve sol yarılara ayırır."
-          ],
-          [
-            "Frontal (koronal)",
-            "Ön ve arka bölümlere ayırır."
-          ],
-          [
-            "Transvers (horizontal)",
-            "Yere paralel geçerek üst ve alt bölümlere ayırır."
-          ]
-        ]
-      },
-      "bullets": [
-        "Sagittal eksen önden arkaya uzanır.",
-        "Transvers eksen sağdan sola uzanır.",
-        "Vertikal eksen yukarıdan aşağıya uzanır."
-      ],
-      "callout": "Hareket düzlemi ile dönme ekseni birbirine diktir: fleksiyon–ekstansiyon sagittal düzlemde transvers eksen çevresinde; abduksiyon–adduksiyon frontal düzlemde sagittal eksen çevresinde; rotasyon transvers düzlemde vertikal eksen çevresinde düşünülür.",
-      "sourcePages": "19–27"
-    },
-    {
-      "id": "yonler",
-      "title": "Yapıları birbirine göre tarif etmek",
-      "source": "Kaynak PDF, s. 37–43",
-      "table": {
-        "headers": [
-          "Terim çifti",
-          "Anlamı ve örnek"
-        ],
-        "rows": [
-          [
-            "Superior / inferior",
-            "Üst / alt. Kalp, midenin superiorunda bulunur."
-          ],
-          [
-            "Anterior / posterior",
-            "Ön / arka. Omurga, kalbin posteriorundadır."
-          ],
-          [
-            "Medial / lateral",
-            "Orta hatta yakın / orta hattan uzak. Kulaklar gözlerin lateralindedir."
-          ],
-          [
-            "Proksimal / distal",
-            "Uzvun başlangıcına yakın / uzak. El bileği, parmakların proksimalindedir."
-          ],
-          [
-            "Superficialis / profundus",
-            "Yüzeyel / derin. Deri, kaslara göre yüzeyeldir."
-          ],
-          [
-            "Dexter / sinister",
-            "Sağ / sol. Kişinin anatomik yönleri esas alınır."
-          ],
-          [
-            "Cranialis / caudalis",
-            "Baş yönüne / kuyruk-alt uç yönüne doğru."
-          ],
-          [
-            "Internalis / externalis",
-            "Bir organ veya boşluğun iç / dış bölümü. Medial–lateral ile aynı ayrım değildir."
-          ],
-          [
-            "Centralis / peripheralis",
-            "Merkezi / çevresel."
-          ],
-          [
-            "Ipsilateralis / contralateralis",
-            "Aynı tarafta / karşı tarafta."
-          ],
-          [
-            "Medius / intermedius",
-            "Orta bölüm / iki yapı arasında."
-          ],
-          [
-            "Apex / basis",
-            "Tepe / taban. Apicalis ve basalis ilgili bölgeye ait olmayı belirtir."
-          ]
-        ]
-      },
-      "callout": "“Medial” içte olmakla, “proksimal” ise uzvun başlangıcına yakın olmakla ilgilidir. Aynı anlamda kullanılmazlar.",
-      "sourcePages": "37–43"
-    },
-    {
-      "id": "hareket",
-      "title": "Hareketin sözcükleri",
-      "source": "Kaynak PDF, s. 28–36",
-      "table": {
-        "headers": [
-          "Hareket",
-          "Tanım"
-        ],
-        "rows": [
-          [
-            "Fleksiyon / ekstansiyon",
-            "Eklem açısının küçülmesi / büyümesi."
-          ],
-          [
-            "Abduksiyon / adduksiyon",
-            "Orta hattan uzaklaşma / orta hatta yaklaşma."
-          ],
-          [
-            "Rotasyon",
-            "Bir yapının uzun ekseni etrafında dönmesi."
-          ],
-          [
-            "Sirkumdüksiyon",
-            "Fleksiyon, abduksiyon, ekstansiyon ve adduksiyonun birleştiği dairesel hareket."
-          ],
-          [
-            "İnversiyon / eversiyon",
-            "Ayak tabanının içe / dışa döndürülmesi."
-          ]
-        ]
-      },
-      "paragraphs": [
-        "Dirseği bükmek fleksiyon, açmak ekstansiyondur. Omuzdan kolu yana kaldırmak abduksiyon, gövdeye yaklaştırmak adduksiyondur. Sirkumdüksiyonda uzvun ucu bir daire çizer; bunun tek bir eksen çevresindeki rotasyonla aynı hareket olmadığını ayırt et.",
-        "Önkol pronasyonunda avuç içi anatomik duruşa göre arkaya, dirsek bükülü tutulduğunda aşağıya döner; radius ulna üzerinden çaprazlaşır. Supinasyonda avuç öne veya yukarı döner ve önkol kemikleri yeniden paralelleşir. Bu terimler omuzun iç/dış rotasyonuyla eş anlamlı değildir.",
-        "Ayak bileğinde ayağın sırtını bacağa yaklaştırmak dorsifleksiyon, parmak ucuna yükselme yönündeki hareket plantar fleksiyondur. İnversiyon ayak tabanını içe, eversiyon dışa yönlendirir. Başparmağın diğer parmaklarla karşılaşması oppositio, başlangıç konumuna dönmesi repositio olarak adlandırılır."
-      ],
-      "sourcePages": "28–36"
-    },
-    {
-      "id": "bolgeler",
-      "title": "Vücut bölgeleri: adı, yeri ve sınırı",
-      "source": "Kaynak PDF, s. 44, 47",
-      "sourcePages": "44, 47",
-      "paragraphs": [
-        "Vücut baş (caput), boyun (collum/cervix), gövde (truncus) ve ekstremiteler olarak ele alınabilir. Gövdenin göğüs, karın, pelvis ve sırt bölgeleri sırasıyla thorax, abdomen, pelvis ve dorsumdur. Günlük dilde “kol” veya “bacak” geniş bir alanı anlatabilir; anatomide bu sözcüklerin daha belirli sınırları vardır. Brachium omuz ile dirsek, antebrachium dirsek ile el bileği arasındadır. Femur bölgesi kalça ile diz, crus ise diz ile ayak bileği arasını ifade eder."
-      ],
-      "table": {
-        "headers": [
-          "Üst taraf",
-          "Alt taraf"
-        ],
-        "rows": [
-          [
-            "Omuz: omos; koltuk altı: axilla",
-            "Kalça: coxa; gluteal bölge: natis/clunis"
-          ],
-          [
-            "Dirsek: cubitus; el bileği: carpus",
-            "Diz: genu; diz arkası: poples; baldır: sura"
-          ],
-          [
-            "El: manus; avuç: palma/vola",
-            "Ayak: pes; topuk: calx; taban: planta"
-          ],
-          [
-            "El sırtı: dorsum manus; parmaklar: digiti manus",
-            "Ayak sırtı: dorsum pedis; parmaklar: digiti pedis"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "bosluklar",
-      "title": "Organların yerleştiği boşluklar",
-      "source": "Kaynak PDF, s. 44–46",
-      "sourcePages": "44–46",
-      "paragraphs": [
-        "Dorsal boşluklar kafatası içindeki cavitas cranii ile omurganın canalis vertebralisidir; sırasıyla beyin ve omuriliği barındırırlar. Ön taraftaki büyük boşluklar göğüs, karın ve pelvis boşluklarıdır. Diaphragma göğüs ile karın boşluğunu ayırır; karın ile pelvis boşlukları birbirleriyle devam eder.",
-        "Cavitas oris ağız, cavitas nasi burun, orbita göz çukuru, cavitas tympanica orta kulak boşluğudur. Cavitas articularis ise sinoviyal eklemin boşluğunu belirtir. Aynı “boşluk” sözcüğü kullanılsa da içerdikleri yapılar ve duvarlarının organizasyonu farklıdır."
-      ],
-      "callout": "Bir yapıyı tarif ederken sırayla bölgeyi, boşluğu ve komşuluğu söyle: “Toraksta, mediastinumda, iki akciğer arasında…” gibi."
-    },
-    {
-      "id": "latince",
-      "title": "Latinceyi okuyabilmek ve çoğulları tanımak",
-      "source": "Kaynak PDF, s. 48–54",
-      "sourcePages": "48–54",
-      "paragraphs": [
-        "Derslerde kullanılan telaffuz gelenekleri, terimlerin yazılışını ve söylenişini ilişkilendirmeye yardımcı olur; bunlar Latincenin bütün sözcüklerini kapsayan değişmez kurallar değildir. C harfi a, o, u veya ünsüzlerden önce çoğunlukla k; e, i ve benzeri seslerden önce s okunur. Bu nedenle caput “kaput”, cervix “serviks” diye söylenir."
-      ],
-      "table": {
-        "headers": [
-          "Harf / birleşim",
-          "Ders terminolojisinden örnek"
-        ],
-        "rows": [
-          [
-            "J → y; Q → ku",
-            "Jejunum → yeyunum; quadriceps → kuadriseps."
-          ],
-          [
-            "Y → i; X → ks",
-            "Systema → sistema; flexura → fleksura."
-          ],
-          [
-            "T + ia / io / iu → çoğunlukla s",
-            "Articulatio → artikulasyo; telaffuz kullanılan geleneğe göre değişebilir."
-          ],
-          [
-            "I + ünlü → y; G → g",
-            "Iugum → yugum; gaster → gaster."
-          ],
-          [
-            "TH → t; RH → r",
-            "Thorax → toraks; rhombus → rombus."
-          ],
-          [
-            "PH → f; CH → k",
-            "Pharynx → farinks; concha → konka."
-          ],
-          [
-            "AE → e; OE / EU için ö sesi",
-            "Venae → vene; coeliacus → sölyakus; neuron → nöron."
-          ],
-          [
-            "-um → -a",
-            "Ligamentum–ligamenta; atrium–atria; ostium–ostia."
-          ],
-          [
-            "Bazı -us sözcüklerinde -i",
-            "Nervus–nervi; musculus–musculi; bronchus–bronchi."
-          ],
-          [
-            "Bazı -a sözcüklerinde -ae",
-            "Vertebra–vertebrae; arteria–arteriae; bursa–bursae."
-          ]
-        ]
-      },
-      "callout": "Çoğul örüntüleri öğrenmeyi kolaylaştırır ama bütün isimler aynı çekim grubuna girmez. Terimin sözlük biçimini ve bağlamını da kontrol et."
-    }
-  ],
   "glossary": [
     [
       "Anatomi",
@@ -397,12 +32,225 @@ export default {
       "a": "Proksimaldir; uzvun başlangıcına daha yakındır."
     },
     {
-      "q": "Pronasyonda önkol kemiklerinin ilişkisi nasıl değişir?",
-      "a": "Radius ulna üzerinden çaprazlaşır; supinasyonda yeniden paralel konuma dönerler."
+      "q": "Düzlem ile eksen arasındaki ilişki nedir?",
+      "a": "Hareket ekseni, hareketin gerçekleştiği düzleme diktir. Örneğin sagittal düzlemdeki fleksiyon–ekstansiyon transvers eksen çevresindedir."
     },
     {
-      "q": "Fleksiyonun düzlemi ile ekseni aynı yönde midir?",
-      "a": "Hayır. Fleksiyon sagittal düzlemde, bu düzleme dik olan transvers eksen çevresinde düşünülür."
+      "q": "Pronasyon neden yalnızca “iç rotasyon” diye öğrenilmemeli?",
+      "a": "Önkol pronasyonunda radius ulna üzerinde çaprazlanır. Bu, omuz ekleminde humerusun iç rotasyonundan farklı bir harekettir."
+    },
+    {
+      "q": "Ligamentum, nervus ve vertebra sözcüklerinin çoğulları nedir?",
+      "a": "Ligamenta, nervi ve vertebrae. Latince çoğullar tek bir genel ekle yapılmaz."
     }
-  ]
+  ],
+  "sections": [
+    {
+      "id": "anatomi",
+      "title": "Anatominin konusu ve gelişimi",
+      "sourcePages": "2–4",
+      "source": "PDF · s. 2–4",
+      "paragraphs": [
+        "Anatomi, insan vücudunun normal yapısını ve bu yapıyı oluşturan organların birbirleriyle ilişkilerini inceler. Bir kemiğin adını bilmek ilk basamaktır; hangi kemikle eklemleştiğini, hangi kasların ona tutunduğunu ve yakınından hangi damarların geçtiğini öğrenmek anatomik düşünmenin devamıdır. Bu nedenle anatomi, isim ezberinden çok bir konum ve ilişki bilimidir.",
+        "Sözcüğün kökeni parçalayarak inceleme düşüncesine dayanır. Diseksiyon, doku ve organları birbirinden ayırarak yapıyı ortaya çıkarma yöntemidir; anatominin kendisi yalnızca diseksiyondan ibaret değildir. Günümüzde model, atlas, mikroskopi ve görüntüleme yöntemleri de anatomik bilgiyi görünür kılar.",
+        "Dersin tarihsel çerçevesinde Hipokrat ve Aristoteles’in ilk yaklaşımları, Galen’in anatomik tanımları, İbni Sina’nın tıp birikimi, Leonardo da Vinci’nin gözlem ve çizimleri ve Vesalius’un insan diseksiyonlarına dayanan çalışmaları yer alır. Ortak gelişim çizgisi, aktarılan bilgiyi doğrudan gözlemle karşılaştırmaktır."
+      ]
+    },
+    {
+      "id": "dallar",
+      "title": "Anatominin dalları ve inceleme yöntemleri",
+      "sourcePages": "5–17",
+      "source": "PDF · s. 5–17",
+      "paragraphs": [
+        "Makroskopik anatomi, çıplak gözle seçilebilen organları inceler. Mikroskopik anatomi aynı yapıyı hücre ve doku düzeyine indirir: sitoloji hücreyi, histoloji dokuyu ele alır. Gelişim anatomisi yaşam boyunca gerçekleşen yapısal değişimleri; embriyoloji özellikle doğum öncesi gelişimi inceler. Patolojik anatomi ise normalden sapmış yapıların değerlendirilmesiyle ilgilidir.",
+        "Bir bölgeyi öğrenmenin iki tamamlayıcı yolu vardır. Sistematik yaklaşımda dolaşım sistemindeki bütün damarlar veya iskeletteki bütün kemikler gibi işlevsel birlikler izlenir. Topografik yaklaşımda ise örneğin boyundaki kaslar, damarlar, sinirler ve organlar birlikte ele alınır. Birincisi sistemin bütününü, ikincisi komşulukları öğretir.",
+        "Fonksiyonel anatomi yapı ile işlevi; klinik ve cerrahi anatomi bu ilişkilerin muayene ve girişimlerdeki önemini vurgular. Kesitsel/radyolojik anatomi organları görüntüleme kesitlerinde tanımaya, yüzey anatomisi deriden görülen veya hissedilen işaretleri derindeki yapılara bağlamaya yarar. Karşılaştırmalı anatomi türler arasındaki farklılıkları; spor anatomisi hareket sistemini; artistik anatomi vücudun dış biçimini öne çıkarır."
+      ],
+      "table": {
+        "headers": [
+          "Sistem",
+          "Başlıca inceleme alanı"
+        ],
+        "rows": [
+          [
+            "İskelet ve kas",
+            "Destek, eklemleşme ve hareket."
+          ],
+          [
+            "Sindirim, solunum ve dolaşım",
+            "Besinlerin işlenmesi, gaz alışverişi ve taşıma."
+          ],
+          [
+            "Üriner ve genital",
+            "İdrar oluşturma/iletme ve üreme organları."
+          ],
+          [
+            "Sinir, endokrin ve duyu",
+            "Koordinasyon, hormonal düzenleme ve çevrenin algılanması."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "durus",
+      "title": "Anatomik duruş: bütün tariflerin başlangıcı",
+      "sourcePages": "18",
+      "source": "PDF · s. 18",
+      "paragraphs": [
+        "Anatomik duruşta kişi dik durur; başı ve yüzü öne yönelmiştir. Kollar gövdenin iki yanında, dirsekler açık ve avuç içleri öne dönüktür. Ders notunda ayakların ve topukların birbirine yakın olduğu duruş tarif edilir. Bu standart, bir yapının yerini kişinin o anda yaptığı hareketten bağımsız biçimde anlatmamızı sağlar.",
+        "Sağ ve sol, gözlemcinin değil kişinin sağı ve soludur. Örneğin karşımızdaki kişinin sağ kolu bize göre solda görünse de anatomik adlandırmada sağ kol olarak kalır. Avuçların öne dönük olması nedeniyle radius önkolun başparmak tarafında, yani lateralinde; ulna ise medialinde bulunur."
+      ],
+      "callout": "Yön sorularında önce bedeni anatomik duruşa getir; ardından karşılaştırdığın iki yapıyı ve orta hattı belirle."
+    },
+    {
+      "id": "duzlemler",
+      "title": "Düzlemler, eksenler ve hareket ilişkisi",
+      "sourcePages": "19–27",
+      "source": "PDF · s. 19–27",
+      "paragraphs": [
+        "Düzlem, vücudu kesen hayali bir yüzey; eksen ise hareketin çevresinde gerçekleştiği hayali çizgidir. Bir hareketin düzlemi ile ekseni birbirine diktir. Bu ayrım, “kol öne kalkıyor” gibi günlük bir tarifi anatomik dile dönüştürür.",
+        "Sagittal düzlemler vücudu sağ ve sol bölümlere ayırır. Bunlardan tam orta hattan geçen median düzlem, sağ ve sol yarıları ayıran özel sagittal düzlemdir. Frontal/koronal düzlem ön ve arka; transvers/horizontal düzlem üst ve alt bölümler oluşturur. Bu düzlemler organların görüntüleme kesitlerini tarif ederken de kullanılır."
+      ],
+      "table": {
+        "headers": [
+          "Düzlem",
+          "Ona dik eksen",
+          "Tipik hareket"
+        ],
+        "rows": [
+          [
+            "Sagittal",
+            "Transvers: sağ–sol yönü",
+            "Fleksiyon ve ekstansiyon."
+          ],
+          [
+            "Frontal",
+            "Sagittal: ön–arka yönü",
+            "Abduksiyon ve adduksiyon."
+          ],
+          [
+            "Transvers",
+            "Vertikal: üst–alt yönü",
+            "Rotasyon."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "hareket",
+      "title": "Hareketleri doğru adlandırmak",
+      "sourcePages": "28–36",
+      "source": "PDF · s. 28–36",
+      "paragraphs": [
+        "Fleksiyon çoğu eklemde iki bölüm arasındaki açıyı azaltır; ekstansiyon artırır. Dirseği bükmek fleksiyon, yeniden açmak ekstansiyondur. Abduksiyon orta hattan uzaklaşma, adduksiyon orta hatta yaklaşmadır. Rotasyon, bir kemiğin uzun ekseni çevresinde dönmesidir; içe ve dışa rotasyon olarak ayrılabilir.",
+        "Pronasyon ve supinasyon önkol için özel hareketlerdir. Pronasyonda radius ulna üzerinde çaprazlanır; dirsek bükülüyken avuç içi aşağı döner. Supinasyonda kemikler yeniden paralel duruma yaklaşır ve avuç yukarı yönelir. Bu hareketleri omuzun iç/dış rotasyonuyla aynı hareket gibi düşünmemek gerekir.",
+        "Sirkumdüksiyon, fleksiyon–abduksiyon–ekstansiyon–adduksiyonun ardışık birleşimiyle uç bölümün daire çizmesidir. Ayakta inversiyon tabanın mediale, eversiyon laterale yönelmesidir. Ayak sırtını bacağa yaklaştırmak dorsifleksiyon; ayağı aşağı yöneltmek plantar fleksiyondur. Elevasyon/depresyon yükseltme–indirme, protraksiyon/retraksiyon öne–arkaya hareketi anlatır; başparmakta opozisyon parmak uçlarıyla karşılaşmayı sağlar."
+      ]
+    },
+    {
+      "id": "yonler",
+      "title": "Yer ve yön terimleri",
+      "sourcePages": "37–43",
+      "source": "PDF · s. 37–43",
+      "paragraphs": [
+        "Anatomik yön terimleri mutlak bir adres değil, çoğunlukla iki yapı arasındaki karşılaştırmadır. Kalp midenin superiorunda, sternumun posteriorundadır. “İçte” sözcüğünü de tek başına kullanmak yerine orta hatta mı, bir boşluğun içine mi, yoksa yüzeyden derine mi kastedildiğini belirtmek gerekir."
+      ],
+      "table": {
+        "headers": [
+          "Terim",
+          "Anlam ve ayırt edici nokta"
+        ],
+        "rows": [
+          [
+            "Superior / inferior; cranialis / caudalis",
+            "Üst–alt; başa–kuyruk yönüne yakınlık."
+          ],
+          [
+            "Anterior / posterior; ventralis / dorsalis",
+            "Ön–arka; gövde için karın–sırt yönü."
+          ],
+          [
+            "Median / medialis / lateralis",
+            "Orta hat üzerinde / orta hatta yakın / orta hattan uzak."
+          ],
+          [
+            "Proximalis / distalis",
+            "Uzvun başlangıcına yakın / uzak. El bileği dirseğe göre distal, parmaklara göre proksimaldir."
+          ],
+          [
+            "Superficialis / profundus",
+            "Yüzeye yakın / derin. Deri kaslara göre yüzeyeldir."
+          ],
+          [
+            "Internalis / externalis",
+            "Bir organ ya da boşluğun iç / dış tarafı."
+          ],
+          [
+            "Dexter / sinister; ipsilateralis / contralateralis",
+            "Sağ–sol; aynı taraf–karşı taraf."
+          ],
+          [
+            "Centralis / peripheralis",
+            "Merkeze yakın / çevrede."
+          ],
+          [
+            "Medius / intermedius; apex / basis",
+            "Ortada / iki yapı arasında; tepe / taban."
+          ],
+          [
+            "Longitudinalis / transversalis; verticalis / horizontalis",
+            "Boyuna–enine; düşey–yatay."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "bolgeler",
+      "title": "Vücut bölgeleri ve boşlukları",
+      "sourcePages": "44–47",
+      "source": "PDF · s. 44–47",
+      "paragraphs": [
+        "Vücut baş (caput), boyun (collum), gövde (truncus) ve ekstremitelere ayrılır. Gövdede sırt, thorax, abdomen ve pelvis; üst ekstremitede omuz, kol (brachium), önkol (antebrachium) ve el (manus); alt ekstremitede gluteal bölge, uyluk, bacak (crus) ve ayak (pes) ayırt edilir. Anatomide “kol” omuz–dirsek, “bacak” diz–ayak bileği arasını belirtir; bütün uzuv için ekstremite denir.",
+        "Dorsal tarafta cavitas cranii beyni, canalis vertebralis omuriliği barındırır. Ventral boşlukların göğüs bölümü cavitas thoracis, karın bölümü cavitas abdominalis, pelvis bölümü cavitas pelvis olarak adlandırılır. Diaphragma göğüs ile karın boşluğu arasında sınır oluşturur. Ağız ve burun boşlukları, orbita, orta kulak boşluğu ve eklem boşlukları daha küçük özel boşluklardır.",
+        "Bölge adları daha küçük alanları da ayırt eder: axilla koltuk altı, cubitus dirsek, carpus el bileği, palma avuç, genu diz, poples diz arkası, sura baldır, calx topuk ve planta ayak tabanıdır. El ve ayak sırtı sırasıyla dorsum manus ve dorsum pedis olarak adlandırılır. Bir bölge adı boşluk adıyla aynı değildir: abdomen bir bölgeyi, cavitas abdominalis o bölgedeki boşluğu belirtir."
+      ]
+    },
+    {
+      "id": "latince",
+      "title": "Latince terimleri okumak ve çoğullarını tanımak",
+      "sourcePages": "48–54",
+      "source": "PDF · s. 48–54",
+      "paragraphs": [
+        "Latince isimleri kök ve ekleriyle öğrenmek yeni terimleri çözmeyi kolaylaştırır. Ders notundaki okunuş örnekleri Türkiye’de anatomi eğitiminde kullanılan telaffuz geleneğini izler; bunları bütün dillerde değişmeyen tek bir Latince telaffuz kuralı olarak görmemek gerekir.",
+        "C harfi a, o, u veya bir ünsüz önünde çoğunlukla “k”; e, i, y, ae, oe önünde “s” olarak okunur: caput “kaput”, cerebrum “serebrum”. J “y”, q “ku”, x “ks”, y ise “i” sesine yaklaşır. Th “t”, ph “f”, ch “k”, rh “r” olarak okunur: thorax, pharynx, concha ve rhombus bu örüntüleri gösterir. Ae çoğunlukla “e”; oe/eu örnekleri “ö” ile karşılanır. Bazı ti + ünlü birleşimlerinde “si”ye yaklaşan bir okunuş görülür.",
+        "Çoğul yaparken tek bir kural bütün terimlere uygulanmaz; aşağıdaki örnekler dersin sık kullanılan sözcük gruplarıdır. Özellikle os–ossa gibi düzensiz biçimler ayrıca öğrenilmelidir.",
+        "I harfi ünlüden önce bazı terimlerde “y” gibi duyulur: iugum “yugum”; G çoğunlukla Türkçedeki “g” gibi okunur: gaster. Anatomik terimin doğru yazımı değişmese de okunuş geleneği ülkeler arasında farklı olabilir. Bu yüzden yeni bir terimi öğrenirken yazılı biçimi, tekil–çoğul ilişkisi ve yapının kendisi birlikte çalışılmalıdır."
+      ],
+      "table": {
+        "headers": [
+          "Tekil",
+          "Çoğul",
+          "Örüntü"
+        ],
+        "rows": [
+          [
+            "Ligamentum / atrium",
+            "Ligamenta / atria",
+            "-um → -a"
+          ],
+          [
+            "Nervus / musculus / bronchus",
+            "Nervi / musculi / bronchi",
+            "Bu grupta -us → -i"
+          ],
+          [
+            "Vertebra / arteria / vena",
+            "Vertebrae / arteriae / venae",
+            "-a → -ae"
+          ]
+        ]
+      }
+    }
+  ],
+  "scope": "Anatominin tarihi ve dalları; vücut sistemleri, anatomik duruş, düzlemler, eksenler, hareket ve yön terimleri, vücut bölgeleri, boşluklar ve Latince terminoloji."
 };

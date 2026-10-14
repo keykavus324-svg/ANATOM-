@@ -1,358 +1,9 @@
-// Authored lesson based on Bekir Dağdeviren’s course notes. See docs/content-notes.md.
+// Authored from Bekir Dağdeviren’s source notes; see docs/content-notes.md.
 export default {
   "subtitle": "Hareketin yaşayan dokusu.",
   "intro": "Kaslar yalnızca yer değiştirmemizi sağlamaz; postürün korunmasına, eklemlerin stabilitesine ve ısı üretimine de katılır. Kas bilimi, bu dokunun yapısını ve hareket içindeki rolünü birlikte ele alır.",
-  "scope": "Kas dokusunun yapısı, tutunma ve kasılma ilkeleri; mimik, çiğneme, boyun, sırt, göğüs, karın, omuz, kol, el, kalça, uyluk ve bacak kasları.",
   "image": "/atlas/muscles.webp",
   "imageAlt": "Omuz ve kol kaslarını betimleyen atlas tarzında temsili çizim",
-  "sections": [
-    {
-      "id": "tipler",
-      "title": "Üç kas dokusu",
-      "source": "Kaynak PDF, s. 2–9",
-      "table": {
-        "headers": [
-          "Doku",
-          "Temel özellik"
-        ],
-        "rows": [
-          [
-            "İskelet kası",
-            "Çizgili yapıdadır; istemli hareketlerde görev alır."
-          ],
-          [
-            "Düz kas",
-            "Damar ve iç organ duvarlarında yer alır; istem dışı çalışır."
-          ],
-          [
-            "Kalp kası",
-            "Çizgili yapıda olmasına rağmen istem dışı çalışır."
-          ]
-        ]
-      },
-      "paragraphs": [
-        "Kas sistemi hareketin yanında eklemlerin stabilizasyonuna, postürün ayarlanmasına ve ısı üretimine katkıda bulunur. Düzenli yüklenmeyle kas kütlesinin artması hipertrofi; kullanılmama veya innervasyon kaybıyla azalması atrofi olarak adlandırılır.",
-        "İskelet kası genellikle somatik motor sinirlerin kontrolündedir. Düz kasların etkinliği otonom sinirler, hormonlar ve yerel etkenlerle düzenlenir. Kalp kası ise uyarısını kendi özelleşmiş hücrelerinden başlatabilir; otonom sinir sistemi bu ritmin hız ve kuvvetini değiştirir. “İstem dışı” olmak, her kasılmanın dışarıdan bir sinir uyarısıyla başlatıldığı anlamına gelmez."
-      ],
-      "sourcePages": "2–9"
-    },
-    {
-      "id": "yapi",
-      "title": "Kasın yapısı ve tutunması",
-      "source": "Kaynak PDF, s. 10–14",
-      "paragraphs": [
-        "Bir iskelet kasında kas karnı ve kuvveti aktaran tendonlar bulunur. Tendon yassı, levha biçimindeyse aponeurosis terimi kullanılır.",
-        "Kas lifinin hücre zarına sarcolemma, sitoplazmasına sarcoplasma denir. Hücre içindeki myofibriller, aktin ve myozin içeren filamentlerin düzenlenmesiyle oluşur. Kasılmada filamentler birbirinin üzerinden kayar; bu mikroskobik değişim, kasın ürettiği kuvvetin temelidir.",
-        "Kas lifi demetlerinin yerleşimi kasın biçimini etkiler. Paralel, iğ biçimli, yelpaze biçimli veya pennat düzenler görülebilir. Bazı kaslar birden fazla başla başlar; bazıları ara tendonla iki karna ayrılır. Bütün kaslar mutlaka iki kemiğe tutunmaz: mimik kaslarında deri, göz çevresinde yumuşak dokular önemli tutunma hedefleridir."
-      ],
-      "table": {
-        "headers": [
-          "Terim",
-          "Tanım"
-        ],
-        "rows": [
-          [
-            "Origo",
-            "Kasın genellikle daha az hareketli ve proksimal tutunma yeri."
-          ],
-          [
-            "Insertio",
-            "Kas kasıldığında genellikle daha hareketli olan, çoğu zaman distal tutunma yeri."
-          ],
-          [
-            "Venter",
-            "Kasın etli gövdesi, kas karnı."
-          ],
-          [
-            "Epimysium",
-            "Kasın bütününü çevreleyen bağ dokusu."
-          ],
-          [
-            "Perimysium",
-            "Kas lifi demetlerini çevreleyen bağ dokusu."
-          ],
-          [
-            "Endomysium",
-            "Tek tek kas liflerinin çevresindeki bağ dokusu."
-          ]
-        ]
-      },
-      "callout": "Origo ve insertio, hareketi okurken kullanılan temel tutunma terimleridir. Sabitlenen uca göre hareketin görünümü değişebilir.",
-      "sourcePages": "10–14"
-    },
-    {
-      "id": "fasya",
-      "title": "Fasya, damarlar ve kasın çalışma koşulları",
-      "sourcePages": "4–7, 12, 27–28",
-      "paragraphs": [
-        "Fascia superficialis deri altındaki bağ dokusu ve yağlı dokuyla ilişkilidir. Fascia profunda kasları ve kas gruplarını sararak bölmelerin oluşmasına katılır. Kasın çevresindeki bağ dokusu yalnız paketleyici değildir; tendonla devamlılık göstererek kuvvetin iletilmesine katkıda bulunur. Fasya düzeni bölgeden bölgeye farklılaşır.",
-        "Kaslar sinir, arter ve ven bağlantılarıyla canlılık ve etkinliğini sürdürür. Sinir uyarısı, yeterli kan akımı ve enerji gereksinimi birlikte düşünülmelidir. Bir hareket sırasında yerçekimi, taşınan dış yük ve karşı yöndeki dokuların direnci aşılır veya kontrollü biçimde dengelenir. Bu yüzden kasın kuvvet üretmesi her zaman gözle görülen hareketle sonuçlanmaz."
-      ],
-      "source": "Kaynak PDF, s. 4–7, 12, 27–28"
-    },
-    {
-      "id": "roller",
-      "title": "Bir hareket, birden fazla rol",
-      "source": "Kaynak PDF, s. 15",
-      "table": {
-        "headers": [
-          "Rol",
-          "İşlev"
-        ],
-        "rows": [
-          [
-            "Agonist",
-            "Hareketin oluşturulmasında başlıca görev alan kas."
-          ],
-          [
-            "Antagonist",
-            "Karşı yönde hareket üretebilen kas."
-          ],
-          [
-            "Sinerjist",
-            "Agonistin hareketini destekleyen kas."
-          ],
-          [
-            "Fiksatör",
-            "Hareket sırasında başka bir bölümü sabitleyen kas."
-          ]
-        ]
-      },
-      "paragraphs": [
-        "Ders notunda bir bardağı ağza götürme örneği kullanılır: Dirsek fleksiyonu sırasında biceps brachii agonist rol üstlenirken triceps brachii karşıt hareketi yapabilen kastır. Gövdeyi sabitleyen kaslar da hareketin kontrollü gerçekleşmesine katkıda bulunur."
-      ],
-      "sourcePages": "15"
-    },
-    {
-      "id": "kasilma",
-      "title": "Kasılma biçimlerini ayırt etmek",
-      "source": "Kaynak PDF, s. 16–26",
-      "bullets": [
-        "Konsantrik kasılma: Kas kuvvet üretirken kısalır; bir ağırlığı kaldırma örneği.",
-        "Eksantrik kasılma: Kas kuvvet üretirken uzar; yükü kontrollü indirmeye katılma örneği.",
-        "İzometrik kasılma: Kasın boyunda belirgin değişiklik olmadan gerilim oluşur; sabit bir duvarı itme örneği."
-      ],
-      "paragraphs": [
-        "Kas adları da bilgi taşır: Şekil, yerleşim, fonksiyon, büyüklük, uzunluk, başlangıç sayısı veya tutunma noktaları isimlendirmede kullanılabilir. “Biceps”, “triceps”, “longus” ve “brevis” gibi sözcükler bu yüzden anlamlıdır.",
-        "İzotonik sözcüğü, boy değişikliğinin öne çıktığı kasılmaları açıklamak için kullanılır; günlük hareketlerde kuvvetin her anda tam sabit olması beklenmez. Bir yükü yukarı kaldırırken fleksörlerin kısalması konsantrik; aynı yükü yavaşça indirirken kuvvet üretmeye devam ederek uzaması eksantriktir. Kasın uzaması onun mutlaka gevşediği anlamına gelmez."
-      ],
-      "table": {
-        "headers": [
-          "İsimlendirme ölçütü",
-          "Örnek ve anlamı"
-        ],
-        "rows": [
-          [
-            "Şekil / lif yönü",
-            "Deltoideus üçgensi; trapezius trapez biçimine; rectus düz, obliquus eğik seyre işaret eder."
-          ],
-          [
-            "Baş sayısı",
-            "Biceps iki, triceps üç, quadriceps dört başlı düzeni anlatır."
-          ],
-          [
-            "Uzunluk / büyüklük",
-            "Longus–brevis uzun–kısa; major–minor büyük–küçük ayrımıdır."
-          ],
-          [
-            "İşlev",
-            "Flexor, extensor, adductor, abductor, levator hareket hakkında bilgi verir."
-          ],
-          [
-            "Yer veya tutunma",
-            "Tibialis tibia bölgesiyle; sternocleidomastoideus sternum, clavicula ve mastoid çıkıntıyla ilişkilidir."
-          ]
-        ]
-      },
-      "sourcePages": "16–26"
-    },
-    {
-      "id": "basboyun",
-      "title": "Mimik ve çiğneme kasları",
-      "source": "Kaynak PDF, s. 29–34, 39–41",
-      "table": {
-        "headers": [
-          "Kas",
-          "Görselde ayırt etme ipucu"
-        ],
-        "rows": [
-          [
-            "Orbicularis oculi / oris",
-            "Sırasıyla göz ve ağız açıklığını çevreleyen halkasal lifler."
-          ],
-          [
-            "Masseter",
-            "Mandibula ramusunun dış yüzünde, zygomatic yaydan aşağı uzanır."
-          ],
-          [
-            "Temporalis",
-            "Temporal fossada yelpaze biçimli geniş kas."
-          ],
-          [
-            "Pterygoid kaslar",
-            "Mandibula ramusunun iç tarafındaki derin çiğneme grubu."
-          ]
-        ]
-      },
-      "paragraphs": [
-        "Mimik kasları yüz ifadesini oluşturur; çoğunun deriyle ilişkili tutunması vardır. Occipitofrontalis kaşların kaldırılması ve alın derisinin hareketine, orbicularis oculi gözlerin kapanmasına, orbicularis oris dudakların kapanıp büzülmesine katılır. Buccinator yanağı dişlere doğru bastırarak besinin dişlerin arasında kalmasına yardım eder; bu işlev onu temel çiğneme kaslarıyla aynı motor sinir grubuna sokmaz.",
-        "Çiğneme kasları mandibulayı hareket ettirir. Masseter ve temporalis elevasyona katılarak ağzı kapatır; temporalisin arka lifleri retraksiyona yardımcı olur. Medial pterygoid elevasyon ve öne hareketi destekler. Lateral pterygoid mandibula ve eklem diskinin öne hareketine katılır; tek taraflı etkinlik çenenin karşı yana hareketinde önemlidir. Böylece çiğneme yalnızca açma-kapama değil, yan ve öne-arkaya hareketlerin birleşimidir.",
-        "Yüz ifadesi tek bir kasın çalışmasına indirgenmez. Corrugator supercilii kaşları içe-aşağı yaklaştırır; procerus burun kökü çevresinde kırışmaya katılır. Zygomaticus kasları ağız köşesinin yukarı hareketini, risorius yana çekilmesini destekler. Levator labii superioris üst dudağı, depressor anguli oris ağız köşesini, mentalis alt dudak ve çene derisini etkiler. N. facialis etkilenirse mimiklerde güçsüzlük ortaya çıkabilir; bu motor durum yüzün bütün duyusunun aynı sinirden geldiği anlamına gelmez."
-      ],
-      "callout": "Mimik kaslarında n. facialis (VII), çiğneme kaslarında n. mandibularis (V3) ayrımını koru.",
-      "sourcePages": "29–34, 39–41"
-    },
-    {
-      "id": "boyun",
-      "title": "Boyun: hyoid çevresindeki kaslar ve baş hareketleri",
-      "source": "Kaynak PDF, s. 35–38",
-      "sourcePages": "35–38",
-      "paragraphs": [
-        "Platysma boynun ön-yüzeyel bölümünde ince bir kas tabakasıdır ve mimik kaslarıyla birlikte n. facialis tarafından innerve edilir. Sternocleidomastoideus sternum ve claviculadan mastoid çıkıntıya uzanır. Tek taraflı etkinlik başı aynı yana eğip karşı yana döndürür; iki tarafın birlikte çalışması boyun fleksiyonuna katkıda bulunur. Motor innervasyonunda n. accessorius önemlidir.",
-        "Hyoid üstü kaslar mandibula, kafa tabanı ve hyoid arasında bağlantılar kurar. Hyoid altı kaslar ise hyoid ve larynxi daha aşağıdaki yapılara bağlar. Hangi ucun sabitlendiğine bağlı olarak ağız açılması, yutma ve hyoidin yer değiştirmesi mümkün olur. Bu nedenle aynı kasın işlevi yalnızca tek bir okla açıklanamaz."
-      ],
-      "table": {
-        "headers": [
-          "Grup",
-          "Kaslar ve çalışma mantığı"
-        ],
-        "rows": [
-          [
-            "Suprahyoid",
-            "Digastricus, stylohyoideus, mylohyoideus, geniohyoideus; ağız tabanı ve hyoid hareketleri."
-          ],
-          [
-            "Infrahyoid",
-            "Sternohyoideus, omohyoideus, sternothyroideus, thyrohyoideus; hyoid ve larynx konumunun düzenlenmesi."
-          ],
-          [
-            "Derin/lateral boyun",
-            "Scaleni ve prevertebral kaslar; boynun eğilmesi, stabilitesi ve yardımcı solunum ilişkileri."
-          ]
-        ]
-      }
-    },
-    {
-      "id": "sirt",
-      "title": "Sırt kasları: omuz kuşağı ile omurganın kontrolü",
-      "source": "Kaynak PDF, s. 42–47",
-      "sourcePages": "42–47",
-      "paragraphs": [
-        "Sırtın yüzeyel kasları omuz kuşağı ve üst ekstremiteyle güçlü ilişki içindedir. Trapezius üst, orta ve alt lifleriyle scapulanın yükselmesi, retraksiyonu ve yukarı rotasyonuna farklı katkılar yapar. Latissimus dorsi humerusa uzanarak kolun ekstansiyon, adduksiyon ve iç rotasyonuna katılır.",
-        "Levator scapulae scapulayı yükseltir. Rhomboideus minor ve major medial kenarı omurgaya yaklaştırarak retraksiyonu ve aşağı rotasyonu destekler. Kaynak şekillerinde boyundan scapulanın üst-medial köşesine uzanan dar kas levator; medial kenara yayılan üst küçük ve alt büyük kaslar rhomboidlerdir.",
-        "Derin sırt kasları omurganın postürünü ve küçük kontrollü hareketlerini yönetir. Erector spinae grubu iliocostalis, longissimus ve spinalisten oluşur; iki taraflı çalışmada ekstansiyona, tek taraflı çalışmada yana eğilmeye katkıda bulunur. Transversospinal kaslar derinde stabilizasyon ve rotasyon kontrolüne katılır."
-      ],
-      "callout": "Yüzeyel sırt kaslarını öğrenirken “Scapulayı mı, humerusu mu hareket ettiriyor?” sorusu; derin grupta ise “Omurgayı nasıl kontrol ediyor?” sorusu yol gösterir."
-    },
-    {
-      "id": "govde",
-      "title": "Göğüs, diaphragma ve karın duvarı",
-      "source": "Kaynak PDF, s. 48–55",
-      "sourcePages": "48–55",
-      "paragraphs": [
-        "Pectoralis major humerusa tutunarak adduksiyon ve iç rotasyona katılır; clavicular lifleri fleksiyonu destekler. Pectoralis minor kaburgalar ile processus coracoideus arasında uzanır. Serratus anterior scapulanın medial kenarını göğüs duvarına yaklaştırır, protraksiyon ve yukarı rotasyonda görev alır. Bu kasların birlikte çalışması, kolun baş üstüne kaldırılmasında scapulanın uygun konuma gelmesini sağlar.",
-        "İnterkostal kaslar kaburgalar arasında yer alır ve solunum mekaniğine katılır. Diaphragma göğüs ile karın boşluklarını ayırır; kasılması göğüs hacmini artırır. Merkezindeki tendon alanı ile çevresindeki kas bölümleri birlikte kubbe oluşturur. N. phrenicus motor siniridir.",
-        "Karın duvarında dış oblik, iç oblik ve transversus abdominis katmanları birbirini tamamlar. Farklı lif yönleri karın içeriğinin desteklenmesini, karın içi basıncın düzenlenmesini ve gövde hareketlerini sağlar. Rectus abdominis önde çift şerit halinde uzanır; gövde fleksiyonuna katılır. Sağ ve sol aponevrotik yapıların orta hatta birleştiği bölge linea albadır.",
-        "Karın arka duvarındaki psoas major ile iliacus birlikte iliopsoas olarak kalça fleksiyonunun güçlü bir bileşenidir. Quadratus lumborum gövdenin yana eğilmesi ve alt kaburganın sabitlenmesiyle ilişkilidir. Karın kaslarını yalnızca “öne eğen kaslar” olarak düşünmek stabilizasyon görevlerini gözden kaçırır."
-      ]
-    },
-    {
-      "id": "omuzkol",
-      "title": "Omuz ve kol: hareket ile stabiliteyi birleştirmek",
-      "source": "Kaynak PDF, s. 56–64",
-      "sourcePages": "56–64",
-      "paragraphs": [
-        "Deltoideusun ön lifleri fleksiyon ve iç rotasyona, orta lifleri abduksiyona, arka lifleri ekstansiyon ve dış rotasyona katkı verir. Humerus başını glenoid çukura yaklaştıran rotator cuff kasları ise geniş hareket sırasında eklemin kontrolünü sağlar. Supraspinatus abduksiyonun başlangıcına; infraspinatus ve teres minor dış rotasyona; subscapularis iç rotasyona katılır. Teres major iç rotasyon, adduksiyon ve ekstansiyona yardım eder ama rotator cuff grubuna dahil değildir.",
-        "Kolun ön grubunda biceps brachii, brachialis ve coracobrachialis bulunur. Brachialis önkol pozisyonundan bağımsız güçlü bir dirsek fleksörüdür; biceps ayrıca supinasyona katılır. Coracobrachialis omuzda fleksiyon ve adduksiyona yardım eder. Arka gruptaki triceps brachii dirsek ekstansiyonunu oluşturur; uzun başı omuz hareketlerine de katılabilir."
-      ],
-      "table": {
-        "headers": [
-          "Dört rotator cuff kası",
-          "Tutunma / işlev ilişkisi"
-        ],
-        "rows": [
-          [
-            "Supraspinatus",
-            "Scapulanın üst çukurundan humerusa; abduksiyon ve stabilizasyon."
-          ],
-          [
-            "Infraspinatus",
-            "Spinanın altındaki arka çukurdan humerusa; dış rotasyon."
-          ],
-          [
-            "Teres minor",
-            "Scapulanın lateral kenarından humerusa; dış rotasyon."
-          ],
-          [
-            "Subscapularis",
-            "Scapulanın ön yüzünden humerusa; iç rotasyon."
-          ]
-        ]
-      }
-    },
-    {
-      "id": "elkas",
-      "title": "Önkol ve el: kavramanın ince ayarı",
-      "source": "Kaynak PDF, s. 65–66",
-      "sourcePages": "65–66",
-      "paragraphs": [
-        "Önkol kaslarının önemli bir kısmı el bileği ve parmaklara uzun tendonlarla ulaşır. Ön grupta fleksiyon ve pronasyon, arka grupta ekstansiyon ve supinasyon işlevleri ağırlıktadır. Böylece kas karnı önkolda olan bir yapı parmağı hareket ettirebilir; hareket eden bölümle kasın yerleştiği bölge aynı olmak zorunda değildir.",
-        "Thenar kaslar başparmak kökündeki kabarıklığı oluşturur. Abductor pollicis brevis, flexor pollicis brevis ve opponens pollicis başparmağın konumunu düzenler; adductor pollicis başparmağı yaklaştırır. Hypothenar grupta abductor, flexor digiti minimi brevis ve opponens digiti minimi küçük parmağa etki eder. Lumbrical ve interosseöz kaslar parmakların birlikte veya ayrı hareketinde rol alır; kaynak el şekillerinde bu derin gruplar thenar-hypothenar kabarıklıkların arasında gösterilir."
-      ]
-    },
-    {
-      "id": "kalca",
-      "title": "Kalça kasları ve pelvisin tek ayak üzerinde dengesi",
-      "source": "Kaynak PDF, s. 67–70",
-      "sourcePages": "67–70",
-      "paragraphs": [
-        "İliopsoas femura tutunarak kalça fleksiyonunu gerçekleştirir. Gluteus maximus güçlü ekstansör ve dış rotatördür; özellikle oturur durumdan kalkma veya tırmanma gibi hareketlerde önemlidir. Gluteus medius ve minimus abduksiyona katılır; tek ayak üzerine basarken karşı pelvis yarısının düşmesini önlemeye yardımcı olur.",
-        "Tensor fasciae latae fascia lata ve iliotibial traktusla bağlantısı sayesinde kalça ve dizin stabilitesine katılır. Piriformis ile diğer kısa dış rotatorlar kalça çevresinde derinde yer alır. N. ischiadicusun gluteal bölgedeki komşulukları klinik açıdan önemlidir; bu anatomik bilgi kendi kendine enjeksiyon uygulaması için bir talimat değildir."
-      ]
-    },
-    {
-      "id": "uyluk",
-      "title": "Uyluğu ön, arka ve medial bölümlerle öğrenmek",
-      "source": "Kaynak PDF, s. 71–77",
-      "sourcePages": "71–77",
-      "paragraphs": [
-        "Ön gruptaki quadriceps femoris diz ekstansiyonunun temel kasıdır. Rectus femoris, vastus lateralis, vastus medialis ve vastus intermedius ortak tendon sistemiyle patellaya, patellar bağ üzerinden tibial tuberositasa bağlanır. Rectus femoris kalçayı da geçtiği için kalça fleksiyonuna katılır; üç vastus kalça eklemini geçmez.",
-        "Sartorius pelvisin ön-üst bölümünden tibianın medialine eğik uzanır. Kalçada fleksiyon, abduksiyon ve dış rotasyonu; dizde fleksiyonu birlikte düşündüren bir kastır. Arka gruptaki hamstring kaslar kalça ekstansiyonu ve diz fleksiyonuna katılır. Biceps femorisin kısa başı kalça eklemini geçmediği için bu genel kalça görevinden ayrılır.",
-        "Medial grupta adductor longus, brevis ve magnus, gracilis ve pectineus yer alır. Temel ilişki uyluğun adduksiyonudur; başlangıç ve tutunma yönlerine göre fleksiyon veya ekstansiyon katkıları da olabilir. Sartorius, gracilis ve semitendinosus tendonlarının tibianın medialinde oluşturduğu ortak düzen pes anserinus, yani kaz ayağı adını alır."
-      ],
-      "table": {
-        "headers": [
-          "Grup",
-          "Ana kaslar"
-        ],
-        "rows": [
-          [
-            "Ön",
-            "Quadriceps femoris ve sartorius."
-          ],
-          [
-            "Arka",
-            "Biceps femoris, semitendinosus, semimembranosus."
-          ],
-          [
-            "Medial",
-            "Adductor longus, brevis, magnus; gracilis ve pectineus."
-          ]
-        ]
-      }
-    },
-    {
-      "id": "bacak",
-      "title": "Bacak kasları: adım atma ve yerden itiş",
-      "source": "Kaynak PDF, s. 78–86",
-      "sourcePages": "78–86",
-      "paragraphs": [
-        "Tibialis anterior bacağın önündedir; dorsifleksiyon ve inversiyona katılır. Yürümede ayağın yere kontrolsüz düşmesini önleyen etkinlikte de görev alır. Lateral gruptaki fibularis longus ve brevis eversiyona ve plantar fleksiyona katkıda bulunur; farklı yöndeki kasların birlikte çalışması ayak bileğini kontrol eder.",
-        "Arka yüzeyel grupta gastrocnemius ve soleus birlikte triceps surae düzenini oluşturur. Ortak kalkaneal tendonları topuk kemiğine tutunur; plantar fleksiyonla yerden itişe ve parmak ucuna yükselmeye katılırlar. Gastrocnemius dizi de geçer ve diz fleksiyonuna yardımcı olur; soleus dizi geçmez. Bu fark, dizin konumunun kas işlevi üzerindeki etkisini anlamayı sağlar."
-      ],
-      "callout": "Kaynak sonundaki kas tanıma alıştırmaları için şekli ezberlemek yerine bölge + tutunma yönü + işlev üçlüsünü kullan: scapulanın önünde subscapularis, ağız çevresinde orbicularis oris, göz çevresinde orbicularis oculi."
-    }
-  ],
   "glossary": [
     [
       "Myologia",
@@ -381,16 +32,231 @@ export default {
       "a": "Hayır. Agonist hareketi üretir; fiksatör başka bir bölümü sabitlemeye yardım eder."
     },
     {
-      "q": "Teres major neden rotator cuff listesine yazılmaz?",
-      "a": "Omuz kası olmasına rağmen cuff dört kası supraspinatus, infraspinatus, teres minor ve subscapularistir."
+      "q": "Ağırlığı yavaşça indirirken dirsek fleksörleri mutlaka gevşemiş midir?",
+      "a": "Hayır. Eksantrik kasılmayla uzarken kuvvet üretir ve indirmeyi kontrol ederler."
     },
     {
-      "q": "Pes anserinusu hangi üç kas oluşturur?",
-      "a": "Sartorius, gracilis ve semitendinosus tendonları."
+      "q": "Rotator cuffın dört kasını ve temel ortak görevini say.",
+      "a": "Supraspinatus, infraspinatus, teres minor ve subscapularis. Hareketin yanında humerus başının glenoide göre dinamik stabilitesini sağlarlar; teres major bu grupta değildir."
     },
     {
-      "q": "Soleus ile gastrocnemiusun dizle ilişkisi nasıl farklıdır?",
-      "a": "Gastrocnemius diz eklemini geçer; soleus geçmez. İkisi de plantar fleksiyona katılır."
+      "q": "Pes anserinusu hangi üç kasın tendonu oluşturur?",
+      "a": "Sartorius, gracilis ve semitendinosus tendonları proksimal tibianın medialinde birleşik bir tutunma düzeni oluşturur."
+    },
+    {
+      "q": "Gastrocnemius ve soleus arasındaki eklem ilişkisi farkı nedir?",
+      "a": "Gastrocnemius hem diz hem ayak bileğini, soleus yalnız ayak bileğini çaprazlar. İkisi birlikte triceps suraedir ve Aşil tendonuna katılır."
     }
-  ]
+  ],
+  "sections": [
+    {
+      "id": "doku",
+      "title": "Kas dokusu ve hareketin oluşması",
+      "sourcePages": "2–9",
+      "source": "PDF · s. 2–9",
+      "paragraphs": [
+        "Kas dokusu kasılabilen hücrelerden oluşur. İskelet kası vücut hareketi ve duruşa, kalp kası dolaşımın pompalama işine, düz kas ise damar ve içi boş organların duvar hareketlerine katılır. İskelet ve kalp kası çizgili görünür; ancak kalp kası istemli olarak yönetilmez. Bu yüzden “çizgili” ile “istemli” sözcükleri her durumda eş anlamlı değildir.",
+        "İskelet kaslarının erişkin vücut kütlesindeki payı kişiye göre değişmekle birlikte yaklaşık yüzde kırk olarak öğretilir. Kas liflerinin büyümesi hipertrofi, hacim kaybetmesi atrofi olarak adlandırılır. Kaslar hareket dışında postür, eklem stabilitesi ve ısı üretimine de katkıda bulunur.",
+        "Bir iskelet kasının kemiği hareket ettirebilmesi için kasılma kuvvetinin tendonlar ve tutunma yerleri üzerinden iletilmesi gerekir. Kuvvet yerçekimi, dış yükler ve dokuların direnciyle karşılaşır. Kasın ekleme göre geçtiği taraf ve çekiş yönü hangi hareketi oluşturacağını belirler. Mimik kasları gibi deriye tutunan kasların bulunduğu unutulmamalıdır; bütün kaslar mutlaka iki kemiği birleştirmez."
+      ]
+    },
+    {
+      "id": "mikroyapi",
+      "title": "Liften kasın bütününe; origo ve insertio",
+      "sourcePages": "10–14",
+      "source": "PDF · s. 10–14",
+      "paragraphs": [
+        "Kas lifi tek bir kas hücresidir. Lifin içindeki miyofibriller, aktin ve miyozin gibi kasılma proteinlerinin düzenlendiği yapılardır. Hücre zarına sarkolemma, sitoplazmasına sarkoplazma denir. Lifler fasciculus adı verilen demetler, demetler bütün kası oluşturur.",
+        "Endomysium tek lifleri, perimysium demetleri, epimysium bütün kası çevreleyen bağ dokusu katmanlarıdır. Damarlar ve sinirler bu düzen içinde kas dokusuna ulaşır. Bağ dokusu devamlılığı, liflerde üretilen kuvvetin tendonlara aktarılmasına yardım eder. Yassı, geniş tendon yapısı aponevroz; kasın etli kısmı venter olarak adlandırılır.",
+        "Origo, tarif edilen harekette genellikle daha az yer değiştiren; insertio daha hareketli tutunma yeri olarak kullanılır. Bunlar mutlak “daima sabit” ve “daima hareketli” noktalar değildir. Örneğin el sabit bir yere tutunurken kasın aynı çekişi bu kez gövdeyi ele doğru hareket ettirebilir."
+      ]
+    },
+    {
+      "id": "kas-iliskileri",
+      "title": "Kasların ortak çalışması ve kasılma biçimleri",
+      "sourcePages": "15–17",
+      "source": "PDF · s. 15–17",
+      "paragraphs": [
+        "Agonist hareketi oluşturan başlıca kas, antagonist bu harekete karşı yönde etki edebilen kastır. Sinerjist yardımcı olur veya istenmeyen hareketi azaltır; fiksatör hareketin üzerine kurulacağı bölgeyi sabitler. Bu roller kasın değişmez kimliği değil, incelenen hareketteki görevleridir.",
+        "Konsantrik kasılmada kas kuvvet üretirken kısalır; eksantrik kasılmada kuvvet üretmeye devam ederek uzar. Bir ağırlığı kaldırmak ile kontrollü indirmek bu ayrımı gösterir. İzometrik kasılmada belirgin uzunluk değişikliği olmadan kuvvet üretilir; ağırlığı sabit tutmak örnektir. Kasın uzaması, mutlaka gevşediği anlamına gelmez."
+      ],
+      "table": {
+        "headers": [
+          "Durum",
+          "Dirsek fleksörlerinin örnek görevi"
+        ],
+        "rows": [
+          [
+            "Ağırlığı kaldırma",
+            "Konsantrik: eklem açısını azaltırken kısalırlar."
+          ],
+          [
+            "Ağırlığı yavaşça indirme",
+            "Eksantrik: dış kuvvete karşı koyarak uzarlar."
+          ],
+          [
+            "Ağırlığı aynı konumda tutma",
+            "İzometrik: belirgin hareket olmadan kuvvet üretirler."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "adlandirma",
+      "title": "Kas adlarını çözmek ve fasya düzeni",
+      "sourcePages": "18–28",
+      "source": "PDF · s. 18–28",
+      "paragraphs": [
+        "Kas isimleri sekiz ana özelliğe işaret edebilir: şekil, lif yönü, yerleşim, işlev, büyüklük, uzunluk, baş sayısı ve başlangıç–bitiş yerleri. Fusiformis mekik, orbicularis dairesel biçimi; rectus düz, obliquus eğik yönü; superficialis yüzeyelliği; flexor hareketi belirtir. Maximus/minimus büyüklük, longus/brevis uzunluk, biceps/quadriceps baş sayısı için ipucu verir. Sternocleidomastoideus adında sternum, clavicula ve mastoid tutunmaların izleri vardır.",
+        "Lifleri çekiş doğrultusuna paralel kaslar ile pennat düzenli kaslarda liflerin yerleşimi farklıdır. Bu fark, kuvvet ve kısalma mesafesi arasındaki ilişkiye yansır. Sadece kasın dış görünümüne bakmak yerine lif yönünü tendonla birlikte değerlendirmek gerekir.",
+        "Yüzeyel fasya deriyi alttaki yapılara bağlayan, yağ ve gevşek bağ dokusu içeren katmandır. Derin fasya kasları sarar; septalarla ekstremitelerde kompartmanlar oluşmasına katılır. Bilek gibi bölgelerde kalınlaşan retinaculumlar tendonları yerinde tutar. Kaslar bu nedenle birbirinden tamamen bağımsız, boşlukta duran şeritler değildir."
+      ]
+    },
+    {
+      "id": "yuz",
+      "title": "Mimik ve çiğneme kasları",
+      "sourcePages": "29–34, 39–41",
+      "source": "PDF · s. 29–34, 39–41",
+      "paragraphs": [
+        "Mimik kasları çoğunlukla kemik veya fasyadan başlayıp deriye tutunur; yüz ifadesini değiştirir. Motor sinirleri n. facialis (VII)’tir. Yüz duyusunun başlıca siniri n. trigeminus (V) olduğundan yüzün hareketi ile duyusu aynı sinire mal edilmemelidir. Facial sinir etkilenirse yüz kaslarında güç kaybı görülebilir; ancak bütün yüz felçlerinin nedeni veya lezyon yeri aynı değildir.",
+        "Çiğneme kasları mandibulayı hareket ettirir ve trigeminusun mandibular dalıyla (V3) innerve edilir. Masseter ve temporalis çeneyi kapatmada; medial pterygoid elevasyon ve öğütmede; lateral pterygoid protraksiyon ve açılma hareketine katkıda önemlidir. Tek taraflı ve iki taraflı kasılmalar çene hareketini farklı yönlendirir.",
+        "Occipitofrontalis alın derisi ve kaşların yükselmesine, procerus burun kökündeki kırışmaya katılır. Bu yüzeyel kaslar atlas üzerinde önce göz, ağız ve burun gibi açıklıklara göre konumlandırılabilir. Orbicularis oculi ile levator palpebrae superioris aynı hareketi yapmaz: birincisi kapağı kapatır, ikincisi üst kapağı kaldırır ve III. sinirle ilişkilidir."
+      ],
+      "table": {
+        "headers": [
+          "Mimik kası / grup",
+          "Temel etkisi"
+        ],
+        "rows": [
+          [
+            "Orbicularis oculi",
+            "Göz kapaklarını kapatır."
+          ],
+          [
+            "Corrugator supercilii",
+            "Kaşları mediale ve aşağıya çekerek çatmayı sağlar."
+          ],
+          [
+            "Orbicularis oris",
+            "Dudakları kapatır ve öne uzatır."
+          ],
+          [
+            "Buccinator",
+            "Yanağı dişlere yaklaştırır; besinin dişler arasında tutulmasına yardım eder."
+          ],
+          [
+            "Zygomaticus major / minor; levator labii superioris",
+            "Ağız köşesi ve üst dudağın kaldırılmasına katılır."
+          ],
+          [
+            "Depressor anguli oris / labii inferioris",
+            "Ağız köşesi veya alt dudağı aşağı çeker."
+          ],
+          [
+            "Mentalis; risorius",
+            "Alt dudağı öne-yukarı yöneltme; ağız köşesini laterale çekme."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "boyun",
+      "title": "Boynun yüzeyel ve hyoid kasları",
+      "sourcePages": "35–38",
+      "source": "PDF · s. 35–38",
+      "paragraphs": [
+        "Platysma yüzeyel bir mimik kasıdır; boyun derisini gerer ve alt çene/dudak hareketlerine katkıda bulunur. Sternocleidomastoideus tek taraflı kasıldığında başı aynı tarafa eğer, yüzü karşı tarafa döndürür. İki taraflı etkisi baş-boyun konumu ve hangi bölümün sabitlendiğine göre değişir; servikal fleksiyonun yanında üst eklemlerde ekstansiyon bileşeni de olabilir.",
+        "Suprahyoid kaslar hyoidin üstündedir: mylohyoideus, digastricus, geniohyoideus ve stylohyoideus. Ağız tabanı, yutma ve hyoidin yükselmesiyle ilişkilidir; hyoid sabitlendiğinde bazıları mandibulayı indirmeye yardım eder. Infrahyoid grup sternohyoideus, sternothyroideus, thyrohyoideus ve omohyoideustan oluşur. Hyoid ve larynxin konumunu ayarlayarak üst gruba karşı destek ve denge sağlar."
+      ]
+    },
+    {
+      "id": "sirt",
+      "title": "Yüzeyel ve derin sırt kasları",
+      "sourcePages": "42–47",
+      "source": "PDF · s. 42–47",
+      "paragraphs": [
+        "Yüzeyel sırt kaslarının çoğu omuz kuşağına veya humerusa etki eder; sırt bölgesinde bulunmaları hepsinin yalnızca omurgayı hareket ettirdiği anlamına gelmez. Trapeziusun üst lifleri scapulayı yükseltir, orta lifleri retraksiyona, alt lifleri depresyona ve üst liflerle birlikte yukarı rotasyona katkıda bulunur. Latissimus dorsi humerusa ekstansiyon, adduksiyon ve iç rotasyon yaptırır.",
+        "Rhomboideus major ve minor scapulayı omurgaya yaklaştırır ve sabitler; levator scapulae scapulayı yükseltir. Derin gruptaki erector spinae ise lateralden mediale iliocostalis, longissimus ve spinalis bölümlerinden oluşur. İki taraflı çalışması omurganın ekstansiyonuna, tek taraflı çalışması aynı tarafa eğilmeye katkı verir; ayakta duruşta sürekli düşük düzeyli kontrol sağlar.",
+        "Kaynağın şekil sorusunda boyundan scapulanın üst-medial bölgesine uzanan kas levator scapulae; medial kenara yukarıda küçük, aşağıda geniş olarak yayılanlar rhomboideus minor ve majordur. Derindeki transversospinal kaslar omurganın segmental stabilite ve rotasyon kontrolünü tamamlar. Şekil üzerinde liflerin uzandığı yönü görmek, isim ile işlev arasında bağlantı kurdurur."
+      ]
+    },
+    {
+      "id": "gogus-karin",
+      "title": "Göğüs ve karın duvarı kasları",
+      "sourcePages": "48–55",
+      "source": "PDF · s. 48–55",
+      "paragraphs": [
+        "Pectoralis major humerusa adduksiyon ve iç rotasyon yaptırır; lif grupları fleksiyon veya konuma bağlı ekstansiyona katkıda bulunabilir. Pectoralis minor scapulanın öne ve aşağı hareketine, serratus anterior protraksiyon ve yukarı rotasyonuna katılır. Serratusun scapulayı göğüs duvarına yakın tutması, kolun baş üzerine kaldırılmasının da parçasıdır.",
+        "Diaphragma başlıca inspirasyon kasıdır. Sternal, kostal ve lumbal tutunmalardan merkeze uzanır; kasıldığında kubbesi aşağı iner ve göğüs hacmi artar. Böylece omuz kuşağı hareketleriyle solunum kaslarını aynı işlevmiş gibi değerlendirmeden ayırabiliriz.",
+        "Rectus abdominis gövde fleksiyonuna katılır. Dış ve iç oblik kaslar iki taraflı çalıştığında karın duvarını sıkıştırır ve fleksiyona yardım eder; tek taraflı çalışmada rotasyon ve lateral fleksiyon oluşur. Dış oblik karşı tarafa, iç oblik aynı tarafa rotasyonla ilişkilidir. Transversus abdominis karın duvarının derin sıkıştırıcı katmanıdır. Orta hattaki linea alba sağ ve sol aponevrozların birleşme çizgisidir.",
+        "Arka karın duvarındaki psoas major, iliacusla birlikte kalça fleksiyonunun güçlü bileşenidir. Femur sabitlendiğinde gövde hareketine de katkı verir. Psoas minor değişken bulunabilen daha küçük bir kastır; psoas majorla eşdeğer kalça fleksörü gibi düşünülmemelidir.",
+        "İnterkostal kaslar kaburgalar arasında yer alarak göğüs duvarı ve solunum hareketlerine katılır. Karın arka duvarında quadratus lumborum, gövdenin aynı tarafa eğilmesi ve on ikinci kaburganın sabitlenmesiyle ilişkilidir. Bu kasların farklı yönlerdeki lifleri, gövdenin hem hareketli hem de dengeli kalmasına yardım eder."
+      ]
+    },
+    {
+      "id": "omuz",
+      "title": "Deltoid ve rotator cuff",
+      "sourcePages": "56–62",
+      "source": "PDF · s. 56–62",
+      "paragraphs": [
+        "Deltoid clavicula, acromion ve spina scapulaeden başlayarak humerusun tuberositas deltoideasına tutunur. Orta bölümü abduksiyonda belirgindir; ön lifler fleksiyon ve iç rotasyona, arka lifler ekstansiyon ve dış rotasyona katılır. Aynı kasın farklı lifleri, eklem ekseninin farklı taraflarında kaldıkları için farklı hareketler üretebilir.",
+        "Rotator cuff; supraspinatus, infraspinatus, teres minor ve subscapularisten oluşur. Bu kaslar yalnızca kolu döndürmez; humerus başını glenoid çukurla ilişkili tutarak dinamik stabilite sağlar. Supraspinatus abduksiyona, infraspinatus ve teres minor dış rotasyona, subscapularis iç rotasyona katkı verir. İlk üçü tuberculum majusa, subscapularis tuberculum minusa tutunur.",
+        "Teres major omuza iç rotasyon, adduksiyon ve ekstansiyon yaptırır; adına rağmen teres minorla birlikte cuff grubuna dahil değildir. Cuff listesini “teres adı geçen bütün kaslar” olarak ezberlemek bu nedenle yanlıştır."
+      ]
+    },
+    {
+      "id": "kol-el",
+      "title": "Kol kompartmanları ve el kas grupları",
+      "sourcePages": "63–66",
+      "source": "PDF · s. 63–66",
+      "paragraphs": [
+        "Kolun ön kompartmanında biceps brachii, brachialis ve coracobrachialis bulunur. İki başlı biceps dirsek fleksiyonu ve önkol supinasyonunda etkilidir; omuz hareketine de katkısı vardır. Brachialis, önkolun dönüklüğünden daha az etkilenerek dirseği büker. Coracobrachialis omuzda fleksiyon ve adduksiyona katılır.",
+        "Arka kompartmanın üç başlı triceps brachii kası dirseğin temel ekstansörüdür. Uzun başı scapuladan başladığı için omuz eklemini de çaprazlar; diğer başların bütün işlevlerini omuza atfetmemek gerekir. Elde başparmak tarafındaki thenar ve küçük parmak tarafındaki hypothenar kaslar, ilgili parmakların ince hareketlerine katılan kabartıları oluşturur."
+      ]
+    },
+    {
+      "id": "el-kaslari",
+      "title": "Önkol tendonlarından elin ince hareketlerine",
+      "sourcePages": "65–66",
+      "source": "PDF · s. 65–66",
+      "paragraphs": [
+        "Önkolun fleksör ve ekstansör kaslarının tendonları el bileğini geçerek parmaklara ulaşır. Bu nedenle parmağın hareket etmesi, ilgili kas karnının mutlaka parmakta bulunduğu anlamına gelmez. Ön grupta fleksiyon/pronasyon, arka grupta ekstansiyon/supinasyon işlevleri ağırlıktadır; kasların özel etkileri ayrıca değerlendirilir.",
+        "Thenar kabarıklığı oluşturan abductor pollicis brevis, flexor pollicis brevis ve opponens pollicis başparmağın uzaklaştırılması, bükülmesi ve diğer parmaklarla karşılaştırılmasına katılır. Daha derindeki adductor pollicis başparmağı yaklaştırır. Hypothenar grupta abductor digiti minimi, flexor digiti minimi brevis ve opponens digiti minimi küçük parmağın konumunu ayarlar.",
+        "Lumbrical ve interosseöz kaslar, thenar ve hypothenar bölgeler arasında parmakların ince kontrolüne katılır. Lumbricaller metacarpophalangeal fleksiyon ve interphalangeal ekstansiyonu birleştirir. Dorsal interosseözler parmakları elin üçüncü parmak ekseninden uzaklaştırır; palmar interosseözler bu eksene yaklaştırır. Elin işlevi bu küçük kasların önkoldan gelen uzun tendonlarla koordinasyonuna dayanır."
+      ]
+    },
+    {
+      "id": "kalca",
+      "title": "Kalça kasları ve pelvisin dengesi",
+      "sourcePages": "67–70",
+      "source": "PDF · s. 67–70",
+      "paragraphs": [
+        "Iliopsoas, iliacus ve psoas majorun birleşik etkisini ifade eder ve kalça fleksiyonunda önemlidir. Arkada gluteus maximus güçlü kalça ekstansiyonu ve dış rotasyonla ilişkilidir. Merdiven çıkarken veya oturur durumdan kalkarken gövdeyi doğrultma gereksinimi bu kasın işlevini görünür kılar.",
+        "Gluteus medius ve minimus kalça abduksiyonuna katılır; tek ayak üzerinde dururken pelvisin karşı tarafa düşmesini önlemeye yardım eder. Tensor fasciae latae kalça fleksiyonu/abduksiyonu ve tractus iliotibialis aracılığıyla yan stabiliteyle ilişkilidir. Piriformis derin dış rotatorlardan biridir; siyatik sinirle yakın komşuluğu klinik önem taşır. Bu anatomik ilişki bir enjeksiyon uygulama talimatı değildir."
+      ]
+    },
+    {
+      "id": "uyluk",
+      "title": "Uyluğun ön, arka ve medial kasları",
+      "sourcePages": "71–77",
+      "source": "PDF · s. 71–77",
+      "paragraphs": [
+        "Sartorius kalçada fleksiyon, abduksiyon ve dış rotasyonu diz fleksiyonuyla birleştirir. Quadriceps femoris rectus femoris, vastus medialis, vastus lateralis ve vastus intermediustan oluşur. Dört parça diz ekstansiyonuna katılır; yalnız rectus femoris kalça eklemini de çaprazladığı için ayrıca kalça fleksiyonu yapar.",
+        "Arka grupta biceps femoris, semitendinosus ve semimembranosus bulunur. Hamstringler genel olarak diz fleksiyonu ve kalça ekstansiyonu ile ilişkilidir; biceps femorisin kısa başı kalçayı çaprazlamadığı için bu genellemenin istisnasıdır. Diz bükülüyken biceps bacağı dışa, semitendinosus ve semimembranosus içe döndürmeye katkıda bulunur.",
+        "Medial grupta pectineus, adductor longus, brevis, magnus ve gracilis bulunur. Temel ortak hareket adduksiyondur; lif yönü ve eklem konumu fleksiyon/ekstansiyon katkısını değiştirir. Gracilis dizi de çaprazlar. Sartorius, gracilis ve semitendinosus tendonları proksimal tibianın medialinde pes anserinus adı verilen ortak düzeni oluşturur."
+      ]
+    },
+    {
+      "id": "bacak",
+      "title": "Bacak kasları ve Aşil tendonu",
+      "sourcePages": "78–86",
+      "source": "PDF · s. 78–86",
+      "paragraphs": [
+        "Ön kompartmanda tibialis anterior ayak bileğine dorsifleksiyon ve ayağa inversiyon yaptırır. Ayak parmaklarını açan extensor digitorum longus ile başparmağı açan extensor hallucis longus aynı bölgededir. Dorsifleksörler adım sırasında ayağın yerden temizlenmesine, topuk basışından sonra da ayağın kontrollü indirilmesine yardım eder.",
+        "Lateral kompartmandaki fibularis longus ve brevis başlıca eversiyon, ayrıca plantar fleksiyon yapar. Arkadaki gastrocnemius iki başlıdır ve hem diz hem ayak bileğini çaprazlar; soleus yalnız ayak bileğine etki eder. İkisi birlikte triceps surae olarak adlandırılır ve calcaneal/Aşil tendonu aracılığıyla topuğa tutunur. Parmak ucuna yükselmek plantar fleksörlerin işlevini gösterir.",
+        "Kaynağın sonundaki tekrar yaklaşımını kullanarak kasları yalnız isimleriyle değil, oluşturdukları hareketlerle geri çağır: en uzun kas sartorius; büyük kalça ekstansörü gluteus maximus; göz kapağını kapatan orbicularis oculi; çeneyi kapatan masseter. Şekil üzerinde bir kası bulurken önce kemiği ve bölgeyi, sonra kasın çekiş yönünü belirlemek daha güvenilir bir yöntemdir."
+      ]
+    }
+  ],
+  "scope": "Kas dokusunun yapısı, tutunma ve kasılma ilkeleri; mimik, çiğneme, boyun, sırt, göğüs, karın, omuz, kol, el, kalça, uyluk ve bacak kasları."
 };

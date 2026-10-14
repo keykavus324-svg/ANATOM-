@@ -1,210 +1,9 @@
-// Authored lesson based on Bekir Dağdeviren’s course notes. See docs/content-notes.md.
+// Authored from Bekir Dağdeviren’s source notes; see docs/content-notes.md.
 export default {
   "subtitle": "Bir nefesin anatomik yolculuğu.",
   "intro": "Solunum sistemi havanın iletilmesini ve gaz alışverişini sağlar. Burundan başlayan yol, giderek dallanan hava yollarıyla akciğerlere ulaşır; göğüs kafesi ve diaphragma bu sürecin hareketli çerçevesidir.",
-  "scope": "Dış-iç solunum ve temel terimler; göğüs boşluğu, mediastinum, dış burun ve septum, sinüsler, pharynx-larynx, kıkırdaklar, trachea-bronşlar, akciğer ve diaphragma.",
   "image": "/atlas/lungs.webp",
   "imageAlt": "Trachea ve iki akciğerin temsili atlas tarzı çizimi",
-  "sections": [
-    {
-      "id": "gaz",
-      "title": "Gaz alışverişinin iki düzeyi",
-      "source": "Kaynak PDF, s. 2–6",
-      "paragraphs": [
-        "Solunum sisteminin temel görevi oksijenin alınması ve metabolizma sonucu oluşan karbondioksitin uzaklaştırılmasıdır. Bu alışveriş akciğer düzeyinde ve doku düzeyinde ayrı ele alınır.",
-        "Ventilasyon havanın akciğerlere girip çıkmasıdır; dış solunum ise alveol havasıyla kan arasındaki gaz alışverişidir. Hücresel metabolizmada oksijenin kullanılması ve karbondioksit oluşması daha sonraki basamaktır. Bu basamaklar birbirine bağlı olsa da eş anlamlı değildir. Solunan havadaki oksijen ile verilen havadaki oksijen arasındaki farkın tamamını “alınan oksijenin yalnız yüzde dördü kullanılır” diye yorumlamak doğru olmaz."
-      ],
-      "table": {
-        "headers": [
-          "Kavram",
-          "Alışverişin yeri"
-        ],
-        "rows": [
-          [
-            "Dış solunum",
-            "Akciğerlerde hava ile kan arasında."
-          ],
-          [
-            "İç solunum",
-            "Kan ile dokular arasında."
-          ]
-        ]
-      },
-      "flow": [
-        "Burun",
-        "Pharynx",
-        "Larynx",
-        "Trachea",
-        "Bronşlar",
-        "Akciğerler"
-      ],
-      "sourcePages": "2–6"
-    },
-    {
-      "id": "toraks",
-      "title": "Solunumun çerçevesi: göğüs boşluğu ve mediastinum",
-      "source": "Kaynak PDF, s. 8–11",
-      "sourcePages": "8–11",
-      "paragraphs": [
-        "Göğüs kafesinin üst açıklığı boyunla devam eder; alt açıklığı diaphragma kapatır. Akciğerler yanlarda plevral kompartımanlarda, mediastinum ise iki taraf arasında bulunur. Kalp, büyük damarlar, trachea ve oesophagus gibi yapılar mediastinal ilişkiler içinde değerlendirilir; akciğerin kendisi mediastinumun içeriği değildir.",
-        "Önde angulus sterni ile arkada T4–T5 intervertebral disk düzeyi arasında düşünülen transvers düzlem, üst ve alt mediastinumu ayırır. Alt bölüm ön, orta ve arka mediastinum olarak ele alınır. Kalp ve pericardium orta bölümde yer alır. Bu bölgeleme, bir organın yalnız “göğüste” olduğunu söylemekten daha kesin bir konum tarifi sağlar."
-      ]
-    },
-    {
-      "id": "burun",
-      "title": "Havayı hazırlayan giriş: burun",
-      "source": "Kaynak PDF, s. 12–21",
-      "paragraphs": [
-        "Burun hava yolu oluşturur; havanın ısıtılması, nemlendirilmesi ve filtre edilmesine katkı sağlar. Aynı zamanda koku reseptörlerini barındırır ve sesin rezonansına katılır.",
-        "Burun boşluğu nares ile dış ortama, choanae ile nasopharynxe açılır. Septum nasi, boşluğu iki bölüme ayırır; kemik ve kıkırdak bileşenler içerir.",
-        "Nasus externusun üst bölümünde nasal kemikler, alt ve yan bölümlerinde kıkırdaklar bulunur. Septum nasi ethmoidin lamina perpendicularisi, vomer ve septal kıkırdakla kurulur. Lateral duvardaki conchae havanın temas ettiği yüzeyi artırır; altlarında meatuslar bulunur. Girişteki vibrissae daha büyük parçacıkları tutarken mukoza, mukus ve silyalı sistem daha ileri temizlik işlevlerine katılır.",
-        "Frontal, maxiller, sphenoidal sinüsler ve ethmoidal hava hücreleri burun boşluğuyla bağlantılıdır. Ductus nasolacrimalis alt meatusa açılır; burun ile gözyaşı sistemi arasındaki bu ilişki ağlarken burun akmasını açıklamaya yardımcı olur. Septum boşluğu ikiye ayırır, fakat iki tarafın biçimi ve genişliği her bireyde tam eş olmak zorunda değildir."
-      ],
-      "bullets": [
-        "Paranasal sinüsler: Frontal, maxiller, sphenoidal ve ethmoidal hava boşlukları.",
-        "Bu boşlukların mukozası burun mukozasıyla devamlılık gösterir.",
-        "Nasolakrimal kanal, alt burun meatusuna açılır."
-      ],
-      "sourcePages": "12–21"
-    },
-    {
-      "id": "yutak",
-      "title": "Pharynx ve larynx aynı yapı değildir",
-      "source": "Kaynak PDF, s. 22–31",
-      "table": {
-        "headers": [
-          "Larynx kıkırdakları",
-          "Örnekler"
-        ],
-        "rows": [
-          [
-            "Tek",
-            "Thyroidea, cricoidea, epiglottica."
-          ],
-          [
-            "Çift",
-            "Arytenoidea, corniculata, cuneiformis."
-          ]
-        ]
-      },
-      "paragraphs": [
-        "Pharynx yutaktır; hem sindirim hem solunumla ilişkilidir. Nasopharynx, oropharynx ve laryngopharynx bölümleri vardır. Larynx ise gırtlaktır; hava yolunun korunması ve ses oluşumunda görev alır.",
-        "Plica vocalis gerçek ses kıvrımı, plica vestibularis ise onun üstündeki vestibüler kıvrımdır. Ses oluşumu, hava akımının ses kıvrımlarıyla etkileşmesine dayanır.",
-        "Larynx erişkinde kabaca C3–C6 düzeyinde yer alır. Üç tek ve üç çift kıkırdak toplam dokuz kıkırdak yapar. Thyroid kıkırdak en büyük parçadır ve önde prominentia laryngeayı oluşturur. Cricoid tam halka biçimindedir; tracheanın arkası açık C biçimli kıkırdaklarından bu yönüyle ayrılır. Arytenoid kıkırdaklar ses kıvrımlarının konumunun değiştirilmesinde önemlidir.",
-        "Larynx girişi aditus laryngistir. Üstte plicae vestibulares, altta plicae vocales bulunur; ses kıvrımları arasındaki açıklık rima glottidistir. Yutmada hava yolunun korunması yalnız epiglottisin tek başına kapak gibi kapanmasına dayanmaz; larynx hareketleri ve kıvrımların yaklaşması birlikte çalışır. Ses oluşturma, solunum ve hava yolu koruma aynı organın farklı görevleridir."
-      ],
-      "sourcePages": "22–31"
-    },
-    {
-      "id": "brons",
-      "title": "Trachea ve bronş ağacı",
-      "source": "Kaynak PDF, s. 32–36",
-      "paragraphs": [
-        "Trachea, C biçimli kıkırdaklarla desteklenen bir hava yoludur. Alt uçta sağ ve sol ana bronşa ayrılır. Dallanma ana bronş, lober bronş ve segmental bronş şeklinde ilerler.",
-        "Trachea yaklaşık 10–12 cm uzunluğundadır; C6 düzeyinden göğüste yaklaşık T4–T5 düzeyine uzanır. Arkası açık kıkırdak halkaların açık bölümü oesophagusa bakar. Sağ ve sol ana bronşa ayrıldığı bölge bifurcatio tracheae, içteki belirgin sırt carinadır. Dallanma düzeyi solunum ve duruşla değişebilir.",
-        "Lober bronşlar akciğer loblarına, segmental bronşlar bronkopulmoner segmentlere dağılır. Daha küçük bronşları bronşioller izler; bronşiollerde kıkırdak desteği bulunmaz. Gaz alışverişi iletim yollarının her bölümünde değil, alveollerle ilişkili solunumsal bölümde gerçekleşir. Sağ ana bronşun daha dik ve geniş oluşu aspire edilen cisimlerin neden bu yöne daha sık ilerleyebildiğini anlamaya yardımcı olur."
-      ],
-      "table": {
-        "headers": [
-          "Ana bronş",
-          "Karşılaştırma"
-        ],
-        "rows": [
-          [
-            "Sağ",
-            "Sola göre daha kısa, daha geniş ve daha dik seyirlidir; üç lober dala ayrılır."
-          ],
-          [
-            "Sol",
-            "Daha uzun, daha dar ve daha obliktir; iki lober dala ayrılır."
-          ]
-        ]
-      },
-      "callout": "Sağ–sol farkını bronşların seyri ve akciğerlerin lob sayısıyla birlikte öğren.",
-      "sourcePages": "32–36"
-    },
-    {
-      "id": "akciger",
-      "title": "Akciğer yüzleri ve lobları",
-      "source": "Kaynak PDF, s. 37–39",
-      "table": {
-        "headers": [
-          "Akciğer",
-          "Lob ve fissürler"
-        ],
-        "rows": [
-          [
-            "Sağ",
-            "Üst, orta ve alt olmak üzere 3 lob; horizontal ve oblik fissür."
-          ],
-          [
-            "Sol",
-            "Üst ve alt olmak üzere 2 lob; oblik fissür."
-          ]
-        ]
-      },
-      "paragraphs": [
-        "Akciğerin tepesi apex pulmonis, tabanı basis pulmonis olarak adlandırılır. Costal yüz göğüs duvarıyla, mediastinal yüz mediastinumla, diaphragmatik yüz ise diaphragmayla ilişkilidir.",
-        "Mediastinum iki akciğer arasındaki merkezi bölgedir. Kaynakta üst ve alt mediastinum ayrımı angulus sterni düzeyiyle ilişkilendirilir.",
-        "Akciğerin mediastinal yüzündeki hilum, ana bronş, pulmoner damarlar, bronşiyal damarlar, sinirler ve lenfatik yapıların giriş-çıkış alanıdır. Bu yapıların birlikte oluşturduğu bağlantı akciğer kökü olarak düşünülür. Pulmoner damarlar gaz alışverişiyle; bronşiyal damarlar akciğer dokusunun beslenmesiyle ilişkilidir.",
-        "Visceral pleura akciğer yüzünü, parietal pleura göğüs duvarının içini, diaphragma ve mediastinal komşuluğu döşer. Aradaki ince sıvı tabakası kaymayı kolaylaştırır. Akciğerler kendi içlerinde aktif olarak genişleyen kaslar değildir; göğüs duvarı ve diaphragma hareketlerine plevral ilişki ve basınç değişimleri üzerinden uyarlar."
-      ],
-      "sourcePages": "37–39"
-    },
-    {
-      "id": "diaphragma",
-      "title": "Nefesin hareketli tabanı",
-      "source": "Kaynak PDF, s. 40–41",
-      "paragraphs": [
-        "Diaphragma göğüs ve karın boşluklarını ayıran kubbe biçimli kas-tendon yapısıdır. Kasıldığında aşağı doğru hareket edip yassılaşır; göğüs boşluğunun hacmi artar ve soluk almaya katkıda bulunur. Motor innervasyonu n. phrenicus tarafından sağlanır.",
-        "Foramen venae cavae vena cava inferiora, hiatus oesophageus oesophagusa, hiatus aorticus aortaya geçiş sağlar. Bu açıklıklar kabaca T8, T10 ve T12 düzeyleriyle ilişkilendirilir. N. phrenicus başlıca C3–C5 köklerinden gelir; göğüste çalışan kasın motor bağlantısının boyundan gelmesi gelişimsel yerleşimle ilişkilidir.",
-        "Sakin soluk almada diaphragma kasılır; toraks hacmi artar, alveol basıncı atmosfer basıncının altına düşer ve hava içeri girer. Sakin soluk vermede kasın gevşemesi ve elastik geri çekilme öne çıkar. Zorlu solunumda ek kaslar da devreye girebilir. Hava doğrudan “toraks boşluğuna” değil, hava yollarıyla akciğerlerin iç boşluklarına ulaşır."
-      ],
-      "bullets": [
-        "Sternal, costal ve lumbal bölümler halinde incelenir.",
-        "Başlıca açıklıklar: Hiatus aorticus, hiatus oesophageus ve foramen venae cavae."
-      ],
-      "callout": "Soluk alma yalnızca “akciğerin çalışması” değildir; göğüs duvarı ve solunum kaslarının hareketiyle ilişkilidir.",
-      "sourcePages": "40–41"
-    },
-    {
-      "id": "terimler",
-      "title": "Solunumla ilgili temel terimler",
-      "source": "Kaynak PDF, s. 7",
-      "sourcePages": "7",
-      "paragraphs": [
-        "Bu sözcükler farklı değişkenleri tarif eder. Solunum sayısı, kandaki karbondioksit ve dokuların oksijenlenmesi aynı ölçüm değildir; birindeki değişim diğerini her durumda aynı yönde yansıtmaz."
-      ],
-      "table": {
-        "headers": [
-          "Terim",
-          "Anlam"
-        ],
-        "rows": [
-          [
-            "Apne",
-            "Solunumun durması veya kesilmesi."
-          ],
-          [
-            "Takipne / bradipne",
-            "Solunum sıklığının artması / azalması."
-          ],
-          [
-            "Hiperkapni / hipokapni",
-            "Karbondioksit düzeyinin yükselmesi / düşmesi."
-          ],
-          [
-            "Hipoksi",
-            "Dokuların oksijenlenmesinin yetersizliği."
-          ],
-          [
-            "Asfiksi",
-            "Oksijen alımının ağır biçimde engellenmesiyle gelişen boğulma tablosu; yalnız “nefes darlığı” ile eş anlamlı değildir."
-          ]
-        ]
-      }
-    }
-  ],
   "glossary": [
     [
       "Nasus",
@@ -233,12 +32,189 @@ export default {
       "a": "N. phrenicus."
     },
     {
-      "q": "Larynxte toplam dokuz kıkırdak nasıl sayılır?",
-      "a": "Üç tek kıkırdak ve üç çift kıkırdak: 3 + 6 = 9."
+      "q": "Sağ ana bronşun hangi özellikleri aspirasyonla ilişkilidir?",
+      "a": "Sola göre daha kısa, daha geniş ve daha dik seyirli olması, aspire edilen bir cismin sağ tarafa yönelmesini kolaylaştırabilir."
     },
     {
-      "q": "Pulmoner ve bronşiyal damarlar aynı görevi mi üstlenir?",
-      "a": "Pulmoner dolaşım gaz alışverişiyle; bronşiyal dolaşım akciğer dokusunun beslenmesiyle ilişkilidir."
+      "q": "İnspirasyonda hava plevral aralığa mı dolar?",
+      "a": "Hayır. Hava, hava yollarından alveollere girer. Plevral aralık normalde ince sıvı içeren potansiyel aralıktır."
+    },
+    {
+      "q": "Diaphragmanın başlıca geçişlerini yukarıdan aşağıya sırala.",
+      "a": "Yaklaşık T8’de vena cava inferior, T10’da özofagus, T12’de aorta geçişi. Seviyeler anatomik referanslardır."
     }
-  ]
+  ],
+  "sections": [
+    {
+      "id": "gaz",
+      "title": "Solunum, ventilasyon ve gaz alışverişi",
+      "sourcePages": "2–7",
+      "source": "PDF · s. 2–7",
+      "paragraphs": [
+        "Solunum sisteminin temel görevi havadan oksijeni kana kazandırmak ve metabolizma sonucu oluşan karbondioksitin dışarı atılmasını sağlamaktır. Ventilasyon havanın akciğere girip çıkmasıdır; gaz alışverişi ise kısmi basınç farklarıyla gazların yüzeyler arasında geçmesidir. Havanın hareketiyle oksijenin dokuda kullanılmasını aynı basamak gibi düşünmemek gerekir.",
+        "Dış solunum alveol havası ile pulmoner kapiller kanı arasındaki, iç solunum sistemik kapiller kanı ile dokular arasındaki gaz alışverişini anlatır. Hücresel metabolizmada oksijenin kullanımı enerji üretimiyle ilişkilidir. Günlük karbondioksit üretimi etkinlik ve metabolizmayla değişir; tek bir litre değeri herkes için sabit değildir."
+      ],
+      "table": {
+        "headers": [
+          "Terim",
+          "Anlam"
+        ],
+        "rows": [
+          [
+            "Apne",
+            "Solunumun durması."
+          ],
+          [
+            "Takipne / bradipne",
+            "Solunum hızının artması / azalması."
+          ],
+          [
+            "Hiperkapni / hipokapni",
+            "Karbondioksit düzeyinin artması / azalması."
+          ],
+          [
+            "Hipoksi",
+            "Dokulara yeterli oksijen sağlanamaması."
+          ],
+          [
+            "Asfiksi",
+            "Gaz alışverişinin ciddi biçimde bozulduğu boğulma durumu; her solunum güçlüğünün eş anlamlısı değildir."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "thorax",
+      "title": "Thorax ve mediastinum",
+      "sourcePages": "8–11",
+      "source": "PDF · s. 8–11",
+      "paragraphs": [
+        "Göğüs kafesi sternum, kaburgalar ve torakal vertebralarla çevrilir. Üst açıklığı boyunla devam eder; alt açıklığı diaphragma kapatır. Akciğerler sağ ve sol plevral bölmelerde bulunur. Aralarında kalan mediastinum kalp, büyük damarlar, trachea, özofagus ve diğer orta hat yapıları için bölgedir; akciğerlerin kendisi mediastinuma dahil değildir.",
+        "Angulus sterniden yaklaşık T4–T5 disk düzeyine uzanan düzlem mediastinumu superior ve inferior bölümlere ayırır. İnferior mediastinum, perikardla ilişkisine göre anterior, middle ve posterior alt bölümlere ayrılır. Kaynağın yandan kesitinde kalp/perikardın orta bölmeyi doldurması, ön ve arka bölümlerin onun komşuluğunda kaldığını gösterir."
+      ]
+    },
+    {
+      "id": "burun",
+      "title": "Dış burun, burun boşluğu ve septum",
+      "sourcePages": "12–18",
+      "source": "PDF · s. 12–18",
+      "paragraphs": [
+        "Burun havaya geçiş yolu sağlar, onu ısıtır, nemlendirir ve süzer; koku ile ses rezonansına da katılır. Dış iskelet kemik ve kıkırdak bileşenlerden oluşur. Nasal kemikler üstte, septal, lateral ve alar kıkırdaklar daha aşağıdaki esnek çerçevede bulunur. Ön açıklıklar nares, burun boşluğunun arkada nasopharynxe açılışları choanalardır.",
+        "Septum nasi sağ ve sol burun boşluğunu ayırır; ethmoidin perpendicular laminası, vomer ve septal kıkırdak temel parçalarıdır. Lateral duvardaki konkalar ve altlarındaki meatuslar yüzey alanını ve hava akış yolunu düzenler. Vibrissae girişte iri parçacıkları tutarken mukus ve silyalı epitel daha küçük parçacıkların temizlenmesine katılır.",
+        "Ductus nasolacrimalis alt meatusa açılır; gözyaşının buruna ulaşması bu anatomik bağlantıyla açıklanır. Kaynakta açıklık kenarındaki mukozal kıvrım Hasner kapağı olarak belirtilir. Burun boşluğunun sinüslerle ve nasopharynxle bağlantılarını ayrı yollar olarak izlemek gerekir."
+      ]
+    },
+    {
+      "id": "sinus",
+      "title": "Paranazal sinüsler",
+      "sourcePages": "19–21",
+      "source": "PDF · s. 19–21",
+      "paragraphs": [
+        "Paranazal sinüsler frontal, maxiller, sphenoid ve ethmoid kemiklerle ilişkili hava boşluklarıdır. Mukozaları burun mukozasıyla devamlıdır ve açıklıkları burun boşluğuna drenaj sağlar. Ethmoid yapılar tek büyük kese yerine hava hücreleri şeklindedir. Sinüslerin büyüklüğü ve gelişimi bireysel değişkenlik gösterir.",
+        "Frontal sinüs alın bölgesinde, maxiller sinüs üst çenede, sphenoid sinüs daha arkada kafa tabanında, ethmoid hücreler burun boşluğu ile orbita arasında konumlanır. Bu yerleşimler burun, orbita, dişler ve kafa tabanı arasındaki klinik komşulukları anlamaya yardım eder."
+      ]
+    },
+    {
+      "id": "yutak",
+      "title": "Pharynx: hava ve besinin ortak geçidi",
+      "sourcePages": "22–23",
+      "source": "PDF · s. 22–23",
+      "paragraphs": [
+        "Pharynx yutak, larynx gırtlaktır; bu iki ad birbirinin yerine kullanılmamalıdır. Nasopharynx burun boşluğunun arkasında choanalarla, oropharynx ağız boşluğunun arkasında isthmus fauciumla bağlantılıdır. Laryngopharynx gırtlağın arkasındadır; önde larynx girişi, aşağıda özofagusla ilişkilidir.",
+        "Hava nazal bölgeden larynxe yönelirken yutulan lokma özofagusa geçer. Yumuşak damak, yutak kasları ve larynxin yükselme-kapanma mekanizmaları bu yolların işlevsel olarak ayrılmasına katkıda bulunur. Yutma güvenliğini yalnız epiglottisin tek başına bir kapak gibi kapanmasına indirgememek gerekir."
+      ]
+    },
+    {
+      "id": "larynx",
+      "title": "Larynx kıkırdakları ve ses kıvrımları",
+      "sourcePages": "24–31",
+      "source": "PDF · s. 24–31",
+      "paragraphs": [
+        "Larynx erişkinde yaklaşık C3–C6 seviyelerindedir. Hava yolunu açık tutar, yutma sırasında korumaya katılır ve ses üretir. İskeleti üç tek ve üç çift kıkırdaktan, toplam dokuz kıkırdak parçasından oluşur. Thyroid kıkırdak en büyüktür; öndeki laryngeal çıkıntıyı yapar. Cricoid hava yolunu tam halka şeklinde çevreler. Epiglottik kıkırdak girişin korunmasına katılır.",
+        "Çift arytenoid kıkırdaklar ses kıvrımlarının hareketli arka bağlantılarıyla ilişkilidir; corniculate ve cuneiform kıkırdaklar küçük destek yapılardır. Kıkırdakların eklem ve kas ilişkileri, kıvrımların birbirinden uzaklaştırılmasına, yaklaştırılmasına ve geriliminin ayarlanmasına olanak verir.",
+        "İçte üst kıvrımlar plicae vestibulares, alt kıvrımlar plicae vocales olarak adlandırılır. Gerçek ses kıvrımları arasındaki açıklık rima glottidis; bu kıvrımlar ve aralık birlikte glottis olarak değerlendirilir. Hava akımıyla kıvrımların titreşmesi sesi üretir; ağız, dil ve üst boşluklar bu sesi konuşmaya dönüştürür."
+      ],
+      "table": {
+        "headers": [
+          "Tek kıkırdaklar",
+          "Çift kıkırdaklar"
+        ],
+        "rows": [
+          [
+            "Cartilago thyroidea",
+            "Cartilagines arytenoideae"
+          ],
+          [
+            "Cartilago cricoidea",
+            "Cartilagines corniculatae"
+          ],
+          [
+            "Cartilago epiglottica",
+            "Cartilagines cuneiformes"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "trachea",
+      "title": "Trachea ve bronş ağacı",
+      "sourcePages": "32–36",
+      "source": "PDF · s. 32–36",
+      "paragraphs": [
+        "Trachea C6 düzeyinde larynxin devamı olarak başlar, yaklaşık sternal açı/T4–T5 düzeyinde sağ ve sol ana bronşa ayrılır. Ön ve yan duvarlarındaki C biçimli kıkırdak halkalar lümeni açık tutarken arkadaki membranöz-kaslı bölüm, komşu özofagusun genişlemesine uyum sağlar.",
+        "İkiye ayrılma bifurcatio tracheae, ayrımın iç sırtı carina olarak adlandırılır. Sağ ana bronş sola göre daha kısa, daha geniş ve daha dik seyirlidir; aspire edilen bir cismin sağ tarafa daha sık yönelmesinin anatomik nedenlerinden biri budur. Sağda üç, solda iki lobar bronş çıkar; bunlar segmental bronşlara dallanır.",
+        "Daha küçük bronşlar bronşiollere devam eder. Bronşiollerde kıkırdak bulunmaz. İletici bölümün ardından respiratuvar bronşioller, alveolar kanallar ve alveollerle gaz alışverişi bölgesi başlar. Böylece her dalın yalnız daha küçük bir trachea kopyası olmadığı anlaşılır."
+      ],
+      "flow": [
+        "Trachea",
+        "Ana bronşlar",
+        "Lobar bronşlar",
+        "Segmental bronşlar",
+        "Bronşioller",
+        "Respiratuvar bölüm ve alveoller"
+      ]
+    },
+    {
+      "id": "akciger",
+      "title": "Akciğer yüzleri, loblar ve pleura",
+      "sourcePages": "37–39",
+      "source": "PDF · s. 37–39",
+      "paragraphs": [
+        "Akciğerin tepesi apex, diaphragma üzerine oturan alt bölümü basistir. Costal yüz göğüs duvarına, mediastinal yüz orta bölgeye, diaphragmatic yüz diaphragmaya bakar. Lobların birbirine bakan yüzleri interlobar yüzlerdir. Medial yüzdeki hilumdan bronşlar, damarlar ve sinir-lenf yapıları geçer; bunların bütünü akciğer köküyle ilişkilidir.",
+        "Sağ akciğer superior, medius ve inferior olmak üzere üç loba ayrılır; oblik ve horizontal fissürler bulunur. Sol akciğerde superior ve inferior olmak üzere iki lob ve oblik fissür vardır. Kalbin sol taraftaki komşuluğu sol akciğerin biçimini etkiler; lingula sol üst lobun bir parçasıdır, ayrı bir orta lob değildir.",
+        "Visseral pleura akciğer yüzünü, parietal pleura göğüs duvarının içini örter. Aralarındaki ince sıvılı potansiyel aralık, akciğerin göğüs duvarının hareketine eşlik etmesini ve yüzlerin düşük sürtünmeyle kaymasını sağlar. İnspirasyonda hava bu plevral aralığa değil, hava yollarıyla alveollere girer."
+      ]
+    },
+    {
+      "id": "diaphragma",
+      "title": "Diaphragma ve solunum mekaniği",
+      "sourcePages": "40–41",
+      "source": "PDF · s. 40–41",
+      "paragraphs": [
+        "Diaphragma göğüs ve karın boşlukları arasındaki kubbe biçimli kas-tendon yapısıdır. Sternal, kostal ve lumbal kısımları merkezdeki tendinöz bölgeye uzanır. Kasıldığında kubbe alçalır, thorax hacmi artar ve alveol basıncının atmosferin altına düşmesi hava girişine olanak verir. İstirahat ekspirasyonu çoğunlukla kasın gevşemesi ve elastik geri çekilmeyle gerçekleşir.",
+        "Motor siniri n. phrenicustur; kökleri C3–C5 ile ilişkilidir. Büyük damar ve özofagus geçişleri diaphragmanın ayırıcı özelliğine rağmen iki boşluğun bağlantısını sürdürür. Vena cava açıklığı yaklaşık T8, özofageal hiatus T10, aortik hiatus T12 düzeyiyle hatırlanır. Aortik geçiş diaphragmanın arkasındaki ark düzeniyle ilişkilidir; bütün açıklıklar aynı tip kas deliği değildir."
+      ],
+      "table": {
+        "headers": [
+          "Geçiş",
+          "Başlıca yapı"
+        ],
+        "rows": [
+          [
+            "Foramen venae cavae — T8",
+            "V. cava inferior."
+          ],
+          [
+            "Hiatus oesophageus — T10",
+            "Oesophagus ve vagal gövdeler."
+          ],
+          [
+            "Hiatus aorticus — T12",
+            "Aorta ve ductus thoracicus."
+          ]
+        ]
+      }
+    }
+  ],
+  "scope": "Dış-iç solunum ve temel terimler; göğüs boşluğu, mediastinum, dış burun ve septum, sinüsler, pharynx-larynx, kıkırdaklar, trachea-bronşlar, akciğer ve diaphragma."
 };

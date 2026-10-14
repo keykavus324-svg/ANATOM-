@@ -1,376 +1,9 @@
-// Authored lesson based on Bekir Dağdeviren’s course notes. See docs/content-notes.md.
+// Authored from Bekir Dağdeviren’s source notes; see docs/content-notes.md.
 export default {
   "subtitle": "Besinin izlediği yolu okumak.",
-  "intro": "Sindirim kanalını ağızdan anal kanala kadar izlerken her bölümün biçimini, komşuluklarını ve işlevini birlikte inceleyeceğiz. Tükürük bezleri, karaciğer, safra yolları ve pankreas bu yolun dışında yer alsalar da salgılarıyla sürece katılır.",
-  "scope": "Ağız, damak, dişler, dil ve innervasyonu; çiğneme ve tükürük bezleri; pharynx, oesophagus, mide, ince-kalın bağırsak, anal kanal, karaciğer, safra kesesi, pankreas ve portal sistem.",
+  "intro": "Sindirim, besinlerin kullanılabilir küçük birimlere ayrılması ve emilmesiyle ilişkilidir. Bu web notu sindirim kanalının genel haritasını ve giriş bölgesindeki yapıları birlikte ele alır.",
   "image": "/atlas/digestive.webp",
   "imageAlt": "Sindirim organlarının doğal yerleşimini betimleyen temsili atlas illüstrasyonu",
-  "sections": [
-    {
-      "id": "yol",
-      "title": "Sindirim kanalının genel haritası",
-      "source": "Kaynak PDF, s. 2–4",
-      "paragraphs": [
-        "Büyük moleküllü besinlerin vücudun kullanabileceği birimlere dönüştürülmesi digestio olarak adlandırılır. Sindirim kanalındaki içerik ilerlerken mekanik ve kimyasal süreçler birlikte işler. Emilimle maddeler kan ve lenfe katılır; kullanılmayan artıklar dışarı atılır."
-      ],
-      "flow": [
-        "Ağız",
-        "Pharynx",
-        "Oesophagus",
-        "Mide",
-        "İnce bağırsak",
-        "Kalın bağırsak"
-      ],
-      "bullets": [
-        "Tükürük bezleri, karaciğer ve pankreas sindirime yardımcı organlardır.",
-        "Midedeki içerik kimus halini alır ve ince bağırsağa ilerler.",
-        "İnce bağırsakta pankreas ve karaciğer salgıları sindirim sürecine katılır."
-      ],
-      "sourcePages": "2–4"
-    },
-    {
-      "id": "agiz",
-      "title": "Ağız boşluğunun iki bölümü",
-      "source": "Kaynak PDF, s. 5–14, 51–52",
-      "table": {
-        "headers": [
-          "Bölüm",
-          "Sınır"
-        ],
-        "rows": [
-          [
-            "Vestibulum oris",
-            "Dışta dudak ve yanaklar, içte dişler ve diş etleri arasındaki aralık."
-          ],
-          [
-            "Cavitas oris propria",
-            "Diş kavislerinin iç tarafında kalan asıl ağız boşluğu."
-          ]
-        ]
-      },
-      "paragraphs": [
-        "Ağız boşluğunun tavanında damak, tabanında dil ve ağız tabanı yapıları bulunur. Yan duvarları yanaklar, ön sınırı dudaklar oluşturur. Arkada isthmus faucium ile yutağa geçilir.",
-        "Dudakların çevrelediği ağız açıklığı rima oristir. Dudak iç yüzünü diş etine bağlayan orta hat kıvrımları frenulum labii superioris ve inferioristir. Yanak duvarındaki buccinator kası besinin diş kavisleri arasında tutulmasına yardım eder. Dil altındaki frenulum linguae ile yanında bulunan caruncula ve plica sublingualis ağız tabanının önemli işaretleridir."
-      ],
-      "sourcePages": "5–14, 51–52"
-    },
-    {
-      "id": "damak",
-      "title": "Damak ve boğaz geçidi",
-      "source": "Kaynak PDF, s. 10–18, 36–37",
-      "paragraphs": [
-        "Damak, sert damak (palatum durum) ve yumuşak damak (palatum molle) olarak incelenir. Sert damağın kemik temelinin ön bölümü maxilladan, arka bölümü palatin kemikten oluşur.",
-        "Isthmus faucium ağız boşluğu ile oropharynx arasındaki geçittir. Üstte yumuşak damak ve uvula, altta dil kökü ve yanlarda damak arklarıyla ilişkilidir. Tonsilla palatina, iki damak arkı arasında bulunur.",
-        "Sert damağın ön üçte ikisinde maxillanın processus palatinusları, arka üçte birinde palatin kemiğin lamina horizontalisleri bulunur. Yumuşak damak arkaya uzanır; tensor ve levator veli palatini, palatoglossus, palatopharyngeus ve uvula kası bu bölgenin hareketine katılır. Yutma sırasında yumuşak damağın yükselmesi burun bölümüne besin kaçmasını önlemeye yardım eder. Ön damak arkı arcus palatoglossus, arka ark arcus palatopharyngeustur."
-      ],
-      "callout": "Damak yalnızca bir “tavan” değildir; ağız ve burun boşluklarının ayrılmasında, yutma ve konuşmada önemli bir yapıdır.",
-      "sourcePages": "10–18, 36–37"
-    },
-    {
-      "id": "dis",
-      "title": "Dişlerin düzeni ve yapısı",
-      "source": "Kaynak PDF, s. 19–28",
-      "table": {
-        "headers": [
-          "Diş grubu",
-          "Sayı ve dağılım"
-        ],
-        "rows": [
-          [
-            "Süt dişleri",
-            "Toplam 20; her yarım çenede 2 kesici, 1 köpek, 2 azı."
-          ],
-          [
-            "Kalıcı dişler",
-            "Üçüncü azılar dahil toplam 32; her yarım çenede 2 kesici, 1 köpek, 2 küçük azı, 3 büyük azı."
-          ]
-        ]
-      },
-      "paragraphs": [
-        "Bir dişte görünen taç bölümü corona dentis, boyun bölümü cervix dentis ve kemik içinde kalan kök radix dentis olarak adlandırılır. Pulpa boşluğu damar ve sinirleri içerir. Taç dışta mine ile örtülüdür; dentin bu sert yapının altında yer alır.",
-        "Dentin dişin büyük bölümünü oluşturur. Taçta dışta mine, kökte cementum bulunur; pulpa boşluğu kök kanallarıyla devam eder. Periodontal ligament dişi alveol duvarına bağlar ve çiğneme yükünün iletilmesine katkıda bulunur. Kesiciler kesme, köpek dişleri koparma, küçük ve büyük azılar ezme-öğütme işlevine uyum gösteren taç biçimlerine sahiptir.",
-        "Süt dişlerinin sürmesi genellikle yaşamın ilk yılında başlar ve yaklaşık 2,5–3 yaşta tamamlanır. Kalıcı dişlerin sürmesi okul çağı başlarında başlar; üçüncü azılarda zamanlama ve bulunma durumu belirgin değişkenlik gösterebilir. Diş sayılarını öğrenirken yarım çene hesabı kullan: kalıcı dizide 2 + 1 + 2 + 3 = 8, dört kadranda 32; süt dizisinde 2 + 1 + 2 = 5, toplam 20."
-      ],
-      "bullets": [
-        "Süt dişleri arasında premolar bulunmaz.",
-        "Kök ucundaki açıklık damar ve sinirlerin dişe giriş yoludur."
-      ],
-      "sourcePages": "19–28"
-    },
-    {
-      "id": "dil",
-      "title": "Dil: yüzey şekli, kasları ve duyusu",
-      "source": "Kaynak PDF, s. 29–35, 44–45",
-      "paragraphs": [
-        "Dilin ön ucu apex, ortası corpus, arkası radix linguaedir. Üst yüzdeki V biçimli sulcus terminalis ön iki üçlük bölüm ile arka üçte biri ayırır; tepe noktasındaki foramen caecum gelişimsel bir kalıntıdır. Dil kökünde tonsilla lingualis bulunur. Papilla filiformisler mekanik işlevlidir; fungiform, vallate ve foliate papillalar tat tomurcuklarıyla ilişkilidir.",
-        "İntrinsik longitudinal, transvers ve vertikal kaslar dilin biçimini; genioglossus, hyoglossus, styloglossus ve palatoglossus gibi ekstrinsik kaslar konumunu değiştirir. Genioglossus dili öne getirir ve dil kökünün geriye çökmesine karşı katkı sağlar. Dil kaslarının çoğunun motor siniri XII. kraniyal sinirdir; palatoglossus, vagus üzerinden gelen innervasyonuyla ayrılır.",
-        "Dilin başlıca arteriyel beslenmesi a. lingualis ve dallarından gelir; a. profunda linguae dilin ön-gövde bölümüne, dorsal dallar daha arka bölümlere yönelir. Venler benzer bölgelerden kanı toplar. Böylece dilin hareketli kas dokusu hem yoğun sinir bağlantısına hem yeterli damar desteğine sahip olur."
-      ],
-      "callout": "Tatlar dil üzerinde birbirinden kesin çizgilerle ayrılmış adacıklarda algılanmaz. “Tatlı yalnız uçta, acı yalnız arkada” biçimindeki katı dil haritası doğru bir anlatım değildir.",
-      "sourcePages": "29–35, 44–45"
-    },
-    {
-      "id": "dilsinir",
-      "title": "Dilde genel duyu ile tat duyusunu ayırmak",
-      "source": "Kaynak PDF, s. 34–35",
-      "sourcePages": "34–35",
-      "paragraphs": [
-        "Bir bölgede dokunmanın ve tadın aynı sinirle taşınması zorunlu değildir. Dilin ön bölümünde bu iki yol ayrıdır; arka bölümde ise büyük ölçüde aynı kraniyal sinir üzerinden taşınır. Bu ayrım, sinir adlarını tek bir “dil siniri” başlığına sıkıştırmayı önler."
-      ],
-      "table": {
-        "headers": [
-          "Bölge",
-          "Genel duyu",
-          "Tat"
-        ],
-        "rows": [
-          [
-            "Ön 2/3",
-            "N. lingualis (V3).",
-            "Chorda tympani (VII); lingual sinire katılarak ilerler."
-          ],
-          [
-            "Arka 1/3",
-            "N. glossopharyngeus (IX).",
-            "N. glossopharyngeus (IX); vallate papillalar da bu sinirle ilişkilidir."
-          ],
-          [
-            "Epiglottis çevresi",
-            "Vagusun superior laryngeal sinirinin internal dalı.",
-            "Vagus (X) üzerinden taşınan lifler."
-          ]
-        ]
-      }
-    },
-    {
-      "id": "cigneme-salgi",
-      "title": "Çiğneme ve tükürük: lokmanın hazırlanması",
-      "source": "Kaynak PDF, s. 38–52",
-      "sourcePages": "38–52",
-      "paragraphs": [
-        "Masseter, temporalis ve medial-lateral pterygoid kaslar mandibulayı hareket ettirir. Temporomandibular eklemde dönme ve kayma birlikte gerçekleştiği için çene yalnız açılıp kapanmaz; öne, arkaya ve yanlara da yer değiştirir. Bu kasların motor siniri n. mandibularistir. Dil ve yanak kasları besini çiğneme yüzleri arasında tutarak süreci tamamlar.",
-        "Tükürük besini ıslatır, lokmanın kayganlaşmasını sağlar ve ağız ortamının korunmasına katkıda bulunur. Küçük bezler ağız mukozasının farklı bölgelerinde bulunur. Üç çift büyük bezin salgıları ise belirli kanallarla ağıza ulaşır. Parotis ağırlıklı seröz, submandibular bez seröz ağırlıklı karışık, sublingual bez ise müköz ağırlıklı karışık salgı yapar."
-      ],
-      "table": {
-        "headers": [
-          "Bez",
-          "Konum ve kanal"
-        ],
-        "rows": [
-          [
-            "Parotis",
-            "Kulak ön-altı; ductus parotideus üst ikinci molar hizasında vestibulum orise açılır."
-          ],
-          [
-            "Submandibular",
-            "Mandibulanın altında; ductus submandibularis caruncula sublingualise açılır."
-          ],
-          [
-            "Sublingual",
-            "Ağız tabanında, mukoza altında; küçük kanallar plica sublingualis boyunca açılır."
-          ]
-        ]
-      }
-    },
-    {
-      "id": "pharynx",
-      "title": "Yutak ve lenfatik halka",
-      "source": "Kaynak PDF, s. 53–66",
-      "sourcePages": "53–66",
-      "paragraphs": [
-        "Pharynx kafa tabanından yaklaşık C6 düzeyine uzanan kaslı bir geçittir. Önde burun, ağız ve larynx ile ilişkilidir; aşağıda oesophagusla devam eder. Nasopharynx burun boşluğunun, oropharynx ağız boşluğunun, laryngopharynx ise gırtlağın arkasındadır. Hava ve besin yollarının kesişmesi, yutma sırasında koordineli kapanma ve açılmayı gerekli kılar.",
-        "Nasopharynxe choanae ve işitme tüplerinin yutak açıklıkları açılır. Tonsilla pharyngealis tavan-arka duvar bölgesindedir; tonsilla tubaria tüp açıklığı çevresinde yer alır. Palatin tonsiller iki damak arkı arasında, lingual tonsil dil kökündedir. Bunların birlikte oluşturduğu Waldeyer halkası ağız ve burundan gelen maddelerle bağışıklık sisteminin karşılaşma alanıdır.",
-        "Pharynx kasları besin lokmasını aşağı yönlendirir. Yutmanın başlangıç kısmı istemli başlatılabilir, fakat devamındaki hızlı koordinasyon refleks mekanizmalarla yürütülür. Yumuşak damağın yükselmesi ve larynx girişinin korunması besinin yanlış yola gitmesini sınırlar.",
-        "Duvar içten dışa mukoza, fibröz destek, kas tabakası ve dış bağ dokusuyla düzenlenir. Constrictor pharyngis superior, medius ve inferior lokmanın aşağı iletilmesine katılan konstriktörlerdir. Longitudinal gruptaki stylopharyngeus, palatopharyngeus ve salpingopharyngeus yutağın yükselmesine ve şekil değişikliğine katkı sağlar. Yutma böylece ardışık daralma ile yükselmenin koordinasyonu olarak düşünülebilir."
-      ]
-    },
-    {
-      "id": "oesophagus",
-      "title": "Oesophagus: göğüsten karına geçen iletim yolu",
-      "source": "Kaynak PDF, s. 67–71, 80–81",
-      "sourcePages": "67–71, 80–81",
-      "paragraphs": [
-        "Oesophagus pharynxten mideye uzanan yaklaşık 25 cm uzunluğunda kaslı bir borudur. Boyun, göğüs ve kısa karın bölümleriyle incelenir. Boyunda tracheanın arkasındadır; göğüste posterior mediastinumdan geçer. Diaphragmayı hiatus oesophageustan geçerek aşar ve mideye cardia bölgesinden açılır. Bu düzeyler yaklaşık olarak C6 başlangıcı, T10 hiatusu ve T11 mide birleşimi şeklinde öğrenilir.",
-        "Fizyolojik daralmalar üst girişte, aort kavsi ve sol ana bronş komşuluğunda, ayrıca diaphragma geçişinde belirgindir. Aort ve bronş daralmaları birlikte ele alındığında üç, ayrı sayıldığında dört daralma tarif edilebilir. Amaç sayı tartışmasından çok bu dar bölgelerin hangi komşuluklardan kaynaklandığını anlamaktır.",
-        "Oesophagus içeriği peristaltik hareketlerle ilerletir. Alt uçta mide içeriğinin geri kaçmasını sınırlayan işlevsel bir yüksek basınç bölgesi vardır; burada kalp kapağına benzer ayrı bir kapak bulunmaz. Reflü geri kaçışı, hiatus hernisi ise midenin bir bölümünün diaphragma açıklığı üzerinden göğse yer değiştirmesini anlatır. Kaynak görsellerindeki kayıcı ve paraözofageal herni şekilleri bu yerleşim farkını gösterir."
-      ]
-    },
-    {
-      "id": "mide",
-      "title": "Mide: depolamak, karıştırmak ve çıkışı düzenlemek",
-      "source": "Kaynak PDF, s. 72–91",
-      "sourcePages": "72–91",
-      "paragraphs": [
-        "Mide çoğunlukla epigastrium ve sol hypochondriumda bulunur. Dolu oluşu, duruş ve çevre organlar biçimini değiştirir; tek bir J şekli her bireyin her andaki görüntüsü değildir. Ön yüzü karaciğer, diaphragma ve ön karın duvarıyla; arka yüzü bursa omentalisin ötesinde pankreas, sol böbrek çevresi ve diğer arka komşularıyla ilişkilidir.",
-        "Oesophagusun açıldığı bölge cardia, bunun üstündeki kubbe fundus, geniş orta bölüm corpus, distal çıkışa yönelen bölüm pars pyloricadır. Pars pyloricada antrum ve canalis pyloricus ayırt edilir. Curvatura minor içteki kısa kenar, curvatura major dıştaki uzun kenardır; incisura angularis küçük kurvaturdaki belirgin çentiktir.",
-        "Duvar içten dışa mukoza, submukoza, kas tabakası ve serozayla düzenlenir. Mukozanın kıvrımları mide dolduğunda açılabilir. Kas tabakasındaki longitudinal, circular ve oblik lifler içeriği karıştırır; pylorus çevresinde kalınlaşan circular lifler sfinkter oluşturur. Bu sayede kimus duodenuma bir anda değil, kontrollü şekilde iletilir.",
-        "Mukoza yüzeyindeki mukus ve bikarbonat, epitelin asit ve enzimlere karşı korunmasına katkıda bulunur. Gastrik bezler farklı hücre tipleriyle salgı işlevini sürdürür. Submukozada damarlar ve sinir ağları bulunur; dış seroza periton örtüsüdür. Küçük kurvatur yakınındaki longitudinal kıvrımlar gastrik kanalın oluşumuyla ilişkilidir. Koruyucu bariyerin bozulması mukozal hasara zemin hazırlayabilir; peptik ülseri yalnız stresle açıklamak doğru değildir, Helicobacter pylori ve bazı ilaçlar gibi etkenler de önemlidir."
-      ],
-      "table": {
-        "headers": [
-          "Bölüm",
-          "İşlevle bağlantı"
-        ],
-        "rows": [
-          [
-            "Cardia",
-            "Oesophagus ile birleşim."
-          ],
-          [
-            "Fundus",
-            "Üst kubbe; gazın sık biriktiği bölüm."
-          ],
-          [
-            "Corpus",
-            "Depolama, salgı ve karıştırmanın geniş alanı."
-          ],
-          [
-            "Pyloric bölüm",
-            "İçeriğin duodenuma geçişinin düzenlenmesi."
-          ]
-        ]
-      }
-    },
-    {
-      "id": "duodenum",
-      "title": "Duodenum: pankreas ve safra yollarının buluşma yeri",
-      "source": "Kaynak PDF, s. 92–101",
-      "sourcePages": "92–101",
-      "paragraphs": [
-        "İnce bağırsak duodenum, jejunum ve ileumdan oluşur. Duodenum yaklaşık 25–30 cm uzunluğunda C biçimli bir bölüm olup pankreas başını çevreler. Başlangıç kısmı dışında büyük bölümü arka karın duvarına sabitlenmiş, ikincil retroperitoneal yerleşimdedir.",
-        "Pars superior pylorustan başlar; geniş başlangıç bölümü bulbus/ampulla duodeni olarak adlandırılır. Pars descendens aşağı iner; major duodenal papillaya safra ve ana pankreas kanalı sistemi açılır. Pars horizontalis sağdan sola, büyük damarların önünden ve superior mezenterik damarların arkasından geçer. Pars ascendens yukarı yönelerek flexura duodenojejunalisle jejunuma devam eder. Treitz bağı bu son geçişin asılmasına katkıda bulunur.",
-        "Duodenumun iletimden daha geniş bir rolü vardır: mide asidiyle gelen içeriğin pankreas salgısı ve safra ile karşılaşması burada gerçekleşir. Böylece mide çıkışı ile ince bağırsaktaki emilim yüzeyleri arasında işlevsel bir geçiş alanı oluşturur."
-      ]
-    },
-    {
-      "id": "jejunum-ileum",
-      "title": "Jejunum ve ileum: benzerliklerin içindeki farklar",
-      "source": "Kaynak PDF, s. 102–111",
-      "sourcePages": "102–111",
-      "paragraphs": [
-        "Jejunum ve ileum, flexura duodenojejunalis ile ileocecal geçiş arasında uzanan hareketli ince bağırsak bölümüdür. Mesenterium bunları arka karın duvarına asar; damar ve sinirler bu askı içinde ilerler. Aralarında keskin bir dış sınır yoktur. Geleneksel olarak proksimal yaklaşık 2/5 jejunum, distal 3/5 ileum kabul edilir.",
-        "Plicae circulares mukoza ve submukozanın katlantılarıdır. Villuslar yalnızca mukozanın lümene uzanan parmak benzeri çıkıntılarıdır; hücre yüzeyindeki mikrovilluslardan daha büyük ölçekli yapılardır. Bu farklı düzeylerdeki kıvrımlar emilim alanını artırır. İleumda kümelenen lenfoid folliküller Peyer plaklarını oluşturur."
-      ],
-      "table": {
-        "headers": [
-          "Özellik",
-          "Jejunum",
-          "İleum"
-        ],
-        "rows": [
-          [
-            "Yerleşim eğilimi",
-            "Sol-üst karın.",
-            "Sağ-alt karın ve pelvis."
-          ],
-          [
-            "Duvar ve çap",
-            "Daha kalın, daha geniş.",
-            "Daha ince, daha dar."
-          ],
-          [
-            "Mukozal kıvrımlar",
-            "Daha belirgin ve sık.",
-            "Distale doğru azalır."
-          ],
-          [
-            "Damar düzeni",
-            "Daha az katlı arteriyel arklar, uzun vasa recta.",
-            "Daha çok katlı arklar, kısa vasa recta."
-          ],
-          [
-            "Mezenterik yağ",
-            "Bağırsak kenarı yakınında daha az.",
-            "Bağırsak kenarına daha çok yaklaşır."
-          ],
-          [
-            "Lenfoid doku",
-            "Daha çok tekil folliküller.",
-            "Peyer plakları daha belirgin."
-          ]
-        ]
-      }
-    },
-    {
-      "id": "kolon",
-      "title": "Kalın bağırsak: çerçeve biçimindeki yol",
-      "source": "Kaynak PDF, s. 112–123",
-      "sourcePages": "112–123",
-      "paragraphs": [
-        "Kalın bağırsak caecumdan anal kanala uzanır; ince bağırsak kıvrımlarının çevresinde çerçeve oluşturur. Dıştaki longitudinal kasların yoğunlaştığı üç bant taenia coli, keseleşmeler haustra coli, serozadaki yağ uzantıları appendices epiploicae olarak adlandırılır. Bu görünüm özellikle kolonu ince bağırsaktan ayırmaya yardımcı olur; rectumda aynı düzen sürmez.",
-        "Caecum sağ iliak bölgede, ileumun açıldığı başlangıç kesesidir. İleocecal kapak geri kaçışı sınırlandırmaya katkıda bulunur. Appendix vermiformis caecumdan çıkan dar bir uzantıdır ve lenfoid doku içerir. Ucunun yerleşimi kişiler arasında değişir; tek bir sabit yönü yoktur.",
-        "Colon ascendens sağda yükselip karaciğer altında flexura coli dextrayı yapar. Colon transversum sola ilerler; dalak yakınındaki flexura coli sinistradan sonra colon descendens aşağı iner. Sigmoid kolon S biçimli kıvrımıyla pelviste uzanır ve yaklaşık S3 düzeyinde rectuma devam eder.",
-        "Ascendens ve descendens çoğunlukla ikincil retroperitoneal; transvers ve sigmoid kolon ise mezokolonlarıyla daha hareketli, intraperitoneal bölümlerdir. Bu nedenle kalın bağırsağın tamamını tek yerleşim grubuna koymak doğru değildir."
-      ],
-      "flow": [
-        "Caecum",
-        "Colon ascendens",
-        "Sağ fleksura",
-        "Colon transversum",
-        "Sol fleksura",
-        "Colon descendens",
-        "Colon sigmoideum",
-        "Rectum"
-      ]
-    },
-    {
-      "id": "rectum",
-      "title": "Rectum, anal kanal ve kontinans",
-      "source": "Kaynak PDF, s. 124–129",
-      "sourcePages": "124–129",
-      "paragraphs": [
-        "Rectum sacrumun önünde aşağı ilerleyen yaklaşık 12–15 cm uzunluğunda bölümdür. İç yüzündeki transvers kıvrımlar, duvarın düz bir boru olmadığını gösterir. Altındaki genişleyebilen ampulla içeriği geçici olarak kabul eder; dolum defekasyon isteğine katkı verir. İçeriğin her zaman aynı bölümde bulunacağına ilişkin katı bir kural yoktur.",
-        "Canalis analis sindirim kanalının son yaklaşık 3–4 cm’sidir. İç anal sfinkter düz kas yapısındadır ve istem dışı kontrol edilir. Dış anal sfinkter çizgili kastır ve istemli kontrol katkısı vardır. Pelvik tabanla birlikte bu düzen içerik tutulmasını ve uygun zamanda boşaltılmasını sağlar.",
-        "Anal kolonlar longitudinal mukoza kıvrımlarıdır; alt uçları küçük anal valvlerle birleşir. Bu bölgede epitel ve damar ilişkileri değişir. Hemoroidal hastalık yalnızca “bir venin genişlemesi” olarak açıklanamaz; normal anal yastıkçıkların büyümesi veya yer değiştirmesi de önemlidir. Bu bölüm anatomi bilgisidir, belirtilerden tanı koyma yöntemi değildir."
-      ]
-    },
-    {
-      "id": "hepar",
-      "title": "Karaciğer ve safra kesesi",
-      "source": "Kaynak PDF, s. 130–133",
-      "sourcePages": "130–133",
-      "paragraphs": [
-        "Karaciğer üst karında, ağırlıklı olarak sağ tarafta diaphragmanın altında yer alır. Safra üretiminin yanında karbonhidrat, yağ ve protein metabolizmasına, plazma proteinlerinin sentezine, bazı maddelerin depolanmasına ve dönüştürülmesine katılır. Glikojen depolaması ve glukoz salımı metabolik görevlerdir; bunları tek başına “iç salgı” diye tanımlamak yeterli değildir.",
-        "Porta hepatis bölgesinde a. hepatica propria ve v. porta hepatisin dalları karaciğere girer; safra kanalları çıkar. Portal ven sindirim organlarından gelen, emilen maddeleri taşıyan kanı getirirken hepatik arter oksijen sunumuna katkıda bulunur. Hepatik venler ise kanı karaciğerden v. cava inferiora götürür; portal venle aynı yönü izlemezler.",
-        "Safra kesesi karaciğerin alt yüzündeki çukurda yer alır; safrayı üretmez, depolar ve yoğunlaştırır. Sağ ve sol hepatik kanallar ortak hepatik kanalı oluşturur. Buna ductus cysticus katılınca ductus choledochus meydana gelir; safra duodenuma taşınır. Bu akış, karaciğer üretimi ile kesenin depolama görevini ayırt etmeyi sağlar."
-      ],
-      "flow": [
-        "Karaciğer",
-        "Sağ / sol hepatik kanal",
-        "Ortak hepatik kanal",
-        "Sistik kanal ile birleşim",
-        "Choledochus",
-        "Duodenum"
-      ]
-    },
-    {
-      "id": "pankreas",
-      "title": "Pankreas: bir organda iki salgı yönü",
-      "source": "Kaynak PDF, s. 134–135",
-      "sourcePages": "134–135",
-      "paragraphs": [
-        "Pankreas mide arkasında, duodenumdan dalak yönüne uzanır. Caput duodenum kavsi içinde, collum baş ile gövde arasında, corpus orta bölümde, cauda dalak tarafındadır. Organın büyük bölümü retroperitoneal yerleşimlidir.",
-        "Ekzokrin bölüm amilaz, lipaz ve proteaz öncüleri gibi sindirimle ilgili maddeleri kanallarla duodenuma gönderir. Langerhans adacıkları ise endokrin bölümdür; insülin, glukagon, somatostatin ve pankreatik polipeptit gibi hormonları kana verir. İnsülin kan glukozunun düşürülmesine, glukagon yükseltilmesine yönelik düzenlemede rol alır. “Kanal yoluyla lümene” ve “kan yoluyla hedefe” ayrımı iki salgı tipinin temel farkıdır."
-      ]
-    },
-    {
-      "id": "portal",
-      "title": "Portal dolaşım: emilimden sonra karaciğere uğramak",
-      "source": "Kaynak PDF, s. 136–137",
-      "sourcePages": "136–137",
-      "paragraphs": [
-        "Bir portal sistemde kan, kalbe dönmeden önce iki kapiller yataktan art arda geçer; bunları aradaki portal ven sistemi bağlar. Sindirim organlarının kapillerlerinden toplanan kanın karaciğer sinüzoidlerine ulaşması hepatik portal dolaşımdır. Bu düzen emilen maddelerin sistemik dolaşıma yayılmadan önce karaciğerle karşılaşmasını sağlar.",
-        "V. mesenterica superior ve v. splenica portal venin oluşumunda temel damarlardır; inferior mezenterik ven çoğunlukla splenik vene katılır. Gastrik venler de bu sisteme açılır. Karaciğeri terk eden kan hepatik venlerle alt ana toplardamara döner. Hipofizdeki portal sistem aynı genel ilkenin farklı bir bölgedeki örneğidir."
-      ],
-      "flow": [
-        "Sindirim organı kapillerleri",
-        "Portal ven sistemi",
-        "Karaciğer sinüzoidleri",
-        "Hepatik venler",
-        "V. cava inferior"
-      ]
-    }
-  ],
   "glossary": [
     [
       "Digestio",
@@ -399,16 +32,346 @@ export default {
       "a": "Dudak ve yanaklarla dişler ve diş etleri arasındaki aralıkta."
     },
     {
-      "q": "Jejunum ve ileum arasında kesin bir dış sınır var mı?",
-      "a": "Hayır. Kıvrımlar, duvar, damar arkları, mezenterik yağ ve lenfoid doku özellikleri giderek değişir."
+      "q": "Parotis kanalı ile submandibular kanal ağızda nereye açılır?",
+      "a": "Parotis kanalı üst ikinci molar karşısında vestibuluma; submandibular kanal dil frenulumunun yanındaki caruncula sublingualise açılır."
     },
     {
-      "q": "Safrayı üreten organ safra kesesi midir?",
-      "a": "Hayır. Karaciğer üretir; safra kesesi depolar ve yoğunlaştırır."
+      "q": "Plica, villus ve mikrovillus aynı yapı mıdır?",
+      "a": "Hayır. Plica mukoza–submukoza katlantısı, villus mukozanın uzantısı, mikrovillus ise emici hücrenin yüzey çıkıntısıdır; farklı ölçeklerde yüzeyi artırırlar."
     },
     {
-      "q": "Portal kan karaciğerden çıktıktan sonra hangi yola katılır?",
-      "a": "Hepatik venler üzerinden v. cava inferiora döner."
+      "q": "Portal ven ve hepatik venler arasında yön farkı nedir?",
+      "a": "Portal ven sindirim organlarından karaciğere kan getirir; hepatik venler karaciğerden vena cava inferiora kan götürür."
+    },
+    {
+      "q": "Dış anal sfinkter ile iç anal sfinkterin kas tipi nasıl farklıdır?",
+      "a": "Dış sfinkter çizgili kas ve istemli kontrolle, iç sfinkter düz kas ve istemsiz kontrolle ilişkilidir. Kontinans ayrıca pelvis tabanının koordinasyonuna bağlıdır."
     }
-  ]
+  ],
+  "sections": [
+    {
+      "id": "sindirim",
+      "title": "Besinin yolculuğu: sindirim ile emilimi ayırmak",
+      "sourcePages": "2–4",
+      "source": "PDF · s. 2–4",
+      "paragraphs": [
+        "Sindirim, besinlerin mekanik ve kimyasal işlemlerle kullanılabilir küçük birimlere dönüştürülmesidir. Emilim ise bu ürünlerin bağırsak duvarını geçerek kan veya lenf dolaşımına alınmasıdır. Besini parçalamak ile onu vücudun iç ortamına geçirmek birbirini izleyen fakat aynı olmayan iki işlemdir. Kullanılamayan artıkların dışarı atılması defekasyon olarak adlandırılır.",
+        "Sindirim kanalı ağız, yutak, özofagus, mide, ince bağırsak ve kalın bağırsaktan oluşur. Tükürük bezleri, karaciğer ve pankreas salgılarıyla bu kanala yardım eder. Safra kesesi karaciğerin ürettiği safrayı depolar; kendisi safra üretim merkezi değildir."
+      ],
+      "flow": [
+        "Ağız",
+        "Pharynx",
+        "Oesophagus",
+        "Gaster",
+        "Duodenum → jejunum → ileum",
+        "Caecum → colon → rectum → anal kanal"
+      ]
+    },
+    {
+      "id": "agiz",
+      "title": "Ağız boşluğu ve yutak geçidi",
+      "sourcePages": "5–18",
+      "source": "PDF · s. 5–18",
+      "paragraphs": [
+        "Ağız boşluğu önde rima oristen arkada isthmus fauciuma kadar uzanır. Dişler iki bölgeyi ayırır: dudak ve yanaklarla dişler arasındaki dar aralık vestibulum oris; diş kavislerinin içindeki asıl boşluk cavitas oris propriadır. Asıl boşluğun tavanında damak, tabanında dil ve ağız tabanı yapıları bulunur.",
+        "Isthmus faucium ağızdan oropharynxe geçiştir. Üstte yumuşak damak ve uvula, altta dil, yanlarda palatoglossal arklar bulunur. Palatoglossal ve palatopharyngeal arklar arasına tonsilla palatina yerleşir. M. palatoglossus bu geçidi daraltmaya katılır.",
+        "Waldeyer lenfatik halkası, giriş bölgesini çevreleyen tonsillerin ortak düzenidir: pharyngeal, tubal, palatinal ve lingual tonsiller. Bunları tek bir sürekli katı halka olarak değil, ağız-burun girişindeki bağışıklık dokularının çevresel yerleşimi olarak düşünmek daha doğrudur."
+      ]
+    },
+    {
+      "id": "damak",
+      "title": "Sert ve yumuşak damak",
+      "sourcePages": "15–18, 36–37",
+      "source": "PDF · s. 15–18, 36–37",
+      "paragraphs": [
+        "Sert damak ağız boşluğu ile burun boşluğunu ayıran kemik tavanın ön bölümüdür. Maxillanın processus palatinusları ve palatin kemiklerin horizontal laminaları tarafından oluşturulur. Palatin kemiğin bu bölümü lamina horizontalistir; lamina cribrosa ethmoid kemiğe aittir.",
+        "Yumuşak damak, sert damağın arkasından devam eden hareketli fibromüsküler perdedir. Uvula orta hattaki aşağı uzantısıdır. Yutma sırasında yukarı hareket ederek nazal bölümün kapanmasına katılır. Dolayısıyla sert damak sabit ayırıcı çerçeveyi, yumuşak damak ise işlev sırasında değişen geçit kontrolünü sağlar."
+      ]
+    },
+    {
+      "id": "disler",
+      "title": "Dişler: sayı, gruplar ve iç yapı",
+      "sourcePages": "19–28",
+      "source": "PDF · s. 19–28",
+      "paragraphs": [
+        "Dişler maxilla ve mandibulanın alveollerine yerleşir. Kesiciler kesme, köpek dişleri koparma, küçük ve büyük azılar öğütme için farklı biçimlere sahiptir. Süt ve kalıcı dişlerin sayısı ve dağılımı aynı değildir. Her yarım çenedeki dağılımın dörtle çarpılması toplam sayıyı verir.",
+        "Süt dişleri genellikle ilk yaşın içinde çıkmaya başlar ve erken çocuklukta tamamlanır. Kalıcı dentisyon yaklaşık altıncı yaşta başlamaktadır; birinci kalıcı molarlar süt dişlerinin arkasından çıkar, bir süt dişinin yerini almak zorunda değildir. Üçüncü molarların çıkışı ve bulunması değişkendir; herkesin erişkinde mutlaka 32 sürmüş dişi olduğu varsayılmaz.",
+        "Dişin görünen tacı corona, diş eti çevresindeki boynu cervix, alveol içindeki kısmı radixtir. Kronu mine, kökü sement örter; ana sert doku dentindir. İçteki pulpa boşluğu damar ve sinirleri barındırır. Kök ucundaki apikal açıklıktan giren yapılar kök kanalıyla pulpaya ulaşır. Kök sayısı diş grubuna ve bireysel varyasyona göre değişir; bütün premolarlar çok köklü değildir."
+      ],
+      "table": {
+        "headers": [
+          "Dentisyon",
+          "Her yarım çene",
+          "Toplam"
+        ],
+        "rows": [
+          [
+            "Süt dişleri",
+            "2 kesici + 1 köpek + 2 molar; premolar yok",
+            "20"
+          ],
+          [
+            "Kalıcı dişler",
+            "2 kesici + 1 köpek + 2 premolar + 3 molar",
+            "Üçüncü molarlar dahil tipik 32"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "dil",
+      "title": "Dil: yüzey, papillalar ve duyusal harita",
+      "sourcePages": "29–35",
+      "source": "PDF · s. 29–35",
+      "paragraphs": [
+        "Dil çiğneme, yutma, tat ve konuşmaya katılan kaslı organdır. Serbest ucu apex, gövdesi corpus, ağız tabanına daha bağlı arka kısmı radix olarak adlandırılır. Dorsum üst yüzdür; ön iki üçte birlik bölüm ile arka üçte birlik bölüm sulcus terminalis çevresinde ayırt edilir. Foramen caecum bu sınırın orta hattındaki işarettir; dil kökünde lingual tonsil bulunur.",
+        "Filiform ve konik papillalar daha çok mekanik işlevlidir; filiformlarda tat tomurcuğu bulunmaz. Fungiform, vallat ve foliat papillalar tatla ilişkilidir. Vallat papillalar çevresindeki oluklara von Ebner bezlerinin salgıları ulaşır. Tatlar dilde yalnızca birbirinden kesin sınırlarla ayrılmış “tatlı, tuzlu, ekşi, acı bölgeleri” tarafından algılanmaz; eski dil tat haritası bu nedenle doğru bir model değildir.",
+        "Ön iki üçte birlik bölümün genel duyusu n. lingualis (V3), tat duyusu chorda tympani (VII) ile taşınır. Arka üçte birlik bölümde genel duyu ve tat çoğunlukla IX. sinirle; epiglottise yakın alanda X. sinirin superior laryngeal dalıyla ilişkilidir. Vallat papillaların IX. sinirle ilişkisi, konumlarına bakılarak ön bölge kuralına dahil edilmemesi gereken bir ayrıntıdır. Dilin başlıca arteri a. lingualistir."
+      ]
+    },
+    {
+      "id": "cigneme",
+      "title": "Çiğneme ve dil kaslarının birlikte çalışması",
+      "sourcePages": "38–45",
+      "source": "PDF · s. 38–45",
+      "paragraphs": [
+        "Çiğneme kaslarının ortak motor siniri V3’tür. Temporalis temporal fossadan mandibulanın coronoid çıkıntısına uzanır; ön lifleri kapatma, arka lifleri retraksiyona katılır. Masseter elmacık kemerinden mandibula ramusunun dış yüzüne uzanarak güçlü elevasyon oluşturur. Medial pterygoid iç tarafta elevasyon ve öğütme hareketini destekler. Lateral pterygoid protraksiyon ve çenenin açılmasına katkıda bulunur.",
+        "Dilin ekstrinsik kasları dilin dışından başlayıp konumunu değiştirir: genioglossus, hyoglossus, styloglossus ve palatoglossus. Genioglossusun mandibuladan dile uzanışı dilin öne taşınmasına ve geriye çökmesinin engellenmesine katkı verir. İntrinsik kaslar dil içinde başlayıp biter; longitudinal superior/inferior, transvers ve vertikal lifler dilin uzunluğunu, genişliğini ve kalınlığını değiştirir.",
+        "Dil kaslarının çoğu XII. sinirle innerve edilir; palatoglossus vagusla ilişkili istisnadır. Dişler besini parçalarken dilin besini doğru yere taşıması ve yanak kaslarının dışarı kaçmasını önlemesi, çiğnemenin tek bir kasın işi olmadığını gösterir."
+      ]
+    },
+    {
+      "id": "tukuruk",
+      "title": "Büyük tükürük bezleri ve kanal açıklıkları",
+      "sourcePages": "46–52",
+      "source": "PDF · s. 46–52",
+      "paragraphs": [
+        "Tükürük besini ıslatır, lokma oluşumunu kolaylaştırır ve ağız ortamını korur. Büyük bezler parotis, submandibular ve sublingual bezlerdir. Ayrıca dudak, yanak ve damak gibi bölgelerde küçük bezler bulunur. Bezi öğrenirken yerleşimi kadar kanalının ağızda nereye açıldığını da bilmek gerekir.",
+        "Parotis kanalı masseterin üzerinden ilerleyip buccinatoru deler ve üst ikinci molar karşısında vestibulum orise açılır. Submandibular kanal dil frenulumunun yanındaki caruncula sublingualise ulaşır. Sublingual bezin çok sayıda küçük kanalı plica sublingualis boyunca açılır; büyük kanal varsa submandibular kanal veya caruncula ile ilişkili olabilir. İstirahatte submandibular bez tükürük miktarına büyük katkı verir; bezlerin göreli katkısı uyarılma durumuyla değişir."
+      ],
+      "table": {
+        "headers": [
+          "Bez",
+          "Kanal / ağız içi işaret"
+        ],
+        "rows": [
+          [
+            "Parotis",
+            "Ductus parotideus (Stensen) → üst ikinci molar karşısı."
+          ],
+          [
+            "Submandibular",
+            "Wharton kanalı → caruncula sublingualis."
+          ],
+          [
+            "Sublingual",
+            "Rivinus kanalları → plica sublingualis; büyük Bartholin kanalı değişken."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "pharynx",
+      "title": "Yutağın üç bölümü ve yutma",
+      "sourcePages": "53–66",
+      "source": "PDF · s. 53–66",
+      "paragraphs": [
+        "Pharynx kafatası tabanından yaklaşık C6 seviyesine uzanan kaslı geçittir. Burun, ağız ve gırtlağın arkasında yer alır; bu komşuluklar üç bölümün adını verir. Nasopharynx yumuşak damağın üstündedir ve choanalarla buruna bağlanır. Lateral duvarındaki tuba auditiva açıklığı orta kulak basıncının dengelenmesiyle ilişkilidir; çevresinde tubal tonsil, arka-üst duvarda pharyngeal tonsil bulunur.",
+        "Oropharynx ağızla isthmus faucium üzerinden bağlantılıdır ve palatinal tonsilleri içerir. Laryngopharynx gırtlağın arkasında, aşağıda özofagusa devam eder. Larynx girişi iki yanında piriform recessler bulunur. Böylece yutakta solunum ve sindirim yolları ortak bir bölgede birbirine yaklaşır.",
+        "Duvar mukozal, fibröz, kas ve dış bağ dokusu katmanlarıyla incelenir. Nazal bölümde solunum epiteli, besinle sürtünmenin olduğu oral ve laryngeal bölümlerde çok katlı yassı epitel belirgindir. Üst, orta ve alt konstriktörler ardışık kasılarak lokmayı aşağı ilerletir; longitudinal/levator kaslar yutağı yükseltip genişletir. Pharyngeal pleksus bu koordinasyonun sinirsel bağlantılarına katılır."
+      ]
+    },
+    {
+      "id": "ozofagus",
+      "title": "Özofagusun seyri ve darlıkları",
+      "sourcePages": "67–71",
+      "source": "PDF · s. 67–71",
+      "paragraphs": [
+        "Özofagus yaklaşık 25 cm uzunluğunda kaslı bir iletim borusudur. C6 düzeyinde pharynxten başlar, boyun ve thorax boyunca iner, T10 civarında diaphragmanın özofageal hiatusundan geçer ve yaklaşık T11’de mideye açılır. Cervical, thoracic ve kısa abdominal bölümleri vardır. Bu seviyeler anatomik yön bulma içindir; kişiye ve konuma göre değişebilir.",
+        "Darlıklar pharynxle birleşim yerinde, aort kavsi ve sol ana bronşun çaprazladığı bölgelerde ve diaphragma geçişinde tanımlanır. Aort ve bronş ilişkileri kimi sınıflamada aynı orta darlık bölgesi içinde anlatılır. Bunlar yutulan bir cismin veya inceleme aracının geçtiği yol üzerinde neden bazı bölgelerin daha dar olduğunu açıklar.",
+        "Özofagusun ana işi emilim değil, lokmayı peristaltik dalgalarla mideye ulaştırmaktır. Duvarın kas düzeni yukarıdan aşağıya çizgili kastan düz kasa geçiş gösterir. Mideye geçiş bölgesindeki fizyolojik kapanma mekanizması, içeriklerin geri kaçışını sınırlandırır."
+      ]
+    },
+    {
+      "id": "mide",
+      "title": "Midenin konumu, yüzleri ve bölümleri",
+      "sourcePages": "72–84",
+      "source": "PDF · s. 72–84",
+      "paragraphs": [
+        "Mide özofagus ile duodenum arasındaki genişleyebilir depolama ve karıştırma organıdır. Genellikle üst karında, orta hattın solunda ve diaphragmanın altında bulunur. Karaciğer sağ/ön tarafta, dalak solda, pankreas arka komşulukları arasındadır. Doluluk ve vücut konumu mide biçimini değiştirdiği için tek bir sabit çizimi bütün kişilere uygulamamak gerekir.",
+        "Özofagusun açıldığı delik ostium cardiacum, duodenuma çıkış ostium pyloricumdur. Ön ve arka yüzlerin birleştiği kısa, konkav medial kenar curvatura minor; uzun, konveks lateral kenar curvatura majordur. Küçük kurvaturdaki incisura angularis ve cardia yakınındaki incisura cardiaca, bölümleri konumlandırmakta yardımcıdır.",
+        "Cardia giriş çevresidir. Fundus, cardia seviyesinin üstünde kubbe oluşturan ve gaz içerebilen bölümdür. Corpus ana genişleyebilir gövdedir. Pars pylorica geniş antrum ile dar canalis pyloricustan oluşur; pylorustaki sirküler kas kalınlaşması mideden duodenuma geçişi kontrol eder. Besin, salgı ve karıştırma etkisiyle kimus adı verilen yarı akışkan içeriğe dönüşür."
+      ]
+    },
+    {
+      "id": "mide-duvari",
+      "title": "Mide duvarı: koruma ve karıştırma",
+      "sourcePages": "85–91",
+      "source": "PDF · s. 85–91",
+      "paragraphs": [
+        "Mide duvarında mucosa, submucosa, muscularis ve serosa katmanları bulunur. Mukoza boş midede ruga/plica adı verilen kıvrımlar yapar; doluluk arttığında bu kıvrımlar açılır. Küçük kurvatur boyunca uzanan geçiş yolu kaynakta “Waldeyer’in mide caddesi” olarak adlandırılır; mide içindeki kıvrım düzeninin sıvı hareketiyle ilişkisidir.",
+        "Yüzey epiteli mukus salgılar; mukus-bikarbonat bariyeri mukoza yüzeyinin asit ve pepsine karşı korunmasına yardım eder. Submukoza damarlar ve sinir ağları içeren bağ dokusudur. Kas tabakasında iç oblik, orta sirküler ve dış longitudinal lifler bulunur. Üç yönlü bu düzen içeriğin karıştırılmasına katkıda bulunur; sirküler lifler pylorusta sfinkter oluşturur.",
+        "Mukoza hasarını yalnızca psikolojik strese bağlamak doğru değildir. Peptik ülser gelişiminde Helicobacter pylori ve bazı ağrı kesiciler gibi etkenler önemlidir. Bu klinik ilişki, midenin normal koruyucu yapısını anlamak içindir; belirtilerden kendi kendine tanı çıkarma yöntemi değildir."
+      ]
+    },
+    {
+      "id": "duodenum",
+      "title": "Duodenum: sindirim salgılarının buluştuğu yer",
+      "sourcePages": "92–101",
+      "source": "PDF · s. 92–101",
+      "paragraphs": [
+        "İnce bağırsak pylorustan ileocaecal geçişe kadar uzanır ve duodenum, jejunum, ileum olarak bölünür. Sindirim ve besin emiliminin büyük bölümü burada gerçekleşir. Uzunluk canlıdaki kas tonusu ile kadavradaki ölçüm arasında farklılık gösterir; yaklaşık değerleri kesin sınırlar olarak kullanmamak gerekir.",
+        "Duodenum yaklaşık 25 cm uzunluğunda, pankreas başını çevreleyen C biçimli ilk bölümdür. Superior bölüm pylorustan başlar; mideye yakın bulbus daha hareketlidir. Descendens bölümde safra ve ana pankreas kanalı major duodenal papillaya ulaşır. Böylece mide içeriği, yağların işlenmesini kolaylaştıran safra ve pankreatik enzimlerle buluşur.",
+        "Horizontal bölüm sağdan sola geçer; ascendens bölüm yükselerek flexura duodenojejunalisle jejunuma devam eder. Bu dönüş suspansör yapı/Treitz bağı ile arka duvara bağlanır. Duodenumun çoğu sekonder retroperitonealdir; jejunum ve ileum gibi uzun bir mezenter üzerinde bütünüyle serbestçe hareket etmez."
+      ],
+      "table": {
+        "headers": [
+          "Duodenum bölümü",
+          "İlişki"
+        ],
+        "rows": [
+          [
+            "Pars superior",
+            "Pylorus sonrası; proksimal bulbus."
+          ],
+          [
+            "Pars descendens",
+            "Safra ve pankreas kanallarının açıldığı bölüm."
+          ],
+          [
+            "Pars horizontalis",
+            "Sağdan sola uzanan bölüm."
+          ],
+          [
+            "Pars ascendens",
+            "Duodenojejunal dönüşe yükselen bölüm."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "jejunum-ileum",
+      "title": "Jejunum ve ileum; emilim yüzeyinin düzeni",
+      "sourcePages": "102–111",
+      "source": "PDF · s. 102–111",
+      "paragraphs": [
+        "Jejunum ve ileum arasında keskin bir dış sınır yoktur. Uygulamada bu hareketli bölümün proksimal yaklaşık iki beşte biri jejunum, distal üç beşte biri ileum kabul edilir. Jejunum daha çok sol üst, ileum sağ alt karın ve pelviste yer alır. İkisini karın arka duvarına bağlayan mesenterium, damar ve sinirlerin de taşındığı iki yapraklı periton düzenidir.",
+        "Emilim yüzeyi üç ölçekte büyütülür: mukoza ve submukozanın katlantıları plicae circulares; mukozanın parmak biçimli çıkıntıları villuslar; emici hücrelerin yüzeyindeki daha küçük çıkıntılar mikrovilluslardır. Bunlar aynı yapının üç adı değildir. Villus içindeki kan ve lenf damarları emilen farklı ürünlerin dolaşıma katılmasına yardım eder.",
+        "Jejunumun duvarı daha kalın, dairesel kıvrımları daha belirgindir. İleumda kıvrımlar azalır, mezenterik yağ artar ve toplu lenfoid folliküller olan Peyer plakları belirginleşir. Arteriyel ark ve vasa recta düzenleri de bölgeleri ayırt etmeye yardım eder; geçiş kademeli olduğu için tek bir özelliğe bakarak kesin sınır çizilmez.",
+        "İnce bağırsağın kanlanmasını öğrenirken superior mezenterik arterin jejunal ve ileal dallarının mezenter içinde arklar yaptığını izlemek gerekir. Kolonun sağ bölümleri de ağırlıkla superior, sol bölümleri inferior mezenterik arterle ilişkilidir. Kaynaktaki damar şeması, arteriyel beslenme ile portal sisteme katılan venöz dönüşün farklı yönlerde çalışan tamamlayıcı yollar olduğunu gösterir."
+      ],
+      "table": {
+        "headers": [
+          "Özellik",
+          "Jejunum",
+          "İleum"
+        ],
+        "rows": [
+          [
+            "Duvar / lümen",
+            "Daha kalın / geniş",
+            "Daha ince / dar"
+          ],
+          [
+            "Plicae circulares",
+            "Daha belirgin",
+            "Distale doğru daha az"
+          ],
+          [
+            "Arteriyel düzen",
+            "Daha az ark, daha uzun vasa recta",
+            "Daha çok ark, daha kısa vasa recta"
+          ],
+          [
+            "Lenfoid doku",
+            "Dağınık folliküller",
+            "Peyer plakları belirgin"
+          ],
+          [
+            "Mezenterik yağ",
+            "Görece az",
+            "Görece fazla"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "kalin-bagirsak",
+      "title": "Kalın bağırsak, caecum ve appendix",
+      "sourcePages": "112–117",
+      "source": "PDF · s. 112–117",
+      "paragraphs": [
+        "Kalın bağırsak ileumun bitiminden anal açıklığa kadar uzanır. Genel görevi kalan içerikten su ve elektrolitlerin geri alınması, içeriğin dışkı biçiminde taşınması ve depolanmasıdır. İnce bağırsağa kıyasla daha geniş lümenlidir; villus düzeni bulunmaz. Taenia coli adı verilen longitudinal kas şeritleri, haustra adı verilen kesecikler ve yağlı appendices epiploicae özellikle kolonun görünümünü ayırt ettirir.",
+        "Caecum sağ iliak fossadaki başlangıç kesesidir. İleum bu bölgeye ileal açıklık ve ileocaecal kapak düzeniyle bağlanır. Appendix vermiformis caecumdan çıkan, bol lenfoid doku içeren dar uzantıdır. Tabanı caecumla bağlantılı olmakla birlikte ucunun konumu değişkendir; bu yüzden her çizimde aynı yönde duran sabit bir uzantı olarak düşünülmemelidir."
+      ]
+    },
+    {
+      "id": "kolon",
+      "title": "Kolonun dört bölümü ve periton ilişkileri",
+      "sourcePages": "118–123",
+      "source": "PDF · s. 118–123",
+      "paragraphs": [
+        "Colon ascendens caecumdan karaciğer altına yükselir; sağ kolik/hepatik fleksurada transvers kolona döner. Colon transversum karın boyunca sola ilerler, dalak yakınındaki sol kolik/splenik fleksurada aşağı yönelir. Colon descendens sol tarafta iner; sigmoid kolon S biçimli kıvrımla pelvise ulaşır ve yaklaşık S3 düzeyinde rectuma devam eder.",
+        "Periton ilişkileri hareketliliği açıklar. Ascendens ve descendens bölümler çoğunlukla sekonder retroperitonealdir. Transvers ve sigmoid kolon ise kendi mezokolonlarıyla asılıdır ve daha hareketlidir. Bu nedenle “kalın bağırsağın tamamı karın arka duvarına aynı biçimde sabittir” genellemesi doğru değildir."
+      ],
+      "flow": [
+        "Caecum",
+        "Colon ascendens",
+        "Sağ kolik fleksura",
+        "Colon transversum",
+        "Sol kolik fleksura",
+        "Colon descendens → sigmoideum"
+      ]
+    },
+    {
+      "id": "rectum",
+      "title": "Rectum, anal kanal ve kontinans",
+      "sourcePages": "124–129",
+      "source": "PDF · s. 124–129",
+      "paragraphs": [
+        "Rectum sigmoid kolonun devamıdır; sakrum ve coccyx eğrilikleriyle ilişkili olarak aşağı uzanır. İç yüzünde transvers kıvrımlar bulunur; orta belirgin kıvrım Kohlrausch plikası olarak adlandırılır. Alt geniş bölümü ampulla rectidir. Dışkının rectuma gelmesi ve duvarın gerilmesi defekasyon hissinin oluşmasına katılır.",
+        "Yaklaşık 3–4 cm uzunluğundaki anal kanal, sindirim yolunun son bölümüdür. İç anal sfinkter düz kas kökenlidir ve istemsiz kontrol edilir; dış anal sfinkter çizgili kastır ve istemli kontrole de açıktır. Pelvis tabanı ve özellikle puborectalisle birlikte bu yapılar kontinansı destekler. Defekasyon, yalnız bir kapağın açılması değil, rectum, sfinkterler ve pelvis tabanının koordinasyonudur.",
+        "Anal kanalın üst bölümünde columnae anales ve bunları birleştiren küçük valvüller görülür. Epitel ve damar-sinir düzeni aşağıya doğru değişir. Hemoroidal hastalık, normal anal yastıkçıkların büyümesi veya yer değiştirmesiyle ilişkili çok etkenli bir durumdur; yalnızca herhangi bir venin genişlemesiyle eş anlamlı tutulmamalıdır."
+      ]
+    },
+    {
+      "id": "hepar",
+      "title": "Karaciğer, porta hepatis ve safra kesesi",
+      "sourcePages": "130–133",
+      "source": "PDF · s. 130–133",
+      "paragraphs": [
+        "Karaciğer büyük bir metabolik ve salgısal organdır; çoğunlukla sağ üst karında yer alır. Safra üretir, besin maddelerinin işlenmesi ve depolanmasına, plazma proteinlerinin yapımına ve birçok maddenin dönüştürülmesine katılır. Glikojeni depolayıp gerektiğinde glukozu kana vermesi metabolik işlevdir; bunu tek başına klasik bir hormon salgısı gibi adlandırmamak gerekir.",
+        "Porta hepatis, damar ve safra yolu yapılarının geçtiği kapıdır. V. porta sindirim organlarından gelen venöz kanı, a. hepatica propria oksijence zengin arteriyel kanı getirir. Sağ ve sol hepatik kanallar safrayı dışarı taşır. Kanın karaciğerden çıkışı ise hepatik venler aracılığıyla vena cava inferioradır; portal venle yönleri ters görevler üstlenir.",
+        "Safra kesesi karaciğerin alt yüzünde bulunur, safrayı depolar ve yoğunlaştırır. Hepatik kanalların oluşturduğu ortak hepatik kanal, sistik kanalla birleşince ductus choledochusu oluşturur. Safra duodenuma ulaşarak yağların emülsifikasyonuna yardım eder; safra bir sindirim enzimi değildir."
+      ]
+    },
+    {
+      "id": "pankreas",
+      "title": "Pankreasın dış ve iç salgısı",
+      "sourcePages": "134–135",
+      "source": "PDF · s. 134–135",
+      "paragraphs": [
+        "Pankreasın başı (caput) duodenumla, kuyruğu (cauda) dalak yönüyle ilişkilidir; arada collum ve corpus bulunur. Aynı organda ekzokrin ve endokrin bölümler vardır. Ekzokrin bölüm salgısını kanallarla duodenuma iletir; lipaz, amilaz ve proteaz öncülleri besinlerin parçalanmasına katılır.",
+        "Endokrin Langerhans adacıkları hormonları kana verir. İnsülin glukozun kullanılmasını ve depolanmasını destekleyerek kan glukozunun düşmesine, glukagon gereksinim halinde yükselmesine katkıda bulunur; somatostatin ve pankreatik polipeptit de salgılanır. “Pankreas salgısı” denildiğinde kanal içindeki sindirim sıvısı mı, kana verilen hormon mu kastedildiği ayrılmalıdır."
+      ]
+    },
+    {
+      "id": "portal",
+      "title": "Portal dolaşım: bağırsaktan önce karaciğere",
+      "sourcePages": "136–137",
+      "source": "PDF · s. 136–137",
+      "paragraphs": [
+        "Hepatik portal sistem, sindirim kanalının büyük bölümü ile dalak ve pankreastan gelen venöz kanı genel dolaşıma dönmeden önce karaciğere taşır. Bu düzen sayesinde emilen maddeler karaciğerin işleme ve depolama işlevleriyle buluşur. Portal sistemin temel özelliği iki kapiller yatak arasında venöz bir bağlantı bulunmasıdır; yalnızca “bir venin başka vene açılması” tanımı yeterli değildir.",
+        "Kaynağın son şemasında gastrik, splenik, superior ve inferior mezenterik venler gösterilir. Portal ven tipik olarak superior mezenterik ve splenik venlerin birleşmesiyle oluşur; inferior mezenterik ven çoğunlukla splenik vene katılır. Karaciğer sinüzoidlerinden geçen kan hepatik venlere, ardından vena cava inferiora ulaşır. Hipofizin portal sistemi de iki kapiller ağ arasında taşıma ilkesinin başka bir örneğidir."
+      ],
+      "flow": [
+        "Bağırsak kapillerleri",
+        "Mezenterik venler → v. porta",
+        "Karaciğer sinüzoidleri",
+        "Hepatik venler",
+        "V. cava inferior"
+      ]
+    }
+  ],
+  "scope": "Ağız, damak, dişler, dil ve innervasyonu; çiğneme ve tükürük bezleri; pharynx, oesophagus, mide, ince-kalın bağırsak, anal kanal, karaciğer, safra kesesi, pankreas ve portal sistem."
 };

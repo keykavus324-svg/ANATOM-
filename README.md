@@ -17,7 +17,7 @@ React 19 + Vite, yerel fontlar ve Lucide ikonları. Backend, API anahtarı veya 
 
 ## İki okuma biçimi
 
-- **Sitede oku:** Kaynaklar okunarak, kavramları ve ilişkileri açıklayacak şekilde yeniden yazılmış Türkçe konu anlatımı. 11 ders + 1 kaynak rehberi; 109 bölüm, yaklaşık 14.700 kelime (ana anlatım) ve 49 açılır tekrar sorusu. İçindekiler, karşılaştırma tabloları, akışlar, terim kartları ve atlas tarzı temsili kapaklar içerir. **Otomatik slayt metni veya sayfa görüntüsü göstermez.** Google isteği gerekmez.
+- **Sitede oku:** Kaynaklar okunarak, kavramları ve ilişkileri açıklayacak şekilde yeniden yazılmış Türkçe konu anlatımı. 11 ders + 1 kaynak rehberi; 119 bölüm, yaklaşık 14.700 kelime (ana anlatım) ve 58 açılır tekrar sorusu. İçindekiler, karşılaştırma tabloları, akışlar, terim kartları ve atlas tarzı temsili kapaklar içerir. **Otomatik slayt metni veya sayfa görüntüsü göstermez.** Google isteği gerekmez.
 - **PDF’yi aç:** Hocanın özgün belgesi Google Drive `/preview` iframe’inde görüntülenir; indirme zorunluluğu yoktur. Erişim dosyanın mevcut paylaşım izinlerine bağlıdır. Anonim erişim ayrıca doğrulanmalıdır.
 
 İlk sürümdeki “Kaynağın tamamı / Hızlı tekrar” seçimi kaldırılmıştır. Web okuyucusunun tek ana içeriği artık yazılmış ders anlatımıdır. PDF bağımsız bir okuma seçeneğidir. Kaynak sahibi ile web metninin hazırlayanı ayrı belirtilir; yeniden yazılan metin hocanın kendi eseri veya onayladığı ders kitabı olarak sunulmaz.
@@ -77,7 +77,7 @@ Bu araç **ders anlatımı yazmaz**. Yalnızca `reference/course-content/` altı
 ## Testler
 
 ```sh
-npm test             # 15 katalog/içerik/kaynak/gezinme testi
+npm test             # 16 katalog/içerik/kaynak/gezinme testi
 npm run test:ui      # 13 Playwright senaryosu
 npm run build
 ```

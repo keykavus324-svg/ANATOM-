@@ -1,160 +1,9 @@
-// Authored lesson based on Bekir Dağdeviren’s course notes. See docs/content-notes.md.
+// Authored from Bekir Dağdeviren’s source notes; see docs/content-notes.md.
 export default {
   "subtitle": "Omuzdan parmaklara, kalçadan adımlara.",
   "intro": "Appendiküler iskelet, üst ve alt ekstremiteler ile bunları gövdeye bağlayan kuşaklardan oluşur. Kemikleri bölgelere ayırarak öğrenmek, uzun bir isim listesini anlaşılır bir haritaya dönüştürür.",
-  "scope": "Appendiküler iskeletin sayısal düzeni; scapula, clavicula, humerus, önkol ve el; pelvis, femur, patella, tibia-fibula, ayak ve kemerleri.",
   "image": "/atlas/skeleton.webp",
   "imageAlt": "Üst ve alt ekstremite kemiklerini de içeren temsili iskelet çizimi",
-  "sections": [
-    {
-      "id": "organizasyon",
-      "title": "Appendiküler iskeletin organizasyonu",
-      "source": "Kaynak PDF, s. 2–5",
-      "paragraphs": [
-        "Kaynakta erişkin iskeleti 80 aksiyel ve 126 appendiküler kemik olarak gruplandırılır. İki üst ekstremite ve omuz kuşakları toplam 64; iki alt ekstremite ve kalça kuşağı toplam 62 kemikle bu dağılıma katılır."
-      ],
-      "table": {
-        "headers": [
-          "Bölüm",
-          "Kuşak ve serbest bölüm"
-        ],
-        "rows": [
-          [
-            "Üst ekstremite",
-            "Scapula + clavicula; humerus, radius, ulna ve el kemikleri."
-          ],
-          [
-            "Alt ekstremite",
-            "Os coxae; femur, patella, tibia, fibula ve ayak kemikleri."
-          ]
-        ]
-      },
-      "sourcePages": "2–5"
-    },
-    {
-      "id": "omuz",
-      "title": "Omuz kuşağı ve humerus",
-      "source": "Kaynak PDF, s. 6–14",
-      "paragraphs": [
-        "Scapula yaklaşık 2–7. kaburgalar düzeyinde, göğüs duvarının arkasında bulunan yassı üçgen bir kemiktir. Superior, medial ve lateral kenarları; superior, inferior ve lateral açıları vardır. Ön yüzü göğüs duvarına, arka yüzü sırt kaslarına bakar. Arka yüzdeki spina scapulae, supraspinöz ve infraspinöz çukurları ayırır; dışa doğru acromionla devam eder.",
-        "Öne uzanan processus coracoideus kas ve bağlar için tutunma alanıdır. Lateral açıdaki cavitas glenoidalis humerus başıyla eklemleşir. Clavicula medialde sternuma, lateralde acromiona bağlanır. Deri altında yüzeyel seyretmesi ve omuz kuşağında kuvvet iletmesi kırıklarla klinik ilişkisinin nedenlerindendir; kemikleşmesi erken başlayıp geç tamamlanır.",
-        "Humerusta proksimal başı çevreleyen collum anatomicum ile başın yakınındaki tuberculum majus ve minus ayırt edilir. Gövdede tuberositas deltoidea deltoid kasın tutunma yeridir. Distal uçtaki capitulum radius başına, trochlea ise ulnanın trochlear çentiğine uyar. Medial ve lateral epicondyluslar kasların tutunma alanlarıdır. Arkadaki fossa olecrani, dirsek açıldığında olecranonun yerleştiği çukurdur.",
-        "Glenoid çukurun üst ve alt kenarlarındaki tuberculum supraglenoidale ve infraglenoidale sırasıyla bicepsin uzun başı ve tricepsin uzun başı için başlangıç alanlarıdır. Küçük kemik işaretlerinin sonraki kas dersinde işlevsel bir anlam kazanması, kemik ve kas bilgisini ayrı ezberler yerine tek harita halinde çalışmanın yararını gösterir."
-      ],
-      "bullets": [
-        "Proksimal humerus: Caput humeri, collum anatomicum, tuberculum majus ve minus.",
-        "Gövde: Tuberositas deltoidea belirgin bir oluşumdur.",
-        "Distal uç: Capitulum humeri radius ile, trochlea humeri ulna ile eklemleşir."
-      ],
-      "sourcePages": "6–14"
-    },
-    {
-      "id": "onkol",
-      "title": "Önkol: radius ve ulna",
-      "source": "Kaynak PDF, s. 15–21",
-      "table": {
-        "headers": [
-          "Kemik",
-          "Ayırt edici özellikler"
-        ],
-        "rows": [
-          [
-            "Radius",
-            "Anatomik duruşta lateral taraftadır. Distal ucu daha geniştir; scaphoideum ve lunatum ile eklemleşir."
-          ],
-          [
-            "Ulna",
-            "Medial taraftadır. Proksimal ucu belirgindir; olecranon dirsek çıkıntısını oluşturur."
-          ]
-        ]
-      },
-      "callout": "Ulna, el bileği kemikleriyle doğrudan temas etmez; arada eklem diski bulunur.",
-      "paragraphs": [
-        "Radiusun proksimal ucu küçük, distal ucu geniştir. Baş kısmı humerusla ve ulnayla ilişkilidir; distal uçta radial styloid çıkıntı bulunur. El bileğinin kemik bağlantısında radius öne çıkar: scaphoideum ve lunatum ile eklemleşir.",
-        "Ulnanın proksimal ucu daha geniştir. Olecranon arka-üstte dirsek çıkıntısını oluşturur; incisura trochlearis humerusun trochleasını kavrar. Radius ve ulna birlikte önkolu oluşturur; pronasyon-supinasyon sırasında radiusun ulna ile ilişkisi değişir. Yön tayini her zaman avuç içlerinin öne baktığı anatomik duruşa göre yapılmalıdır."
-      ],
-      "sourcePages": "15–21"
-    },
-    {
-      "id": "el",
-      "title": "El iskeleti: 8 + 5 + 14",
-      "source": "Kaynak PDF, s. 22–27",
-      "paragraphs": [
-        "Bir elde 27 kemik bulunur: 8 el bileği kemiği, 5 metakarpal ve 14 falanks. Başparmakta iki, diğer parmakların her birinde üç falanks vardır.",
-        "Her metakarpalde proksimal uç basis, gövde corpus ve distal baş caput olarak adlandırılır. Parmak kemiklerindeki benzer uç-gövde düzeni, elin birbirini izleyen küçük kaldıraçlar şeklinde çalışmasını sağlar. Karpal kemiklerin iki sırası öğrenilirken başparmak tarafından başlanır; resme önden veya arkadan bakmak, lateral–medial tarifin temelini değiştirmez."
-      ],
-      "table": {
-        "headers": [
-          "Karpal sıra",
-          "Lateralden mediale"
-        ],
-        "rows": [
-          [
-            "Proksimal sıra",
-            "Scaphoideum, lunatum, triquetrum, pisiforme."
-          ],
-          [
-            "Distal sıra",
-            "Trapezium, trapezoideum, capitatum, hamatum."
-          ]
-        ]
-      },
-      "bullets": [
-        "Metakarpaller I–V olarak numaralandırılır.",
-        "Falankslar proksimal, orta ve distal olarak adlandırılır; başparmakta orta falanks yoktur."
-      ],
-      "sourcePages": "22–27"
-    },
-    {
-      "id": "alt",
-      "title": "Kalça, uyluk ve bacak",
-      "source": "Kaynak PDF, s. 28–43",
-      "paragraphs": [
-        "Os coxae üzerindeki acetabulum ilium, ischium ve pubisin birleşme alanında bulunur. Pubis ile ischium, acetabulumun ön-altındaki foramen obturatumun sınırına katılır. İliumun geniş ala bölümü ile corpus bölümü; öndeki spina iliaca anterior superior ve üstteki crista iliaca konum belirlemede önemlidir.",
-        "Sağ ve sol pubisin facies symphysialisleri symphysis pubica aracılığıyla birleşir. Ischiumun tuber ischiadicumu oturma sırasında yük taşır. Pelvis çıkışının sagittal ve transvers çapları farklı doğrultuları ölçer; kaynakta sırasıyla yaklaşık 9–11,5 cm ve 11 cm olarak ele alınır. Bu değerler anatomik öğrenme örnekleridir, kişisel obstetrik değerlendirme ölçütü değildir.",
-        "Pelvis girişinde promontoriumdan başlayıp yanlarda linea arcuata ve pecten ossis pubis üzerinden öndeki pubik bölgeye ilerleyen sınır, büyük ve küçük pelvisin ayrımını kurar. Giriş çapları transvers, oblik ve conjugata yönleriyle; çıkış çapları sagittal ve transvers yönleriyle tarif edilir. Bunlar aynı açıklığın ölçümleri değildir. Pubik krest ve tüberkül, iliak krest ve ön iliak çıkıntılar bu sınırların yerini bulmada yüzey işaretleri olarak kullanılır.",
-        "Femurun caput ve collum bölümleri kalçaya katılır; trochanter major ve minor kas tutunma alanlarıdır. Önde linea intertrochanterica, arkada crista intertrochanterica bulunur. Gövdenin arkasındaki linea aspera da kas tutunmalarıyla ilişkilidir. Distalde medial ve lateral kondiller dize katılır; epicondyller ile tuberculum adductorium komşu belirgin oluşumlardır.",
-        "Patella quadriceps tendonunun içinde yer alır; dizin ön tarafını korur ve kuvvet aktarımına katılır. Tibianın üst yüzündeki kondiller femurla eklemleşirken önündeki tuberositas tibiae patellar bağın tutunma yeridir. Distalde tibia medial, fibula lateral malleolü oluşturur. Fibula dize femur üzerinden doğrudan katılmaz; proksimalde tibia, distalde ayak bileği sistemiyle ilişkilidir."
-      ],
-      "table": {
-        "headers": [
-          "Yapı",
-          "Konum / belirgin oluşum"
-        ],
-        "rows": [
-          [
-            "Patella",
-            "Dizin önünde bulunan sesamoid kemik."
-          ],
-          [
-            "Tibia",
-            "Bacağın medialinde; distalinde malleolus medialis."
-          ],
-          [
-            "Fibula",
-            "Bacağın lateralinde; distalinde malleolus lateralis."
-          ]
-        ]
-      },
-      "sourcePages": "28–43"
-    },
-    {
-      "id": "ayak",
-      "title": "Ayak iskeleti ve kemerler",
-      "source": "Kaynak PDF, s. 44–48",
-      "paragraphs": [
-        "Bir ayakta 26 kemik bulunur. Tarsal, metatarsal ve parmak kemikleri ayak iskeletinin ana gruplarıdır. Talus, calcaneus, naviculare, cuboideum ve üç cuneiform kemik tarsal grubu oluşturur.",
-        "Talus bacak kemikleriyle ayak arasındaki yük aktarımında, calcaneus topuk desteğinde önemlidir. Naviculare talusun önünde; cuboideum calcaneusun önünde; üç cuneiform kemik navicularenin distalindedir. Metatarsallerden sonra başparmakta iki, diğer parmaklarda üçer falanks bulunur. Medial longitudinal kemer daha belirgin, lateral kemer daha alçaktır; transvers kemer enine uzanır. Kemiklerin biçimi yanında bağlar ve kas-tendon sistemi de bu kemerlerin korunmasına katkıda bulunur."
-      ],
-      "bullets": [
-        "7 tarsal kemik + 5 metatarsal kemik + 14 falanks.",
-        "Medial ve lateral longitudinal kemerler uzunlamasına uzanır.",
-        "Transvers kemer enine düzenlenir."
-      ],
-      "callout": "El ve ayağı karşılaştır: Her ikisinde de 5 tarak kemiği ve 14 falanks vardır; bilek kemiği sayıları farklıdır.",
-      "sourcePages": "44–48"
-    }
-  ],
   "glossary": [
     [
       "Cingulum",
@@ -183,12 +32,128 @@ export default {
       "a": "Tibia medial, fibula lateraldedir."
     },
     {
-      "q": "Capitulum ve trochlea humeri hangi kemiklere uyar?",
-      "a": "Capitulum radius başına; trochlea ulnanın trochlear çentiğine uyar."
+      "q": "Ulna neden doğrudan el bileği kemiklerine oturmaz?",
+      "a": "Distal ulna ile karpal kemikler arasında eklem diski vardır. Karpal eklem yüzünü radiusla disk birlikte karşılar."
     },
     {
-      "q": "Femurun ön ve arka intertrokanterik işaretleri nelerdir?",
-      "a": "Önde linea intertrochanterica, arkada crista intertrochanterica bulunur."
+      "q": "Ayak kemerlerini yalnızca kemik biçimi mi korur?",
+      "a": "Hayır. Kemikler yanında bağlar, plantar aponevroz ve kas-tendon desteği de medial, lateral ve transvers kemerleri korur."
     }
-  ]
+  ],
+  "sections": [
+    {
+      "id": "organizasyon",
+      "title": "Aksiyel iskeletten ekstremitelere",
+      "sourcePages": "2–5",
+      "source": "PDF · s. 2–5",
+      "paragraphs": [
+        "Erişkin iskeletinin tipik 206 kemiğinin 80’i aksiyel, 126’sı appendiküler iskelette sayılır. Appendiküler iskelet, ekstremitelerin serbest kısımları ile onları gövdeye bağlayan kuşakları kapsar. İki üst ekstremite ve omuz kuşaklarında 64, iki alt ekstremite ve kalça kuşağında 62 kemik bulunur.",
+        "Üst ekstremiteyi omuz kuşağı–kol–önkol–el; alt ekstremiteyi kalça kuşağı–uyluk–bacak–ayak sırasıyla öğrenmek, kemikleri tek tek ezberlemekten daha işlevseldir. Her bölgede önce proksimal ve distal yönü, sonra kemik başlarını, eklem yüzlerini ve kas tutunma işaretlerini belirle."
+      ]
+    },
+    {
+      "id": "kusak",
+      "title": "Omuz kuşağı: scapula ve clavicula",
+      "sourcePages": "6–9",
+      "source": "PDF · s. 6–9",
+      "paragraphs": [
+        "Scapula yaklaşık ikinci–yedinci kaburgalar hizasında, göğüs duvarının arkasında yer alan üçgen kemiktir. Superior, medial ve lateral kenarları; superior, inferior ve lateral açıları vardır. Costal yüzü göğüs duvarına, posterior yüzü arkaya bakar. Posterior yüzdeki spina scapulae, yüzeyi supra- ve infraspinöz çukurlara ayırır.",
+        "Spinanın lateral devamı acromion, öne uzanan çengel biçimli çıkıntı processus coracoideustur. Lateral açıdaki cavitas glenoidalis humerus başıyla eklemleşir. Böylece aynı kemikte omuz ekleminin çukuru, kas tutunma alanları ve omuz kuşağının bağlanma noktaları bir aradadır.",
+        "Clavicula S biçiminde, deri altında kolay izlenebilen kemiktir. Medial ucu manubrium sterniyle, lateral ucu acromionla eklemleşir. Üst ekstremiteyi gövdeden uzakta tutan bir destek gibi davranır; bu konum omuzun hareket alanına katkıda bulunur. Kemikleşmesi erken başlayan kemiklerdendir; yüzeyel konumu ve maruz kaldığı kuvvetler nedeniyle kırıkları sık görülür.",
+        "Glenoid çukurun hemen üstündeki tuberculum supraglenoidale biceps brachiinin uzun başının, altındaki tuberculum infraglenoidale tricepsin uzun başının başlangıç alanıdır. Scapulanın küçük işaretlerini öğrenmek, sonraki kas dersinde bir kasın hangi eklemi çaprazladığını anlamayı kolaylaştırır."
+      ]
+    },
+    {
+      "id": "humerus",
+      "title": "Humerusu üç bölümde okumak",
+      "sourcePages": "10–14",
+      "source": "PDF · s. 10–14",
+      "paragraphs": [
+        "Humerusun proksimal ucunda caput humeri scapulayla eklemleşir. Başın hemen çevresindeki collum anatomicum ile tüberküllerin distalindeki collum chirurgicum farklı bölgelerdir. Tuberculum majus ve minus kas tutunma çıkıntılarıdır; aralarındaki sulcus intertubercularis bicepsin uzun baş tendonuyla ilişkilidir.",
+        "Gövdenin ön-dış tarafındaki tuberositas deltoidea, deltoid kasın tutunma izidir. Distalde medial ve lateral epicondyluslar kas ve bağ tutunmalarıyla; capitulum ve trochlea ise eklemleşmeyle ilişkilidir. Capitulum radius başına, trochlea ulnanın trochlear çentiğine karşılık gelir. Arkadaki fossa olecrani, dirsek açıldığında ulnanın olecranonunu karşılar. Böylece kemik üzerindeki çukurun şekli, eklem hareketiyle anlam kazanır."
+      ]
+    },
+    {
+      "id": "onkol",
+      "title": "Radius ve ulna: birbirini tamamlayan iki kemik",
+      "sourcePages": "15–21",
+      "source": "PDF · s. 15–21",
+      "paragraphs": [
+        "Anatomik duruşta radius lateral, ulna medial taraftadır. Radiusun proksimalinde caput, collum ve tuberositas radii bulunur; distal ucu daha geniştir. Bu geniş uç, el bileğinde scaphoideum ve lunatumla eklemleşir. Lateral taraftaki processus styloideus radii, el bileğinde hissedilen kemik işaretlerinden biridir.",
+        "Ulna proksimalde daha güçlü görünür. Olecranon dirseğin arka çıkıntısını, processus coronoideus ön çıkıntısını yapar; aralarındaki incisura trochlearis humerusun trochleasını kavrar. Radiusla komşuluğu incisura radialis düzeyinde sürer. Ulnanın distalinde caput ve processus styloideus bulunur.",
+        "Radius ile ulna hem birbirleriyle hem humerusla ilişkilidir; fakat el bileğine katılımları simetrik değildir. Ulna ile karpal kemikler arasında discus articularis bulunduğundan ulna doğrudan karpal eklem yüzü oluşturmaz. Pronasyon sırasında radiusun ulna üzerinden çaprazlanması, iki kemikli önkol düzeninin işlevsel sonucudur."
+      ]
+    },
+    {
+      "id": "el",
+      "title": "El iskeleti: bilek, tarak ve parmaklar",
+      "sourcePages": "22–27",
+      "source": "PDF · s. 22–27",
+      "paragraphs": [
+        "Elin 27 kemiği üç gruptadır: sekiz karpal, beş metakarpal ve on dört falanks. Karpal kemikler iki sıra oluşturur. Sıralamayı başparmak tarafından küçük parmak tarafına, yani lateralden mediale doğru okumak karışıklığı önler. Pisiforme, triquetrumun palmar tarafında bulunan sesamoid kemiktir.",
+        "Metakarpaller başparmaktan başlayarak I–V diye numaralandırılır. Her birinde proksimal basis, gövde ve distal caput bulunur. Başparmakta proksimal ve distal olmak üzere iki falanks; diğer parmaklarda bunlara ek olarak orta falanks vardır. Elin küçük kemik ve eklemlerden kurulması, bileğin konum ayarıyla parmakların ince hareketlerini birleştirir."
+      ],
+      "table": {
+        "headers": [
+          "Karpal sıra",
+          "Lateralden mediale"
+        ],
+        "rows": [
+          [
+            "Proksimal",
+            "Scaphoideum → lunatum → triquetrum → pisiforme."
+          ],
+          [
+            "Distal",
+            "Trapezium → trapezoideum → capitatum → hamatum."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "pelvis",
+      "title": "Kalça kemiği ve pelvisin açıklıkları",
+      "sourcePages": "28–34",
+      "source": "PDF · s. 28–34",
+      "paragraphs": [
+        "Os coxae, gelişimde ayrı olan ilium, ischium ve pubisin birleşmesiyle oluşur. İlium geniş üst bölümdür; crista iliaca üst sınırını yapar. Ischium arka-alt bölümde, pubis ön-alt bölümde yer alır. Üç parçanın buluştuğu acetabulum femur başının eklem çukurudur. Pubis ile ischiumun kolları foramen obturatum çevresini oluşturur.",
+        "İki kalça kemiği arkada sacrumla, önde symphysis pubica aracılığıyla birbirleriyle birleşir. Böylece bir kemik halka meydana gelir. Pelvisin üst ve alt açıklıkları farklı sınırlara sahiptir. Alt açıklığın sagittal çapı önden arkaya, transvers çapı iki tuber ischiadicum arasında değerlendirilir; kaynak yaklaşık 9–11,5 cm ve 11 cm değerlerini verir. Bu değerler bireysel değişkenliği ortadan kaldıran klinik eşikler değildir.",
+        "Pelvis girişini sınırlayan hat, arkada promontoriumdan yanlarda linea arcuataya ve pecten ossis pubise, önde pubik bölgeye uzanır. Bu hat büyük ve küçük pelvisin ayrımını kurar. Pubik krest ve tüberkül, iliak krest ve ön iliak çıkıntılar yüzeyden konum belirlemeye yardım eder. Girişin oblik ve konjugat çapları ile çıkışın sagittal ve transvers çapları farklı açıklıkları tarif eder."
+      ]
+    },
+    {
+      "id": "femur",
+      "title": "Femur ve patella",
+      "sourcePages": "35–39",
+      "source": "PDF · s. 35–39",
+      "paragraphs": [
+        "Femur vücudun en uzun ve güçlü kemiklerinden biridir. Proksimal caput acetabuluma oturur; collum başı gövdeye bağlar. Trochanter major ve minor kas tutunmalarının belirgin çıkıntılarıdır. Gövdenin arkasındaki linea aspera, geniş bir kas tutunma hattı oluşturur.",
+        "Distalde medial ve lateral condyluslar tibia ile eklemleşir. Ön tarafta patellayla ilişkili eklem yüzü, arkada kondiller arasındaki fossa intercondylaris bulunur. Kondillerin çevresindeki epicondylusları eklem yüzleriyle karıştırmamak gerekir: bunlar özellikle bağ ve kas tutunmaları için önemlidir.",
+        "Patella quadriceps tendonunun içinde bulunan en büyük sesamoid kemiktir. Geniş tabanı yukarı, tepesi aşağı yönelir. Arka yüzü femurla eklemleşir; altından lig. patellae tibianın tuberositasına uzanır. Patella, diz önündeki tendonun çekiş koşullarını değiştirerek ekstansiyon mekanizmasına katkıda bulunur.",
+        "Trochanterler arasında önde linea intertrochanterica, arkada crista intertrochanterica uzanır. Medial distal bölümde tuberculum adductorium, adductor magnusun tutunma ilişkisi için işarettir. Kemikteki linea, crista ve tuberculum sözcüklerini temel kemik yüzeyi terimleriyle eşleştirmek yeni isimleri anlaşılır hale getirir."
+      ]
+    },
+    {
+      "id": "bacak",
+      "title": "Tibia ve fibula: yük taşıma ve ayak bileği çatalı",
+      "sourcePages": "40–43",
+      "source": "PDF · s. 40–43",
+      "paragraphs": [
+        "Tibia medialde yer alır ve bacağın temel yük taşıyan kemiğidir. Proksimal medial ve lateral condylusları femurla ilişkilidir; öndeki tuberositas tibiae patellar bağın tutunma yeridir. Ön kenarı deri altında izlenebilir. Distalindeki malleolus medialis ayak bileğinin iç çıkıntısını oluşturur.",
+        "Fibula lateral taraftaki ince kemiktir. Proksimal başı tibia ile eklemleşir; femurla doğrudan eklemleşmez. Distal ucu malleolus lateralis adını alır. Tibia kadar yük taşımamasına rağmen kas tutunmaları ve ayak bileğinin yan stabilitesi için önemlidir. İki malleol talusun yerleştiği çatalın yan duvarlarını yapar."
+      ]
+    },
+    {
+      "id": "ayak",
+      "title": "Ayak kemikleri ve üç kemer",
+      "sourcePages": "44–48",
+      "source": "PDF · s. 44–48",
+      "paragraphs": [
+        "Bir ayakta yedi tarsal, beş metatarsal ve on dört falanks bulunur: toplam 26 kemik. Talus bacak kemiklerinden gelen yükü ayağa iletir; calcaneus topuk bölümünü oluşturur. Naviculare talusun önünde, üç cuneiform kemikle ilişkili ara konumdadır; cuboideum lateral tarafta calcaneusun önünde yer alır. Cuneiform kemikler medial, intermediate ve lateral olarak adlandırılır.",
+        "Başparmakta iki, diğer parmaklarda üçer falanks bulunması eldekine benzer; el–ayak toplam sayıları arasındaki bir kemiklik fark bilek bölgesinden kaynaklanır. Metatarsaller de medialden, yani başparmaktan başlayarak I–V diye numaralanır.",
+        "Medial ve lateral longitudinal kemerler ön–arka yönde, transvers kemer enine uzanır. Ayağın yere bütünüyle düz bir kemik tabaka gibi basmaması, yükü farklı noktalara dağıtmasına ve adım sırasında esneklik sağlamasına yardım eder. Kemerleri yalnızca kemik şekli korumaz; bağlar, plantar aponevroz ve kas-tendon desteği de bu düzene katılır."
+      ]
+    }
+  ],
+  "scope": "Appendiküler iskeletin sayısal düzeni; scapula, clavicula, humerus, önkol ve el; pelvis, femur, patella, tibia-fibula, ayak ve kemerleri."
 };

@@ -27,7 +27,10 @@ export const lessons = {
   11: lesson11,
 };
 
+export function lessonWords(lesson) {
+  const text = [lesson.intro, ...lesson.sections.map(s => [s.title, ...(s.paragraphs || []), ...(s.bullets || []), ...(s.flow || []), ...(s.table?.rows.flat() || []), s.callout || ''].join(' '))].join(' ');
+  return text.trim().split(/\s+/).length;
+}
 export function readingMinutes(lesson) {
-  const text = [lesson.intro, ...lesson.sections.map(s => [s.title, ...(s.paragraphs || []), ...(s.bullets || []), ...(s.table?.rows.flat() || []), s.callout || ''].join(' '))].join(' ');
-  return Math.max(2, Math.ceil(text.split(/\s+/).length / 180));
+  return Math.max(2, Math.ceil(lessonWords(lesson) / 180));
 }

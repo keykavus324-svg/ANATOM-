@@ -1,146 +1,9 @@
-// Authored lesson based on Bekir Dağdeviren’s course notes. See docs/content-notes.md.
+// Authored from Bekir Dağdeviren’s source notes; see docs/content-notes.md.
 export default {
   "subtitle": "Üreme organlarını yapı ve konumla anlamak.",
-  "intro": "Üreme sistemi, üreme hücrelerini oluşturan organlar, taşıma yolları ve yardımcı bezlerden meydana gelir. Bu derste erkek ve kadın üreme organlarını görevleri ve pelvis içindeki komşuluklarıyla birlikte inceleyeceğiz.",
-  "scope": "Kaynak dosyanın adı “Ürogenital sistem”dir; içeriği erkek ve kadın üreme anatomisidir. Testis ve iletim yolları, yardımcı bezler, penis-scrotum, ovarium-tuba-uterus-vagina ve vulva ele alınır; bağımsız bir üriner sistem dersi içermez.",
+  "intro": "Bu dosyanın adı “Ürogenital sistem” olsa da çıkarılabilen metni erkek ve kadın üreme organlarını ele alır. Web notunun kapsamı da bu içerikle sınırlıdır; ayrı bir böbrek veya üriner sistem anlatımı eklenmemiştir.",
   "image": "/atlas/reproductive.webp",
   "imageAlt": "Uterus, tuba uterina ve ovariumların eğitim amaçlı temsili atlas çizimi",
-  "sections": [
-    {
-      "id": "erkek",
-      "title": "Erkek üreme organlarına genel bakış",
-      "source": "Kaynak PDF, s. 1–10",
-      "paragraphs": [
-        "Erkek üreme sisteminde testisler üreme hücrelerinin ve hormonların üretimiyle ilişkilidir. Epididymis, ductus deferens ve ductus ejaculatorius iletim yolunun önemli parçalarıdır. Vesicula seminalis, prostat ve bulbourethral bezler salgılarıyla bu sisteme katılır.",
-        "Testisler scrotum içinde funiculus spermaticusla bağlantılıdır. Üreme hücrelerinin üretimi seminifer tübüllerde gerçekleşir; hormon üretimi testisin ayrı hücresel bileşenleriyle ilişkilidir. Epididymis testisin arka yanında bulunan, baş-gövde-kuyruk şeklinde düzenlenen kıvrımlı bir kanal sistemidir. Küçük bir alanda yer alsa da açıldığında oldukça uzun bir kanal oluşturur.",
-        "Ductus deferens epididymis kanalının devamı olarak spermi taşır. Seminal vezikülün kanalıyla birleşmesi ductus ejaculatoriusu oluşturur; bu kısa kanal prostat içinden geçerek prostatik urethraya açılır. Urethra böylece hem idrarın hem ejakülatın dışarı taşındığı son yolun parçasıdır; testisin sperm üretmesi ile üretranın iletmesi ayrı görevlerdir."
-      ],
-      "bullets": [
-        "Testisler çift, oval organlardır ve scrotum içinde yer alır.",
-        "Epididymis, testis ile ductus deferens arasında bulunur; sperm olgunlaşması ve depolanmasıyla ilişkilidir.",
-        "Ductus deferens, epididymis kanalının devamıdır ve spermin taşınmasını sağlar."
-      ],
-      "flow": [
-        "Testis",
-        "Epididymis",
-        "Ductus deferens",
-        "Ductus ejaculatorius",
-        "Urethra"
-      ],
-      "sourcePages": "1–10"
-    },
-    {
-      "id": "bezler",
-      "title": "Yardımcı bezler ve dış yapılar",
-      "source": "Kaynak PDF, s. 8–14",
-      "table": {
-        "headers": [
-          "Yapı",
-          "Konum veya işlev"
-        ],
-        "rows": [
-          [
-            "Vesicula seminalis",
-            "Mesanenin arkasında; salgısı ejakülatın önemli bir bölümüne katılır."
-          ],
-          [
-            "Prostat",
-            "Mesanenin altında, rectumun önünde yer alan bez."
-          ],
-          [
-            "Bulbourethral bezler",
-            "Üretraya salgı veren küçük çift bezler."
-          ],
-          [
-            "Scrotum",
-            "Testis ve ilişkili yapıları barındıran torba."
-          ]
-        ]
-      },
-      "paragraphs": [
-        "Penis; radix, corpus ve glans bölümleriyle incelenir. İki corpus cavernosum ve bir corpus spongiosum, erektil yapının ana bileşenleridir.",
-        "Seminal veziküller mesanenin arkasında ve rectumun önündedir. Salgıları, spermin taşındığı sıvı ortamın büyük bölümüne katkı verir ve enerji kaynağı olan maddeler içerir. Bunlar adlarının çağrıştırabileceği gibi temel sperm deposu değildir; olgunlaşma ve depolama epididymisle ilişkilidir.",
-        "Prostat mesanenin hemen altında urethranın başlangıç bölümünü çevreler. Arkasında rectum, önünde symphysis pubica bulunur. Bu komşuluklar prostatın büyümesinin idrar akımını neden etkileyebileceğini ve rectum üzerinden neden değerlendirilebildiğini açıklar. Bulbourethral bezler ise üretraya kayganlaştırıcı salgı veren küçük çift bezlerdir.",
-        "Ejakülatın hacmi, sperm yoğunluğu ve hücre özellikleri kişiler arasında ve örnekler arasında değişebilir. Kaynakta verilen tek bir semen aralığı güncel bir tanı eşiği veya doğurganlık garantisi olarak kullanılmamalıdır. Anatomik olarak önemli ayrım, üreme hücresi ile onu taşıyan bez salgılarının aynı şey olmamasıdır."
-      ],
-      "callout": "Sperm hücresi ile semen aynı kavram değildir. Semen, sperm hücreleriyle çeşitli bez salgılarının oluşturduğu karışımdır.",
-      "sourcePages": "8–14"
-    },
-    {
-      "id": "dis-erkek",
-      "title": "Penis, scrotum ve komşu yapılar",
-      "source": "Kaynak PDF, s. 15–18",
-      "sourcePages": "15–18",
-      "paragraphs": [
-        "Penisin kökü radix, gövdesi corpus, uç bölümü glans adını alır. İki corpus cavernosum ve bir corpus spongiosum erektil dokuyu oluşturur. Urethranın spongiyöz bölümü corpus spongiosum içinde ilerler; bu doku distalde glansla devam eder. Böylece üretral kanal ile çevresindeki erektil dokuların yerleşimi ayırt edilir.",
-        "Scrotum testisleri, epididymisleri ve bunlarla ilişkili damar-sinir yapılarını barındırır. Funiculus spermaticus ductus deferens, damarlar ve sinirlerin birlikte seyrettiği kordon düzenidir. Cremaster kasının testis konumunu değiştirebilmesi ve scrotal yapıların özellikleri, üreme hücresi üretimine uygun sıcaklığın korunmasına katkıda bulunur."
-      ]
-    },
-    {
-      "id": "kadin",
-      "title": "Kadın iç genital organları",
-      "source": "Kaynak PDF, s. 19–24",
-      "table": {
-        "headers": [
-          "Organ",
-          "Temel özellik"
-        ],
-        "rows": [
-          [
-            "Ovarium",
-            "Çift organdır; oositler ve üreme hormonlarıyla ilişkilidir."
-          ],
-          [
-            "Tuba uterina",
-            "Uterusun iki yanında uzanır; fertilizasyonun olağan yeri ampulla bölümüdür."
-          ],
-          [
-            "Uterus",
-            "Pelviste, mesanenin arkasında ve rectumun önünde bulunan içi boş kaslı organ."
-          ],
-          [
-            "Vagina",
-            "Uterusun alt bölümü ile dış genital bölge arasında uzanan kaslı-zarlı kanal."
-          ]
-        ]
-      },
-      "paragraphs": [
-        "Ders notunda uterus corpus ve cervix bölümleri üzerinden anlatılır. Organları öğrenirken isimlerinin yanında komşuluklarını da tekrar etmek pelvisin üç boyutlu düzenini anlamayı kolaylaştırır.",
-        "Ovariumlar çift organlardır; oositlerin gelişmesi ile östrojen ve progesteron üretimi bu organlarda ilişkilidir. Tuba uterinalar uterusun iki yanından ovarium yakınlarına uzanır fakat ovariuma kapalı bir boru gibi doğrudan birleşmez. Saçaklı infundibulum, geniş ampulla, dar isthmus ve uterin bölüm boyunca içerik uterusa taşınır. Fertilizasyonun olağan yeri ampulladır; oluşan zigot uterusa doğru ilerler.",
-        "Uterusun üst kubbesi fundus, geniş gövdesi corpus, alt dar bölümü cervixtir. Pelviste önde mesane, arkada rectumla komşudur. Kaslı duvar gebelik sırasında büyüyebilir; iç yüz endometriumla döşelidir. Bu konumu sagittal bir kesit üzerinde önden arkaya “mesane–uterus/vagina–rectum” sırasıyla düşünmek organların ilişkisini somutlaştırır."
-      ],
-      "sourcePages": "19–24"
-    },
-    {
-      "id": "vagina",
-      "title": "Vagina ve hymen hakkında doğru anatomik ayrımlar",
-      "source": "Kaynak PDF, s. 25–26",
-      "sourcePages": "25–26",
-      "paragraphs": [
-        "Vagina cervix ile dış genital bölge arasında uzanan esnek, kaslı-zarlı bir kanaldır. Önünde urethra ve mesane, arkasında rectum bulunur. Kendi mukozasında belirgin salgı bezleri bulunmaz; nemliliğine transüdasyon, servikal salgılar ve çevre yapılar katkıda bulunur. Erişkin üreme döneminde asidik ortamın oluşması mikrobiyota ve hormonal durumla ilişkilidir; pH her yaşta veya durumda sabit değildir.",
-        "Hymen vajinal açıklık çevresinde değişken biçim ve esneklikte bulunabilen bir mukoza kıvrımıdır. İlk cinsel ilişkide mutlaka yırtılması veya kanaması beklenmez. Görünümü cinsel ilişki geçmişini kanıtlamaz; “bekâret” anatomik muayeneyle saptanan bir durum değildir. Kaynaktaki bu konuyla ilgili kesin yargı, güncel ve doğru bir anatomik açıklama olarak aktarılmamıştır."
-      ],
-      "callout": "Vagina bir kanalın, vulva ise dış genital yapıların bütününün adıdır. Üretra açıklığı vajinal açıklıktan ayrıdır."
-    },
-    {
-      "id": "vulva",
-      "title": "Dış genital yapılar",
-      "source": "Kaynak PDF, s. 21, 27–30",
-      "paragraphs": [
-        "Kadın dış genital yapılarının tümü vulva başlığı altında ele alınır. Mons pubis, labium majus ve minus, clitoris, vestibulum ve ilgili bezler bu bölgenin yapılarıdır.",
-        "Vestibulum, labia minora arasında bulunur. Burada üretranın dış açıklığı ile vajinal açıklık ayrı yapılardır.",
-        "Mons pubis symphysis pubicanın önündeki yağlı kabarıklıktır. Labia majora dıştaki deri kıvrımlarını, labia minora içte vestibulumun yan sınırlarını oluşturur. Clitoris yalnız dışarıdan görünen glanstan ibaret değildir; daha derinde uzanan erektil bölümleri de vardır. Vestibulumda urethranın açıklığı önde, vagina açıklığı daha arkadadır.",
-        "Bartholin bezleri büyük vestibüler bezlerdir ve vestibulumun arka-yan bölümlerine salgı verir. Skene bezleri üretra çevresindeki paraüretral bezlerdir; bütün küçük vestibüler bezlerle bire bir eş anlamlı kullanılmaz. Kaynaktaki bez adları bu ayrım korunarak değerlendirilmelidir."
-      ],
-      "bullets": [
-        "Clitoris erektil doku içeren bir yapıdır.",
-        "Bulbi vestibuli, vajinal açıklığın yanlarında yer alan çift erektil yapılardır.",
-        "Büyük vestibüler bezler Bartholin bezleri olarak da adlandırılır."
-      ],
-      "callout": "Organların boyut, görünüm ve yerleşimlerinde doğal değişkenlik vardır. Ders ölçüleri ve temsili çizimler kişisel sağlık değerlendirmesi için kullanılmaz.",
-      "sourcePages": "21, 27–30"
-    }
-  ],
   "glossary": [
     [
       "Epididymis",
@@ -169,12 +32,119 @@ export default {
       "a": "Tuba uterinanın ampulla bölümü."
     },
     {
-      "q": "Ductus ejaculatorius nasıl oluşur?",
-      "a": "Ductus deferensin son bölümü ile seminal vezikülün kanalının birleşmesiyle oluşur."
+      "q": "Sperm üretim yeri, olgunlaşma yeri ve seminal sıvıya katkı veren bez aynı mıdır?",
+      "a": "Hayır. Testis üretim; epididymis olgunlaşma/depolama; seminal vezikül, prostat ve bulbourethral bezler yardımcı salgılarla ilişkilidir."
     },
     {
-      "q": "Vagina ile vulva eş anlamlı mıdır?",
-      "a": "Hayır. Vagina kaslı-zarlı kanal; vulva dış genital yapıların bütünüdür."
+      "q": "Döllenme ile normal embriyo yerleşimi aynı yerde mi gerçekleşir?",
+      "a": "Hayır. Döllenme çoğunlukla tubanın ampullasında, normal yerleşme uterus endometriumunda gerçekleşir."
+    },
+    {
+      "q": "Hymen görünümü cinsel geçmişi gösterebilir mi?",
+      "a": "Hayır. Biçim ve esneklik kişiden kişiye değişir; görünümden cinsel ilişki yaşanıp yaşanmadığı belirlenemez."
     }
-  ]
+  ],
+  "sections": [
+    {
+      "id": "kapsam",
+      "title": "Ürogenital başlığı altında üreme anatomisi",
+      "sourcePages": "1–3, 19–21",
+      "source": "PDF · s. 1–3, 19–21",
+      "paragraphs": [
+        "Bu kaynak dosyasının başlığı ürogenital sistem olsa da işlenen konu erkek ve kadın üreme organlarıdır. Böbrek, üreter ve mesanenin ayrıntılı üriner anatomisi ayrı bir ders gibi burada sunulmaz. Üreme organlarının idrar yollarıyla komşulukları ve erkek üretrasının ortak yol oluşu açıklanır.",
+        "Gonadlar üreme hücrelerini ve cinsiyet hormonlarını üretir. Kanallar hücrelerin taşınmasını, yardımcı bezler salgıların eklenmesini, dış genital yapılar ise üreme ve ilgili işlevleri destekler. Organları bu görev zinciri içinde yerleştirmek, iç–dış organ listesinin anlamını kurar."
+      ]
+    },
+    {
+      "id": "testis",
+      "title": "Testis, scrotum ve spermatik kordon",
+      "sourcePages": "4–5, 17–18",
+      "source": "PDF · s. 4–5, 17–18",
+      "paragraphs": [
+        "Testisler scrotum içinde bulunan çift gonaddır. Sperm hücrelerinin üretimi ile androjen hormonlarının üretimi aynı organda, farklı hücresel düzenlerde gerçekleşir. Testis içindeki seminifer tübüller sperm üretim alanlarıdır; interstisyel Leydig hücreleri testosteron salgısıyla ilişkilidir.",
+        "Scrotum, testis ve epididymis ile bunlara ait damar-sinirlerin bulunduğu dış kesedir. Funiculus spermaticus, ductus deferens ve damar-sinir yapılarını taşıyan bağlantı düzenidir. Cremaster ve scrotal duvar yapıları testisin konum ve sıcaklık düzenine katkıda bulunur. Bu yerleşim, testisin karın içindeki diğer organlar gibi düşünülmemesi gerektiğini gösterir."
+      ]
+    },
+    {
+      "id": "kanallar",
+      "title": "Spermin olgunlaşması ve iletim yolu",
+      "sourcePages": "6–10",
+      "source": "PDF · s. 6–10",
+      "paragraphs": [
+        "Epididymis testisle ductus deferens arasındaki kıvrımlı kanaldır. Sperm hücreleri burada olgunlaşma sürecinden geçer ve depolanabilir. Dıştan birkaç santimetrelik bir organ olarak görülmesi, içindeki kanalın kısa olduğu anlamına gelmez; kıvrımlar açıldığında uzun bir kanal düzeni ortaya çıkar.",
+        "Ductus deferens epididymisin devamıdır ve kalın kas duvarıyla içeriği iletir. Mesanenin arkasında seminal vezikül kanalıyla birleşmesi ductus ejaculatoriusu oluşturur. Ejaculatory kanal prostat içinden geçerek prostatic üretraya açılır. Dolayısıyla sperm hücresi testisten doğrudan prostatın içine üretilmez; birbirine bağlı kanalları izler."
+      ],
+      "flow": [
+        "Testis → çıkış kanalcıkları",
+        "Epididymis",
+        "Ductus deferens",
+        "Ductus ejaculatorius",
+        "Urethra"
+      ]
+    },
+    {
+      "id": "bezler",
+      "title": "Seminal vezikül, prostat ve bulbourethral bezler",
+      "sourcePages": "8–14",
+      "source": "PDF · s. 8–14",
+      "paragraphs": [
+        "Vesicula seminalis mesanenin arkasında, rectumun önünde bulunan çift yardımcı bezdir. Adına rağmen sperm deposu değildir. Salgısı semen hacminin önemli bölümünü oluşturur ve sperm hücrelerini destekleyen maddeler içerir. Prostat mesane altında, pubis arkasında ve rectum önünde yer alır; prostatic üretrayı çevreler.",
+        "Bulbourethral (Cowper) bezler üretra yakınındaki küçük çift bezlerdir. Kanalları spongioz üretraya açılır; kayganlaştırıcı salgıları üretral ortamın hazırlanmasına katkıda bulunur. Yardımcı bez salgıları ile sperm hücrelerinin karışımı semen/ejakülatı oluşturur. Semen yalnızca sperm hücrelerinden ibaret değildir.",
+        "Semen hacmi ve sperm sayısı değişkendir. Kaynaktaki eski sayısal aralıklar güncel fertilite tanısı veya “normal–anormal” kararı için kullanılmamalıdır. Anatomi açısından önemli olan, hücrenin üretildiği yer ile sıvının büyük bölümünü ekleyen bezleri ayırmaktır."
+      ]
+    },
+    {
+      "id": "penis",
+      "title": "Penis ve üretranın ilişkisi",
+      "sourcePages": "3, 15–18",
+      "source": "PDF · s. 3, 15–18",
+      "paragraphs": [
+        "Peniste radix, corpus ve glans bölümleri ayırt edilir. İki corpus cavernosum ve bir corpus spongiosum erektil doku düzenini oluşturur. Üretranın spongioz bölümü corpus spongiosum içinde seyreder; bu doku distalde glansa devam eder. Kavernöz ve spongioz yapılar aynı organ içinde fakat farklı konumlarda bulunur.",
+        "Erkek üretrası idrarın ve ejakülatın farklı zamanlarda dışarı iletilmesinde ortak yoldur. Prostat içindeki, kısa membranöz ve penis içindeki spongioz bölümler temel bölümlendirmedir. Penis dış genital organ, testis ise scrotum içinde yerleşen gonaddır; bu yapıların görevleri birbirinin yerine konmamalıdır."
+      ]
+    },
+    {
+      "id": "ovarium",
+      "title": "Ovarium ve tuba uterina",
+      "sourcePages": "20, 22–23",
+      "source": "PDF · s. 20, 22–23",
+      "paragraphs": [
+        "Ovariumlar pelviste bulunan çift gonadlardır. Oositlerin geliştiği follikülleri içerir ve östrojen/progesteron salgı düzenine katılır. Tuba uterina ovarium ile uterus arasındaki aktarım yoludur; ovariumla kapalı ve kesintisiz bir kanal bağlantısı kurmaz. Ovulasyonla çıkan oosit, fimbrial bölge aracılığıyla tüpe alınır.",
+        "Tüpün ovariuma yakın infundibulum ve fimbriaları, geniş ampullası, dar isthmusu ve uterus duvarı içindeki bölümü ayırt edilir. Döllenme çoğunlukla ampullada gerçekleşir. Döllenme ürünü zigot, tüpteki silyalı epitel ve kas hareketlerinin katkısıyla uterus yönünde ilerler. Bu nedenle “döllenme yeri” ile “normal yerleşme yeri” aynı değildir."
+      ]
+    },
+    {
+      "id": "uterus",
+      "title": "Uterusun konumu ve bölümleri",
+      "sourcePages": "24",
+      "source": "PDF · s. 24",
+      "paragraphs": [
+        "Uterus pelviste mesanenin arkasında, rectumun önünde yer alan içi boş kaslı organdır. Fundus üst kubbe, corpus gövde, cervix alt boyun bölümüdür; corpus ile cervix arasında isthmus geçişi bulunur. Cervix vajinaya açılır. Boyut ve konumu yaş, doğum öyküsü ve fizyolojik duruma göre değişir.",
+        "Duvarın endometrium tabakası döngüsel değişimler ve embriyonun yerleşmesiyle, myometrium kasılmayla, dış örtüsü perimetrium çevre ilişkileriyle bağlantılıdır. Bir organın bölümleri ile duvar katmanları farklı sınıflamalardır: cervix bir bölge, myometrium bir duvar tabakasıdır."
+      ]
+    },
+    {
+      "id": "vagina",
+      "title": "Vagina: komşuluklar, mukoza ve doğru kavramlar",
+      "sourcePages": "25–26",
+      "source": "PDF · s. 25–26",
+      "paragraphs": [
+        "Vagina cervix ile vestibulum arasındaki kaslı-membranöz kanaldır. Önünde mesane ve üretra, arkasında rectum bulunur. Girişine ostium vaginae denir; üstte cervix çevresinde fornixler oluşur. Esnek duvarı, yalnızca sabit çaplı sert bir boru olarak düşünülmesini engeller.",
+        "Vaginal mukozada bez bulunmaz. Nemlenme, duvardan sıvı geçişi ve servikal salgılar gibi kaynaklarla sağlanır. Üreme çağındaki asidik ortam, mikroorganizma dengesiyle ilişkilidir; pH yaşam dönemine ve koşullara göre değişir.",
+        "Hymen, giriş çevresinde biçimi ve esnekliği kişiden kişiye değişen mukozal bir dokudur. Görünümü cinsel ilişki yaşanıp yaşanmadığını göstermez; ilk ilişkide mutlaka yırtılması veya kanaması beklenmez. Kaynaktaki bu yöndeki kesin ifade anatomik bir ölçüt olarak kullanılmamalıdır."
+      ]
+    },
+    {
+      "id": "vulva",
+      "title": "Dış genital yapılar ve bezler",
+      "sourcePages": "21, 27–30",
+      "source": "PDF · s. 21, 27–30",
+      "paragraphs": [
+        "Kadın dış genital yapıları birlikte vulva olarak adlandırılır. Mons pubis pubis üzerindeki yağlı kabarıklık; labia majora dış, labia minora iç kıvrımlardır. Labia minoranın çevrelediği vestibulumda önde üretra, arkada vagina açıklığı bulunur. İki açıklığın ayrı olması, idrar ve üreme yollarının dışarıya ayrı açıldığını gösterir.",
+        "Clitoris erektil ve zengin duyusal innervasyona sahip organdır; yalnız dıştan görünen glanstan ibaret değildir. Vestibüler bulbuslar vaginal açıklığın iki yanında bulunan çift erektil yapılardır. Büyük vestibüler (Bartholin) bezler açıklık yakınında kayganlaştırıcı salgı sağlar.",
+        "Küçük vestibüler bezler ile paraüretral (Skene) bezler aynı isimle adlandırılmamalıdır. Skene bezleri üretra çevresiyle ilişkilidir. Erkek ve kadın dış genital dokuları arasında gelişimsel benzerlikler vardır; bunlar bir organdaki her parçanın karşı cinste tam aynı işlevde olduğu anlamına gelmez."
+      ]
+    }
+  ],
+  "scope": "Kaynak dosyanın adı “Ürogenital sistem”dir; içeriği erkek ve kadın üreme anatomisidir. Testis ve iletim yolları, yardımcı bezler, penis-scrotum, ovarium-tuba-uterus-vagina ve vulva ele alınır; bağımsız bir üriner sistem dersi içermez."
 };

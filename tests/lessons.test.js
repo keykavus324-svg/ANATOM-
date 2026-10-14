@@ -82,15 +82,15 @@ test('editorial reference archive preserves 697 source pages without shipping th
 
 test('authored chapters cover previously omitted regional and distal topics', () => {
   const required={
-    0:['Prometheus'], 1:['latince','bolgeler','bosluklar'], 2:['pelvis','aksiyel'],
-    3:['usteklemler','alteklemler','aksiyel-eklemler','klinik-terimler'],
+    0:['Prometheus'], 1:['Latince','boşluk','supinasyon'], 2:['pelvis','aksiyel'],
+    3:['sacroiliac','meniscofemoral','costovertebral','Osteomalazi'],
     4:['scaphoideum','naviculare','tuberculum supraglenoidale'],
     5:['canalis opticus','foramen jugulare','linea','promontorium'],
-    6:['fasya','sirt','govde','omuzkol','elkas','kalca','uyluk','bacak'],
-    7:['ileti','arter-agaci','venler','lenf'],
-    8:['dilsinir','pharynx','oesophagus','mide','duodenum','jejunum-ileum','kolon','rectum','hepar','pankreas','portal'],
-    9:['omurilik','meninks','kraniyal'], 10:['vagina','vulva','epididymis'],
-    11:['toraks','diaphragma','hilum','rima glottidis']
+    6:['fasya','sırt','gövde','omuz','el kas','kalça','uyluk','bacak'],
+    7:['ileti','aorta','venler','lenf','saphena'],
+    8:['chorda tympani','pharynx','oesophagus','mide','duodenum','jejunum','kolon','rectum','hepatik','pankreas','portal'],
+    9:['omurilik','meninks','kranial'], 10:['vagina','vulva','epididymis'],
+    11:['thorax','diaphragma','hilum','rima glottidis']
   };
   for(const [n,terms]of Object.entries(required)){
     const text=JSON.stringify(lessons[n]).toLocaleLowerCase('tr-TR');
@@ -116,9 +116,9 @@ test('every authored section references real source page ranges', () => {
 });
 
 test('corrected teaching distinctions are explicit and legacy dump UI is absent', () => {
-  assert.match(JSON.stringify(lessons[8]),/birbirinden kesin çizgilerle ayrılmış adacıklarda algılanmaz/);
-  assert.match(JSON.stringify(lessons[9]),/31 spinal segment/);
-  assert.match(JSON.stringify(lessons[10]),/Görünümü cinsel ilişki geçmişini kanıtlamaz/);
+  assert.match(JSON.stringify(lessons[8]),/eski dil tat haritası bu nedenle doğru bir model değildir/);
+  assert.match(JSON.stringify(lessons[9]),/31 omurilik segmenti/);
+  assert.match(JSON.stringify(lessons[10]),/Görünümü cinsel ilişki yaşanıp yaşanmadığını göstermez/i);
   const ui=readFileSync(new URL('../src/LessonPage.jsx',import.meta.url),'utf8');
   assert.doesNotMatch(ui,/FullCourseContent|edition-switch|Kaynağın tamamı|Hızlı tekrar/);
 });

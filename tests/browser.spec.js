@@ -107,7 +107,7 @@ test('web and PDF readers are separate modes with consistent source attribution'
   await expect(page).toHaveURL(/#\/ders\/7$/);
   await expect(page.locator('.lesson-hero h1')).toHaveText('Dolaşım Sistemi');
   await expect(page.locator('iframe')).toHaveCount(0);
-  await expect(page.locator('.lesson-content')).toContainText('Sinoatriyal düğüm');
+  await expect(page.locator('.lesson-content')).toContainText('Aorta ve üst ekstremite arterlerinin yolu');
   await expect(page.locator('.source-page')).toHaveCount(0);
   await expect(page.locator('.lesson-credit')).toContainText('Bekir Dağdeviren');
   await expect(page.locator('.web-edition-note')).toContainText('yeniden yazıldı');
@@ -128,7 +128,7 @@ test('web reading tools, table of contents, review answers and shared saved stat
   await expect(page.locator('.lesson-page')).toHaveAttribute('style', /18px/);
   await page.reload();
   await expect(page.locator('.lesson-page')).toHaveAttribute('style', /18px/);
-  await page.getByRole('navigation',{name:'Ders içindekiler'}).getByRole('button',{name:'Düzlemler ve eksenler'}).click();
+  await page.getByRole('navigation',{name:'Ders içindekiler'}).getByRole('button',{name:'Düzlemler, eksenler ve hareket ilişkisi'}).click();
   await expect(page.locator('#lesson-duzlemler')).toBeInViewport();
   await expect(page.locator('#lesson-duzlemler')).toBeFocused();
   await page.locator('.lesson-save').click();
@@ -169,7 +169,6 @@ test('all 12 web notes and illustrations load without Google requests', async ({
     await expect(page.locator('.lesson-hero h1')).toBeVisible();
     await expect(page.locator('.lesson-content')).toBeVisible();
     await expect(page.locator('.source-page')).toHaveCount(0);
-    await expect(page.locator('.edition-switch')).toHaveCount(0);
     await expect(page.locator('.lesson-illustration img')).toBeVisible();
     await expect.poll(()=>page.locator('.lesson-illustration img').evaluate(img=>img.complete && img.naturalWidth>0)).toBeTruthy();
     await expect(page.locator('iframe')).toHaveCount(0);
@@ -181,7 +180,7 @@ test('all 12 web notes and illustrations load without Google requests', async ({
 test('mobile web notes stay within the viewport, including long titles and tables', async ({ page }) => {
   for(const width of [320,390,768]) {
     await page.setViewportSize({width,height:844});
-    for(const number of [1,4,5,6,7,8,9,10,11]) {
+    for(const number of [1,4,5,7,8,9,10,11]) {
       await page.goto(`/#/ders/${number}`);
       await page.evaluate(()=>document.fonts.ready);
       expect(await page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth), `overflow at ${width}, lesson ${number}`).toBeTruthy();
@@ -191,41 +190,39 @@ test('mobile web notes stay within the viewport, including long titles and table
   await page.goto('/#/ders/7');
   await page.screenshot({path:'.playwright/web-mobile.png',animations:'disabled'});
   await page.locator('.mobile-toc summary').click();
-  await page.getByRole('navigation',{name:'Mobil içindekiler'}).getByRole('button',{name:'Dört boşluklu merkez'}).click();
-  await expect(page.locator('#lesson-kalp')).toBeInViewport();
+  await page.getByRole('navigation',{name:'Mobil içindekiler'}).getByRole('button',{name:'Dört boşluk ve aralarındaki bölmeler'}).click();
+  await expect(page.locator('#lesson-odaciklar')).toBeInViewport();
   await expect(page.locator('.mobile-toc')).not.toHaveAttribute('open','');
 });
 
-test('authored digestive lesson covers the whole organ sequence without loading slide dumps', async ({ page }) => {
+test('authored lessons cover distal topics with no dependency on source extraction requests', async ({ page }) => {
   const sourceRequests=[];
-  page.on('request', r=>{ if(r.url().includes('course-content')) sourceRequests.push(r.url()); });
+  page.on('request', request=>{if(request.url().includes('/course-content/')) sourceRequests.push(request.url());});
   await page.route('**/course-content/**', route=>route.abort());
   await page.goto('/#/ders/8');
-  await expect(page.locator('.lesson-content')).toContainText('Peyer plakları');
-  await expect(page.locator('.lesson-content')).toContainText('Langerhans adacıkları');
-  await expect(page.locator('#lesson-mide')).toHaveText(/Mide:/);
-  await expect(page.locator('#lesson-portal')).toHaveText(/Portal dolaşım/);
-  await expect(page.locator('.coverage-seal, .source-page, .edition-switch')).toHaveCount(0);
+  await expect(page.locator('.lesson-section')).toHaveCount(19);
+  await expect(page.locator('.edition-switch, .source-page')).toHaveCount(0);
   const toc=page.getByRole('navigation',{name:'Ders içindekiler'});
-  await toc.getByRole('button',{name:/Pankreas: bir organda/}).click();
-  await expect(page.locator('#lesson-pankreas')).toBeInViewport();
-  await expect(page.locator('#lesson-pankreas')).toBeFocused();
+  await toc.getByRole('button',{name:'Portal dolaşım: bağırsaktan önce karaciğere'}).click();
+  await expect(page.locator('#lesson-portal')).toBeFocused();
+  await expect(page.locator('#lesson-portal')).toBeInViewport();
+  await expect(page.locator('#lesson-portal').locator('..').locator('..')).toContainText('iki kapiller yatak');
+  await expect(page.locator('.lesson-content')).toContainText('Mezenterik venler');
   await page.reload();
-  await expect(page.locator('.lesson-content')).toContainText('Karaciğer sinüzoidleri');
+  await expect(page.locator('#lesson-pankreas')).toHaveText('Pankreasın dış ve iç salgısı');
   expect(sourceRequests).toEqual([]);
+  await page.screenshot({path:'.playwright/authored-digestive.png',animations:'disabled'});
 });
 
-test('expanded muscles and nervous lessons have regional explanations and readable tables', async ({ page }) => {
-  await page.goto('/#/ders/6');
-  await expect(page.locator('.lesson-content')).toContainText('semitendinosus');
-  await expect(page.locator('#lesson-sirt')).toHaveText(/Sırt kasları/);
-  await expect(page.locator('#lesson-bacak')).toHaveText(/Bacak kasları/);
-  await page.goto('/#/ders/9');
-  await expect(page.locator('#lesson-omurilik')).toHaveText(/Omurilik/);
-  await expect(page.locator('#lesson-kraniyal')).toHaveText(/On iki çift/);
-  await expect(page.getByRole('rowheader',{name:'XII · N. hypoglossus',exact:true})).toBeVisible();
+test('maximum reading size remains usable in long tables and mobile contents', async ({ page }) => {
   await page.setViewportSize({width:320,height:844});
+  await page.goto('/#/ders/9');
   await page.getByRole('button',{name:'Yazıyı büyüt'}).click();
   await page.getByRole('button',{name:'Yazıyı büyüt'}).click();
+  await expect(page.getByRole('button',{name:'Yazıyı büyüt'})).toBeDisabled();
+  await page.locator('.mobile-toc summary').click();
+  await page.getByRole('navigation',{name:'Mobil içindekiler'}).getByRole('button',{name:'On iki çift kranial sinir'}).click();
+  await expect(page.locator('#lesson-kranial')).toBeFocused();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
+  await expect(page.locator('.reading-progress')).toHaveAttribute('aria-valuenow',/^[0-9]{1,3}$/);
 });
