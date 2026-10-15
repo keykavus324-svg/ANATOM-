@@ -198,3 +198,15 @@ Kullanıcı, “3D atlasta ZygoteBody yazmasa daha iyi” dedi. Buna göre kendi
 **Kaldırılamayan kısım:** iframe’in **içindeki** sayfa sağlayıcının kendi arayüzüdür; ücretsiz gömme sürümü üst pencereye DOM erişimi veya stil verme izni tanımaz, bu nedenle oradaki marka görünümü kaldırılamaz. Bunu gizlemeye çalışan bir katman, kullanıcının atlas araçlarını (opaklık kaydırıcısı, arama, katman düğmesi) engellerdi; bu yüzden yapılmadı.
 
 **Testler.** Yeni bir birim testi `ATLAS_SOURCE` içindeki tüm kullanıcı metinlerini ve 18 sahnenin metinlerini marka adı için tarar; tarayıcı senaryosu atlas sayfasının görünür metninde ürün adının bulunmadığını, telif satırının tam olarak beklenen cümle olduğunu, ana sayfa bandındaki bağlantı etiketinin (“Atlası kaynağında aç”) boş kalmadığını ve ders sayfası ↔ atlas geçişini doğrular. Toplam: 29 birim testi + 24 tarayıcı senaryosu geçti.
+
+## 15 Ekim 2026: görsel çalışma rehberi ve aktif hatırlama
+
+11 anatomi dersine projeye ait ayrı öğrenme hedefi, yapı–işlev açıklaması, şema inceleme görevi, açılır örnek yanıt ve kavram yanılgısı notu eklendi (`src/content/studyGuides.js`). Kaynak rehberine anatomik görev eklenmedi. Yeni metinler hocanın doğrudan alıntısı veya sınav sorusu değildir; bu turda kaynak PDF'lerin yeniden tıbbi incelemesi yapılmadı.
+
+Ders başındaki yerel şema kartları ilgili şekle kaydırır ve klavye odağını taşır. 26 mevcut çizim korunur; yeni anatomik çizim üretilmedi. Şema altında numara seçerek tek bir yapının açıklamasını inceleme ve metin açıklamalarını ayrı ayrı açarak aktif hatırlama araçları bulunur. Çizimin kendisindeki etiketler gizlenmez; bu nedenle araç bir kör etiket sınavı olarak sunulmaz. İşlem puan veya çalışma kaydı tutmaz; ağ isteği veya yeni depolama anahtarı eklenmedi.
+
+Doğrulama: 30 birim/içerik testi, 25 Playwright senaryosu ve üretim build'i başarılı. Yeni tarayıcı testi görsel kart odağını, yanıt açmayı, yapı seçimini, bağımsız açıklama açmayı ve 320 px taşma kontrolünü kapsar. Uzman doğruluk denetiminin yerini almaz.
+
+## Soru odaklı anlatım genişlemesi — 15 Ekim 2026
+
+Yalnız Sitede oku içeriğine `src/content/exam/` altında 42 özgün açıklama/karşılaştırma/alıştırma bloğu ve 6 etiketli şema eklendi. Ek bloklar doğrudan ilgili 119 ana bölümün içine bağlanır. Arşivdeki işaretler resmî cevap anahtarı sayılmadı; farklı kurum ve okunaksız satır sınırlamaları gizlenmedi. PDF kataloğu, PDF okuyucu ve Drive orijinalleri değiştirilmedi. Ayrıntılı kaynak incelemesi ve konu–soru eşleştirmesi için [exam-content-audit.md](exam-content-audit.md). Test başarısı tıbbi uzman denetimi veya 100 puan garantisi değildir.

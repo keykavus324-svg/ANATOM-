@@ -9,6 +9,7 @@ export default defineConfig({
       output: {
         // Keep the enlarged, editable course texts separate from application/vendor code.
         manualChunks(id) {
+          if (id.includes('/src/content/exam/')) return 'exam-content';
           if (id.includes('/src/content/')) return 'course-content';
           if (id.includes('/node_modules/')) return 'vendor';
         },

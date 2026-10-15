@@ -5,6 +5,10 @@ import './instructional-figure.css';
 
 export default function InstructionalFigure({ diagramId, number }) {
   const diagram = diagrams[diagramId];
+  const [recall, setRecall] = useState(false);
+  const [revealed, setRevealed] = useState([]);
+  const [selected, setSelected] = useState(0);
+  const [exploring, setExploring] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [zoom, setZoom] = useState(1);
   const dialog = useRef(null);
@@ -33,7 +37,7 @@ export default function InstructionalFigure({ diagramId, number }) {
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
   };
   if (!diagram) return null;
-  return <figure className="instructional-figure" aria-labelledby={titleId} aria-describedby={captionId} data-diagram={diagramId}>
+  return <figure className="instructional-figure" tabIndex={-1} aria-labelledby={titleId} aria-describedby={captionId} data-diagram={diagramId}>
     <div className="figure-heading"><span>ŞEKİL {number}</span><span>{diagram.view}</span></div>
     <div className="figure-plate">
       <img src={`${import.meta.env.BASE_URL}diagrams/${diagramId}.svg`} width="760" height="460" loading="lazy" decoding="async" alt={`${diagram.title}. Numaralı yapıların açıklamaları şeklin altında.`}/>
@@ -42,7 +46,10 @@ export default function InstructionalFigure({ diagramId, number }) {
     <figcaption>
       <h3 id={titleId}>{diagram.title}</h3>
       <p id={captionId}>{diagram.caption}</p>
-      <dl className="figure-legend">{diagram.labels.map((label, i) => <div key={label.name}><dt><span aria-hidden="true">{i + 1}</span><span><span className="sr-only">{i + 1}. </span>{label.name}</span></dt><dd>{label.text}</dd></div>)}</dl>
+      <div className="figure-study-controls"><button aria-pressed={exploring} onClick={() => setExploring(v => !v)}>Yapıları tek tek incele</button><button aria-pressed={recall} onClick={() => { setRecall(v => !v); setRevealed([]); }}>Açıklamaları gizle / hatırla</button></div>
+      {exploring && <div className="figure-explorer"><p>Çizimdeki numarayı bul, ardından açıklamasını incele.</p><div role="group" aria-label="İncelenecek yapı">{diagram.labels.map((label, i) => <button key={label.name} aria-pressed={selected === i} onClick={() => setSelected(i)}>{i + 1}</button>)}</div><p aria-live="polite"><strong>{diagram.labels[selected].name}: </strong>{diagram.labels[selected].text}</p></div>}
+      {recall && <p className="recall-instruction">Numaralara bakarak yapının görevini veya ilişkisini sesli anlat. Sonra her açıklamayı ayrı açıp karşılaştır. Bu bir puanlı sınav değildir.</p>}
+      <dl className="figure-legend">{diagram.labels.map((label, i) => <div key={label.name}><dt><span aria-hidden="true">{i + 1}</span><span><span className="sr-only">{i + 1}. </span>{label.name}</span></dt><dd>{!recall || revealed.includes(i) ? label.text : <button onClick={() => setRevealed(values => [...values, i])}>{i + 1}. açıklamayı göster</button>}</dd></div>)}</dl>
       <p className="figure-takeaway"><span>ŞEKLİ OKURKEN</span>{diagram.takeaway}</p>
       <small className="figure-disclaimer">ANATOMİ için hazırlanmış özgün öğretici şema · Ölçekli anatomik çizim değildir.</small>
     </figcaption>
