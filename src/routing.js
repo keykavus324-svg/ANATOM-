@@ -1,6 +1,6 @@
 import { notes } from './data.js';
 import { findAtlasScene, defaultAtlasScene } from './atlas.js';
-const paths = { home: '/', library: '/kutuphane', atlas: '/atlas', practice: '/calis', saved: '/kaydedilenler', about: '/hakkinda' };
+const paths = { home: '/', library: '/kutuphane', books: '/kitaplar', atlas: '/atlas', practice: '/calis', saved: '/kaydedilenler', about: '/hakkinda' };
 export function routeFromHash(hash) {
   const path = hash.replace(/^#/, '');
   const lessonMatch = /^\/ders\/(\d+)$/.exec(path);

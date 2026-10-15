@@ -38,6 +38,10 @@ Siteye, sayfadan ayrılmadan kullanılan **3B anatomi atlası bölümü** eklend
 - **Arayüzde marka adı gösterilmez:** Kullanıcıya görünen metinlerde sağlayıcının ürün adı geçmez; “gömülü 3B atlas”, “3D anatomi atlası” ve “kaynak sağlayıcı” gibi nötr ifadeler kullanılır. Yalnızca kaynak kartında tek satır telif atfı bulunur: **3B anatomik model ve veriler © Zygote 3D.** Marka adı, teknik atıf ve doğrulama kaydı bu README ile `docs/content-notes.md` içinde tutulur. Gömülü pencerenin **içindeki** arayüz sağlayıcının kendi sayfasıdır ve oradaki marka görünümü iframe ile değiştirilemez (ZygoteBody’nin ücretsiz sürümü DOM erişimi vermez).
 - **Gömülü görünümün sınırı:** ZygoteBody’nin ücretsiz sürümünde ön yüz, `Fullscreen` dışında üst pencereyle konuşmaz (gömme için API satılmaktadır). Bu nedenle kamera/katman senkronizasyonu, kullanıcı bir sahne seçtiğinde yönlüdür: atlas içindeki her döndürme adres çubuğuna yazılmaz ve dış arayüzden sahne durumu okunamaz.
 
+## Kitap rafı (`#/kitaplar`)
+
+Menüdeki **Kitap Rafı**, [“Anatomy - Anatomi” Drive klasöründeki](https://drive.google.com/drive/folders/1JYjritmTvYAvn4POpWy6IP8LnISvTRFu) 37 kitabı listeler: 24 İngilizce (English alt klasörü) ve 13 Türkçe (Türkçe alt klasörü ile Prometheus alt klasörü). Kitaplar `src/books.js` içinde Drive kimlikleriyle tanımlanır; PDF’ler depoya kopyalanmaz ve yüklenmez, “PDF’yi aç” Drive önizlemesini açar. Ders kataloğundan (`src/data.js`) ayrıdır; 12 ders ve ilerleme sayaçları değişmez. Erişim dosyanın Drive paylaşım izinlerine bağlıdır; anonim erişim ayrıca doğrulanmalıdır. Liste 15 Ekim 2026 tarihinde elle derlenmiştir; klasöre sonradan eklenen dosyalar otomatik gelmez.
+
 ## Özellikler
 
 - Türkçe/Latince katalog araması; Türkçe karakterlerin ASCII karşılıklarını da destekler.

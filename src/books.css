@@ -1,0 +1,54 @@
+/* Kitap rafı: Drive’daki kitapların katalog sayfası. Ders kartlarından bağımsız, kendi biçimi. */
+.books-page{padding:48px 0 40px;min-height:70vh;scroll-margin-top:22px}
+.books-head{max-width:760px}
+.books-page h1{font-family:var(--serif);font-size:44px;font-weight:600;line-height:1.05;margin:14px 0 14px;color:var(--ink)}
+.books-intro{font-size:14px;line-height:1.7;color:#5f6456}
+.books-count{margin-top:16px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.books-count strong{color:var(--rose);font-size:15px}
+.books-count a,.book-card a{color:var(--rose);display:inline-flex;align-items:center;gap:4px;text-decoration:underline;text-underline-offset:3px}
+
+.books-tools{margin-top:30px;display:grid;gap:12px}
+.books-search{display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--line);border-radius:6px;padding:0 14px;min-height:46px;color:var(--muted)}
+.books-search input{flex:1;border:0;background:none;font-size:14px;color:var(--ink);min-width:0;padding:12px 0}
+.books-search input:focus{outline:none}
+.books-search:focus-within{border-color:var(--rose)}
+.books-search button{display:grid;place-items:center;width:28px;height:28px;color:var(--muted)}
+.books-filters{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.books-chips{display:flex;gap:8px;flex-wrap:wrap}
+.books-chips button{font-size:12px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--white);color:#5f6456}
+.books-chips button.active,.books-chips button[aria-pressed="true"]{background:var(--rose);border-color:var(--rose);color:#fff}
+.books-filters select{font-size:13px;padding:9px 12px;border:1px solid var(--line);border-radius:6px;background:var(--white);color:var(--ink);min-width:200px}
+
+.books-result-count{margin-top:18px;font-size:12px;color:var(--muted)}
+.books-grid{margin-top:14px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.book-card{display:flex;min-width:0;background:#fdfdf8;border:1px solid #e4e5d9;border-radius:7px;overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.book-card:hover{box-shadow:0 6px 16px #5a4a3a14;border-color:#d9c9bb}
+.book-spine{flex:0 0 46px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:14px 0;background:#f1e6dc;color:var(--rose-dark)}
+.lang-en .book-spine{background:#e7ebe0;color:#4f5b42}
+.book-spine span{font-size:10px;letter-spacing:1.5px;font-weight:600;writing-mode:vertical-rl;transform:rotate(180deg)}
+.book-body{flex:1;min-width:0;padding:16px 16px 14px;display:flex;flex-direction:column;gap:6px}
+.book-meta{display:flex;justify-content:space-between;gap:8px;font-size:10px;letter-spacing:.6px;text-transform:uppercase;color:#9b695a;font-weight:600}
+.book-meta span:last-child{color:var(--muted)}
+.book-card h3{font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.2;color:var(--ink);overflow-wrap:anywhere}
+.book-detail{font-size:12px;color:#5f6456}
+.book-original{font-size:11px;color:var(--muted);line-height:1.4;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.book-actions{margin-top:auto;padding-top:12px;border-top:1px solid #ebede2;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.book-open{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#7c896b;padding:6px 0}
+.book-open:hover{color:var(--rose)}
+.book-card a{font-size:12px}
+
+.books-empty{margin-top:24px;padding:48px 20px;text-align:center;border:1px dashed #d8d2c4;border-radius:8px;display:grid;justify-items:center;gap:10px;color:var(--muted)}
+.books-empty h3{font-family:var(--serif);font-size:24px;color:var(--ink)}
+.books-empty p{font-size:13px}
+.books-empty .primary-button{margin-top:6px}
+
+.books-note{margin-top:32px;display:flex;gap:10px;align-items:flex-start;font-size:12px;line-height:1.6;color:var(--muted);max-width:720px}
+.books-note svg{color:var(--rose);margin-top:2px}
+
+.book-viewer .reader-access a{white-space:nowrap}
+@media (max-width:700px){
+  .books-page{padding-top:32px}
+  .books-page h1{font-size:34px}
+  .books-filters select{width:100%;min-width:0}
+  .books-grid{grid-template-columns:1fr}
+}
