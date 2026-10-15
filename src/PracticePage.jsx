@@ -28,7 +28,7 @@ const titleFor = (n) =>
 const timeText = (s) =>
   `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 
-export default function PracticePage({ onLesson }) {
+export default function PracticePage({ onLesson, onExternalQuizzes }) {
   const [notebook, setNotebook] = useState(() => {
     try {
       return cleanNotebook(JSON.parse(localStorage.getItem(PRACTICE_KEY)));
@@ -167,6 +167,7 @@ export default function PracticePage({ onLesson }) {
           Bir yapıyı tanı. Bilgini dene. Karıştırdığın konuyu zamanında yeniden
           hatırla.
         </p>
+        {onExternalQuizzes && <button className="text-button" style={{ marginTop: 18 }} onClick={onExternalQuizzes}>Free Anatomy Quiz çalışma alanı <ArrowRight size={16}/></button>}
         <div className="practice-pills">
           <span>
             <ScanLine size={15} aria-hidden="true" />
@@ -616,7 +617,8 @@ export default function PracticePage({ onLesson }) {
               </strong>
               <span>doğru yanıt</span>
             </div>
-            <div className="practice-pills">
+            {onExternalQuizzes && <button className="text-button" style={{ marginTop: 18 }} onClick={onExternalQuizzes}>Free Anatomy Quiz çalışma alanı <ArrowRight size={16}/></button>}
+        <div className="practice-pills">
               <span>{result.wrong} yanlış</span>
               <span>{result.blank} boş</span>
               <span>

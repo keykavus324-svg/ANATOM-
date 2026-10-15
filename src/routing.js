@@ -1,8 +1,11 @@
+import { findExternalQuiz } from './quizCatalog.js';
 import { notes } from './data.js';
 import { findAtlasScene, defaultAtlasScene } from './atlas.js';
-const paths = { home: '/', library: '/kutuphane', atlas: '/atlas', practice: '/calis', saved: '/kaydedilenler', about: '/hakkinda' };
+const paths = { home: '/', library: '/kutuphane', books: '/kitaplar', atlas: '/atlas', practice: '/calis', quizzes: '/quizler', saved: '/kaydedilenler', about: '/hakkinda' };
 export function routeFromHash(hash) {
   const path = hash.replace(/^#/, '');
+  const quizMatch = /^\/quizler(?:\/([\w-]+))?$/.exec(path);
+  if (quizMatch) return { page: 'quizzes', lesson: null, atlasSceneId: null, atlasScene: null, quiz: findExternalQuiz(quizMatch[1]) };
   const lessonMatch = /^\/ders\/(\d+)$/.exec(path);
   if (lessonMatch) {
     const lesson = notes.find(note => note.number === Number(lessonMatch[1]));
@@ -16,3 +19,5 @@ export function routeFromHash(hash) {
 export const pageHash = page => `#${paths[page] || '/'}`;
 export const lessonHash = note => `#/ders/${note.number}`;
 export const atlasHash = scene => `#/atlas/${scene.id}`;
+
+export const quizHash = quiz => `#/quizler/${quiz.id}`;

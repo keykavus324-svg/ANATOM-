@@ -700,3 +700,119 @@ test('practice is responsive, handles corrupt or unavailable storage and is reac
   await expect(page.locator('.practice-session')).toBeVisible();
   expect(errors).toEqual([]);
 });
+
+test('dedicated book library opens a PDF inline without leaving the site', async ({ page }) => {
+  await page.route('https://drive.google.com/**', route => route.fulfill({ contentType: 'text/html', body: '<p>PDF preview test</p>' }));
+  await page.goto('/#/kitaplar');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Anatomi kitapları');
+  await expect(page.locator('.book-collection-card')).toHaveCount(36);
+  await page.getByRole('searchbox', { name: 'Kitaplarda ara' }).fill('Fonksiyonel');
+  await expect(page.locator('.book-collection-card')).toHaveCount(1);
+  await page.getByRole('button', { name: 'Fonksiyonel Nöroanatomi: indirmeden oku' }).click();
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await expect(page.locator('.book-reader-dialog iframe')).toHaveAttribute('src', 'https://drive.google.com/file/d/1pNlklnJVADNpruqTYb8vt_jeWAhc2Ftz/preview');
+  await expect(page).toHaveURL(/#\/kitaplar$/);
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+});
+
+test('external quiz library searches, filters, saves favorites and preserves native practice', async ({ page }) => {
+  const requests = [];
+  page.on('request', r => { if (r.url().includes('free-anatomy-quiz.com')) requests.push(r.url()); });
+  await page.goto('/#/quizler');
+  await expect(page.getByRole('heading', { name: 'Anatomi Quizleri', exact: true })).toBeVisible();
+  await expect(page.locator('.quiz-card')).toHaveCount(159);
+  await page.getByRole('searchbox', { name: 'Quizlerde ara' }).fill('KAFATASI');
+  await expect(page.locator('.quiz-card')).toHaveCount(1);
+  await page.getByRole('button', { name: 'Kafatası: favorilere ekle' }).click();
+  await page.getByRole('button', { name: 'Quiz aramasını temizle' }).click();
+  await page.getByRole('button', { name: /Favorilerim/ }).click();
+  await expect(page.locator('.quiz-card')).toHaveCount(1);
+  await page.reload();
+  await page.getByRole('button', { name: /Favorilerim/ }).click();
+  await expect(page.locator('.quiz-card')).toHaveCount(1);
+  expect(requests).toHaveLength(0);
+  await page.locator('.quiz-native-band').getByRole('button', { name: 'Kendini sına' }).click();
+  await expect(page).toHaveURL(/#\/calis$/);
+});
+
+test('external quiz detail defers external requests, embeds exact source and offers a persistent fallback', async ({ page }) => {
+  await page.route('https://www.free-anatomy-quiz.com/**', route => route.fulfill({ contentType: 'text/html', body: '<h1>Mock publisher quiz</h1>' }));
+  await page.goto('/#/quizler/skeletonIDQ1');
+  await expect(page.locator('.quiz-workspace iframe')).toHaveCount(0);
+  await expect(page.getByRole('link', { name: 'Kaynakta aç', exact: true })).toHaveAttribute('href', 'https://www.free-anatomy-quiz.com/skeletonIDQ1.html');
+  await page.getByRole('button', { name: 'Quizi burada başlat' }).click();
+  await expect(page.locator('.quiz-workspace iframe')).toHaveAttribute('src', 'https://www.free-anatomy-quiz.com/skeletonIDQ1.html');
+  await expect(page.getByRole('status')).toContainText('Pencere boşsa');
+  await page.getByRole('button', { name: 'Çalıştım olarak işaretle' }).click();
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'Çalıştım · işareti kaldır' })).toHaveAttribute('aria-pressed', 'true');
+  await page.getByRole('button', { name: 'Quiz kütüphanesine dön' }).click();
+  await expect(page).toHaveURL(/#\/quizler$/);
+  await expect(page.locator('.quiz-resume')).toContainText('İskelet');
+  await page.goBack();
+  await expect(page).toHaveURL(/#\/quizler\/skeletonIDQ1$/);
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('İskelet');
+});
+
+test('quiz library handles empty results, invalid deep links and narrow screens', async ({ page }) => {
+  await page.goto('/#/quizler/unknown');
+  await expect(page.locator('.quiz-card')).toHaveCount(159);
+  await page.getByRole('searchbox', { name: 'Quizlerde ara' }).fill('olmayanbirquiz');
+  await expect(page.locator('.quiz-card')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Tüm quizleri göster' }).click();
+  await page.getByRole('combobox', { name: 'Quiz türü' }).selectOption('Patoloji');
+  expect(await page.locator('.quiz-card').count()).toBeGreaterThan(0);
+  for (const size of [390, 320]) {
+    await page.setViewportSize({ width: size, height: 844 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  }
+  await page.goto('/#/quizler/brain1');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+});
+
+test('quiz preferences tolerate corrupt or unavailable browser storage', async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem('anatomi-external-quiz-saved', '{broken');
+    localStorage.setItem('anatomi-external-quiz-studied', JSON.stringify([null, {}, 'removed']));
+    localStorage.setItem('anatomi-external-quiz-last', 'removed');
+  });
+  await page.goto('/#/quizler');
+  await expect(page.locator('.quiz-card')).toHaveCount(159);
+  await expect(page.locator('.quiz-resume')).toHaveCount(0);
+  await page.addInitScript(() => {
+    Storage.prototype.getItem = () => { throw new Error('storage disabled'); };
+    Storage.prototype.setItem = () => { throw new Error('storage disabled'); };
+  });
+  await page.reload();
+  await page.getByRole('searchbox', { name: 'Quizlerde ara' }).fill('Serebral');
+  await expect(page.locator('.quiz-card')).toHaveCount(1);
+  await page.getByRole('button', { name: 'Serebral korteks: favorilere ekle' }).click();
+  await expect(page.getByRole('button', { name: 'Serebral korteks: favorilerden kaldır' })).toHaveAttribute('aria-pressed', 'true');
+});
+
+test('quiz focus view adapts automatically without settings or reloading the iframe', async ({ page }) => {
+  let loads = 0;
+  await page.route('https://www.free-anatomy-quiz.com/**', route => {
+    loads++;
+    return route.fulfill({ contentType: 'text/html', body: '<p>Mock quiz</p>' });
+  });
+  await page.goto('/#/quizler/brain1');
+  await page.getByRole('button', { name: 'Quizi burada başlat' }).click();
+  const viewport = page.locator('.quiz-frame-viewport');
+  await expect(viewport).toHaveClass(/is-focused/);
+  await expect(viewport).toHaveCSS('--quiz-crop-top', '200px');
+  await expect(page.getByText('Görünümü ayarla', { exact: true })).toHaveCount(0);
+  await expect(page.locator('.quiz-crop-settings')).toHaveCount(0);
+  await expect(page.getByRole('slider')).toHaveCount(0);
+  for (const width of [390, 320]) {
+    await page.setViewportSize({ width, height: 844 });
+    await expect(viewport).toHaveCSS('--quiz-crop-top', '160px');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  }
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await expect(viewport).toHaveCSS('--quiz-crop-top', '200px');
+  expect(loads).toBe(1);
+});
