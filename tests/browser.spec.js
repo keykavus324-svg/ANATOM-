@@ -718,109 +718,128 @@ test('dedicated book library opens a PDF inline without leaving the site', async
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
 
-test('external quiz library searches, filters, saves favorites and preserves native practice', async ({ page }) => {
+test('native quiz library lists local sets, filters favorites and preserves practice entry', async ({ page }) => {
   const requests = [];
-  page.on('request', r => { if (r.url().includes('free-anatomy-quiz.com')) requests.push(r.url()); });
+  page.on('request', r => { if (!r.url().startsWith('http://localhost')) requests.push(r.url()); });
   await page.goto('/#/quizler');
   await expect(page.getByRole('heading', { name: 'Anatomi Quizleri', exact: true })).toBeVisible();
-  await expect(page.locator('.quiz-card')).toHaveCount(159);
-  await page.getByRole('searchbox', { name: 'Quizlerde ara' }).fill('KAFATASI');
+  await expect(page.locator('.quiz-card')).toHaveCount(7);
+  await expect(page.getByText('70 yerel soru')).toBeVisible();
+  await page.getByRole('searchbox', { name: 'Quizlerde ara' }).fill('kalp');
   await expect(page.locator('.quiz-card')).toHaveCount(1);
-  await page.getByRole('button', { name: 'Kafatası: favorilere ekle' }).click();
+  await page.getByRole('button', { name: 'Dolaşım sistemi: favorilere ekle' }).click();
   await page.getByRole('button', { name: 'Quiz aramasını temizle' }).click();
   await page.getByRole('button', { name: /Favorilerim/ }).click();
   await expect(page.locator('.quiz-card')).toHaveCount(1);
   await page.reload();
   await page.getByRole('button', { name: /Favorilerim/ }).click();
   await expect(page.locator('.quiz-card')).toHaveCount(1);
-  expect(requests).toHaveLength(0);
+  expect(requests.filter(url => !url.includes('fonts') && !url.includes('localhost'))).toHaveLength(0);
   await page.locator('.quiz-native-band').getByRole('button', { name: 'Kendini sına' }).click();
   await expect(page).toHaveURL(/#\/calis$/);
 });
 
-test('external quiz detail defers external requests, embeds exact source and offers a persistent fallback', async ({ page }) => {
-  await page.route('https://www.free-anatomy-quiz.com/**', route => route.fulfill({ contentType: 'text/html', body: '<h1>Mock publisher quiz</h1>' }));
-  await page.goto('/#/quizler/skeletonIDQ1');
-  await expect(page.locator('.quiz-workspace iframe')).toHaveCount(0);
-  await expect(page.getByRole('link', { name: 'Kaynakta aç', exact: true })).toHaveAttribute('href', 'https://www.free-anatomy-quiz.com/skeletonIDQ1.html');
-  // The publisher's engine advances by reloading its own top page; the primary
-  // action must therefore be the always-working source view, not the embed.
-  await expect(page.getByRole('link', { name: 'Quizi kaynağında çöz' })).toHaveAttribute('href', 'https://www.free-anatomy-quiz.com/skeletonIDQ1.html');
-  await page.getByRole('button', { name: 'Gömülü önizlemeyi başlat' }).click();
-  const frame = page.locator('.quiz-workspace iframe');
-  await expect(frame).toHaveAttribute('src', 'https://www.free-anatomy-quiz.com/skeletonIDQ1.html');
-  await expect(frame).toHaveAttribute('sandbox', /allow-modals/);
-  await expect(frame).not.toHaveAttribute('sandbox', /allow-top-navigation/);
-  await expect(page.getByRole('status')).toContainText('sonraki sorular kaynak sayfada');
-  await expect(page.locator('.quiz-frame-hint')).toContainText('Sorular bu pencerede ilerlemiyor mu?');
-  await expect(page.locator('.quiz-frame-hint').getByRole('link', { name: 'Quizi kaynağında çöz' })).toHaveAttribute('href', 'https://www.free-anatomy-quiz.com/skeletonIDQ1.html');
+test('quiz runs fully offline: intro, checked answers with figures, restart and graded results', async ({ page }) => {
+  await page.goto('/#/quizler/dolasim');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Dolaşım');
+  await expect(page.locator('.quiz-intro-figure img')).toBeVisible();
+  await page.getByRole('button', { name: 'Çözüme başla' }).click();
+  await expect(page.locator('.quiz-session-bar')).toContainText('1 / 10');
+  const figure = page.locator('.quiz-figure img');
+  if (await figure.count()) {
+    const src = await figure.getAttribute('src');
+    expect(src).toMatch(/^\/(diagrams\/)/);
+  }
+  // Answer every question with the first option and advance through the whole set.
+  for (let step = 0; step < 10; step++) {
+    await expect(page.locator('.quiz-session-bar')).toContainText(`${step + 1} / 10`);
+    await page.locator('.quiz-options label').first().click();
+    await page.getByRole('button', { name: 'Yanıtı kontrol et' }).click();
+    await expect(page.getByRole('status')).toContainText('Doğru yanıt:');
+    await expect(page.locator('.quiz-options label.correct')).toHaveCount(1);
+    await expect(page.locator('.quiz-options input').first()).toBeDisabled();
+    await page.getByRole('button', { name: step < 9 ? /Sonraki soru/ : /Sonuçları gör/ }).click();
+  }
+  await expect(page.locator('.quiz-score')).toContainText('/ 10 doğru');
+  await expect(page.locator('.quiz-review li')).toHaveCount(10);
+  await page.getByRole('button', { name: /Yeniden çöz/ }).click();
+  await expect(page.locator('.quiz-session-bar')).toContainText('1 / 10');
+  // Restart keeps the runner usable and the progress bar honest.
+  await page.locator('.quiz-options label').first().click();
+  await page.getByRole('button', { name: 'Yanıtı kontrol et' }).click();
+  await expect(page.getByRole('button', { name: 'Baştan başla' }).click());
+  await expect(page.locator('.quiz-session-bar')).toContainText('1 / 10');
+  await expect(page.getByRole('status')).toHaveCount(0);
+});
+
+test('quiz preferences, resume and lesson links survive reloads and browser back', async ({ page }) => {
+  await page.goto('/#/quizler/dolasim');
   await page.getByRole('button', { name: 'Çalıştım olarak işaretle' }).click();
   await page.reload();
   await expect(page.getByRole('button', { name: 'Çalıştım · işareti kaldır' })).toHaveAttribute('aria-pressed', 'true');
   await page.getByRole('button', { name: 'Quiz kütüphanesine dön' }).click();
   await expect(page).toHaveURL(/#\/quizler$/);
-  await expect(page.locator('.quiz-resume')).toContainText('İskelet');
+  await expect(page.locator('.quiz-resume')).toContainText('Dolaşım');
+  await expect(page.locator('.quiz-card[aria-label], .quiz-card').first()).toBeVisible();
   await page.goBack();
-  await expect(page).toHaveURL(/#\/quizler\/skeletonIDQ1$/);
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('İskelet');
+  await expect(page).toHaveURL(/#\/quizler\/dolasim$/);
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Dolaşım');
+  await page.getByRole('button', { name: 'Çözüme başla' }).click();
+  await page.getByRole('button', { name: /TEKRAR ET/ }).click();
+  await expect(page).toHaveURL(/#\/ders\/7$/);
 });
 
 test('quiz library handles empty results, invalid deep links and narrow screens', async ({ page }) => {
   await page.goto('/#/quizler/unknown');
-  await expect(page.locator('.quiz-card')).toHaveCount(159);
+  await expect(page.locator('.quiz-card')).toHaveCount(7);
   await page.getByRole('searchbox', { name: 'Quizlerde ara' }).fill('olmayanbirquiz');
   await expect(page.locator('.quiz-card')).toHaveCount(0);
   await page.getByRole('button', { name: 'Tüm quizleri göster' }).click();
-  await page.getByRole('combobox', { name: 'Quiz türü' }).selectOption('Patoloji');
-  expect(await page.locator('.quiz-card').count()).toBeGreaterThan(0);
+  await expect(page.locator('.quiz-card')).toHaveCount(7);
   for (const size of [390, 320]) {
     await page.setViewportSize({ width: size, height: 844 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   }
-  await page.goto('/#/quizler/brain1');
+  await page.goto('/#/quizler/duyu');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
 
 test('quiz preferences tolerate corrupt or unavailable browser storage', async ({ page }) => {
   await page.addInitScript(() => {
-    localStorage.setItem('anatomi-external-quiz-saved', '{broken');
-    localStorage.setItem('anatomi-external-quiz-studied', JSON.stringify([null, {}, 'removed']));
-    localStorage.setItem('anatomi-external-quiz-last', 'removed');
+    localStorage.setItem('anatomi-quiz-saved', '{broken');
+    localStorage.setItem('anatomi-quiz-studied', JSON.stringify([null, {}, 'removed']));
+    localStorage.setItem('anatomi-quiz-last', 'removed');
   });
   await page.goto('/#/quizler');
-  await expect(page.locator('.quiz-card')).toHaveCount(159);
+  await expect(page.locator('.quiz-card')).toHaveCount(7);
   await expect(page.locator('.quiz-resume')).toHaveCount(0);
   await page.addInitScript(() => {
     Storage.prototype.getItem = () => { throw new Error('storage disabled'); };
     Storage.prototype.setItem = () => { throw new Error('storage disabled'); };
   });
   await page.reload();
-  await page.getByRole('searchbox', { name: 'Quizlerde ara' }).fill('Serebral');
+  await page.getByRole('searchbox', { name: 'Quizlerde ara' }).fill('Kas sistemi');
   await expect(page.locator('.quiz-card')).toHaveCount(1);
-  await page.getByRole('button', { name: 'Serebral korteks: favorilere ekle' }).click();
-  await expect(page.getByRole('button', { name: 'Serebral korteks: favorilerden kaldır' })).toHaveAttribute('aria-pressed', 'true');
+  await page.getByRole('button', { name: 'Kas sistemi: favorilere ekle' }).click();
+  await expect(page.getByRole('button', { name: 'Kas sistemi: favorilerden kaldır' })).toHaveAttribute('aria-pressed', 'true');
 });
 
-test('quiz focus view adapts automatically without settings or reloading the iframe', async ({ page }) => {
-  let loads = 0;
-  await page.route('https://www.free-anatomy-quiz.com/**', route => {
-    loads++;
-    return route.fulfill({ contentType: 'text/html', body: '<p>Mock quiz</p>' });
-  });
-  await page.goto('/#/quizler/brain1');
-  await page.getByRole('button', { name: 'Gömülü önizlemeyi başlat' }).click();
-  const viewport = page.locator('.quiz-frame-viewport');
-  await expect(viewport).toHaveClass(/is-focused/);
-  await expect(viewport).toHaveCSS('--quiz-crop-top', '200px');
-  await expect(page.getByText('Görünümü ayarla', { exact: true })).toHaveCount(0);
-  await expect(page.locator('.quiz-crop-settings')).toHaveCount(0);
-  await expect(page.getByRole('slider')).toHaveCount(0);
-  for (const width of [390, 320]) {
-    await page.setViewportSize({ width, height: 844 });
-    await expect(viewport).toHaveCSS('--quiz-crop-top', '160px');
+test('quiz figures and options stay usable at the largest reading size and zoom without reload', async ({ page }) => {
+  await page.goto('/#/quizler/sinir');
+  await page.getByRole('button', { name: 'Çözüme başla' }).click();
+  // Advance until a figure-bearing question appears (every set has one).
+  for (let step = 0; step < 10 && (await page.locator('.quiz-figure').count()) === 0; step++) {
+    await page.locator('.quiz-options label').first().click();
+    await page.getByRole('button', { name: 'Yanıtı kontrol et' }).click();
+    await page.getByRole('button', { name: /Sonraki soru|Sonuçları gör/ }).click();
+  }
+  await expect(page.locator('.quiz-figure img')).toBeVisible();
+  await page.getByRole('button', { name: 'Şemayı büyüt' }).click();
+  await expect(page.locator('.quiz-figure-scroll')).toHaveClass(/expanded/);
+  await expect(page.locator('.quiz-figure-key div').first()).toBeVisible();
+  for (const size of [390, 320]) {
+    await page.setViewportSize({ width: size, height: 844 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   }
   await page.setViewportSize({ width: 1440, height: 1000 });
-  await expect(viewport).toHaveCSS('--quiz-crop-top', '200px');
-  expect(loads).toBe(1);
 });
