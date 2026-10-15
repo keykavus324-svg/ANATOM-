@@ -24,6 +24,19 @@ React 19 + Vite, yerel fontlar ve Lucide ikonları. Backend, API anahtarı veya 
 
 İlk sürümdeki “Kaynağın tamamı / Hızlı tekrar” seçimi kaldırılmıştır. Web okuyucusunun tek ana içeriği artık yazılmış ders anlatımıdır. PDF bağımsız bir okuma seçeneğidir. Kaynak sahibi ile web metninin hazırlayanı ayrı belirtilir; yeniden yazılan metin hocanın kendi eseri veya onayladığı ders kitabı olarak sunulmaz.
 
+## 3D Anatomi Atlası (gömülü görünüm)
+
+Siteye, sayfadan ayrılmadan kullanılan **3B anatomi atlası bölümü** eklendi. Gömülü pencere, Zygote’un kendi web sitesinde duyurduğu **ücretsiz iframe gömme** yöntemiyle [ZygoteBody](https://www.zygotebody.com/) üzerinden yüklenir: `https://www.zygotebody.com/`.
+
+- **Senkronize çalışma:** Atlas, uygulamanın kendi hash durumunu kullanır. `nav=` kamera konumu, `sel=` seçim/vurgu, `layers=` katman opaklığıdır. Sahne seçtiğinde çerçeve adresi güncellenir; yenileme, geri/ileri gezinme ve `#/atlas/<sahne>` bağlantı paylaşımı çalışır.
+- **18 sahne:** 4 bölge görünümü (tüm vücut, baş-boyun, göğüs, karın), 8 sistem görünümü (iskelet, kas, sinir, dolaşım, sindirim, ürogenital, lenfatik, deri) ve 6 tek yapı odağı (kafatası, beyin, akciğerler, karaciğer, mide, kalp).
+- **Doğrulanmış izole bağlantılar:** İskelet, kafatası, beyin, akciğer, karaciğer ve mide görünümleri, kamuya açık paylaşılmış ZygoteBody derin bağlantılarından alınmıştır: yapı seçili gelir, diğer katmanlar soldurulur. Kalan sahneler yalnızca kamerayı konumlandırır; katman denetimi gömülü arayüzde, kullanıcıya bırakılır.
+- **Ders eşleşmesi:** 12 dersin her biri kendi atlas sahnesine bağlıdır. Ders sayfasındaki “3D atlas” düğmesi ve ders altındaki eşleşme kartı ilgili sahneyi açar.
+- **Rehberli kullanım:** Her sahne için kısa özet, “neye bakmalı?” notu ve gömülü Zygote araçlarını (opaklık kaydırıcısı, katman düğmesi, arama, `Zoom to`, gizle/pin, model seçimi) anlatan üç adım bulunur.
+- **Kaydedilen sahneler, tam ekran, bağlantı kopyalama ve yenileme** atlas araç çubuğundadır. Kaydedilen sahneler `anatomi-atlas-scenes`, son açılan sahne `anatomi-atlas-last` anahtarıyla yalnızca bu cihazda saklanır.
+- **Erişilemeyen ağ durumu:** Zygote alan adına ulaşılamazsa boş bir çerçeve bekletmek yerine uyarı gösterilir ve “Yeni sekmede aç” seçeneği sunulur. Site atlas olmadan da çalışır.
+- **Gömülü görünümün sınırı:** ZygoteBody’nin ücretsiz sürümünde ön yüz, `Fullscreen` dışında üst pencereyle konuşmaz (gömme için API satılmaktadır). Bu nedenle kamera/katman senkronizasyonu, kullanıcı bir sahne seçtiğinde yönlüdür: atlas içindeki her döndürme adres çubuğuna yazılmaz ve dış arayüzden sahne durumu okunamaz.
+
 ## Özellikler
 
 - Türkçe/Latince katalog araması; Türkçe karakterlerin ASCII karşılıklarını da destekler.
@@ -38,6 +51,8 @@ React 19 + Vite, yerel fontlar ve Lucide ikonları. Backend, API anahtarı veya 
 - Mobil menü, klavyeyle kullanılabilen diyaloglar, Escape ile kapatma.
 - Ana sayfanın parşömen, adaçayı ve gül tonlarındaki atlas tasarımı korunur.
 - Kullanıcının seçtiği kaburga–sternum amblemi; ana menüde detaylı SVG, mobil/altbilgide sadeleştirilmiş simge ve uyumlu favicon.
+- 3B anatomi atlası: `#/atlas` ve `#/atlas/<sahne>` adresleri, 18 sahne, grup filtresi, ders eşleşmesi, kaydedilen sahneler, tam ekran ve ağ engeli için yedek açılış.
+- Atlas sahneleri derin bağlantıyla paylaşılabilir; ana sayfa bandındaki hızlı sahne çipleri ve kenar çubuğundaki “3D atlas sahneleri” listesi aynı bölüme gider.
 
 ## İçerik ve kaynak düzeni
 
@@ -51,6 +66,10 @@ React 19 + Vite, yerel fontlar ve Lucide ikonları. Backend, API anahtarı veya 
 | `public/diagrams/` | Proje için çizilen 26 SVG; slayt görüntüsü veya atlas kopyası değildir |
 | `scripts/build-diagrams.mjs` | Elle tanımlanan SVG geometrisinden yerel şekilleri yeniden üretir |
 | `src/LessonPage.jsx` | Tek sürümlü, yerel konu anlatımı okuyucusu |
+| `src/atlas.js` | Atlas sahne kataloğu, ZygoteBody adres üretimi ve ders ↔ sahne eşleşmesi |
+| `src/AtlasPage.jsx` | Gömülü 3B atlas sayfası: araç çubuğu, sahne listesi, rehber panelleri, erişim uyarısı |
+| `src/atlas.css` | Atlas sayfası, ana sayfa atlas bandı ve ders atlas bağlantısının biçimi |
+| `tests/atlas.test.js` | Sahne bütünlüğü, bağlantı biçimi, ders eşleşmesi ve yol çözümleme testleri |
 | `src/courseManifest.json` | Kaynak PDF sayfa sayıları ve SHA-256 kimlikleri |
 | `reference/course-content/` | Editoryal kontrol için 697 kaynak sayfanın metin ve görsel arşivi; **public değildir, production build’e kopyalanmaz** |
 | `public/brand/` | Seçilen logo, şeffaf SVG amblem ve tam logo, PNG sunum dosyası ve küçük boyut amblemi |
@@ -77,19 +96,21 @@ Bu araç **ders anlatımı yazmaz**. Yalnızca `reference/course-content/` altı
 - [Kaynak Drive klasörü](https://drive.google.com/drive/folders/1iAuY6LhNDTXsT6exyIzJiojeB_CLaeSz)
 - 12 kaynak dosya 14 Ekim 2026 tarihinde incelenmiştir. Akademik unvan ve atıf: Öğr. Gör. Bekir Dağdeviren, Fırat Üniversitesi Sağlık Bilimleri Fakültesi, Fizyoterapi ve Rehabilitasyon.
 - Derslerin ana konu grupları anlatıma alınmıştır; bir sayfa veya kelime sayısı tıbbi doğruluk/eksiksizlik kanıtı olarak kullanılmaz. Öğretim elemanı denetimi henüz yapılmış değildir.
+- 3B anatomi modeli ve verileri **© Zygote 3D** (ZygoteBody™) şirketine aittir. Site bu modelleri kopyalamaz, indirmez, yeniden barındırmaz veya değiştirmez; yalnızca Zygote’un ücretsiz iframe gömme yöntemiyle kendi sunucusundan gösterir. Zygote markası ve logosu proje tarafından kullanılmaz; yalnızca metin olarak atıf yapılır.
+- Atlas bölümü tıbbi tanı veya tedavi amacı taşımaz; ders çalışmasına yardımcı bir inceleme aracıdır. Gömülü görünümün çalışması Zygote’un servisinin erişilebilirliğine bağlıdır.
 - Yapay zekâ ile üretilmiş kapaklar dekoratiftir. Konu içi SVG şemalar özgün ve numaralıdır, fakat sadeleştirilmiş/ölçeksizdir; uzman denetiminden geçmiş atlasların yerini almaz.
 - `reference/` production’a alınmasa da Git deposunda bulunur. Depoyu veya arşivi paylaşmadan önce üçüncü taraf görseller dahil hak sahiplerinin izinlerini doğrulayın.
 - Orijinal PDF’ler değiştirilmez veya uygulamayla yeniden yayımlanmaz. Kalıcı yayın öncesi kaynak ve web metinleri için paylaşım/düzenleme onayı alın.
 
 ## Gizlilik
 
-`anatom-saved`, `anatom-completed`, `anatom-last`, `anatomi-last-mode` ve `anatomi-reading-size` yalnız tarayıcıda saklanır. Hesap, analiz kodu veya çalışma kaydını sunucuya gönderen mekanizma yoktur. Cihazlar arasında eşitleme yapılmaz. PDF açıldığında Google’ın üçüncü taraf hizmetine istek gönderilir; web derslerini okumak Google isteği oluşturmaz. “Hocamız Hakkında” sayfasında resmî portre `apiabs.firat.edu.tr` üzerinden yüklenir; bu sayfa üniversitenin fotoğraf sunucusuna istek gönderir. Fotoğrafta `no-referrer` kullanılır. Fotoğraf yüklenemezse baş harfler ve resmî profile bağlantı gösterilir. Ders okuyucusu ve ana sayfa bu fotoğrafı istemez.
+`anatom-saved`, `anatom-completed`, `anatom-last`, `anatomi-last-mode`, `anatomi-reading-size`, `anatomi-atlas-scenes` ve `anatomi-atlas-last` yalnız tarayıcıda saklanır. Hesap, analiz kodu veya çalışma kaydını sunucuya gönderen mekanizma yoktur. Cihazlar arasında eşitleme yapılmaz. PDF açıldığında Google’ın üçüncü taraf hizmetine istek gönderilir; web derslerini okumak Google isteği oluşturmaz. “Hocamız Hakkında” sayfasında resmî portre `apiabs.firat.edu.tr` üzerinden yüklenir; bu sayfa üniversitenin fotoğraf sunucusuna istek gönderir. Fotoğrafta `no-referrer` kullanılır. Fotoğraf yüklenemezse baş harfler ve resmî profile bağlantı gösterilir. Ders okuyucusu ve ana sayfa bu fotoğrafı istemez. 3B atlas bölümünde `www.zygotebody.com` adresine iframe isteği gönderilir ve erişilebilirlik ön kontrolü için aynı alan adına `no-cors` bir istek yapılır; web derslerini okumak bu isteği oluşturmaz.
 
 ## Testler
 
 ```sh
-npm test             # 23 katalog/içerik/kaynak/gezinme/logo testi
-npm run test:ui      # 21 Playwright senaryosu
+npm test             # 29 katalog/içerik/kaynak/gezinme/atlas testi
+npm run test:ui      # 24 Playwright senaryosu
 npm run build
 ```
 
@@ -101,6 +122,6 @@ Testler her anatomi bölümündeki ayrıntılı anlatımın varlığını ve kay
 
 ## Yayınlama
 
-Statik barındırıcı: kurulum `npm ci`, build `npm run build`, yayın dizini **`dist`**. Depo kökünü veya `reference/` klasörünü web kökü olarak yayımlamayın. Alt dizine yayın için Vite `base` ve public görsel yolları uyarlanmalıdır. CSP kullanılıyorsa `frame-src` içinde `https://drive.google.com` görüntülemesine izin verilmelidir.
+Statik barındırıcı: kurulum `npm ci`, build `npm run build`, yayın dizini **`dist`**. Depo kökünü veya `reference/` klasörünü web kökü olarak yayımlamayın. Alt dizine yayın için Vite `base` ve public görsel yolları uyarlanmalıdır. CSP kullanılıyorsa `frame-src` içinde `https://drive.google.com` ve `https://www.zygotebody.com`, `connect-src` içinde de `https://www.zygotebody.com` (atlas erişilebilirlik ön kontrolü) izinli olmalıdır. Gömülü atlas WebGL gerektirir; `iframe` için `allow="fullscreen; xr-spatial-tracking"` kullanılır.
 
 Canlı geliştirme önizlemesi kalıcı dağıtım değildir. PR açılması siteyi otomatik yayımlamaz.
