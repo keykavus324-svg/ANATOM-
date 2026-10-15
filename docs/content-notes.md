@@ -160,3 +160,41 @@ Kullanıcının isteğiyle “Hocamız Hakkında” sayfasındaki büyük BD mon
 Fotoğraf üretilmedi veya başka kişiye ait arama görseli kullanılmadı. Resmî profil sayfasından URL doğrulandı; çalışma ortamında görüntünün kendisini indirme girişimi SSL bağlantı hatasıyla sonuçlandı. Bu nedenle portre resmî sunucudan ziyaretçinin tarayıcısında doğrudan yüklenir, yerel kopyası yoktur. Gerçek sunucunun tarayıcıdan yüklenmesi bu ortamda doğrulanmış değildir. Ağ hatasında kırık resim yerine baş harfler ve resmî profile bağlantı görünür. Kaynak bağlantısı fotoğraf altında yer alır; üniversite onayı veya yeniden kullanım izni iddiası oluşturmaz.
 
 22 birim testi, 19 tarayıcı senaryosu ve üretim build'i başarılı. Yeni fotoğraf testleri doğru kaynak URL'sini, mobil yerleşimi ve hata davranışını kontrollü görüntü fixture'ı/engellenmiş ağ isteğiyle sınar; gerçek fotoğraf sunucusunun erişilebilirliğini kanıtlamaz. Değişiklik önizlemededir; uzak yayın yapılmadı.
+
+
+## 15 Ekim 2026: gömülü 3B anatomi atlası
+
+Kullanıcı, sitede **3D anatomi atlası** bölümü istedi ve kaynak olarak https://www.zygotebody.com/ verdi. Zygote, resmî duyurusunda (2017) ZygoteBody’yi kendi sitesine iframe ile gömmeyi **ücretsiz** olarak duyurur; gömülü pencere ücretsiz sürümün tüm araçlarını taşır. Buna göre modeller indirilmedi, kopyalanmadı veya yeniden barındırılmadı: gömülü çerçeve her zaman `https://www.zygotebody.com/` adresinden yüklenir.
+
+**Senkronizasyon nasıl yapıldı?** ZygoteBody, görünüm durumunu URL hash’inde taşır (Google Body’den kalan tarih eski aralıklar). Kamuya açık paylaşılmış derin bağlantılar çözülerek şu biçim doğrulandı: `#nav=<x>,<y>,<z>,0,0,0,0&sel=p:;h:;s:<seçili yapılar>;c:<vurgu opaklığı>;o:<diğer katman opaklığı>&layers=<katman dizisi>`. Site bu biçimi kendi sahne kataloğundan (`src/atlas.js`) üretir, sahne değişiminde çerçeveyi bu adresle yükler ve sahne kimliğini `#/atlas/<sahne>` adresinde tutar.
+
+**Doğrulanmış izole bağlantılar.** İskelet (`s:5`), kafatası (`s:1059`), akciğerler (`s:1175,1177`), karaciğer (`s:1151`), mide (`s:1225`) ve beyin (`s:1754`) bağlantıları, kamuya açık paylaşılmış ZygoteBody derin bağlantılarından alındı; seçim (`s:`), vurgu (`c:-0.6`) ve diğer katman (`o:-0.75`) değerleri bu bağlantılarda birlikte görülüyor. Kalp için doğrulanmış bir izole bağlantı bulunamadı; bu yüzden kalp sahnesi “kamera görünümü” olarak işaretlendi ve kullanıcıya `Zoom to` adımı tarif edildi. Uydurma varlık kimlikleri üretilmedi.
+
+**Sınır.** ZygoteBody’nin ücretsiz gömme yöntemi, üst pencereye durum bildiren bir API içermez (tam API ayrı ücretlidir). Bu nedenle “senkronizasyon” site → atlas yönündedir: sahne seçimi çerçeveyi doğru durumla açar, kullanıcı bağlantıyı kopyalayabilir ve dersiyle eşleştirebilir. Kullanıcının atlas içinde yaptığı döndürme/katman hareketleri dış arayüze yansıtılamaz ve siteye kaydedilemez. Bu kısıt arayüzde açıkça yazılıdır.
+
+**Erişilebilirlik ve ağ.** Sayfa yüklendiğinde Zygote alan adına `no-cors` bir istek yapılır; istek başarısız olursa boş çerçeve bekletilmeden uyarı ve “Yeni sekmede aç” seçeneği gösterilir. Bu ön kontrol, gerçek görüntüleyicinin açıldığını kanıtlamaz; yalnızca alan adının ağ üzerinden erişilebilir göründüğünü gösterir. Çalışma ortamı dış ağa yalnızca sınırlı alan adlarında çıktığı için gömülü ZygoteBody görüntüsü bu ortamda bizzat görülemedi; iframe davranışı testlerde engellenmiş ağ isteğiyle, UI davranışı ise gerçek tarayıcı senaryolarıyla sınandı.
+
+**Testler.** 29 birim testi (18 sahnenin bütünlüğü, bağlantıların yalnız Zygote alan adına gitmesi, izole/kamera ayrımı, 12 dersin eşleşmesi, `#/atlas` yol çözümlemesi ve atıf metni) ve 24 tarayıcı senaryosu (gömülü çerçevenin adresi, sahne değişimi, ders ↔ atlas geçişi, kaydedilen sahne kalıcılığı, engelli ağ uyarısı ve 320/390/1440 px taşma kontrolü) geçti. Üretim build’i başarılı.
+
+
+## 15 Ekim 2026 (ek): arayüzden marka adının kaldırılması
+
+Kullanıcı, “3D atlasta ZygoteBody yazmasa daha iyi” dedi. Buna göre kendi arayüzümüzdeki tüm sağlayıcı markası kaldırıldı; yerine nötr ifadeler geldi:
+
+| Yer | Önceki | Şimdi |
+|---|---|---|
+| Atlas üst bilgisi (breadcrumb) | “ZygoteBody gömülü görünümü” | “gömülü atlas görünümü” |
+| Atlas tanıtım metni | “Zygote’un ücretsiz iframe gömme yöntemiyle ZygoteBody altyapısı” | “hak sahibinin ücretsiz iframe gömme yöntemiyle kendi sunucusundan… üyelik gerekmez” |
+| Araç çubuğu durumu | “ZygoteBody gömülü penceresi” | “Gömülü 3B atlas penceresi” |
+| Yükleniyor/uyarı katmanları | “Zygote ZygoteBody altyapısına bağlanılıyor”, “ZygoteBody’ye bu ağdan ulaşılamıyor” | “Gömülü atlas altyapısına bağlanılıyor”, “Gömülü atlasa bu ağdan ulaşılamıyor” |
+| Çerçeve başlığı (`title`, erişilebilirlik) | “… — ZygoteBody 3B anatomi görünümü” | “… — 3B anatomi atlası görünümü” |
+| Ana sayfa özellik şeridi | “ZygoteBody ile katman katman inceleme” | “Katman katman inceleme, üyelik gerekmez” |
+| Ana sayfa atlas bandı | “ZygoteBody altyapısıyla çalışan gömülü atlas” | “Gömülü atlas sayesinde…” + “Üyelik veya ek kurulum gerekmez.” |
+| Yardım rehberi ve ders notu | “ZygoteBody’nin gömülü penceresini kullan” | “gömülü 3B pencereyi kullan” |
+| Kaynak kartı | Uzun atıf + marka | Kısa lisans cümlesi + **“3B anatomik model ve veriler © Zygote 3D.”** |
+
+**Neden tek satır atıf kaldı:** 3B model ve veri Zygote 3D’ye aittir ve kullanım koşulları atıf/uygun kullanım gerektirir; telif satırını tamamen kaldırmak yanlış olurdu. Marka **adı** arayüzde geçmez; hak sahibinin ticari adı yalnızca telif bildirimi olarak bir kez yazılır. Teknik atıf (hangi ürün, hangi alan adı, hangi derin bağlantılar) bu belgede ve README’de durur.
+
+**Kaldırılamayan kısım:** iframe’in **içindeki** sayfa sağlayıcının kendi arayüzüdür; ücretsiz gömme sürümü üst pencereye DOM erişimi veya stil verme izni tanımaz, bu nedenle oradaki marka görünümü kaldırılamaz. Bunu gizlemeye çalışan bir katman, kullanıcının atlas araçlarını (opaklık kaydırıcısı, arama, katman düğmesi) engellerdi; bu yüzden yapılmadı.
+
+**Testler.** Yeni bir birim testi `ATLAS_SOURCE` içindeki tüm kullanıcı metinlerini ve 18 sahnenin metinlerini marka adı için tarar; tarayıcı senaryosu atlas sayfasının görünür metninde ürün adının bulunmadığını, telif satırının tam olarak beklenen cümle olduğunu, ana sayfa bandındaki bağlantı etiketinin (“Atlası kaynağında aç”) boş kalmadığını ve ders sayfası ↔ atlas geçişini doğrular. Toplam: 29 birim testi + 24 tarayıcı senaryosu geçti.

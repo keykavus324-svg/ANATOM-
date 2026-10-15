@@ -394,3 +394,78 @@ test('anatomy logo is local, crisp and shared by desktop, mobile and footer navi
   }
   await page.screenshot({path:'.playwright/anatomi-brand-mobile.png'});
 });
+
+test('3D atlas embeds the licensed viewer, switches scenes and stays synced with the lessons', async ({ page }) => {
+  // Only the third-party 3D viewer is stubbed; this verifies our own UI, deep links and routing.
+  await page.route('https://www.zygotebody.com/**', route => route.abort());
+  const errors = [];
+  page.on('pageerror', err => errors.push(err.message));
+  await page.goto('/#/atlas');
+  await expect(page.locator('.atlas-page')).toBeVisible();
+  await expect(page.locator('.atlas-hero h1')).toHaveText('3D Anatomi Atlası');
+  // Sağlayıcının marka adı arayüz metninde görünmez; yalnızca ince telif satırı kalır.
+  const atlasText = await page.locator('.atlas-page').innerText();
+  expect(atlasText).not.toMatch(/ZygoteBody/i);
+  await expect(page.locator('.atlas-credit-line')).toHaveText('3B anatomik model ve veriler © Zygote 3D.');
+  await expect(page.locator('.atlas-viewer iframe')).toHaveAttribute('src', 'https://www.zygotebody.com/');
+  await expect(page.locator('.atlas-scene')).toHaveCount(18);
+  await page.locator('.atlas-groups').getByRole('button', { name: 'Tek yapı odağı' }).click();
+  await expect(page.locator('.atlas-scene')).toHaveCount(6);
+  await page.locator('.atlas-groups').getByRole('button', { name: 'Tüm görünümler' }).click();
+  await expect(page.locator('.atlas-scene')).toHaveCount(18);
+  await expect(page.locator('.atlas-overlay-slow')).toContainText('ulaşılamıyor');
+  await expect(page.locator('.atlas-status')).toContainText('açılamadı');
+  await page.getByRole('button', { name: 'Pencereyi yine de göster' }).click();
+  await expect(page.locator('.atlas-overlay-slow')).toHaveCount(0);
+  await page.locator('.atlas-scene', { hasText: 'Beyin' }).click();
+  await expect(page).toHaveURL(/#\/atlas\/beyin$/);
+  await expect(page.locator('.atlas-viewer iframe')).toHaveAttribute('src', /zygotebody\.com\/#nav=.*sel=p:;h:;s:1754;c:-0\.6;o:-0\.75/);
+  await expect(page.locator('.atlas-hero-card strong')).toHaveText('Beyin');
+  await expect(page.locator('.atlas-guide-main h2')).toContainText('Beyin');
+  await expect(page.locator('.atlas-lesson-link')).toContainText('Ders 09');
+  await page.locator('.atlas-lesson-link').click();
+  await expect(page).toHaveURL(/#\/ders\/9$/);
+  await expect(page.locator('.lesson-atlas-note')).toContainText('Sinir sistemi');
+  expect(await page.locator('body').innerText()).not.toMatch(/ZygoteBody/i);
+  await page.locator('.reading-modes').getByRole('button', { name: '3D atlas' }).click();
+  await expect(page).toHaveURL(/#\/atlas\/sinir$/);
+  await expect(page.locator('.atlas-hero-card strong')).toHaveText('Sinir sistemi');
+  await page.locator('.atlas-breadcrumb').getByRole('button', { name: 'Kütüphaneye dön' }).click();
+  await expect(page.locator('.note-card')).toHaveCount(12);
+  expect(errors).toEqual([]);
+});
+
+test('atlas scenes survive reloads, keep their saved state and offer a working fallback', async ({ page }) => {
+  await page.route('https://www.zygotebody.com/**', route => route.abort());
+  await page.goto('/#/atlas/iskelet');
+  await expect(page.locator('.atlas-hero-card strong')).toHaveText('İskelet sistemi');
+  await expect(page.locator('.atlas-scene.active')).toContainText('İskelet sistemi');
+  await page.locator('.atlas-tools').getByRole('button', { name: 'Sahneyi kaydet' }).click();
+  await expect(page.locator('.atlas-tools').getByRole('button', { name: 'Sahneyi kaydedilenlerden kaldır' })).toBeVisible();
+  await page.reload();
+  await expect(page.locator('.atlas-hero-card strong')).toHaveText('İskelet sistemi');
+  await expect(page.locator('.atlas-saved-scenes')).toContainText('İskelet sistemi');
+  await expect(page.locator('.atlas-open')).toHaveAttribute('href', /^https:\/\/www\.zygotebody\.com\/#nav=.*s:5;/);
+  await page.goto('/');
+  await expect(page.locator('.atlas-band')).not.toContainText('ZygoteBody');
+  await expect(page.locator('.atlas-band-foot a')).toHaveText('Atlası kaynağında aç');
+  expect((await page.locator('.atlas-band').innerText()).trim()).not.toMatch(/^sitesi|\| sitesi/);
+  await page.goto('/#/atlas/tum-vucut');
+  await page.locator('.nav-item', { hasText: '3D Anatomi Atlası' }).click();
+  await expect(page.locator('.atlas-hero-card strong')).toHaveText('Tüm vücut');
+});
+
+test('atlas layout keeps narrow screens free of horizontal overflow', async ({ page }) => {
+  await page.route('https://www.zygotebody.com/**', route => route.abort());
+  for (const width of [1440, 390, 320]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/#/atlas/akcigerler');
+    await expect(page.locator('.atlas-guide-main h2')).toContainText('Akciğerler');
+    await page.evaluate(() => document.fonts.ready);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+  }
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto('/#/atlas/iskelet');
+  await page.evaluate(() => document.fonts.ready);
+  await page.screenshot({ path: '.playwright/atlas-desktop.png' });
+});
