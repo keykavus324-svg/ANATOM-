@@ -210,3 +210,13 @@ Doğrulama: 30 birim/içerik testi, 25 Playwright senaryosu ve üretim build'i b
 ## Soru odaklı anlatım genişlemesi — 15 Ekim 2026
 
 Yalnız Sitede oku içeriğine `src/content/exam/` altında 42 özgün açıklama/karşılaştırma/alıştırma bloğu ve 6 etiketli şema eklendi. Ek bloklar doğrudan ilgili 119 ana bölümün içine bağlanır. Arşivdeki işaretler resmî cevap anahtarı sayılmadı; farklı kurum ve okunaksız satır sınırlamaları gizlenmedi. PDF kataloğu, PDF okuyucu ve Drive orijinalleri değiştirilmedi. Ayrıntılı kaynak incelemesi ve konu–soru eşleştirmesi için [exam-content-audit.md](exam-content-audit.md). Test başarısı tıbbi uzman denetimi veya 100 puan garantisi değildir.
+
+## 15 Ekim 2026: gömülü quizde “Next” çalışmıyor sorunu
+
+**Belirti.** Kullanıcı, Quizler bölümünde gömülü Free Anatomy Quiz penceresinde soruları ilerletemediğini bildirdi: düğme normal görünüyordu ama tıklayınca aynı soruda kalıyordu.
+
+**Kök neden (kaynak koddan doğrulandı).** Yayıncının quiz motoru (`quizrun.js` ve `quizrun2.js`; her quizin soru verisi ayrı `.js` dosyasındadır) `nextQuestion()` içinde `top.location = <quiz sayfası>?questNum=N&cor=N` ile **üst düzey pencereyi** yenileyerek ilerler. Gömülü çerçeve `sandbox` sayesinde üst pencere gezinmesine izin vermez; tarayıcı bu geçişi sessizce engeller ve düğme ölü görünür. Yanlış yanıtlar sayfa içinde geri bildirim panelinde kalır, yalnızca doğru yanıt ilerleme tetikler; “yanıt seçin” uyarısı bir `window.alert`tir ve `allow-modals` olmadan o da engellenir. Motor her yüklemede kalan soruları yeniden karıştırır (`randQuiz`), bu yüzden dışarıdan `?questNum=` bağlantısıyla ilerletme yayıncının soru setini ve puanını bozar; kullanılmadı.
+
+**Karar.** Sekmeyi her soru geçişinde yayıncıya devretmek (`allow-top-navigation-by-user-activation`) değerlendirildi ve reddedildi: gömülü pencereden sessiz tam sayfa devri, yönlendirilmiş yeni sekme yolundan daha kötü bir arıza modudur. Proxy/kopya ise proje ilkesine aykırı. Buna göre: kaynak görünüm birincil eylem oldu (onay ekranında “Quizi kaynağında çöz”); gömülü pencerenin yalnızca ilk soruyu önizlediği onay metninde, durum satırında ve soru alanının hemen üstündeki kalıcı bilgi kartında (“Sorular bu pencerede ilerlemiyor mu?”) açıkça yazılı. Sandbox’a `allow-modals` eklendi; üst pencere gezinmesi yasak kaldı. Hiçbir soru metni, görsel veya puan kopyalanmadı; iframe adresi değişmedi.
+
+**Testler.** Tarayıcı senaryosu; onay ekranındaki kaynak bağlantısını, gömülü önizleme başlatıldığında iframe adresini, `allow-modals` varlığını, `allow-top-navigation` yokluğunu, durum satırı ve bilgi kartı metnini doğrular. Birim testler ve üretim build bu değişiklikle yeniden koşuldu.

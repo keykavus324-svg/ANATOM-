@@ -10,3 +10,14 @@
 .quiz-workspace:fullscreen .quiz-frame-viewport{flex:1;min-height:350px}
 .quiz-workspace:fullscreen .quiz-frame-viewport.is-focused iframe{height:calc(100% + var(--quiz-crop-top) + 900px)}
 @container(max-width:600px){.quiz-frame-viewport.is-focused{--quiz-crop-top:160px;--quiz-crop-height:clamp(350px,78svh,740px)}}
+/* Publisher engine note: free-anatomy-quiz advances by reloading its own top
+   page, which the sandboxed preview cannot allow. The hint keeps that fact
+   visible at the exact point where in-frame navigation stops working. */
+.quiz-consent-actions{display:flex;align-items:center;justify-content:center;gap:16px 22px;flex-wrap:wrap;margin-bottom:4px}
+.quiz-consent-actions .text-button{font-size:11px}
+.quiz-frame-hint{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 18px;border-bottom:1px solid var(--line);background:#f6efe4}
+.quiz-frame-hint-copy{min-width:0}
+.quiz-frame-hint-copy strong{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:600;color:#8a5f50}
+.quiz-frame-hint-copy p{font-size:10px;line-height:1.75;color:#8d8977;margin-top:5px;max-width:72ch}
+.quiz-frame-hint>.primary-button{flex-shrink:0}
+@media(max-width:600px){.quiz-frame-hint{flex-direction:column;align-items:flex-start;gap:11px;padding:12px 14px}.quiz-frame-hint>.primary-button{width:100%;justify-content:center}}

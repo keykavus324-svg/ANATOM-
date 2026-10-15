@@ -743,9 +743,17 @@ test('external quiz detail defers external requests, embeds exact source and off
   await page.goto('/#/quizler/skeletonIDQ1');
   await expect(page.locator('.quiz-workspace iframe')).toHaveCount(0);
   await expect(page.getByRole('link', { name: 'Kaynakta aç', exact: true })).toHaveAttribute('href', 'https://www.free-anatomy-quiz.com/skeletonIDQ1.html');
-  await page.getByRole('button', { name: 'Quizi burada başlat' }).click();
-  await expect(page.locator('.quiz-workspace iframe')).toHaveAttribute('src', 'https://www.free-anatomy-quiz.com/skeletonIDQ1.html');
-  await expect(page.getByRole('status')).toContainText('Pencere boşsa');
+  // The publisher's engine advances by reloading its own top page; the primary
+  // action must therefore be the always-working source view, not the embed.
+  await expect(page.getByRole('link', { name: 'Quizi kaynağında çöz' })).toHaveAttribute('href', 'https://www.free-anatomy-quiz.com/skeletonIDQ1.html');
+  await page.getByRole('button', { name: 'Gömülü önizlemeyi başlat' }).click();
+  const frame = page.locator('.quiz-workspace iframe');
+  await expect(frame).toHaveAttribute('src', 'https://www.free-anatomy-quiz.com/skeletonIDQ1.html');
+  await expect(frame).toHaveAttribute('sandbox', /allow-modals/);
+  await expect(frame).not.toHaveAttribute('sandbox', /allow-top-navigation/);
+  await expect(page.getByRole('status')).toContainText('sonraki sorular kaynak sayfada');
+  await expect(page.locator('.quiz-frame-hint')).toContainText('Sorular bu pencerede ilerlemiyor mu?');
+  await expect(page.locator('.quiz-frame-hint').getByRole('link', { name: 'Quizi kaynağında çöz' })).toHaveAttribute('href', 'https://www.free-anatomy-quiz.com/skeletonIDQ1.html');
   await page.getByRole('button', { name: 'Çalıştım olarak işaretle' }).click();
   await page.reload();
   await expect(page.getByRole('button', { name: 'Çalıştım · işareti kaldır' })).toHaveAttribute('aria-pressed', 'true');
@@ -800,7 +808,7 @@ test('quiz focus view adapts automatically without settings or reloading the ifr
     return route.fulfill({ contentType: 'text/html', body: '<p>Mock quiz</p>' });
   });
   await page.goto('/#/quizler/brain1');
-  await page.getByRole('button', { name: 'Quizi burada başlat' }).click();
+  await page.getByRole('button', { name: 'Gömülü önizlemeyi başlat' }).click();
   const viewport = page.locator('.quiz-frame-viewport');
   await expect(viewport).toHaveClass(/is-focused/);
   await expect(viewport).toHaveCSS('--quiz-crop-top', '200px');
