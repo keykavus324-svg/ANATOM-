@@ -23,7 +23,7 @@ function Figure({ id, large, onToggle }) {
   const data = figureData(id);
   return <figure className="quiz-figure">
     <div className={large ? 'quiz-figure-scroll expanded' : 'quiz-figure-scroll'} tabIndex={large ? 0 : undefined} role={large ? 'region' : undefined} aria-label={large ? 'Geniş şemayı kaydırarak incele' : undefined}>
-      <img src={figureSrc(id)} width="760" height="460" alt={`${data.title}. Numaralı işaretlerin açıklamaları şekil altında ve yanıt açıklamalarında yer alır.`}/>
+      <img src={figureSrc(id)} width="760" height="507" alt={`${data.title}. Numaralı işaretlerin açıklamaları şekil altında ve yanıt açıklamalarında yer alır.`}/>
     </div>
     <figcaption>
       {data.view} · {data.caption}
@@ -84,7 +84,7 @@ function QuizViewer({ set, onBack, saved, onSave, studied, onStudied, onLesson }
     <div className="quiz-workspace">
       <div className="quiz-viewer-toolbar"><span><ClipboardCheck size={17}/> Soru alanı</span><div>{phase === 'play' && <button className="text-button" onClick={start}><RotateCcw size={14}/> Baştan başla</button>}</div></div>
       {phase === 'intro' && <div className="quiz-intro">
-        <figure className="quiz-intro-figure" aria-hidden="true"><img src={figureSrc(set.diagram)} width="760" height="460" alt=""/><span className="quiz-intro-count">{quizQuestions[set.id].length} soru</span></figure>
+        <figure className="quiz-intro-figure" aria-hidden="true"><img src={figureSrc(set.diagram)} width="760" height="507" alt=""/><span className="quiz-intro-count">{quizQuestions[set.id].length} soru</span></figure>
         <div className="quiz-intro-copy">
           <span className="eyebrow">HAZIRSAN BAŞLAYALIM</span>
           <h2 tabIndex={-1}>{set.description}</h2>

@@ -230,3 +230,8 @@ Yalnız Sitede oku içeriğine `src/content/exam/` altında 42 özgün açıklam
 **Editoryal sınırlar.** Sorular hocanın sınav sorusu veya resmî banka değildir; tıbbi yeniden gözden geçirme yapılmadı. Şemalar sadeleştirilmiş, ölçeksiz öğretim çizimleridir; atlas yerine geçmez. Arayüzde bu sınır açıkça yazılıdır.
 
 **Doğrulama.** 50 birim/içerik testi (şekil SVG'lerinin diskte varlığı + pin/etiket sayı tutarlılığı dahil), 39 Playwright senaryosu ve üretim build'i başarılı. Masaüstü görüntü kontrolleri: katalog, giriş, soru akışı, geri bildirim ve sonuç ekranları.
+
+
+## 15 Ekim 2026: quiz şekilleri anatomik plakalara yükseltildi
+
+İlk turda elle kodlanmış SVG şemalar kullanıcıya “yetersiz” göründü; şekiller gerçek atlas plakası kalitesinde yeniden üretildi. Yeni akış: `art-src/` altındaki (git dışı) kaynak illüstrasyonlar gözden geçirildi — vertebra (üstten), sarkomer, kalp frontal kesiti, nefron, göz kesiti, kulak, beyin lobları — her plaka tek tek anatomik doğruluk kontrolünden geçti; pin hedefleri kodda (`scripts/build-quiz-plates.py`) tutulduğu için etiket yanlışı üretemez. Plakalar site paletine uydurulup (72 renk nicemleme → JPEG q82) SVG sarmalına gömüldü; dosya başına ~300–430 KB. `quizDiagrams.js` meta verileri plaka diline (“ANATOMİK PLAKA”) uyarlandı; görüntü boyutu 460→507 (3:2) olarak güncellendi. 50 birim + 39 tarayıcı testi ve üretim build yeniden geçti.
