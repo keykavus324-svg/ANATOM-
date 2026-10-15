@@ -110,8 +110,8 @@ Bu araç **ders anlatımı yazmaz**. Yalnızca `reference/course-content/` altı
 ## Testler
 
 ```sh
-npm test             # 29 katalog/içerik/kaynak/gezinme/atlas testi
-npm run test:ui      # 24 Playwright senaryosu
+npm test             # 41 katalog/içerik/kaynak/gezinme/atlas/alıştırma testi
+npm run test:ui      # 32 Playwright senaryosu
 npm run build
 ```
 
@@ -126,3 +126,22 @@ Testler her anatomi bölümündeki ayrıntılı anlatımın varlığını ve kay
 Statik barındırıcı: kurulum `npm ci`, build `npm run build`, yayın dizini **`dist`**. Depo kökünü veya `reference/` klasörünü web kökü olarak yayımlamayın. Alt dizine yayın için Vite `base` ve public görsel yolları uyarlanmalıdır. CSP kullanılıyorsa `frame-src` içinde `https://drive.google.com` ve `https://www.zygotebody.com`, `connect-src` içinde de `https://www.zygotebody.com` (atlas erişilebilirlik ön kontrolü) izinli olmalıdır. Gömülü atlas WebGL gerektirir; `iframe` için `allow="fullscreen; xr-spatial-tracking"` kullanılır.
 
 Canlı geliştirme önizlemesi kalıcı dağıtım değildir. PR açılması siteyi otomatik yayımlamaz.
+
+### Görerek öğren çalışma alanı
+
+11 anatomi dersinin başında konuya özgü açıklama, şemaya geçiş kartları, görsel çalışma görevi, açılır örnek yanıt ve sık karıştırılan nokta bulunur. 26 mevcut şemada numaralı yapılar tek tek incelenebilir; alt açıklamalar aktif hatırlama için gizlenip ayrı ayrı açılabilir. Çizimin üzerindeki etiketler gizlenmez. Bu araçlar puanlı sınav değildir ve yeni kişisel veri kaydetmez. İçerik `src/content/studyGuides.js` dosyasında düzenlenir. Bu ekle birlikte 30 birim/içerik testi ve 25 tarayıcı senaryosu geçmektedir.
+
+## Soru odaklı ayrıntılı anlatım
+
+“Sitede oku”daki 11 anatomi dersine, notlar ve paylaşılan soru arşivi karşılaştırılarak 42 ayrıntılı açıklama, karşılaştırma tablosu, 42 gerekçeli alıştırma ve 6 özgün şema eklendi. PDF ders notları ve orijinalleri değişmedi. Kaynak/okunabilirlik sınırları okuyucuda görülebilir; puan veya eksiksiz sınav kapsamı garantisi verilmez. Konu bazında eşleşme ve editoryal sınırlar: [`docs/exam-content-audit.md`](docs/exam-content-audit.md). Ek şemaları üretmek için `node scripts/build-exam-diagrams.mjs` çalıştırılır.
+
+## Kendini sına — görsel çalışma, deneme ve tekrar defteri
+
+Menüden **Kendini sına** (`#/calis`) veya ana sayfadaki çalışma kartından açılır. Ders anlatımları ve PDF okuyucu değiştirilmeden ayrı çalışma alanı eklenmiştir.
+
+- **Görsel yapı tanıma:** Mevcut 26 numaralı öğretici şemanın 125 yapı/kavram etiketinden üretilen çoktan seçmeli alıştırmalar. İsteğe bağlı sözel ipucu ve yalnız görsel alanında yatay büyütme. Şemalar ölçekli atlas veya bağımsız uzman doğrulaması olarak sunulmaz.
+- **Deneme:** Daha önce yazılmış 42 gerekçeli konu sorusundan konuya ve sayıya göre örnekleme. Soru ve seçenek sırası karıştırılır; cevap anahtarı seçim sırasıyla birlikte taşınır. 10/20/30 dakika veya süresiz çalışma. Zamanlayıcı gerçek bitiş anını kullanır; sekme arka planda kalsa bile sonraki kontrolde süre aşımı işlenir. Yanıt gerekçeleri denemeden sonra açılır.
+- **Sonuç:** Doğru, yanlış, boş ve ders bazında özet; her sorudan ilgili web dersinin gerçek bölüm başlığına odaklı dönüş. Gerçek sınav notu veya vize/final kapsamı garantisi verilmez.
+- **Tekrar:** Kontrol edilen yanlış görseller, tamamlanan denemedeki yanlışlar ve boşlar tarayıcıdaki `anatomi-practice-v1` kaydına eklenir. İlk tekrar 24 saat sonra; sonraki doğru hatırlamalarda 1/3/7/14/30 günlük aralıklar uygulanır. Zamanı gelmeden manuel tekrar mümkündür. Temizleme işlemi ayrıca onay ister.
+
+Tekrar verisi yalnız bu tarayıcıdadır, sunucuya gönderilmez ve cihazlar arasında eşitlenmez. Depolama kapalıysa uyarı gösterilir ve oturum içinde çalışma sürer. Devam eden sınav/çalışma sayfa yenilendiğinde saklanmaz; arayüz bunu açıkça belirtir. Bu oturumdan henüz kontrol edilmemiş yanıtlar yenilemede deftere yazılmaz. Soru bankasında kaynak sorularının birebir kopyaları veya yeni bir resmî cevap anahtarı yoktur.

@@ -256,6 +256,7 @@ test('all 26 inline diagrams load locally with captions and no console errors', 
 });
 
 test('diagram dialog traps focus, zooms, closes on Escape and restores reader focus', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/#/ders/8');
   const figure = page.locator('[data-diagram="tooth"]');
   const trigger = figure.getByRole('button', {name:/Şemayı büyüt/});
@@ -277,6 +278,9 @@ test('diagram dialog traps focus, zooms, closes on Escape and restores reader fo
   await expect(page.getByRole('dialog').locator('output')).toHaveText('%100');
   await page.getByRole('button', {name:'Şemayı kapat'}).click();
   await expect(trigger).toBeFocused();
+  // This figure is taller than the original viewport. Give the screenshot a full
+  // viewport rather than relying on Chromium's temporary resize at a fractional Y.
+  await page.setViewportSize({width:1440,height:1400});
   await figure.screenshot({path:'.playwright/inline-tooth-desktop.png',animations:'disabled'});
 });
 
@@ -468,4 +472,231 @@ test('atlas layout keeps narrow screens free of horizontal overflow', async ({ p
   await page.goto('/#/atlas/iskelet');
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: '.playwright/atlas-desktop.png' });
+});
+
+test('visual study links, guided explanation and independent recall controls work', async ({ page }) => {
+  await page.goto('/#/ders/7');
+  const study = page.getByRole('region', { name: 'Görerek öğren çalışma alanı' });
+  await expect(study).toContainText('Kanı bir tam devre');
+  await study.getByText('Örnek yanıtı karşılaştır').click();
+  await expect(study.locator('details')).toContainText('triküspit');
+  await study.locator('.visual-study-grid button').first().click();
+  const figure = page.locator('.instructional-figure').first();
+  await expect(figure).toBeFocused();
+  await figure.getByRole('button', {name:'Yapıları tek tek incele',exact:true}).click();
+  await figure.locator('.figure-explorer').getByRole('button', {name:'2',exact:true}).click();
+  await expect(figure.locator('.figure-explorer button').nth(1)).toHaveAttribute('aria-pressed','true');
+  await figure.getByRole('button', {name:'Açıklamaları gizle / hatırla',exact:true}).click();
+  await expect(figure.getByRole('button', {name:'1. açıklamayı göster',exact:true})).toBeVisible();
+  await figure.getByRole('button', {name:'1. açıklamayı göster',exact:true}).click();
+  await expect(figure.locator('.figure-legend dd').first().locator('button')).toHaveCount(0);
+  await expect(figure.getByRole('button', {name:'2. açıklamayı göster',exact:true})).toBeVisible();
+  await page.setViewportSize({width:320,height:740});
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+});
+
+test('exam-oriented explanations teach distinctions and give accessible corrective feedback', async ({ page }) => {
+  await page.goto('/#/ders/4');
+  const map = page.getByRole('region', {name:'Soru konularına göre ayrıntılı anlatım'});
+  await expect(map).toContainText('6 açıklamalı konu');
+  await map.getByRole('button', {name:/Distal humerusta yüz mü/}).click();
+  const heading = page.locator('#teaching-humerus-distal-tanima');
+  await expect(heading).toBeFocused();
+  const teaching = page.locator('.exam-teaching').filter({has:heading});
+  await expect(teaching).toContainText('capitulum distal humerusta gerçekten vardır');
+  const check = teaching.locator('.teaching-check');
+  await expect(check.getByRole('button', {name:'Yanıtı kontrol et'})).toBeDisabled();
+  await check.getByRole('radio').nth(0).check();
+  await check.getByRole('button', {name:'Yanıtı kontrol et'}).click();
+  await expect(check.getByRole('status')).toContainText('Henüz değil. Doğru yanıt: C');
+  await expect(check.getByRole('status')).toContainText('Processus coronoideus ulnadaki');
+  await expect(check.getByRole('radio').nth(2)).toBeDisabled();
+  await check.getByRole('button', {name:'Yeniden dene'}).click();
+  await check.getByRole('radio').nth(2).check();
+  await check.getByRole('button', {name:'Yanıtı kontrol et'}).click();
+  await expect(check.getByRole('status')).toContainText('Doğru. Şimdi gerekçeyi karşılaştır.');
+  await expect(teaching.getByRole('img', {name:/Distal humerusta eklem/})).toHaveJSProperty('naturalWidth',760);
+  await teaching.getByRole('button', {name:'Geniş görünümde incele'}).click();
+  await expect(teaching.getByRole('region', {name:'Geniş şemayı yatay kaydırarak incele'})).toHaveAttribute('tabindex','0');
+});
+
+test('all added reading material and diagrams render locally; no PDF or exam archive is fetched', async ({ page }) => {
+  const { teachingForLesson } = await import('../src/content/exam/index.js');
+  const externalRequests = [];
+  const errors = [];
+  page.on('request', request => { if (/drive\.google|googleusercontent|course-content\/\d+\.json/.test(request.url())) externalRequests.push(request.url()); });
+  page.on('pageerror', error => errors.push(error.message));
+  let total = 0;
+  let visuals = 0;
+  for (let n = 1; n <= 11; n++) {
+    await page.goto(`/#/ders/${n}`);
+    const items = teachingForLesson(n);
+    await expect(page.locator('.exam-teaching')).toHaveCount(items.length);
+    await expect(page.locator('.teaching-check')).toHaveCount(items.length);
+    for (const item of items) {
+      await expect(page.locator(`#teaching-${item.id}`)).toHaveText(item.title);
+      total++;
+      if (item.visual) {
+        const img = page.locator(`img[src$="/exam/${item.visual}.svg"]`);
+        await img.scrollIntoViewIfNeeded();
+        await expect(img).toHaveJSProperty('naturalWidth',760);
+        visuals++;
+      }
+    }
+  }
+  expect(total).toBe(42);
+  expect(visuals).toBe(6);
+  expect(externalRequests).toEqual([]);
+  expect(errors).toEqual([]);
+});
+
+test('added long-form tables, quizzes and visual navigation work at 320px and largest font', async ({ page }) => {
+  const { teachingForLesson } = await import('../src/content/exam/index.js');
+  await page.setViewportSize({width:320,height:800});
+  await page.addInitScript(() => localStorage.setItem('anatomi-reading-size','20'));
+  for (const n of [1,2,3,4,5,6,7,8,9,10,11]) {
+    await page.goto(`/#/ders/${n}`);
+    const map = page.getByRole('region', {name:'Soru konularına göre ayrıntılı anlatım'});
+    await map.getByRole('button').last().click();
+    await expect(page.locator(`#teaching-${teachingForLesson(n).at(-1).id}`)).toBeFocused();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+    if (n === 4) {
+      const figure = page.locator('.teaching-figure').first();
+      await figure.getByRole('button', {name:'Geniş görünümde incele'}).click();
+      const region = figure.getByRole('region');
+      expect(await region.evaluate(el => el.scrollWidth > el.clientWidth)).toBeTruthy();
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+    }
+  }
+  await page.goto('/#/ders/4');
+  await page.getByRole('region', {name:'Soru konularına göre ayrıntılı anlatım'}).getByText('Kaynak kontrolü ve bilmen gereken sınırlar').click();
+  await expect(page.locator('.exam-source-audit')).toContainText('Çankırı');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+});
+
+const choosePracticeAnswer = async (page, correct = true) => {
+  const {questionBank} = await import('../src/practice.js');
+  const text = await page.locator('.practice-session h2').innerText();
+  const topic = await page.locator('.practice-topic').innerText();
+  const question = questionBank.find(q => q.q === text && topic.endsWith(q.topic));
+  expect(question).toBeTruthy();
+  const answer = question.options[correct ? question.correct : (question.correct+1)%question.options.length];
+  const labels = page.locator('.practice-options label');
+  const texts = await labels.locator('span').allTextContents();
+  const index = texts.findIndex(s => s.endsWith(answer));
+  expect(index).toBeGreaterThanOrEqual(0);
+  await labels.nth(index).getByRole('radio').check();
+  return question;
+};
+
+test('visual practice gives feedback, local numbered diagrams and a persistent spaced-repeat notebook', async ({page}) => {
+  await page.goto('/#/calis');
+  await expect(page.getByRole('heading',{name:'Kendini sına.'})).toBeVisible();
+  await page.getByLabel('Konu',{exact:true}).selectOption('8');
+  await page.getByLabel('Soru sayısı').selectOption('5');
+  await page.getByRole('button',{name:'Çalışmaya başla'}).click();
+  await expect(page.locator('.practice-session h2')).toBeFocused();
+  await expect(page.getByRole('button',{name:'Yanıtı kontrol et'})).toBeDisabled();
+  const question = await choosePracticeAnswer(page,false);
+  await expect(page.locator('.practice-figure img')).toHaveJSProperty('complete',true);
+  await page.getByRole('button',{name:'Metin ipucunu göster'}).click();
+  await expect(page.locator('.practice-figure')).toContainText(question.hint);
+  await page.getByRole('button',{name:'Yanıtı kontrol et'}).click();
+  await expect(page.getByRole('status')).toContainText('Henüz değil.');
+  await expect(page.getByRole('status')).toContainText(question.options[question.correct]);
+  await expect(page.locator('.practice-options input').first()).toBeDisabled();
+  await page.getByRole('button',{name:'Çalışmayı bitir',exact:true}).click();
+  await page.getByRole('button',{name:'Çalışmaya devam et'}).click();
+  await expect(page.locator('.practice-results')).toHaveCount(0);
+  await page.getByRole('button',{name:'Çalışmayı bitir',exact:true}).click();
+  await page.getByRole('button',{name:'Evet, sonuçları göster'}).click();
+  await expect(page.locator('.practice-result-header')).toContainText('1 yanlış');
+  await expect(page.locator('.practice-result-header')).toContainText('4 boş');
+  await page.getByRole('button',{name:'Tekrar defterime git'}).click();
+  await expect(page.locator('.practice-review-list li')).toHaveCount(5);
+  await page.reload();
+  await page.getByRole('button',{name:/Tekrar defterim/}).click();
+  await expect(page.locator('.practice-review-list li')).toHaveCount(5);
+  await expect(page.getByRole('button',{name:'Zamanı gelenleri çalış (0)'})).toBeDisabled();
+  await page.getByRole('button',{name:'Tekrar çalış',exact:false}).first().click();
+  await choosePracticeAnswer(page,true);
+  await page.getByRole('button',{name:'Yanıtı kontrol et'}).click();
+  await expect(page.getByRole('status')).toContainText('Doğru.');
+  await page.getByRole('button',{name:'Çalışmayı bitir',exact:true}).click();
+  await page.getByRole('button',{name:'Evet, sonuçları göster'}).click();
+  await page.getByRole('button',{name:'Tekrar defterime git'}).click();
+  await expect(page.locator('.practice-review-list li').first()).toContainText('1 ardışık doğru');
+  await page.getByRole('button',{name:'Defteri temizle',exact:true}).click();
+  await page.getByRole('button',{name:'Vazgeç',exact:true}).click();
+  await expect(page.locator('.practice-review-list li')).toHaveCount(5);
+  await page.getByRole('button',{name:'Defteri temizle',exact:true}).click();
+  await page.getByRole('button',{name:'Evet, defteri temizle'}).click();
+  await expect(page.getByText('Temiz bir başlangıç.')).toBeVisible();
+});
+
+test('exam mode hides explanations until finishing and links incorrect answers to their actual lesson section',async({page})=>{
+  await page.goto('/#/calis');
+  await page.getByRole('button',{name:/Deneme sınavı Konunu/}).click();
+  await page.getByLabel('Konu',{exact:true}).selectOption('4');
+  await page.getByLabel('Soru sayısı').selectOption('5');
+  await page.getByLabel('Süre',{exact:true}).selectOption('0');
+  await page.getByRole('button',{name:'Çalışmaya başla'}).click();
+  const question=await choosePracticeAnswer(page,false);
+  await expect(page.getByRole('status')).toHaveCount(0);
+  await expect(page.locator('.practice-feedback')).toHaveCount(0);
+  await page.getByRole('button',{name:'Sonraki soru'}).click();
+  await choosePracticeAnswer(page,true);
+  await page.getByRole('button',{name:/Soru 1 — yanıtlandı/}).click();
+  await expect(page.locator('.practice-options input:checked')).toHaveCount(1);
+  await page.getByRole('button',{name:'Çalışmayı bitir',exact:true}).click();
+  await page.getByRole('button',{name:'Evet, sonuçları göster'}).click();
+  await expect(page.locator('.practice-result-header')).toContainText('1 yanlış');
+  await expect(page.locator('.practice-result-header')).toContainText('3 boş');
+  const item=page.locator('.practice-result-item').first();
+  await item.locator('summary').click();
+  await expect(item).toContainText(question.why);
+  await item.getByRole('button',{name:'İlgili konu anlatımına git'}).click();
+  await expect(page).toHaveURL(/#\/ders\/4$/);
+  await expect(page.locator(`#lesson-${question.section}`)).toBeFocused();
+});
+
+test('timed exam uses elapsed wall time and automatically grades blank answers on expiry',async({page})=>{
+  await page.clock.install();
+  await page.goto('/#/calis');
+  await page.getByRole('button',{name:/Deneme sınavı Konunu/}).click();
+  await page.getByLabel('Soru sayısı').selectOption('5');
+  await page.getByLabel('Süre',{exact:true}).selectOption('10');
+  await page.getByRole('button',{name:'Çalışmaya başla'}).click();
+  await expect(page.getByRole('timer')).toContainText('10:00');
+  await page.clock.fastForward(601000);
+  await expect(page.locator('.practice-results')).toContainText('Süre doldu');
+  await expect(page.locator('.practice-result-header')).toContainText('5 boş');
+  const stored=await page.evaluate(()=>JSON.parse(localStorage.getItem('anatomi-practice-v1')));
+  expect(Object.keys(stored)).toHaveLength(5);
+  expect(Object.values(stored).every(item=>item.misses===1)).toBeTruthy();
+});
+
+test('practice is responsive, handles corrupt or unavailable storage and is reachable through navigation',async({page})=>{
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.addInitScript(()=>localStorage.setItem('anatomi-practice-v1','broken json'));
+  await page.setViewportSize({width:320,height:800});
+  await page.goto('/');
+  await page.locator('.practice-entry').getByRole('button',{name:'Kendini sına'}).click();
+  await expect(page).toHaveURL(/#\/calis$/);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
+  await page.getByRole('button',{name:'Çalışmaya başla'}).click();
+  await page.getByRole('button',{name:'Görseli büyüt'}).click();
+  const region=page.getByRole('region',{name:'Geniş görseli kaydırarak incele'});
+  expect(await region.evaluate(el=>el.scrollWidth>el.clientWidth)).toBeTruthy();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
+  await page.goto('/#/calis');
+  await page.evaluate(()=>Object.defineProperty(Storage.prototype,'setItem',{value(){throw new Error('blocked');}}));
+  await page.reload();
+  // Install the unavailable-storage condition before React mounts on the next page.
+  await page.addInitScript(()=>Object.defineProperty(Storage.prototype,'setItem',{value(){throw new Error('blocked');}}));
+  await page.reload();
+  await expect(page.getByRole('status')).toContainText('Tarayıcı depolaması kullanılamıyor');
+  await page.getByRole('button',{name:'Çalışmaya başla'}).click();
+  await expect(page.locator('.practice-session')).toBeVisible();
+  expect(errors).toEqual([]);
 });
