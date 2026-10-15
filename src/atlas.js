@@ -10,13 +10,15 @@
 // soldurur). `source: 'view'` sahneleri yalnızca kamerayı konumlandırır;
 // katman denetimi gömülü ZygoteBody arayüzünden yapılır.
 
+// Gömülü görüntüleyicinin adresi ve atıf bilgisi.
+// Arayüzde sağlayıcının marka adı gösterilmez; yalnızca hak sahibini belirten kısa
+// telif satırı korunur. Teknik atıf (hangi ürün olduğu) depo belgelerinde tutulur.
 export const ATLAS_SOURCE = {
-  name: 'ZygoteBody',
-  tagline: 'Zygote 3D tarafından geliştirilen, tarayıcıda çalışan etkileşimli 3B anatomi atlası',
   url: 'https://www.zygotebody.com/',
   termsUrl: 'https://www.zygotebody.com/terms',
-  credit: 'ZygoteBody™ ve 3B anatomik veriler © Zygote 3D. Bu bölümdeki 3B model Zygote’a aittir.',
-  licence: 'Zygote, ZygoteBody’nin iframe ile ücretsiz gömülmesine izin verir. Modeller kopyalanmaz, yeniden barındırılmaz veya değiştirilmez; gömülü pencere her zaman Zygote’un kendi sunucusundan yüklenir.',
+  viewerLabel: 'Gömülü 3B atlas',
+  credit: '3B anatomik model ve veriler © Zygote 3D.',
+  licence: 'Gömülü görünüm, hak sahibinin ücretsiz iframe gömme yöntemiyle kendi sunucusundan açılır; modeller kopyalanmaz, yeniden barındırılmaz veya değiştirilmez.',
 };
 
 export const atlasGroups = [
@@ -25,7 +27,7 @@ export const atlasGroups = [
   { id: 'focus', label: 'Tek yapı odağı', hint: 'Yapıyı izole eden hazır bağlantılar' },
 ];
 
-// ZygoteBody hash parçaları -----------------------------------------------------------------
+// ZygoteBody (Zygote 3D) hash parçaları — kamera/seçim/katman kodlaması -----------------------------------------------------------------
 // Kamera: nav=x,y,z,0,0,0,0 — uygulamanın kendi ürettiği konumlardan alınmıştır.
 const camera = (x, y, z) => `nav=${x},${y},${z},0,0,0,0&sel=p:;h:;s:;c:0;o:0`;
 // Odak: bir veya birkaç varlığı seçer (s:), diğer katmanları soldurur (c/o).

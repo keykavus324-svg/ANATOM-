@@ -51,7 +51,7 @@ export default function AtlasPage({ scene, onScene, onLesson, onLibrary }) {
     return () => clearTimeout(timer);
   }, [active.id, reloadKey]);
 
-  // Zygote alan adına erişilemiyorsa (çevrimdışı, engelleyici, kurumsal ağ) kullanıcıyı
+  // Gömülü atlasın alan adına erişilemiyorsa (çevrimdışı, engelleyici, kurumsal ağ) kullanıcıyı
   // boş bir çerçeveyle bekletmek yerine hemen yeni sekme seçeneğini sunarız.
   useEffect(() => {
     let cancelled = false;
@@ -95,14 +95,14 @@ export default function AtlasPage({ scene, onScene, onLesson, onLibrary }) {
   return <div className="atlas-page">
     <div className="atlas-breadcrumb">
       <button onClick={onLibrary}><Compass size={15}/> Kütüphaneye dön</button>
-      <span>3B ANATOMİ <i/> {ATLAS_SOURCE.name} gömülü görünümü</span>
+      <span>3B ANATOMİ <i/> gömülü atlas görünümü</span>
     </div>
 
     <header className="atlas-hero">
       <div className="atlas-hero-copy">
         <div className="eyebrow"><span/> ETKİLEŞİMLİ 3B İNCELEME <i>ATLAS</i></div>
         <h1>3D Anatomi <em>Atlası</em></h1>
-        <p className="atlas-lead">İnsan bedenini siteden ayrılmadan döndür, katmanları kaldır, organları tek tek izole et. Görünüm, Zygote’un ücretsiz iframe gömme yöntemiyle {ATLAS_SOURCE.name} altyapısı üzerinden açılır.</p>
+        <p className="atlas-lead">İnsan bedenini siteden ayrılmadan döndür, katmanları kaldır, organları tek tek izole et. Gömülü atlas, hak sahibinin ücretsiz iframe gömme yöntemiyle kendi sunucusundan açılır; ayrı bir üyelik gerekmez.</p>
         <div className="atlas-hero-meta">
           <span><Layers size={13}/> Katman katman inceleme</span>
           <span><Search size={13}/> Yapı arama ve izole etme</span>
@@ -143,7 +143,7 @@ export default function AtlasPage({ scene, onScene, onLesson, onLibrary }) {
         <div className="atlas-toolbar">
           <div className="atlas-toolbar-status" role="status" aria-live="polite">
             <span className={`atlas-status ${reachable === false ? 'blocked' : loaded ? 'ready' : 'loading'}`}><i/>{reachable === false ? 'Atlas penceresi açılamadı' : loaded ? 'Görünüm hazır' : 'Atlas yükleniyor…'}</span>
-            <span className="atlas-toolbar-caption">{ATLAS_SOURCE.name} gömülü penceresi · döndürmek için sürükle</span>
+            <span className="atlas-toolbar-caption">{ATLAS_SOURCE.viewerLabel} penceresi · döndürmek için sürükle</span>
           </div>
           <div className="atlas-tools">
             <button className={`icon-button ${savedActive ? 'is-saved' : ''}`} aria-pressed={savedActive} aria-label={savedActive ? 'Sahneyi kaydedilenlerden kaldır' : 'Sahneyi kaydet'} title="Sahneyi kaydet" onClick={() => toggleSaved(active.id)}><Bookmark size={17} fill={savedActive ? 'currentColor' : 'none'}/></button>
@@ -155,13 +155,13 @@ export default function AtlasPage({ scene, onScene, onLesson, onLibrary }) {
         </div>
 
         <div className={`atlas-viewer ${pseudoFullscreen ? 'is-expanded' : ''}`} ref={viewer}>
-          {reachable !== false && !loaded && !slow && <div className="atlas-overlay"><Loader size={26} className="atlas-spinner"/><p>{active.title} görünümü hazırlanıyor…</p><small>Zygote {ATLAS_SOURCE.name} altyapısına bağlanılıyor; ilk açılış birkaç saniye sürebilir.</small></div>}
-          {(reachable === false || (slow && !loaded)) && !dismissed && <div className="atlas-overlay atlas-overlay-slow"><TriangleAlert size={25}/><p>{reachable === false ? 'ZygoteBody’ye bu ağdan ulaşılamıyor.' : 'Gömülü görünüm açılmadı gibi görünüyor.'}</p><small>{reachable === false ? 'Alan adı engellenmiş, çevrimdışısın ya da tarayıcı uzantın isteği durdurmuş olabilir. Atlası doğrudan Zygote üzerinden açabilirsin; sayfanın geri kalanı normal çalışır.' : 'Ağ engeli, reklam engelleyici veya tarayıcının gizlilik ayarı çerçeveyi bloke edebilir. Atlası doğrudan Zygote üzerinden açabilirsin.'}</small><div className="atlas-overlay-actions"><a className="primary-button" href={url} target="_blank" rel="noreferrer">Yeni sekmede aç <ArrowUpRight size={15}/></a><button className="text-button" onClick={() => { setSlow(false); setReloadKey(key => key + 1); }}><RefreshCw size={15}/> Yeniden dene</button><button className="text-button" onClick={() => setDismissed(true)}>Pencereyi yine de göster</button></div></div>}
-          <iframe key={`${active.id}-${reloadKey}`} src={url} title={`${active.title} — ZygoteBody 3B anatomi görünümü`} allow="fullscreen; xr-spatial-tracking; clipboard-write" allowFullScreen onLoad={() => { setLoaded(true); setSlow(false); }}/>
+          {reachable !== false && !loaded && !slow && <div className="atlas-overlay"><Loader size={26} className="atlas-spinner"/><p>{active.title} görünümü hazırlanıyor…</p><small>Gömülü atlas altyapısına bağlanılıyor; ilk açılış birkaç saniye sürebilir.</small></div>}
+          {(reachable === false || (slow && !loaded)) && !dismissed && <div className="atlas-overlay atlas-overlay-slow"><TriangleAlert size={25}/><p>{reachable === false ? 'Gömülü atlasa bu ağdan ulaşılamıyor.' : 'Gömülü görünüm açılmadı gibi görünüyor.'}</p><small>{reachable === false ? 'Alan adı engellenmiş, çevrimdışısın ya da tarayıcı uzantın isteği durdurmuş olabilir. Atlası kaynağından yeni sekmede açabilirsin; sayfanın geri kalanı normal çalışır.' : 'Ağ engeli, reklam engelleyici veya tarayıcının gizlilik ayarı çerçeveyi bloke edebilir. Atlası kaynağından yeni sekmede açabilirsin.'}</small><div className="atlas-overlay-actions"><a className="primary-button" href={url} target="_blank" rel="noreferrer">Yeni sekmede aç <ArrowUpRight size={15}/></a><button className="text-button" onClick={() => { setSlow(false); setReloadKey(key => key + 1); }}><RefreshCw size={15}/> Yeniden dene</button><button className="text-button" onClick={() => setDismissed(true)}>Pencereyi yine de göster</button></div></div>}
+          <iframe key={`${active.id}-${reloadKey}`} src={url} title={`${active.title} — 3B anatomi atlası görünümü`} allow="fullscreen; xr-spatial-tracking; clipboard-write" allowFullScreen onLoad={() => { setLoaded(true); setSlow(false); }}/>
           {pseudoFullscreen && <button className="atlas-exit-fullscreen" onClick={() => setPseudoFullscreen(false)}><Minimize2 size={16}/> Tam ekrandan çık</button>}
         </div>
 
-        {loaded && <div className="atlas-inline-note"><Info size={15}/><span>Gömülü pencereye Zygote’un tüm temel araçlarıyla erişilir: sol paneldeki opaklık kaydırıcısı, katman düğmesi, sağ üstteki arama kutusu ve etiket araçları bu pencerenin içindedir. Pencere boş kalırsa üstteki <b>Yeni sekmede aç</b> düğmesiyle atlası doğrudan Zygote üzerinden açabilirsin.</span></div>}
+        {loaded && <div className="atlas-inline-note"><Info size={15}/><span>Gömülü pencerenin tüm temel araçları kullanılabilir: sol paneldeki opaklık kaydırıcısı, katman düğmesi, sağ üstteki arama kutusu ve etiket araçları bu pencerenin içindedir. Pencere boş kalırsa üstteki <b>Yeni sekmede aç</b> düğmesiyle atlası kaynağından görüntüleyebilirsin.</span></div>}
 
         <div className="atlas-guide">
           <article className="atlas-guide-main">
@@ -187,9 +187,10 @@ export default function AtlasPage({ scene, onScene, onLesson, onLibrary }) {
             <div className="atlas-source-card">
               <ShieldCheck size={19}/>
               <strong>Kaynak ve kullanım</strong>
-              <p>{ATLAS_SOURCE.credit} {ATLAS_SOURCE.licence}</p>
-              <a href={ATLAS_SOURCE.termsUrl} target="_blank" rel="noreferrer">Zygote kullanım koşulları <ExternalLink size={12}/></a>
-              <p className="atlas-source-small">Bu bölüm tıbbi tanı veya tedavi amacı taşımaz; ders çalışmasına yardımcı bir inceleme aracıdır. Gömülü görünümün çalışması Zygote’un servisinin erişilebilirliğine bağlıdır.</p>
+              <p>{ATLAS_SOURCE.licence}</p>
+              <p className="atlas-credit-line">{ATLAS_SOURCE.credit}</p>
+              <a href={ATLAS_SOURCE.termsUrl} target="_blank" rel="noreferrer">Kaynak sağlayıcının kullanım koşulları <ExternalLink size={12}/></a>
+              <p className="atlas-source-small">Bu bölüm tıbbi tanı veya tedavi amacı taşımaz; ders çalışmasına yardımcı bir inceleme aracıdır. Gömülü görünümün çalışması kaynak sağlayıcının servisinin erişilebilirliğine bağlıdır.</p>
             </div>
             <div className="atlas-source-card atlas-source-tip">
               <Sparkles size={19}/>

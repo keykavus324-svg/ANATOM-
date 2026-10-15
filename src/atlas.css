@@ -231,3 +231,6 @@
 @media(min-width:951px){
   .atlas-scene-group:last-of-type{padding-bottom:6px}
 }
+
+/* Kaynak kartındaki telif satırı: görünür ama sönük, tek satır. */
+.atlas-credit-line{font-size:8.5px !important;color:#a6a89c;letter-spacing:.2px}

@@ -77,9 +77,19 @@ test('atlas routes resolve scenes and fall back safely', () => {
   assert.equal(atlasHash(findAtlasScene('akcigerler')), '#/atlas/akcigerler');
 });
 
-test('source attribution keeps Zygote’s ownership and terms visible', () => {
-  assert.equal(ATLAS_SOURCE.name, 'ZygoteBody');
+test('the atlas UI shows no provider brand, only a minimal ownership line', () => {
+  // Arayüzde marka adı gösterilmez: yalnızca kısa telif satırı ve koşullar bağlantısı kalır.
+  assert.equal(ATLAS_SOURCE.name, undefined);
+  assert.equal(ATLAS_SOURCE.viewerLabel, 'Gömülü 3B atlas');
   assert.match(ATLAS_SOURCE.credit, /© Zygote 3D/);
   assert.equal(ATLAS_SOURCE.termsUrl, 'https://www.zygotebody.com/terms');
   assert.match(ATLAS_SOURCE.licence, /yeniden barındırılmaz/);
+  const userFacing = Object.entries(ATLAS_SOURCE).filter(([key]) => key !== 'url' && key !== 'termsUrl');
+  for (const [key, value] of userFacing) {
+    assert.ok(!/ZygoteBody/i.test(String(value)), `${key}: arayüz metninde marka adı geçiyor`);
+  }
+  for (const scene of atlasScenes) {
+    const text = [scene.title, scene.latin, scene.summary, scene.observe, ...scene.steps].join(' ');
+    assert.ok(!/Zygote/i.test(text), `${scene.id}: sahne metninde sağlayıcı adı geçiyor`);
+  }
 });

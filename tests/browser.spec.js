@@ -395,7 +395,7 @@ test('anatomy logo is local, crisp and shared by desktop, mobile and footer navi
   await page.screenshot({path:'.playwright/anatomi-brand-mobile.png'});
 });
 
-test('3D atlas embeds ZygoteBody, switches scenes and stays synced with the lessons', async ({ page }) => {
+test('3D atlas embeds the licensed viewer, switches scenes and stays synced with the lessons', async ({ page }) => {
   // Only the third-party 3D viewer is stubbed; this verifies our own UI, deep links and routing.
   await page.route('https://www.zygotebody.com/**', route => route.abort());
   const errors = [];
@@ -403,6 +403,10 @@ test('3D atlas embeds ZygoteBody, switches scenes and stays synced with the less
   await page.goto('/#/atlas');
   await expect(page.locator('.atlas-page')).toBeVisible();
   await expect(page.locator('.atlas-hero h1')).toHaveText('3D Anatomi Atlası');
+  // Sağlayıcının marka adı arayüz metninde görünmez; yalnızca ince telif satırı kalır.
+  const atlasText = await page.locator('.atlas-page').innerText();
+  expect(atlasText).not.toMatch(/ZygoteBody/i);
+  await expect(page.locator('.atlas-credit-line')).toHaveText('3B anatomik model ve veriler © Zygote 3D.');
   await expect(page.locator('.atlas-viewer iframe')).toHaveAttribute('src', 'https://www.zygotebody.com/');
   await expect(page.locator('.atlas-scene')).toHaveCount(18);
   await page.locator('.atlas-groups').getByRole('button', { name: 'Tek yapı odağı' }).click();
@@ -422,6 +426,7 @@ test('3D atlas embeds ZygoteBody, switches scenes and stays synced with the less
   await page.locator('.atlas-lesson-link').click();
   await expect(page).toHaveURL(/#\/ders\/9$/);
   await expect(page.locator('.lesson-atlas-note')).toContainText('Sinir sistemi');
+  expect(await page.locator('body').innerText()).not.toMatch(/ZygoteBody/i);
   await page.locator('.reading-modes').getByRole('button', { name: '3D atlas' }).click();
   await expect(page).toHaveURL(/#\/atlas\/sinir$/);
   await expect(page.locator('.atlas-hero-card strong')).toHaveText('Sinir sistemi');
@@ -441,6 +446,10 @@ test('atlas scenes survive reloads, keep their saved state and offer a working f
   await expect(page.locator('.atlas-hero-card strong')).toHaveText('İskelet sistemi');
   await expect(page.locator('.atlas-saved-scenes')).toContainText('İskelet sistemi');
   await expect(page.locator('.atlas-open')).toHaveAttribute('href', /^https:\/\/www\.zygotebody\.com\/#nav=.*s:5;/);
+  await page.goto('/');
+  await expect(page.locator('.atlas-band')).not.toContainText('ZygoteBody');
+  await expect(page.locator('.atlas-band-foot a')).toHaveText('Atlası kaynağında aç');
+  expect((await page.locator('.atlas-band').innerText()).trim()).not.toMatch(/^sitesi|\| sitesi/);
   await page.goto('/#/atlas/tum-vucut');
   await page.locator('.nav-item', { hasText: '3D Anatomi Atlası' }).click();
   await expect(page.locator('.atlas-hero-card strong')).toHaveText('Tüm vücut');
