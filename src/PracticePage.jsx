@@ -167,7 +167,7 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
           Bir yapıyı tanı. Bilgini dene. Karıştırdığın konuyu zamanında yeniden
           hatırla.
         </p>
-        {onExternalQuizzes && <button className="text-button" style={{ marginTop: 18 }} onClick={onExternalQuizzes}>Free Anatomy Quiz çalışma alanı <ArrowRight size={16}/></button>}
+        {onExternalQuizzes && <button className="text-button" style={{ marginTop: 18 }} onClick={onExternalQuizzes}>Anatomi quizleri çalışma alanı <ArrowRight size={16}/></button>}
         <div className="practice-pills">
           <span>
             <ScanLine size={15} aria-hidden="true" />
@@ -617,7 +617,7 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
               </strong>
               <span>doğru yanıt</span>
             </div>
-            {onExternalQuizzes && <button className="text-button" style={{ marginTop: 18 }} onClick={onExternalQuizzes}>Free Anatomy Quiz çalışma alanı <ArrowRight size={16}/></button>}
+            {onExternalQuizzes && <button className="text-button" style={{ marginTop: 18 }} onClick={onExternalQuizzes}>Anatomi quizleri çalışma alanı <ArrowRight size={16}/></button>}
         <div className="practice-pills">
               <span>{result.wrong} yanlış</span>
               <span>{result.blank} boş</span>

@@ -9,3 +9,7 @@ test-results/
 google_drive/
 
 .work/
+
+# Quiz plate source illustrations: reproducible sources kept out of git;
+# the compiled plates (public/diagrams/quiz/*.svg) embed the imagery.
+art-src/

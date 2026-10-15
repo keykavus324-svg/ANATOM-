@@ -210,3 +210,28 @@ Doğrulama: 30 birim/içerik testi, 25 Playwright senaryosu ve üretim build'i b
 ## Soru odaklı anlatım genişlemesi — 15 Ekim 2026
 
 Yalnız Sitede oku içeriğine `src/content/exam/` altında 42 özgün açıklama/karşılaştırma/alıştırma bloğu ve 6 etiketli şema eklendi. Ek bloklar doğrudan ilgili 119 ana bölümün içine bağlanır. Arşivdeki işaretler resmî cevap anahtarı sayılmadı; farklı kurum ve okunaksız satır sınırlamaları gizlenmedi. PDF kataloğu, PDF okuyucu ve Drive orijinalleri değiştirilmedi. Ayrıntılı kaynak incelemesi ve konu–soru eşleştirmesi için [exam-content-audit.md](exam-content-audit.md). Test başarısı tıbbi uzman denetimi veya 100 puan garantisi değildir.
+
+## 15 Ekim 2026: gömülü quizde “Next” çalışmıyor sorunu
+
+**Belirti.** Kullanıcı, Quizler bölümünde gömülü Free Anatomy Quiz penceresinde soruları ilerletemediğini bildirdi: düğme normal görünüyordu ama tıklayınca aynı soruda kalıyordu.
+
+**Kök neden (kaynak koddan doğrulandı).** Yayıncının quiz motoru (`quizrun.js` ve `quizrun2.js`; her quizin soru verisi ayrı `.js` dosyasındadır) `nextQuestion()` içinde `top.location = <quiz sayfası>?questNum=N&cor=N` ile **üst düzey pencereyi** yenileyerek ilerler. Gömülü çerçeve `sandbox` sayesinde üst pencere gezinmesine izin vermez; tarayıcı bu geçişi sessizce engeller ve düğme ölü görünür. Yanlış yanıtlar sayfa içinde geri bildirim panelinde kalır, yalnızca doğru yanıt ilerleme tetikler; “yanıt seçin” uyarısı bir `window.alert`tir ve `allow-modals` olmadan o da engellenir. Motor her yüklemede kalan soruları yeniden karıştırır (`randQuiz`), bu yüzden dışarıdan `?questNum=` bağlantısıyla ilerletme yayıncının soru setini ve puanını bozar; kullanılmadı.
+
+**Karar.** Sekmeyi her soru geçişinde yayıncıya devretmek (`allow-top-navigation-by-user-activation`) değerlendirildi ve reddedildi: gömülü pencereden sessiz tam sayfa devri, yönlendirilmiş yeni sekme yolundan daha kötü bir arıza modudur. Proxy/kopya ise proje ilkesine aykırı. Buna göre: kaynak görünüm birincil eylem oldu (onay ekranında “Quizi kaynağında çöz”); gömülü pencerenin yalnızca ilk soruyu önizlediği onay metninde, durum satırında ve soru alanının hemen üstündeki kalıcı bilgi kartında (“Sorular bu pencerede ilerlemiyor mu?”) açıkça yazılı. Sandbox’a `allow-modals` eklendi; üst pencere gezinmesi yasak kaldı. Hiçbir soru metni, görsel veya puan kopyalanmadı; iframe adresi değişmedi.
+
+**Testler.** Tarayıcı senaryosu; onay ekranındaki kaynak bağlantısını, gömülü önizleme başlatıldığında iframe adresini, `allow-modals` varlığını, `allow-top-navigation` yokluğunu, durum satırı ve bilgi kartı metnini doğrular. Birim testler ve üretim build bu değişiklikle yeniden koşuldu.
+
+## 15 Ekim 2026: Anatomi Quizleri bölümü yerel soru bankasına çevrildi
+
+**Bağlam.** Gömülü Free Anatomy Quiz penceresinde soru ilerlemesi, yayıncı motorunun üst pencereyi yeniden yüklemesi nedeniyle tarayıcı tarafından engelleniyordu (bkz. önceki kayıt). Kullanıcı bölümün tümüyle yerel, özgün sorularla yeniden kurulmasını istedi; şekillerin de güzel çizilmiş olmasını öğrendi.
+
+**Yapılanlar.** `src/content/quizBank.js` içinde 7 set × 10 = 70 özgün Türkçe soru yazıldı (temel terminoloji, iskelet, kas, dolaşım, sinir, solunum, duyu). Her soruda 4 seçenek, tek doğru, en az 40 karakterlik açıklama; çeldiriciler gerçek komşu yapı/kavramlardan kuruldu. Sorular ders kütüphanesine (1–11) ve “Kendini sına” bankasından farklı açılara bağlandı; iki bölümün soruları çakışmaz. `scripts/build-quiz-diagrams.mjs` ile 7 yeni şekil çizildi (lomber omur, sarkomer, kalp kesiti, nefron, göz kesiti, kulak, beyin lobları); hepsi numaralı pinli, kâğıt dokulu, projenin mevcut şekil diliyle uyumlu ve `public/diagrams/quiz/` altında derleme zamanında üretilir. 56 soru şekillidir; 26 mevcut ders şekli de yeniden kullanılır. Motor `src/quiz.js`: saf karıştırma/puanlama fonksiyonları, her denemede yeni sıra. `QuizPage.jsx` baştan yazıldı: katalog kartlarında kapak şekli ve anahtar kelime araması (Türkçe yumuşama sorununa karşı “kalp→kalbin” gibi eşleşmeler set anahtar kelimeleriyle çözülür), giriş ekranı, kontrol edilmiş ilerleme, konu konu sonuç dökümü. Harici katalog (`src/quizCatalog.js`), gömme akışı ve `docs/quiz-integration.md` eski haliyle kaldırıldı; hiçbir yayıncı isteği kalmadı.
+
+**Editoryal sınırlar.** Sorular hocanın sınav sorusu veya resmî banka değildir; tıbbi yeniden gözden geçirme yapılmadı. Şemalar sadeleştirilmiş, ölçeksiz öğretim çizimleridir; atlas yerine geçmez. Arayüzde bu sınır açıkça yazılıdır.
+
+**Doğrulama.** 50 birim/içerik testi (şekil SVG'lerinin diskte varlığı + pin/etiket sayı tutarlılığı dahil), 39 Playwright senaryosu ve üretim build'i başarılı. Masaüstü görüntü kontrolleri: katalog, giriş, soru akışı, geri bildirim ve sonuç ekranları.
+
+
+## 15 Ekim 2026: quiz şekilleri anatomik plakalara yükseltildi
+
+İlk turda elle kodlanmış SVG şemalar kullanıcıya “yetersiz” göründü; şekiller gerçek atlas plakası kalitesinde yeniden üretildi. Yeni akış: `art-src/` altındaki (git dışı) kaynak illüstrasyonlar gözden geçirildi — vertebra (üstten), sarkomer, kalp frontal kesiti, nefron, göz kesiti, kulak, beyin lobları — her plaka tek tek anatomik doğruluk kontrolünden geçti; pin hedefleri kodda (`scripts/build-quiz-plates.py`) tutulduğu için etiket yanlışı üretemez. Plakalar site paletine uydurulup (72 renk nicemleme → JPEG q82) SVG sarmalına gömüldü; dosya başına ~300–430 KB. `quizDiagrams.js` meta verileri plaka diline (“ANATOMİK PLAKA”) uyarlandı; görüntü boyutu 460→507 (3:2) olarak güncellendi. 50 birim + 39 tarayıcı testi ve üretim build yeniden geçti.
