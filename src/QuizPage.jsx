@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, Bookmark, BookOpen, Brain, CheckCircle2, ClipboardCheck, Eye, Heart, Languages, Layers, Maximize2, RotateCcw, Search, ShieldCheck, X } from 'lucide-react';
-import { quizSets, quizQuestions, findQuizSet } from './content/quizBank';
+import { ArrowLeft, ArrowRight, Bookmark, BookOpen, Brain, CheckCircle2, ClipboardCheck, Eye, Heart, Layers, Maximize2, RotateCcw, Search, ShieldCheck, X } from 'lucide-react';
+import { quizQuestions } from './content/quizBank';
+import { quizSetsIn, quizQuestionsIn, quizFigureIn, findQuizSetIn } from './content/quizI18n.js';
+import { localizedNote } from './content/localizedContent.js';
 import { quizDiagrams } from './content/quizDiagrams';
-import { diagramIn } from './content/diagramI18n.js';
 import { notes } from './data';
 import { buildAttempt, gradeAttempt } from './quiz';
 import './quiz.css';
@@ -11,7 +12,7 @@ import { useI18n } from './i18n.jsx';
 const icons = { temel: BookOpen, iskelet: Layers, kas: Layers, dolasim: Heart, sinir: Brain, solunum: Layers, duyu: Eye };
 const TOTAL = Object.values(quizQuestions).reduce((sum, list) => sum + list.length, 0);
 const figureSrc = id => quizDiagrams[id] ? `${import.meta.env.BASE_URL}diagrams/quiz/${id}.svg` : `${import.meta.env.BASE_URL}diagrams/${id}.svg`;
-const figureData = (lang, id) => quizDiagrams[id] || diagramIn(lang, id);
+const figureData = (lang, id) => quizFigureIn(lang, id);
 const validSetIds = (value, pool) => Array.isArray(value) ? value.filter(id => pool.some(s => s.id === id)) : [];
 
 function useQuizStorage(key) {
@@ -40,7 +41,8 @@ function Figure({ id, large, onToggle }) {
 }
 
 function QuizViewer({ set, onBack, saved, onSave, studied, onStudied, onLesson }) {
-  const { tr } = useI18n();
+  const { tr, lang } = useI18n();
+  const bank = quizQuestionsIn(lang, set.id);
   const [phase, setPhase] = useState('intro');
   const [session, setSession] = useState(null);
   const [index, setIndex] = useState(0);
@@ -51,10 +53,11 @@ function QuizViewer({ set, onBack, saved, onSave, studied, onStudied, onLesson }
   const heading = useRef(null);
   const focusHeading = () => requestAnimationFrame(() => heading.current?.focus({ preventScroll: true }));
   const note = notes.find(n => n.number === set.lesson);
+  const noteTitle = note ? localizedNote(note, lang).title : '';
   const questions = session?.questions || [];
   const current = questions[index];
   const start = () => {
-    setSession({ questions: buildAttempt(quizQuestions[set.id]) });
+    setSession({ questions: buildAttempt(bank) });
     setAnswers({});
     setIndex(0);
     setAnswer(undefined);
@@ -83,11 +86,11 @@ function QuizViewer({ set, onBack, saved, onSave, studied, onStudied, onLesson }
   const result = phase === 'results' ? gradeAttempt(questions, answers) : null;
   return <section className="quiz-detail">
     <button className="text-button" onClick={onBack}><ArrowLeft size={16}/> {tr('Quiz kütüphanesine dön')}</button>
-    <div className="quiz-detail-heading"><div><div className="eyebrow">{set.title.toLocaleUpperCase('tr-TR')} · {tr('YEREL SORU BANKASI')}</div><h1 ref={heading} tabIndex={-1}>{set.title}</h1><p><BookOpen size={14}/> {tr('Türkçe')} · {tr('{n} soru', { n: quizQuestions[set.id].length })}</p></div><button className={`quiz-save ${saved ? 'selected' : ''}`} aria-label={saved ? tr('Quiz favorisini kaldır') : tr('Quizi favorilere ekle')} aria-pressed={saved} onClick={onSave}><Bookmark size={19} fill={saved ? 'currentColor' : 'none'}/></button></div>
+    <div className="quiz-detail-heading"><div><div className="eyebrow">{set.title.toLocaleUpperCase()} · {tr('YEREL SORU BANKASI')}</div><h1 ref={heading} tabIndex={-1}>{set.title}</h1><p><BookOpen size={14}/> {tr('{n} soru', { n: bank.length })}</p></div><button className={`quiz-save ${saved ? 'selected' : ''}`} aria-label={saved ? tr('Quiz favorisini kaldır') : tr('Quizi favorilere ekle')} aria-pressed={saved} onClick={onSave}><Bookmark size={19} fill={saved ? 'currentColor' : 'none'}/></button></div>
     <div className="quiz-workspace">
       <div className="quiz-viewer-toolbar"><span><ClipboardCheck size={17}/> {tr('Soru alanı')}</span><div>{phase === 'play' && <button className="text-button" onClick={start}><RotateCcw size={14}/> {tr('Baştan başla')}</button>}</div></div>
       {phase === 'intro' && <div className="quiz-intro">
-        <figure className="quiz-intro-figure" aria-hidden="true"><img src={figureSrc(set.diagram)} width="760" height="507" alt=""/><span className="quiz-intro-count">{tr('{n} soru', { n: quizQuestions[set.id].length })}</span></figure>
+        <figure className="quiz-intro-figure" aria-hidden="true"><img src={figureSrc(set.diagram)} width="760" height="507" alt=""/><span className="quiz-intro-count">{tr('{n} soru', { n: bank.length })}</span></figure>
         <div className="quiz-intro-copy">
           <span className="eyebrow">{tr('HAZIRSAN BAŞLAYALIM')}</span>
           <h2 tabIndex={-1}>{set.description}</h2>
@@ -97,7 +100,7 @@ function QuizViewer({ set, onBack, saved, onSave, studied, onStudied, onLesson }
         </div>
       </div>}
       {phase === 'play' && current && <div className="quiz-runner">
-        <div className="quiz-session-bar"><span>{set.title.toLocaleUpperCase('tr-TR')} · {index + 1} / {questions.length}</span></div>
+        <div className="quiz-session-bar"><span>{set.title.toLocaleUpperCase()} · {index + 1} / {questions.length}</span></div>
         <progress aria-label={tr('Soru ilerlemesi')} value={index + (checked ? 1 : 0)} max={questions.length}/>
         <p className="quiz-topic">{current.topic}</p>
         <h2 ref={heading} tabIndex={-1} dir="auto">{current.text}</h2>
@@ -138,13 +141,14 @@ function QuizViewer({ set, onBack, saved, onSave, studied, onStudied, onLesson }
       </div>}
     </div>
     <div className="quiz-study-footer"><div><h2>{tr('Çalışmanı tamamladın mı?')}</h2><p>{tr('“Çalıştım” kişisel bir işarettir; sınav başarısı veya puan değildir.')}</p></div><button className={`quiz-studied ${studied ? 'selected' : ''}`} onClick={onStudied} aria-pressed={studied}><CheckCircle2 size={17}/>{studied ? tr('Çalıştım · işareti kaldır') : tr('Çalıştım olarak işaretle')}</button></div>
-    {note && <button className="quiz-lesson-link" onClick={() => onLesson(note)}><BookOpen size={20}/><span><small>{tr('KONUYU TEKRAR ET')}</small><strong>{note.title}</strong></span><ArrowRight size={18}/></button>}
+    {note && <button className="quiz-lesson-link" onClick={() => onLesson(note)}><BookOpen size={20}/><span><small>{tr('KONUYU TEKRAR ET')}</small><strong>{noteTitle}</strong></span><ArrowRight size={18}/></button>}
     <p className="quiz-source-notice"><ShieldCheck size={16}/><span>{tr('Sorular ve şekiller bu proje için hazırlandı; hocanın sınav sorusu veya resmî bir soru bankası değildir. Şemalar sadeleştirilmiş, ölçeksiz öğretim çizimleridir; atlas veya ders kitabı yerine geçmez. Buradaki başarı gerçek sınav notunu garanti etmez.')}</span></p>
   </section>;
 }
 
 export default function QuizPage({ selected, onSelect, onBack, onLesson, onPractice }) {
-  const { tr, isTurkish } = useI18n();
+  const { tr, lang } = useI18n();
+  const quizSets = quizSetsIn(lang);
   const [query, setQuery] = useState('');
   const [tab, setTab] = useState('all');
   const [saved, toggleSaved] = useQuizStorage('anatomi-quiz-saved');
@@ -153,17 +157,16 @@ export default function QuizPage({ selected, onSelect, onBack, onLesson, onPract
   useEffect(() => { if (selected) { setLastId(selected.id); try { localStorage.setItem('anatomi-quiz-last', selected.id); } catch { /* Optional. */ } } }, [selected]);
   const word = query.trim().toLocaleLowerCase('tr-TR');
   const results = quizSets.filter(set => (tab === 'all' || saved.includes(set.id)) && (!word || `${set.title} ${set.description} ${set.keywords || ''}`.toLocaleLowerCase('tr-TR').includes(word)));
-  const last = findQuizSet(lastId);
+  const last = findQuizSetIn(lang, lastId);
   if (selected) return <QuizViewer key={selected.id} set={selected} onBack={onBack} saved={saved.includes(selected.id)} onSave={() => toggleSaved(selected.id)} studied={studied.includes(selected.id)} onStudied={() => toggleStudied(selected.id)} onLesson={onLesson}/>;
   return <section className="quiz-page" aria-labelledby="quiz-heading">
-    {!isTurkish && <div className="lesson-language-note"><Languages size={18}/><p>{tr('Bu sayfadaki ders metni Türkçedir. Arapça ders notu ve özgün PDF’ler Kaynaklar bölümündedir.')}</p></div>}
     <header className="quiz-hero"><div><div className="eyebrow"><span/> {tr('SORULAR BU SİTE İÇİN YAZILDI')}</div><h1 id="quiz-heading">{tr('Bir yapı. Bir soru.')}<br/><em>{tr('Bir adım daha ileri.')}</em></h1><p>{tr('Yerel anatomi quizleriyle bilgini sına. Sorular ders kütüphanesindeki konulara ve projeye ait şemalara dayanır.')}</p><div className="quiz-hero-tags"><span><ClipboardCheck size={14}/>{tr('{n} yerel soru', { n: TOTAL })}</span><span><Layers size={14}/>{tr('{n} konu alanı', { n: quizSets.length })}</span><span><Brain size={14}/>{tr('Şemalı sorular')}</span></div></div><div className="quiz-hero-art" aria-hidden="true"><div className="quiz-orbit"/><Brain size={100} strokeWidth={.8}/><span>REPETITIO EST MATER STUDIORUM</span><small>{tr('Tekrar, öğrenmenin temelidir.')}</small></div></header>
     {last && <button className="quiz-resume" onClick={() => onSelect(last)}><RotateCcw size={19}/><span><small>{tr('SON AÇTIĞIN QUIZ')}</small><strong>{last.title}</strong><em>{tr('Yeniden çöz · soru sırası her denemede karışır')}</em></span><ArrowRight size={20}/></button>}
     <div className="quiz-section-title"><div><div className="eyebrow muted">{tr('ÇALIŞMA ALANINI SEÇ')}</div><h2>{tr('Anatomi Quizleri')}</h2></div><span>{tr('{count} quiz “çalıştım” işaretli', { count: studied.length })}</span></div>
     <div className="quiz-list-controls"><div className="quiz-tabs" aria-label={tr('Quiz listesi')}><button aria-pressed={tab === 'all'} onClick={() => setTab('all')}>{tr('Tüm quizler')}</button><button aria-pressed={tab === 'saved'} onClick={() => setTab('saved')}><Bookmark size={14}/> {tr('Favorilerim')} <span>{saved.length}</span></button></div><button className="text-button" onClick={() => { setQuery(''); setTab('all'); }}>{tr('Filtreleri temizle')}</button></div>
     <div className="quiz-search-row"><div className="search-field"><Search size={18}/><input type="search" aria-label={tr('Quizlerde ara')} placeholder={tr('Örn. kalp, omurga, sarkomer…')} value={query} onChange={e => setQuery(e.target.value)}/>{query && <button aria-label={tr('Quiz aramasını temizle')} onClick={() => setQuery('')}><X size={16}/></button>}</div></div>
     <div className="quiz-results-line"><span role="status">{tr('{count} quiz listeleniyor', { count: results.length })}</span></div>
-    <div className="quiz-cards">{results.map(set => { const Icon = icons[set.id] || ClipboardCheck; const count = quizQuestions[set.id].length; return <article className="quiz-card" key={set.id}><div className="quiz-card-top"><span>{tr('{n} soru', { n: count })}</span><button className={`quiz-save ${saved.includes(set.id) ? 'selected' : ''}`} aria-label={`${set.title}: ${saved.includes(set.id) ? tr('favorilerden kaldır') : tr('favorilere ekle')}`} aria-pressed={saved.includes(set.id)} onClick={() => toggleSaved(set.id)}><Bookmark size={17} fill={saved.includes(set.id) ? 'currentColor' : 'none'}/></button></div><figure className="quiz-card-figure" aria-hidden="true"><img src={figureSrc(set.diagram)} width="760" height="460" loading="lazy" alt=""/></figure><h3><button onClick={() => onSelect(set)}>{set.title}</button></h3><p className="quiz-card-desc">{set.description}</p><div className="quiz-card-meta"><span>TR</span>{studied.includes(set.id) && <span className="quiz-done"><CheckCircle2 size={13}/> {tr('Çalıştım')}</span>}{saved.includes(set.id) && <span className="quiz-done"><Bookmark size={13} fill="currentColor"/> {tr('Favori')}</span>}</div><button className="quiz-card-start" onClick={() => onSelect(set)}>{tr('Quizi çöz')} <ArrowRight size={16}/></button></article>; })}</div>
+    <div className="quiz-cards">{results.map(set => { const Icon = icons[set.id] || ClipboardCheck; const count = bank.length; return <article className="quiz-card" key={set.id}><div className="quiz-card-top"><span>{tr('{n} soru', { n: count })}</span><button className={`quiz-save ${saved.includes(set.id) ? 'selected' : ''}`} aria-label={`${set.title}: ${saved.includes(set.id) ? tr('favorilerden kaldır') : tr('favorilere ekle')}`} aria-pressed={saved.includes(set.id)} onClick={() => toggleSaved(set.id)}><Bookmark size={17} fill={saved.includes(set.id) ? 'currentColor' : 'none'}/></button></div><figure className="quiz-card-figure" aria-hidden="true"><img src={figureSrc(set.diagram)} width="760" height="460" loading="lazy" alt=""/></figure><h3><button onClick={() => onSelect(set)}>{set.title}</button></h3><p className="quiz-card-desc">{set.description}</p><div className="quiz-card-meta"><span>{lang.toLocaleUpperCase()}</span>{studied.includes(set.id) && <span className="quiz-done"><CheckCircle2 size={13}/> {tr('Çalıştım')}</span>}{saved.includes(set.id) && <span className="quiz-done"><Bookmark size={13} fill="currentColor"/> {tr('Favori')}</span>}</div><button className="quiz-card-start" onClick={() => onSelect(set)}>{tr('Quizi çöz')} <ArrowRight size={16}/></button></article>; })}</div>
     {!results.length && <div className="empty-state"><Search size={32}/><h3>{tab === 'saved' ? tr('Bu filtrelerde favori quiz yok.') : tr('Bu aramada quiz bulamadık.')}</h3><p>{tr('Başka bir terim dene veya filtreleri temizle. Yer imiyle quizleri favorilerine ekleyebilirsin.')}</p><button className="primary-button" onClick={() => { setQuery(''); setTab('all'); }}>{tr('Tüm quizleri göster')}</button></div>}
     <div className="quiz-native-band"><div><h2>{tr('Okudun, izledin. Peki hatırlıyor musun?')}</h2><p>{tr('Zamanlı denemeler, görsel şema alıştırmaları ve sana özel tekrar defteri “Kendini sına” bölümünde.')}</p></div><button className="primary-button" onClick={onPractice}>{tr('Kendini sına')} <ArrowRight size={16}/></button></div>
   </section>;
