@@ -18,12 +18,16 @@
 // heading. tests/lesson-i18n.test.js enforces this.
 import en0 from './lessons/i18n/en/0.js';
 import en1 from './lessons/i18n/en/1.js';
+import en2 from './lessons/i18n/en/2.js';
+import en3 from './lessons/i18n/en/3.js';
 import ar0 from './lessons/i18n/ar/0.js';
 import ar1 from './lessons/i18n/ar/1.js';
+import ar2 from './lessons/i18n/ar/2.js';
+import ar3 from './lessons/i18n/ar/3.js';
 
 const registry = {
-  en: { 0: en0, 1: en1 },
-  ar: { 0: ar0, 1: ar1 },
+  en: { 0: en0, 1: en1, 2: en2, 3: en3 },
+  ar: { 0: ar0, 1: ar1, 2: ar2, 3: ar3 },
 };
 
 export const TRANSLATED_LESSONS = {

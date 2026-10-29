@@ -73,10 +73,11 @@ test('study guides and exam teaching are translated together with the lesson', (
 });
 
 test('a missing translation falls back to the Turkish lesson instead of breaking', () => {
-  const base = lessons[2];
-  assert.equal(hasLessonTranslation('en', 2), false);
-  const merged = lessonIn('en', 2, base);
-  assert.equal(merged, base);
+  const missing = Object.keys(lessons).map(Number).find(index => !hasLessonTranslation('en', index));
+  assert.ok(missing >= 0, 'every lesson is already translated; keep this test for the next untranslated one');
+  const base = lessons[missing];
+  assert.equal(hasLessonTranslation('en', missing), false);
+  assert.equal(lessonIn('en', missing, base), base);
   assert.equal(lessonTranslation('xx', 0), null);
 });
 
