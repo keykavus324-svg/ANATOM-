@@ -10,27 +10,34 @@ import {
   Trash2,
 } from "lucide-react";
 import { notes } from "./data";
+import { localizedNote } from "./content/localizedContent.js";
+import { translate } from "./i18nPhrases.js";
 import { diagramIn } from "./content/diagramI18n.js";
 import {
-  knowledgeQuestions,
-  visualQuestions,
+  practiceBank,
   questionById,
   makeSession,
   cleanNotebook,
   recordAnswer,
-  dueQuestions,
+  dueQuestionsIn,
   gradeSession,
   PRACTICE_KEY,
 } from "./practice";
 import "./practice.css";
 import { useI18n } from "./i18n.jsx";
-const titleFor = (n) =>
-  notes.find((note) => note.number === n)?.title || `Ders ${n}`;
+const titleFor = (n, lang) => {
+  const note = notes.find((item) => item.number === n);
+  if (!note) return `${translate(lang, "Ders")} ${n}`;
+  return localizedNote(note, lang).title;
+};
 const timeText = (s) =>
   `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 
 export default function PracticePage({ onLesson, onExternalQuizzes }) {
   const { tr, lang } = useI18n();
+  // The question bank is generated for the current language from the same
+  // translations the lesson pages use.
+  const { knowledgeQuestions, visualQuestions } = practiceBank(lang);
   const [notebook, setNotebook] = useState(() => {
     try {
       return cleanNotebook(JSON.parse(localStorage.getItem(PRACTICE_KEY)));
@@ -68,7 +75,7 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
       heading.current?.scrollIntoView({ block: "start", behavior: "instant" });
     });
   const allPending = Object.keys(notebook).map((id) => questionById[id]);
-  const due = dueQuestions(notebook);
+  const due = dueQuestionsIn(lang, notebook);
   const pool = (
     mode === "visual" ? visualQuestions : knowledgeQuestions
   ).filter((q) => lesson === "all" || q.lesson === Number(lesson));
@@ -345,7 +352,7 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
                   <li key={q.id}>
                     <div>
                       <small>
-                        {titleFor(q.lesson)} ·{" "}
+                        {titleFor(q.lesson, lang)} ·{" "}
                         {q.kind === "visual" ? tr("Görsel") : tr("Konu sorusu")}
                       </small>
                       <h3>{q.topic}</h3>
@@ -432,7 +439,7 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
             max={session.questions.length}
           />
           <p className="practice-topic">
-            {titleFor(current.lesson)} · {current.topic}
+            {titleFor(current.lesson, lang)} · {current.topic}
           </p>
           <h2 ref={heading} tabIndex={-1} dir="auto">
             {current.q}
@@ -638,7 +645,7 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
           <ul className="practice-topic-results">
             {result.topics.map((t) => (
               <li key={t.lesson}>
-                <span>{titleFor(t.lesson)}</span>
+                <span>{titleFor(t.lesson, lang)}</span>
                 <strong>
                   {t.correct} / {t.total}
                 </strong>

@@ -1,25 +1,40 @@
 import { lessons } from "./lessons.js";
 import { diagrams } from "./content/diagrams.js";
-import { examTeaching } from "./content/exam/index.js";
+import { teachingForLesson } from "./content/exam/index.js";
+import { teachingIn } from "./content/lessonI18n.js";
+import { diagramIn } from "./content/diagramI18n.js";
+import { translate } from "./i18nPhrases.js";
 
-export const knowledgeQuestions = examTeaching.flatMap((item) =>
-  item.checks.map((check, i) => ({
-    ...check,
-    id: `knowledge:${item.id}:${i}`,
-    lesson: item.lesson,
-    section: item.section,
-    kind: "knowledge",
-    topic: item.title,
-  })),
-);
-export const visualQuestions = Object.entries(lessons).flatMap(
-  ([number, lesson]) =>
+// The practice bank is generated from the exam teaching and the diagrams, so it
+// follows the language of every other piece of content instead of carrying its
+// own copy of the questions: the knowledge items come from the same translated
+// teaching patches as the lesson pages, and the visual items from diagramIn().
+const KNOWLEDGE_LESSONS = Object.keys(lessons).map(Number).filter((n) => n > 0);
+
+function knowledgeQuestionsFor(lang) {
+  return KNOWLEDGE_LESSONS.flatMap((number) =>
+    teachingIn(lang, number, teachingForLesson(number)).flatMap((item) =>
+      item.checks.map((check, i) => ({
+        ...check,
+        id: `knowledge:${item.id}:${i}`,
+        lesson: item.lesson,
+        section: item.section,
+        kind: "knowledge",
+        topic: item.title,
+      })),
+    ),
+  );
+}
+
+function visualQuestionsFor(lang) {
+  return Object.entries(lessons).flatMap(([number, lesson]) =>
     lesson.sections.flatMap((section) => {
       const figure = diagrams[section.diagram];
       if (!figure || Number(number) === 0 || figure.labels.length < 3)
         return [];
-      return figure.labels.map((label, index) => {
-        const others = figure.labels.filter((_, i) => i !== index).slice(0, 3);
+      const localized = diagramIn(lang, section.diagram);
+      return localized.labels.map((label, index) => {
+        const others = localized.labels.filter((_, i) => i !== index).slice(0, 3);
         return {
           id: `visual:${section.diagram}:${index}`,
           lesson: Number(number),
@@ -27,17 +42,40 @@ export const visualQuestions = Object.entries(lessons).flatMap(
           kind: "visual",
           diagram: section.diagram,
           marker: index + 1,
-          topic: figure.title,
-          q: `Şemada ${index + 1} numarayla işaretlenen yapı / kavram hangisidir?`,
+          topic: localized.title,
+          q: translate(
+            lang,
+            "Şemada {n} numarayla işaretlenen yapı / kavram hangisidir?",
+            { n: index + 1 },
+          ),
           options: [label.name, ...others.map((l) => l.name)],
           correct: 0,
-          why: `${label.name}: ${label.text} ${figure.takeaway}`,
+          why: `${label.name}: ${label.text} ${localized.takeaway}`,
           hint: label.text,
         };
       });
     }),
-);
-export const questionBank = [...knowledgeQuestions, ...visualQuestions];
+  );
+}
+
+const cache = new Map();
+
+export function practiceBank(lang = "tr") {
+  if (!cache.has(lang)) {
+    const knowledge = knowledgeQuestionsFor(lang);
+    const visual = visualQuestionsFor(lang);
+    cache.set(lang, {
+      knowledgeQuestions: knowledge,
+      visualQuestions: visual,
+      questionBank: [...knowledge, ...visual],
+    });
+  }
+  return cache.get(lang);
+}
+
+export const knowledgeQuestions = practiceBank("tr").knowledgeQuestions;
+export const visualQuestions = practiceBank("tr").visualQuestions;
+export const questionBank = practiceBank("tr").questionBank;
 export const questionById = Object.fromEntries(
   questionBank.map((q) => [q.id, q]),
 );
@@ -67,13 +105,13 @@ export function makeSession(pool, count, random = Math.random) {
 }
 export const PRACTICE_KEY = "anatomi-practice-v1";
 const DAY = 86400000;
-export function cleanNotebook(value) {
+export function cleanNotebook(value, byId = questionById) {
   if (!value || typeof value !== "object" || Array.isArray(value)) return {};
   return Object.fromEntries(
     Object.entries(value)
       .filter(
         ([id, v]) =>
-          Object.hasOwn(questionById, id) &&
+          Object.hasOwn(byId, id) &&
           v &&
           Number.isInteger(v.misses) &&
           v.misses > 0 &&
@@ -110,6 +148,15 @@ export const dueQuestions = (notebook, now = Date.now()) =>
   Object.keys(cleanNotebook(notebook))
     .filter((id) => notebook[id].due <= now)
     .map((id) => questionById[id]);
+
+// Same review queue, but with the questions rendered in the requested language.
+export function dueQuestionsIn(lang, notebook, now = Date.now()) {
+  const bank = practiceBank(lang);
+  const byId = Object.fromEntries(bank.questionBank.map((q) => [q.id, q]));
+  return Object.keys(cleanNotebook(notebook, byId))
+    .filter((id) => notebook[id].due <= now)
+    .map((id) => byId[id]);
+}
 export function gradeSession(questions, answers) {
   const correct = questions.filter((q) => answers[q.id] === q.correct).length;
   const answered = questions.filter((q) =>
