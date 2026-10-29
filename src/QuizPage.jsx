@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, Bookmark, BookOpen, Brain, CheckCircle2, ClipboardCheck, Eye, Heart, Languages, Layers, Maximize2, RotateCcw, Search, ShieldCheck, X } from 'lucide-react';
 import { quizSets, quizQuestions, findQuizSet } from './content/quizBank';
 import { quizDiagrams } from './content/quizDiagrams';
-import { diagrams } from './content/diagrams';
+import { diagramIn } from './content/diagramI18n.js';
 import { notes } from './data';
 import { buildAttempt, gradeAttempt } from './quiz';
 import './quiz.css';
@@ -11,7 +11,7 @@ import { useI18n } from './i18n.jsx';
 const icons = { temel: BookOpen, iskelet: Layers, kas: Layers, dolasim: Heart, sinir: Brain, solunum: Layers, duyu: Eye };
 const TOTAL = Object.values(quizQuestions).reduce((sum, list) => sum + list.length, 0);
 const figureSrc = id => quizDiagrams[id] ? `${import.meta.env.BASE_URL}diagrams/quiz/${id}.svg` : `${import.meta.env.BASE_URL}diagrams/${id}.svg`;
-const figureData = id => quizDiagrams[id] || diagrams[id];
+const figureData = (lang, id) => quizDiagrams[id] || diagramIn(lang, id);
 const validSetIds = (value, pool) => Array.isArray(value) ? value.filter(id => pool.some(s => s.id === id)) : [];
 
 function useQuizStorage(key) {
@@ -21,8 +21,8 @@ function useQuizStorage(key) {
 }
 
 function Figure({ id, large, onToggle }) {
-  const { tr } = useI18n();
-  const data = figureData(id);
+  const { tr, lang } = useI18n();
+  const data = figureData(lang, id);
   return <figure className="quiz-figure">
     <div className={large ? 'quiz-figure-scroll expanded' : 'quiz-figure-scroll'} tabIndex={large ? 0 : undefined} role={large ? 'region' : undefined} aria-label={large ? tr('Geniş şemayı kaydırarak incele') : undefined}>
       <img src={figureSrc(id)} width="760" height="507" alt={tr('{title}. Numaralı işaretlerin açıklamaları şekil altında ve yanıt açıklamalarında yer alır.', { title: data.title })}/>

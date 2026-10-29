@@ -4,7 +4,7 @@ import { lessons, readingMinutes } from './lessons';
 import { notes } from './data';
 import './lesson.css';
 import InstructionalFigure from './components/InstructionalFigure';
-import { diagrams } from './content/diagrams';
+import { diagramIn } from './content/diagramI18n.js';
 import { studyGuides } from './content/studyGuides';
 import ExamTeaching, { ExamLearningMap } from './components/ExamTeaching';
 import { teachingForLesson, teachingForSection } from './content/exam';
@@ -88,7 +88,7 @@ export default function LessonPage({ note, onPdf, onBack, onNavigate, onAtlas, a
         const figure = document.querySelector(`[data-diagram="${section.diagram}"]`);
         figure?.focus({ preventScroll: true });
         figure?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
-      }}><img src={`${import.meta.env.BASE_URL}diagrams/${section.diagram}.svg`} width="760" height="460" alt="" loading="lazy"/><span>{diagrams[section.diagram].title}<ArrowRight size={16}/></span></button>)}</div>
+      }}><img src={`${import.meta.env.BASE_URL}diagrams/${section.diagram}.svg`} width="760" height="460" alt="" loading="lazy"/><span>{diagramIn(lang, section.diagram).title}<ArrowRight size={16}/></span></button>)}</div>
       <div className="study-assignment"><strong>{tr('Şemada bul, kendi cümlenle anlat')}</strong><p>{guide.task}</p><details><summary>{tr('Örnek yanıtı karşılaştır')}</summary><p>{guide.answer}</p></details></div>
       <aside><strong>{tr('Sık karıştırılan nokta')}</strong><p>{guide.mistake}</p></aside>
       <small>{tr('Proje için hazırlanmış çalışma rehberi · Hocanın sınav sorusu değildir. Şemalar sadeleştirilmiş ve ölçeksizdir.')}</small>

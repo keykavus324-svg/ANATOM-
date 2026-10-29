@@ -10,7 +10,7 @@ import {
   Trash2,
 } from "lucide-react";
 import { notes } from "./data";
-import { diagrams } from "./content/diagrams";
+import { diagramIn } from "./content/diagramI18n.js";
 import {
   knowledgeQuestions,
   visualQuestions,
@@ -30,7 +30,7 @@ const timeText = (s) =>
   `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 
 export default function PracticePage({ onLesson, onExternalQuizzes }) {
-  const { tr } = useI18n();
+  const { tr, lang } = useI18n();
   const [notebook, setNotebook] = useState(() => {
     try {
       return cleanNotebook(JSON.parse(localStorage.getItem(PRACTICE_KEY)));
@@ -455,11 +455,11 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
                   src={`${import.meta.env.BASE_URL}diagrams/${current.diagram}.svg`}
                   width="760"
                   height="460"
-                  alt={`${diagrams[current.diagram].view}. Şemada ${current.marker} numaralı işareti bul. Metin ipucu aşağıdaki düğmeyle açılabilir.`}
+                  alt={`${diagramIn(lang, current.diagram).view}. ${tr("{n} numaralı işareti şemada bul. Metin ipucu aşağıdaki düğmeyle açılabilir.", { n: current.marker })}`}
                 />
               </div>
               <figcaption>
-                {diagrams[current.diagram].view} · {tr("Sadeleştirilmiş, ölçeksiz şema.")}
+                {diagramIn(lang, current.diagram).view} · {tr("Sadeleştirilmiş, ölçeksiz şema.")}
                 <div className="practice-actions">
                   <button aria-pressed={large} onClick={() => setLarge(!large)}>
                     {large ? tr("Ekrana sığdır") : tr("Görseli büyüt")}
