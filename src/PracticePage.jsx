@@ -23,12 +23,14 @@ import {
   PRACTICE_KEY,
 } from "./practice";
 import "./practice.css";
+import { useI18n } from "./i18n.jsx";
 const titleFor = (n) =>
   notes.find((note) => note.number === n)?.title || `Ders ${n}`;
 const timeText = (s) =>
   `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 
 export default function PracticePage({ onLesson, onExternalQuizzes }) {
+  const { tr } = useI18n();
   const [notebook, setNotebook] = useState(() => {
     try {
       return cleanNotebook(JSON.parse(localStorage.getItem(PRACTICE_KEY)));
@@ -159,23 +161,20 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
   return (
     <section className="practice-page">
       <header className="practice-hero">
-        <div className="eyebrow">BİLGİYİ KULLAN • EKSİĞİNİ GÖR</div>
+        <div className="eyebrow">{tr("BİLGİYİ KULLAN • EKSİĞİNİ GÖR")}</div>
         <h1 ref={view === "setup" ? heading : undefined} tabIndex={-1}>
-          Kendini <em>sına.</em>
+          {tr("Kendini")} <em>{tr("sına.")}</em>
         </h1>
-        <p>
-          Bir yapıyı tanı. Bilgini dene. Karıştırdığın konuyu zamanında yeniden
-          hatırla.
-        </p>
-        {onExternalQuizzes && <button className="text-button" style={{ marginTop: 18 }} onClick={onExternalQuizzes}>Anatomi quizleri çalışma alanı <ArrowRight size={16}/></button>}
+        <p>{tr("Bir yapıyı tanı. Bilgini dene. Karıştırdığın konuyu zamanında yeniden hatırla.")}</p>
+        {onExternalQuizzes && <button className="text-button" style={{ marginTop: 18 }} onClick={onExternalQuizzes}>{tr("Anatomi quizleri çalışma alanı")} <ArrowRight size={16}/></button>}
         <div className="practice-pills">
           <span>
             <ScanLine size={15} aria-hidden="true" />
-            {visualQuestions.length} görsel alıştırma
+            {tr("{n} görsel alıştırma", { n: visualQuestions.length })}
           </span>
           <span>
             <ClipboardCheck size={15} aria-hidden="true" />
-            {knowledgeQuestions.length} açıklamalı soru
+            {tr("{n} açıklamalı soru", { n: knowledgeQuestions.length })}
           </span>
           <span>
             <RotateCcw size={15} aria-hidden="true" />
@@ -190,18 +189,18 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
         </p>
       )}
       {(view === "setup" || view === "notebook") && (
-        <nav className="practice-tabs" aria-label="Çalışma alanları">
+        <nav className="practice-tabs" aria-label={tr("Çalışma alanları")}>
           <button
             aria-pressed={view === "setup"}
             onClick={() => setView("setup")}
           >
-            Yeni çalışma
+            {tr("Yeni çalışma")}
           </button>
           <button
             aria-pressed={view === "notebook"}
             onClick={() => setView("notebook")}
           >
-            Tekrar defterim <span>{allPending.length}</span>
+            {tr("Tekrar defterim")} <span>{allPending.length}</span>
           </button>
         </nav>
       )}
@@ -210,23 +209,23 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
           <div
             className="practice-modes"
             role="group"
-            aria-label="Çalışma türü"
+            aria-label={tr("Çalışma türü")}
           >
             <button
               aria-pressed={mode === "visual"}
               onClick={() => setMode("visual")}
             >
               <ScanLine aria-hidden="true" size={25} />
-              <strong>Görsel yapı tanıma</strong>
-              <span>Numarayı bul, yapıyı seç, gerekçeyi karşılaştır.</span>
+              <strong>{tr("Görsel yapı tanıma")}</strong>
+              <span>{tr("Numarayı bul, yapıyı seç, gerekçeyi karşılaştır.")}</span>
             </button>
             <button
               aria-pressed={mode === "exam"}
               onClick={() => setMode("exam")}
             >
               <ClipboardCheck aria-hidden="true" size={25} />
-              <strong>Deneme sınavı</strong>
-              <span>Konunu ve süreni seç. Açıklamaları sınav sonunda gör.</span>
+              <strong>{tr("Deneme sınavı")}</strong>
+              <span>{tr("Konunu ve süreni seç. Açıklamaları sınav sonunda gör.")}</span>
             </button>
           </div>
           <form
@@ -236,16 +235,16 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
               start();
             }}
           >
-            <h2>Çalışmanı oluştur.</h2>
+            <h2>{tr("Çalışmanı oluştur.")}</h2>
             <div className="practice-fields">
               <label>
-                Konu
+                {tr("Konu")}
                 <select
-                  aria-label="Konu"
+                  aria-label={tr("Konu")}
                   value={lesson}
                   onChange={(e) => setLesson(e.target.value)}
                 >
-                  <option value="all">Tüm anatomi dersleri</option>
+                  <option value="all">{tr("Tüm anatomi dersleri")}</option>
                   {notes
                     .filter((n) => n.number > 0)
                     .sort((a, b) => a.number - b.number)
@@ -257,54 +256,54 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
                 </select>
               </label>
               <label>
-                Soru sayısı
+                {tr("Soru sayısı")}
                 <select
-                  aria-label="Soru sayısı"
+                  aria-label={tr("Soru sayısı")}
                   value={count}
                   onChange={(e) => setCount(e.target.value)}
                 >
                   {["5", "10", "20"].map((n) => (
                     <option key={n} value={n}>
-                      {n} soru
+                      {tr("{n} soru", { n })}
                     </option>
                   ))}
-                  <option value="all">Uygun soruların tamamı</option>
+                  <option value="all">{tr("Uygun soruların tamamı")}</option>
                 </select>
               </label>
               {mode === "exam" && (
                 <label>
-                  Süre
+                  {tr("Süre")}
                   <select
-                    aria-label="Süre"
+                    aria-label={tr("Süre")}
                     value={minutes}
                     onChange={(e) => setMinutes(e.target.value)}
                   >
-                    <option value="0">Süresiz</option>
-                    <option value="10">10 dakika</option>
-                    <option value="20">20 dakika</option>
-                    <option value="30">30 dakika</option>
+                    <option value="0">{tr("Süresiz")}</option>
+                    <option value="10">{tr("10 dakika")}</option>
+                    <option value="20">{tr("20 dakika")}</option>
+                    <option value="30">{tr("30 dakika")}</option>
                   </select>
                 </label>
               )}
             </div>
             <p>
-              {pool.length} uygun soru var.{" "}
+              {tr("{n} uygun soru var.", { n: pool.length })}{" "}
               {pool.length > 0
-                ? `Bu çalışmada ${count === "all" ? pool.length : Math.min(Number(count), pool.length)} soru sorulacak; seçeneklerin sırası karıştırılır.`
-                : "Bu konu için henüz uygun soru yok. Başka konu veya çalışma türü seç."}
+                ? tr("Bu çalışmada {n} soru sorulacak; seçeneklerin sırası karıştırılır.", { n: count === "all" ? pool.length : Math.min(Number(count), pool.length) })
+                : tr("Bu konu için henüz uygun soru yok. Başka konu veya çalışma türü seç.")}
             </p>
             <button
               className="practice-primary"
               disabled={!pool.length}
               type="submit"
             >
-              Çalışmaya başla <ArrowRight size={16} aria-hidden="true" />
+              {tr("Çalışmaya başla")} <ArrowRight size={16} aria-hidden="true" />
             </button>
           </form>
           <aside className="practice-how">
-            <h3>Nasıl daha iyi öğrenirsin?</h3>
+            <h3>{tr("Nasıl daha iyi öğrenirsin?")}</h3>
             <ol>
-              <li>Görselde önce yönü ve bakış açısını belirle.</li>
+              <li>{tr("Görselde önce yönü ve bakış açısını belirle.")}</li>
               <li>
                 Cevabı yalnız adıyla değil, görevi veya komşuluğuyla söyle.
               </li>
@@ -324,13 +323,9 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
       {view === "notebook" && (
         <div className="practice-notebook">
           <h2 ref={heading} tabIndex={-1}>
-            Tekrar defterim
+            {tr("Tekrar defterim")}
           </h2>
-          <p>
-            Yanlış ve boş bıraktığın sorular burada birikir. Doğru yanıtladıkça
-            1, 3, 7, 14 ve 30 günlük aralıklarla yeniden planlanır. İlk tekrar
-            ertesi gündür. İstersen zamanını beklemeden çalışabilirsin.
-          </p>
+          <p>{tr("Yanlış ve boş bıraktığın sorular burada birikir. Doğru yanıtladıkça 1, 3, 7, 14 ve 30 günlük aralıklarla yeniden planlanır. İlk tekrar ertesi gündür. İstersen zamanını beklemeden çalışabilirsin.")}</p>
           {allPending.length ? (
             <>
               <div className="practice-actions">
@@ -339,10 +334,10 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
                   disabled={!due.length}
                   onClick={() => start(due, true)}
                 >
-                  Zamanı gelenleri çalış ({due.length})
+                  {tr("Zamanı gelenleri çalış ({n})", { n: due.length })}
                 </button>
                 <button onClick={() => start(allPending, true)}>
-                  Tüm defteri çalış ({allPending.length})
+                  {tr("Tüm defteri çalış ({n})", { n: allPending.length })}
                 </button>
               </div>
               <ul className="practice-review-list">
@@ -351,7 +346,7 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
                     <div>
                       <small>
                         {titleFor(q.lesson)} ·{" "}
-                        {q.kind === "visual" ? "Görsel" : "Konu sorusu"}
+                        {q.kind === "visual" ? tr("Görsel") : tr("Konu sorusu")}
                       </small>
                       <h3>{q.topic}</h3>
                       <p>
@@ -363,7 +358,7 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
                       </p>
                     </div>
                     <button onClick={() => start([q], true)}>
-                      Tekrar çalış <ArrowRight size={14} aria-hidden="true" />
+                      {tr("Tekrar çalış")} <ArrowRight size={14} aria-hidden="true" />
                     </button>
                   </li>
                 ))}
@@ -372,43 +367,37 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
                 className="practice-delete"
                 onClick={() => setConfirmClear(true)}
               >
-                <Trash2 size={15} aria-hidden="true" /> Defteri temizle
+                <Trash2 size={15} aria-hidden="true" /> {tr("Defteri temizle")}
               </button>
               {confirmClear && (
                 <div
                   className="practice-warning"
                   role="group"
-                  aria-label="Defteri temizleme onayı"
+                  aria-label={tr("Defteri temizleme onayı")}
                 >
-                  <p>
-                    Kaydedilen tüm tekrar kayıtları silinecek. Bu işlem geri
-                    alınamaz.
-                  </p>
+                  <p>{tr("Kaydedilen tüm tekrar kayıtları silinecek. Bu işlem geri alınamaz.")}</p>
                   <button
                     onClick={() => {
                       setNotebook({});
                       setConfirmClear(false);
                     }}
                   >
-                    Evet, defteri temizle
+                    {tr("Evet, defteri temizle")}
                   </button>
-                  <button onClick={() => setConfirmClear(false)}>Vazgeç</button>
+                  <button onClick={() => setConfirmClear(false)}>{tr("Vazgeç")}</button>
                 </div>
               )}
             </>
           ) : (
             <div className="practice-empty">
               <BookOpen size={32} aria-hidden="true" />
-              <h3>Temiz bir başlangıç.</h3>
-              <p>
-                Henüz kaydedilmiş yanlışın yok. Bir çalışma tamamladığında
-                ihtiyaç duyduğun konular burada görünecek.
-              </p>
+              <h3>{tr("Temiz bir başlangıç.")}</h3>
+              <p>{tr("Henüz kaydedilmiş yanlışın yok. Bir çalışma tamamladığında ihtiyaç duyduğun konular burada görünecek.")}</p>
               <button
                 className="practice-primary"
                 onClick={() => setView("setup")}
               >
-                Yeni çalışma oluştur
+                {tr("Yeni çalışma oluştur")}
               </button>
             </div>
           )}
@@ -424,28 +413,28 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
           <div className="practice-session-bar">
             <span>
               {session.mode === "exam"
-                ? "DENEME SINAVI"
+                ? tr("DENEME SINAVI")
                 : session.mode === "review"
-                  ? "TEKRAR ÇALIŞMASI"
-                  : "GÖRSEL ÇALIŞMA"}{" "}
+                  ? tr("TEKRAR ÇALIŞMASI")
+                  : tr("GÖRSEL ÇALIŞMA")}{" "}
               · {index + 1} / {session.questions.length}
             </span>
             {remaining !== null && (
-              <span role="timer" aria-label="Kalan süre">
+              <span role="timer" aria-label={tr("Kalan süre")}>
                 <Clock3 size={15} aria-hidden="true" />
                 {timeText(remaining)}
               </span>
             )}
           </div>
           <progress
-            aria-label="Soru ilerlemesi"
+            aria-label={tr("Soru ilerlemesi")}
             value={index + 1}
             max={session.questions.length}
           />
           <p className="practice-topic">
             {titleFor(current.lesson)} · {current.topic}
           </p>
-          <h2 ref={heading} tabIndex={-1}>
+          <h2 ref={heading} tabIndex={-1} dir="auto">
             {current.q}
           </h2>
           {current.kind === "visual" && (
@@ -459,7 +448,7 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
                 tabIndex={large ? 0 : undefined}
                 role={large ? "region" : undefined}
                 aria-label={
-                  large ? "Geniş görseli kaydırarak incele" : undefined
+                  large ? tr("Geniş görseli kaydırarak incele") : undefined
                 }
               >
                 <img
@@ -470,22 +459,21 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
                 />
               </div>
               <figcaption>
-                {diagrams[current.diagram].view} · Sadeleştirilmiş, ölçeksiz
-                şema.
+                {diagrams[current.diagram].view} · {tr("Sadeleştirilmiş, ölçeksiz şema.")}
                 <div className="practice-actions">
                   <button aria-pressed={large} onClick={() => setLarge(!large)}>
-                    {large ? "Ekrana sığdır" : "Görseli büyüt"}
+                    {large ? tr("Ekrana sığdır") : tr("Görseli büyüt")}
                   </button>
                   <button aria-expanded={hint} onClick={() => setHint(!hint)}>
-                    {hint ? "Metin ipucunu gizle" : "Metin ipucunu göster"}
+                    {hint ? tr("Metin ipucunu gizle") : tr("Metin ipucunu göster")}
                   </button>
                 </div>
                 {hint && <p>{current.hint}</p>}
               </figcaption>
             </figure>
           )}
-          <fieldset className="practice-options">
-            <legend className="sr-only">Yanıtını seç</legend>
+          <fieldset className="practice-options" dir="auto">
+            <legend className="sr-only">{tr("Yanıtını seç")}</legend>
             {current.options.map((option, i) => (
               <label
                 key={option}
@@ -514,7 +502,7 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
                   {option}
                 </span>
                 {immediate && checked[current.id] && i === current.correct && (
-                  <small>Doğru yanıt</small>
+                  <small>{tr("Doğru yanıt")}</small>
                 )}
               </label>
             ))}
@@ -525,16 +513,16 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
               disabled={answers[current.id] === undefined}
               onClick={check}
             >
-              Yanıtı kontrol et
+              {tr("Yanıtı kontrol et")}
             </button>
           )}
           {immediate && checked[current.id] && (
             <div className="practice-feedback" role="status">
               <strong>
                 {answers[current.id] === current.correct
-                  ? "Doğru."
-                  : "Henüz değil."}{" "}
-                Doğru yanıt: {current.options[current.correct]}
+                  ? tr("Doğru.")
+                  : tr("Henüz değil.")}{" "}
+                {tr("Doğru yanıt: {answer}", { answer: current.options[current.correct] })}
               </strong>
               <p>{current.why}</p>
             </div>
@@ -544,7 +532,7 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
               disabled={index === 0}
               onClick={() => changeQuestion(index - 1)}
             >
-              Önceki soru
+              {tr("Önceki soru")}
             </button>
             {index < session.questions.length - 1 && (
               <button
@@ -552,38 +540,38 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
                 disabled={immediate && !checked[current.id]}
                 onClick={() => changeQuestion(index + 1)}
               >
-                Sonraki soru <ArrowRight size={15} aria-hidden="true" />
+                {tr("Sonraki soru")} <ArrowRight size={15} aria-hidden="true" />
               </button>
             )}
             <button onClick={() => setConfirmFinish(true)}>
-              Çalışmayı bitir
+              {tr("Çalışmayı bitir")}
             </button>
           </div>
           {confirmFinish && (
             <div
               className="practice-warning"
               role="group"
-              aria-label="Çalışmayı bitirme onayı"
+              aria-label={tr("Çalışmayı bitirme onayı")}
             >
               <p>
-                {result.blank ? `${result.blank} soru boş kalacak. ` : ""}
-                Çalışmayı bitirip sonuçlarını görmek istiyor musun?
+                {result.blank ? `${tr("{n} soru boş kalacak.", { n: result.blank })} ` : ""}
+                {tr("Çalışmayı bitirip sonuçlarını görmek istiyor musun?")}
               </p>
-              <button onClick={finish}>Evet, sonuçları göster</button>
+              <button onClick={finish}>{tr("Evet, sonuçları göster")}</button>
               <button onClick={() => setConfirmFinish(false)}>
-                Çalışmaya devam et
+                {tr("Çalışmaya devam et")}
               </button>
             </div>
           )}
           {session.mode === "exam" && (
             <nav
               className="practice-question-grid"
-              aria-label="Sorular arasında gezin"
+              aria-label={tr("Sorular arasında gezin")}
             >
               {session.questions.map((q, i) => (
                 <button
                   key={q.id}
-                  aria-label={`Soru ${i + 1}${answers[q.id] === undefined ? " — boş" : " — yanıtlandı"}`}
+                  aria-label={answers[q.id] === undefined ? tr("Soru {n} — boş", { n: i + 1 }) : tr("Soru {n} — yanıtlandı", { n: i + 1 })}
                   aria-current={index === i ? "step" : undefined}
                   className={answers[q.id] === undefined ? "" : "answered"}
                   onClick={() => changeQuestion(i)}
@@ -605,31 +593,27 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
           <div className="practice-result-header">
             <CheckCircle2 size={32} aria-hidden="true" />
             <h2 ref={heading} tabIndex={-1}>
-              Sonucun değil, sonraki adımın.
+              {tr("Sonucun değil, sonraki adımın.")}
             </h2>
             {remaining === 0 && (
-              <p>Süre doldu; mevcut yanıtlarınla çalışma tamamlandı.</p>
+              <p>{tr("Süre doldu; mevcut yanıtlarınla çalışma tamamlandı.")}</p>
             )}
             <div className="practice-result-score">
               <strong>
                 {result.correct}
                 <small> / {result.total}</small>
               </strong>
-              <span>doğru yanıt</span>
+              <span>{tr("doğru yanıt")}</span>
             </div>
-            {onExternalQuizzes && <button className="text-button" style={{ marginTop: 18 }} onClick={onExternalQuizzes}>Anatomi quizleri çalışma alanı <ArrowRight size={16}/></button>}
+            {onExternalQuizzes && <button className="text-button" style={{ marginTop: 18 }} onClick={onExternalQuizzes}>{tr("Anatomi quizleri çalışma alanı")} <ArrowRight size={16}/></button>}
         <div className="practice-pills">
-              <span>{result.wrong} yanlış</span>
-              <span>{result.blank} boş</span>
+              <span>{tr("{n} yanlış", { n: result.wrong })}</span>
+              <span>{tr("{n} boş", { n: result.blank })}</span>
               <span>
-                %{Math.round((result.correct / result.total) * 100)} başarı
+                {tr("%{n} başarı", { n: Math.round((result.correct / result.total) * 100) })}
               </span>
             </div>
-            <p>
-              Yanlış ve boş sorular tekrar defterine eklendi. Bu sonuç yalnızca
-              bu alıştırma grubuna aittir; ders başarısının veya sınav notunun
-              ölçüsü değildir.
-            </p>
+            <p>{tr("Yanlış ve boş sorular tekrar defterine eklendi. Bu sonuç yalnızca bu alıştırma grubuna aittir; ders başarısının veya sınav notunun ölçüsü değildir.")}</p>
           </div>
           <div className="practice-actions">
             <button
@@ -639,7 +623,7 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
                 focusHeading();
               }}
             >
-              Yeni çalışma
+              {tr("Yeni çalışma")}
             </button>
             <button
               onClick={() => {
@@ -647,10 +631,10 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
                 focusHeading();
               }}
             >
-              Tekrar defterime git
+              {tr("Tekrar defterime git")}
             </button>
           </div>
-          <h3>Konuya göre durumun</h3>
+          <h3>{tr("Konuya göre durumun")}</h3>
           <ul className="practice-topic-results">
             {result.topics.map((t) => (
               <li key={t.lesson}>
@@ -661,16 +645,16 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
               </li>
             ))}
           </ul>
-          <h3>Yanıtlarını incele</h3>
+          <h3>{tr("Yanıtlarını incele")}</h3>
           {session.questions.map((q, i) => (
             <details className="practice-result-item" key={q.id}>
               <summary>
                 <span>
                   {answers[q.id] === undefined
-                    ? "Boş"
+                    ? tr("Boş")
                     : answers[q.id] === q.correct
-                      ? "Doğru"
-                      : "Yanlış"}
+                      ? tr("Doğru")
+                      : tr("Yanlış")}
                 </span>
                 {i + 1}.{" "}
                 {q.kind === "visual" ? `${q.topic} · ${q.marker} numara` : q.q}
@@ -685,16 +669,16 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
                 />
               )}
               <p>
-                <strong>Senin yanıtın: </strong>
-                {q.options[answers[q.id]] || "Boş bırakıldı"}
+                <strong>{tr("Senin yanıtın:")} </strong>
+                {q.options[answers[q.id]] || tr("Boş bırakıldı.")}
               </p>
               <p>
-                <strong>Doğru yanıt: </strong>
+                <strong>{tr("Doğru yanıt:")} </strong>
                 {q.options[q.correct]}
               </p>
               <p>{q.why}</p>
               <button onClick={() => openTopic(q)}>
-                İlgili konu anlatımına git{" "}
+                {tr("İlgili konu anlatımına git")}{" "}
                 <ArrowRight size={14} aria-hidden="true" />
               </button>
             </details>

@@ -20,10 +20,16 @@ export const notes = [
   { id: '17uPVDSN1Q0Dl9_0kJa09S7f-WuRT1jhD', number: 0, title: 'Önerilen Atlaslar ve Kitaplar', latin: 'Bibliotheca anatomica', category: 'Kaynaklar', description: 'Anatomi öğrenimini desteklemek için önerilen kaynaklar.', art: 'book', color: 'sand', original: '0-Önerilebilir-atlaslar-ve-kitaplar.pdf' },
 ];
 export const normalize = (text) => text.toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i');
-export function filterNotes({ query = '', category = 'Tüm notlar', savedOnly = false, saved = [], sort = 'course' } = {}) {
+// Same filtering rules, but over any list of notes. The interface passes the
+// language-specific note metadata (see content/localizedContent.js), so search works
+// in Turkish, English and Arabic while the stored category keys stay stable.
+export function filterNotesList(list, { query = '', category = 'Tüm notlar', savedOnly = false, saved = [], sort = 'course', locale = 'tr' } = {}) {
   const words = normalize(query.trim()).split(/\s+/);
-  const result = notes.filter(n => (category === 'Tüm notlar' || n.category === category) && (!savedOnly || saved.includes(n.id)) && words.every(word => normalize(`${n.title} ${n.latin} ${n.category} ${n.original}`).includes(word)));
-  if (sort === 'az') result.sort((a,b) => a.title.localeCompare(b.title, 'tr'));
+  const result = list.filter(n => (category === 'Tüm notlar' || n.category === category) && (!savedOnly || saved.includes(n.id)) && words.every(word => normalize(`${n.title} ${n.latin} ${n.category} ${n.original}`).includes(word)));
+  if (sort === 'az') result.sort((a,b) => a.title.localeCompare(b.title, locale));
   if (sort === 'reverse') result.reverse();
   return result;
+}
+export function filterNotes(options = {}) {
+  return filterNotesList(notes, options);
 }

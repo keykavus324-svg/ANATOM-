@@ -1,7 +1,9 @@
 import { findQuizSet } from './content/quizBank.js';
 import { notes } from './data.js';
 import { findAtlasScene, defaultAtlasScene } from './atlas.js';
-const paths = { home: '/', library: '/kutuphane', books: '/kitaplar', atlas: '/atlas', practice: '/calis', quizzes: '/quizler', saved: '/kaydedilenler', about: '/hakkinda' };
+const paths = { home: '/', library: '/kutuphane', sources: '/kaynaklar', atlas: '/atlas', practice: '/calis', quizzes: '/quizler', saved: '/kaydedilenler', about: '/hakkinda' };
+// Licensed book/atlas collections were removed; old links land on the resource page.
+const legacyPaths = { '/kitaplar': 'sources' };
 export function routeFromHash(hash) {
   const path = hash.replace(/^#/, '');
   const quizMatch = /^\/quizler(?:\/([\w-]+))?$/.exec(path);
@@ -13,7 +15,7 @@ export function routeFromHash(hash) {
   }
   const atlasMatch = /^\/atlas(?:\/([\w-]+))?$/.exec(path);
   if (atlasMatch) return { page: 'atlas', lesson: null, atlasSceneId: atlasMatch[1] || null, atlasScene: findAtlasScene(atlasMatch[1]) || defaultAtlasScene };
-  const page = Object.keys(paths).find(key => paths[key] === path) || 'home';
+  const page = Object.keys(paths).find(key => paths[key] === path) || legacyPaths[path] || 'home';
   return { page, lesson: null, atlasSceneId: null, atlasScene: null };
 }
 export const pageHash = page => `#${paths[page] || '/'}`;
