@@ -73,12 +73,17 @@ test('study guides and exam teaching are translated together with the lesson', (
 });
 
 test('a missing translation falls back to the Turkish lesson instead of breaking', () => {
-  const missing = Object.keys(lessons).map(Number).find(index => !hasLessonTranslation('en', index));
-  assert.ok(missing >= 0, 'every lesson is already translated; keep this test for the next untranslated one');
-  const base = lessons[missing];
-  assert.equal(hasLessonTranslation('en', missing), false);
-  assert.equal(lessonIn('en', missing, base), base);
+  // An unknown language never has a translation, so the fallback path is always
+  // exercised even once every lesson has been translated into en and ar.
+  assert.equal(hasLessonTranslation('xx', 0), false);
   assert.equal(lessonTranslation('xx', 0), null);
+  assert.equal(lessonIn('xx', 0, lessons[0]), lessons[0]);
+
+  const missing = Object.keys(lessons).map(Number).find(index => !hasLessonTranslation('en', index));
+  if (missing !== undefined) {
+    assert.equal(hasLessonTranslation('en', missing), false);
+    assert.equal(lessonIn('en', missing, lessons[missing]), lessons[missing]);
+  }
 });
 
 test('English lesson bodies are not leftover Turkish sentences', () => {
