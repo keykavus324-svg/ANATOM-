@@ -544,6 +544,25 @@ export const PHRASES = [
   ['Arşivi aç', 'Open the archive', 'افتح الأرشيف'],
   ['Telif hakkına saygı', 'Respect for copyright', 'احترام حقوق النشر'],
   ['Bu sitede telif hakkı korunan kitap veya atlas PDF’si barındırılmaz. Kaynak önerileri, hak sahiplerinin kendi yayınlarına bağlantı verir.', 'This site does not host PDFs of copyrighted books or atlases. Resource recommendations link to the rights holders’ own publications.', 'لا يستضيف هذا الموقع ملفات PDF لكتب أو أطالس محمية بحقوق النشر. وتشير توصيات المصادر إلى منشورات أصحاب الحقوق أنفسهم.'],
+  // Teaching diagrams (InstructionalFigure)
+  ['Şekil', 'Figure', 'شكل'],
+  ['Numaralı yapıların açıklamaları şeklin altında.', 'The numbered structures are explained under the figure.', 'توجد شروح البنى المرقّمة أسفل الشكل.'],
+  ['Büyüt', 'Enlarge', 'تكبير'],
+  ['Yapıları tek tek incele', 'Study the structures one by one', 'تفحّص البنى واحدة واحدة'],
+  ['Açıklamaları gizle / hatırla', 'Hide the explanations / recall', 'أخفِ الشروح / تذكّر'],
+  ['Çizimdeki numarayı bul, ardından açıklamasını incele.', 'Find the number in the drawing, then study its explanation.', 'ابحث عن الرقم في الرسم ثم تفحّص شرحه.'],
+  ['İncelenecek yapı', 'Structure to study', 'البنية المراد تفحّصها'],
+  ['Numaralara bakarak yapının görevini veya ilişkisini sesli anlat. Sonra her açıklamayı ayrı açıp karşılaştır. Bu bir puanlı sınav değildir.', 'Look at the numbers and say the task or relation of the structure aloud. Then open each explanation separately and compare. This is not a scored test.', 'انظر إلى الأرقام واذكر وظيفة البنية أو علاقتها بصوت مسموع. ثم افتح كل شرح على حدة وقارن. وهذا ليس اختبارًا مُقيَّمًا بدرجات.'],
+  ['açıklamayı göster', 'show the explanation', 'أظهر الشرح'],
+  ['ŞEKLİ OKURKEN', 'READING THE FIGURE', 'عند قراءة الشكل'],
+  ['ANATOMİ için hazırlanmış özgün öğretici şema · Ölçekli anatomik çizim değildir.', 'An original teaching diagram made for ANATOMİ · not a scale anatomical drawing.', 'مخطط تعليمي أصلي أُعدّ لأجل ANATOMİ · وليس رسمًا تشريحيًا بمقياس.'],
+  ['İNCELEME GÖRÜNÜMÜ', 'STUDY VIEW', 'وضع التفحّص'],
+  ['Şemayı kapat', 'Close the diagram', 'أغلق المخطط'],
+  ['Geniş çizimde yatay ve dikey kaydırabilirsin.', 'You can scroll horizontally and vertically in the enlarged drawing.', 'يمكنك التمرير أفقيًا ورأسيًا في الرسم المكبّر.'],
+  ['Şemayı küçült', 'Zoom out of the diagram', 'صغّر المخطط'],
+  ['Şemayı yakınlaştır', 'Zoom into the diagram', 'كبّر المخطط'],
+  ['Büyütülmüş şema; kaydırarak incele', 'Enlarged diagram; scroll to study it', 'مخطط مكبّر؛ مرّر لتفحّصه'],
+  ['{n} numaralı işareti şemada bul. Metin ipucu aşağıdaki düğmeyle açılabilir.', 'Find marker {n} in the diagram. The text hint can be opened with the button below.', 'ابحث عن العلامة رقم {n} في المخطط. ويمكن فتح التلميح النصي بالزر أدناه.'],
 ];
 
 export const DICTIONARIES = {
