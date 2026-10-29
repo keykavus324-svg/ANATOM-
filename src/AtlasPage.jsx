@@ -90,7 +90,7 @@ export default function AtlasPage({ scene, onScene, onLesson, onLibrary }) {
   };
   const copyLink = async () => {
     const link = `${window.location.origin}${window.location.pathname}#/atlas/${active.id}`;
-    try { await navigator.clipboard.writeText(link); setCopied('Sahne bağlantısı kopyalandı.'); }
+    try { await navigator.clipboard.writeText(link); setCopied(tr('Sahne bağlantısı kopyalandı.')); }
     catch { setCopied(link); }
   };
   const savedScenes = useMemo(() => saved.map(id => allScenes.find(item => item.id === id)).filter(Boolean), [saved]);
@@ -161,7 +161,7 @@ export default function AtlasPage({ scene, onScene, onLesson, onLibrary }) {
         <div className={`atlas-viewer ${pseudoFullscreen ? 'is-expanded' : ''}`} ref={viewer}>
           {reachable !== false && !loaded && !slow && <div className="atlas-overlay"><Loader size={26} className="atlas-spinner"/><p>{tr('{title} görünümü hazırlanıyor…', { title: active.title })}</p><small>{tr('Gömülü atlas altyapısına bağlanılıyor; ilk açılış birkaç saniye sürebilir.')}</small></div>}
           {(reachable === false || (slow && !loaded)) && !dismissed && <div className="atlas-overlay atlas-overlay-slow"><TriangleAlert size={25}/><p>{reachable === false ? tr('Gömülü atlasa bu ağdan ulaşılamıyor.') : tr('Gömülü görünüm açılmadı gibi görünüyor.')}</p><small>{reachable === false ? tr('Alan adı engellenmiş, çevrimdışısın ya da tarayıcı uzantın isteği durdurmuş olabilir. Atlası kaynağından yeni sekmede açabilirsin; sayfanın geri kalanı normal çalışır.') : tr('Ağ engeli, reklam engelleyici veya tarayıcının gizlilik ayarı çerçeveyi bloke edebilir. Atlası kaynağından yeni sekmede açabilirsin.')}</small><div className="atlas-overlay-actions"><a className="primary-button" href={url} target="_blank" rel="noreferrer">{tr('Yeni sekmede aç')} <ArrowUpRight size={15}/></a><button className="text-button" onClick={() => { setSlow(false); setReloadKey(key => key + 1); }}><RefreshCw size={15}/> {tr('Yeniden dene')}</button><button className="text-button" onClick={() => setDismissed(true)}>{tr('Pencereyi yine de göster')}</button></div></div>}
-          <iframe key={`${active.id}-${reloadKey}`} src={url} title={`${active.title} — 3B anatomi atlası görünümü`} allow="fullscreen; xr-spatial-tracking; clipboard-write" allowFullScreen onLoad={() => { setLoaded(true); setSlow(false); }}/>
+          <iframe key={`${active.id}-${reloadKey}`} src={url} title={`${active.title} — ${tr('3B anatomi atlası görünümü')}`} allow="fullscreen; xr-spatial-tracking; clipboard-write" allowFullScreen onLoad={() => { setLoaded(true); setSlow(false); }}/>
           {pseudoFullscreen && <button className="atlas-exit-fullscreen" onClick={() => setPseudoFullscreen(false)}><Minimize2 size={16}/> {tr('Tam ekrandan çık')}</button>}
         </div>
 
