@@ -420,7 +420,6 @@ export const PHRASES = [
   ['Tam ekran atlas', 'Full screen atlas', 'أطلس بشاشة كاملة'],
   ['Tam ekrandan çık', 'Exit full screen', 'الخروج من الشاشة الكاملة'],
   ['Sahne bağlantısını kopyala', 'Copy the scene link', 'انسخ رابط المشهد'],
-  ['Sahne bağlantısı kopyalandı.', 'Scene link copied.', 'تم نسخ رابط المشهد.'],
   ['Yeni sekmede aç', 'Open in a new tab', 'افتح في تبويب جديد'],
   ['{title} görünümü hazırlanıyor…', 'Preparing the {title} view…', 'جارٍ تجهيز مشهد {title}…'],
   ['Gömülü atlas altyapısına bağlanılıyor; ilk açılış birkaç saniye sürebilir.', 'Connecting to the embedded atlas service; the first opening may take a few seconds.', 'جارٍ الاتصال بخدمة الأطلس المضمّن؛ قد يستغرق الفتح الأول بضع ثوان.'],
@@ -565,6 +564,19 @@ export const PHRASES = [
   ['Ders', 'Lesson', 'الدرس'],
   ['Şemada {n} numarayla işaretlenen yapı / kavram hangisidir?', 'Which structure or concept is marked with the number {n} in the diagram?', 'ما البنية أو المفهوم المشار إليه بالرقم {n} في المخطط؟'],
   ['{n} numaralı işareti şemada bul. Metin ipucu aşağıdaki düğmeyle açılabilir.', 'Find marker {n} in the diagram. The text hint can be opened with the button below.', 'ابحث عن العلامة رقم {n} في المخطط. ويمكن فتح التلميح النصي بالزر أدناه.'],
+  // Practice source notice, review counter and storage warning
+  ['Proje için hazırlanmış alıştırmalar · Resmî çıkmış soru veya hocanın onayladığı sınav değildir. Şemalar sadeleştirilmiş ve ölçeksizdir; atlas yerine geçmez. Buradaki başarı gerçek sınav notunu garanti etmez.', 'Exercises written for this project · Not an official past exam paper and not an exam approved by the instructor. The diagrams are simplified and not to scale; they do not replace an atlas. Success here does not guarantee a real exam grade.', 'تمارين أُعدّت لهذا المشروع · ليست أسئلة امتحانية رسمية سابقة ولا امتحانًا معتمدًا من المدرّس. الرسوم مبسطة وبلا مقياس، ولا تُغني عن الأطلس. النجاح هنا لا يضمن درجة الامتحان الحقيقية.'],
+  ['{n} tekrar zamanı gelen', '{n} due for review', '{n} بانتظار المراجعة'],
+  ['Tarayıcı depolaması kullanılamıyor. Bu oturumda çalışabilirsin; tekrar defterin sayfa kapatılınca korunmayabilir.', 'Browser storage is unavailable. You can keep practising in this session, but your review notebook may not survive closing the page.', 'تعذّر استخدام تخزين المتصفح. يمكنك التدرّب في هذه الجلسة، لكن دفتر المراجعة قد لا يبقى بعد إغلاق الصفحة.'],
+  // Atlas actions
+  ['3B anatomi atlası görünümü', '3D anatomy atlas view', 'عرض الأطلس التشريحي ثلاثي الأبعاد'],
+  // Instructor portrait
+  ['Bekir Dağdeviren — fotoğraf yüklenemedi', 'Bekir Dağdeviren — photo could not load', 'بكر داغديفيرن — تعذّر تحميل الصورة'],
+  ['Öğr. Gör. Bekir Dağdeviren’in portresi', 'Portrait of Lect. Bekir Dağdeviren', 'صورة المدرّس بكر داغديفيرن'],
+  ['Fotoğrafı akademik profilde gör', 'See the photo in the academic profile', 'شاهد الصورة في الملف الأكاديمي'],
+  ['Fotoğraf: Akademik Bilgi Sistemi', 'Photo: Academic Information System', 'الصورة: نظام المعلومات الأكاديمي'],
+  ['FIRAT ÜNİVERSİTESİ', 'FIRAT UNIVERSITY', 'جامعة الفرات'],
+  ['Sahne bağlantısı kopyalandı.', 'Scene link copied.', 'تم نسخ رابط المشهد.'],
 ];
 
 export const DICTIONARIES = {

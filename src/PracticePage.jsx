@@ -155,9 +155,7 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
   const immediate = session?.mode !== "exam";
   const sourceNote = (
     <p className="practice-source-note">
-      Proje için hazırlanmış alıştırmalar · Resmî çıkmış soru veya hocanın
-      onayladığı sınav değildir. Şemalar sadeleştirilmiş ve ölçeksizdir; atlas
-      yerine geçmez. Buradaki başarı gerçek sınav notunu garanti etmez.
+      {tr("Proje için hazırlanmış alıştırmalar · Resmî çıkmış soru veya hocanın onayladığı sınav değildir. Şemalar sadeleştirilmiş ve ölçeksizdir; atlas yerine geçmez. Buradaki başarı gerçek sınav notunu garanti etmez.")}
     </p>
   );
   const openTopic = (q) =>
@@ -185,14 +183,13 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
           </span>
           <span>
             <RotateCcw size={15} aria-hidden="true" />
-            {due.length} tekrar zamanı gelen
+            {tr("{n} tekrar zamanı gelen", { n: due.length })}
           </span>
         </div>
       </header>
       {storageError && (
         <p role="status" className="practice-warning">
-          Tarayıcı depolaması kullanılamıyor. Bu oturumda çalışabilirsin; tekrar
-          defterin sayfa kapatılınca korunmayabilir.
+          {tr("Tarayıcı depolaması kullanılamıyor. Bu oturumda çalışabilirsin; tekrar defterin sayfa kapatılınca korunmayabilir.")}
         </p>
       )}
       {(view === "setup" || view === "notebook") && (
