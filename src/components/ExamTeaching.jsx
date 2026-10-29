@@ -1,7 +1,7 @@
 import React, { useId, useState } from 'react';
 import { ArrowRight, BookOpen, CheckCircle2, RotateCcw } from 'lucide-react';
-import { examSources, teachingForLesson, teachingForSection, examReviewDate } from '../content/exam';
-import { examVisuals } from '../content/exam/visuals';
+import { teachingForLesson, teachingForSection } from '../content/exam';
+import { examSourcesIn, examReviewDateIn, examLocatorIn, examVisualIn } from '../content/examI18n.js';
 import './exam-teaching.css';
 import { useI18n } from '../i18n.jsx';
 
@@ -12,7 +12,9 @@ function moveTo(id) {
 }
 
 export function ExamLearningMap({ number, items: translatedItems, note }) {
-  const { tr } = useI18n();
+  const { tr, lang } = useI18n();
+  const examSources = examSourcesIn(lang);
+  const examReviewDate = examReviewDateIn(lang);
   const items = translatedItems || teachingForLesson(number);
   if (!items.length) return null;
   const sourceKeys = [...new Set(items.flatMap(item => item.evidence.map(([key]) => key)))];
@@ -47,8 +49,8 @@ function KnowledgeCheck({ check }) {
 }
 
 function TeachingFigure({ id }) {
-  const { tr } = useI18n();
-  const figure = examVisuals[id];
+  const { tr, lang } = useI18n();
+  const figure = examVisualIn(lang, id);
   const captionId = useId();
   const [large, setLarge] = useState(false);
   if (!figure) return null;
@@ -59,7 +61,8 @@ function TeachingFigure({ id }) {
 }
 
 export default function ExamTeaching({ number, section, items: translatedItems }) {
-  const { tr } = useI18n();
+  const { tr, lang } = useI18n();
+  const examSources = examSourcesIn(lang);
   const items = (translatedItems || teachingForSection(number, section));
   return items.map(item => <div className="exam-teaching" key={item.id}>
     <div className="teaching-kicker">{tr("AÇIKLA • KARŞILAŞTIR • UYGULA")}</div>
@@ -69,6 +72,6 @@ export default function ExamTeaching({ number, section, items: translatedItems }
     <div className="lesson-table-wrap"><table><caption>{item.title} — {tr("ayırt etme tablosu")}</caption><thead><tr>{item.headers.map(h => <th scope="col" key={h}>{h}</th>)}</tr></thead><tbody>{item.rows.map(row => <tr key={row[0]}>{row.map((cell, i) => i === 0 ? <th scope="row" key={i}>{cell}</th> : <td key={i}>{cell}</td>)}</tr>)}</tbody></table></div>
     {item.trap && <aside className="teaching-trap"><strong>{tr("Çeldiriciyi fark et")}</strong><p>{item.trap}</p></aside>}
     {item.checks.map(check => <KnowledgeCheck key={check.q} check={check}/>)}
-    <details className="teaching-evidence"><summary>{tr("Bu ek anlatımın kaynak eşleşmesi")}</summary><p>{tr("İlgili ders notunun konu aralığı bölümün altında belirtilir. Anlatım ve gerekçeler proje için yeniden yazılmıştır; birebir alıntı değildir.")}</p>{item.evidence.length > 0 ? <ul>{item.evidence.map(([key, locator]) => <li key={`${key}-${locator}`}><a href={`https://drive.google.com/file/d/${examSources[key].id}/view`} target="_blank" rel="noreferrer">{examSources[key].name}</a> · {examSources[key].pages ? tr('PDF sayfası: ') : tr('Konu / soru: ')}{locator}</li>)}</ul> : <p>{tr("Bu başlık ders notundan tamamlayıcı anlatımdır; doğrudan çıkmış soru eşleştirmesi yapılmadı.")}</p>}</details>
+    <details className="teaching-evidence"><summary>{tr("Bu ek anlatımın kaynak eşleşmesi")}</summary><p>{tr("İlgili ders notunun konu aralığı bölümün altında belirtilir. Anlatım ve gerekçeler proje için yeniden yazılmıştır; birebir alıntı değildir.")}</p>{item.evidence.length > 0 ? <ul>{item.evidence.map(([key, locator]) => <li key={`${key}-${locator}`}><a href={`https://drive.google.com/file/d/${examSources[key].id}/view`} target="_blank" rel="noreferrer">{examSources[key].name}</a> · {examSources[key].pages ? tr('PDF sayfası: ') : tr('Konu / soru: ')}{examLocatorIn(lang, locator)}</li>)}</ul> : <p>{tr("Bu başlık ders notundan tamamlayıcı anlatımdır; doğrudan çıkmış soru eşleştirmesi yapılmadı.")}</p>}</details>
   </div>);
 }
