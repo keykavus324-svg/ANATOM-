@@ -7,7 +7,8 @@ import InstructionalFigure from './components/InstructionalFigure';
 import { diagrams } from './content/diagrams';
 import { studyGuides } from './content/studyGuides';
 import ExamTeaching, { ExamLearningMap } from './components/ExamTeaching';
-import { teachingForLesson } from './content/exam';
+import { teachingForLesson, teachingForSection } from './content/exam';
+import { lessonIn, guideIn, teachingIn, hasLessonTranslation, TRANSLATED_LESSONS } from './content/lessonI18n';
 import { useI18n, useLocalizedContent } from './i18n.jsx';
 
 function ComparisonTable({ table, title }) {
@@ -16,12 +17,17 @@ function ComparisonTable({ table, title }) {
 }
 
 export default function LessonPage({ note, onPdf, onBack, onNavigate, onAtlas, atlasScene, saved, onSave, completed, onComplete }) {
-  const { tr, isTurkish } = useI18n();
+  const { tr, isTurkish, lang } = useI18n();
   const { categoryLabel, notes: localizedNotes, scene: localizedScene } = useLocalizedContent();
-  const lesson = lessons[note.number];
-  const guide = studyGuides[note.number];
-  const additionalTeaching = teachingForLesson(note.number);
+  const baseLesson = lessons[note.number];
+  // Translated lesson bodies replace the Turkish text element by element; the
+  // structure, diagram keys and source page references stay identical.
+  const lesson = lessonIn(lang, note.number, baseLesson);
+  const guide = guideIn(lang, note.number, studyGuides[note.number]);
+  const additionalTeaching = teachingIn(lang, note.number, teachingForLesson(note.number));
+  const translated = hasLessonTranslation(lang, note.number);
   const diagramCount = lesson.sections.filter(s => s.diagram).length + additionalTeaching.filter(item => item.visual).length;
+  const translatedCount = TRANSLATED_LESSONS[lang]?.length || 0;
   const [active, setActive] = useState(lesson.sections[0].id);
   const [progress, setProgress] = useState(0);
   const [fontSize, setFontSize] = useState(() => {
@@ -71,10 +77,10 @@ export default function LessonPage({ note, onPdf, onBack, onNavigate, onAtlas, a
       <figure className={`lesson-illustration illustration-${note.number}`}><span className="illustration-orbit"/><img src={`${import.meta.env.BASE_URL}${lesson.image.replace(/^\//, '')}`} alt={lesson.imageAlt} fetchPriority="high"/><figcaption><span>FIG. {String(note.number || 12).padStart(2, '0')}</span>{note.latin}<small>{tr('Yapay zekâ ile üretilmiş temsili çizim · Anatomik referans değildir.')}</small></figcaption></figure>
     </header>
     <div className="lesson-toolbar"><div className="reading-modes" aria-label={tr('Okuma biçimi')}><span className="current-mode"><BookOpen size={16}/> {tr('Sitede oku')}</span><button onClick={() => onPdf(note)}><FileText size={16}/> {tr('Orijinal PDF')} <ArrowUpRight size={14}/></button>{atlasScene && onAtlas && <button className="lesson-atlas-button" onClick={onAtlas}><Rotate3d size={16}/> 3D atlas <ArrowUpRight size={14}/></button>}</div><div className="reading-tools"><div className="font-controls" aria-label={tr('Metin boyutu')}><button onClick={() => setFontSize(s => Math.max(14, s - 2))} disabled={fontSize === 14} aria-label={tr('Yazıyı küçült')}><Minus size={13}/></button><span aria-live="polite" aria-label={tr('Yazı boyutu {n} piksel', { n: fontSize })}>Aa</span><button onClick={() => setFontSize(s => Math.min(20, s + 2))} disabled={fontSize === 20} aria-label={tr('Yazıyı büyüt')}><Plus size={13}/></button></div><button className={`lesson-save ${saved ? 'is-saved' : ''}`} aria-pressed={saved} onClick={() => onSave(note.id)}><Bookmark size={16} fill={saved ? 'currentColor' : 'none'}/><span>{saved ? tr('Kaydedildi') : tr('Kaydet')}</span></button></div><div className="reading-progress" role="progressbar" aria-label={tr('Konu anlatımında ilerleme')} aria-valuemin={0} aria-valuemax={100} aria-valuenow={progress}><span style={{ width: `${progress}%` }}/></div></div>
-    {!isTurkish && <div className="lesson-language-note"><Languages size={18}/><p>{tr('Bu sayfadaki ders metni Türkçedir. Arapça ders notu ve özgün PDF’ler Kaynaklar bölümündedir.')}</p></div>}
+    {!isTurkish && !translated && <div className="lesson-language-note"><Languages size={18}/><p>{tr('Bu ders henüz {language} diline çevrilmedi; metin Türkçe gösteriliyor. Çevrilen dersler: {done} / {total}. Arapça ders notu ve özgün PDF’ler Kaynaklar bölümündedir.', { language: tr(lang === 'ar' ? 'Arapça' : 'İngilizce'), done: translatedCount, total: 12 })}</p></div>}
     <div className="web-edition-note"><BookOpen size={18}/><p>{tr('Hocanın kaynak notları temel alınarak, konuları birbirine bağlayan açıklamalarla yeniden yazıldı. Slaytları karşılaştırmak için')} <button onClick={() => onPdf(note)}>{tr('orijinal PDF’yi aç')} <ArrowUpRight size={12}/></button>.</p></div>
     {atlasScene && onAtlas && <div className="lesson-atlas-note"><Rotate3d size={18}/><p><strong>{tr('Bu dersin üç boyutlu eşleşmesi:')}</strong> {localizedScene(atlasScene).title} · <em>{atlasScene.latin}</em> — {tr('Gömülü 3B atlasta katmanları kaldırıp yapıyı döndürerek inceleyebilirsin.')}<button onClick={onAtlas}>{tr('3D atlas sahnesini aç')} <ArrowUpRight size={12}/></button></p></div>}
-    <ExamLearningMap number={note.number}/>
+    <ExamLearningMap number={note.number} items={additionalTeaching}/>
     {guide && <section className="visual-study" aria-label={tr('Görerek öğren çalışma alanı')}>
       <div className="eyebrow">{tr('GÖR → İLİŞKİ KUR → HATIRLA')}</div>
       <h2>{guide.goal}</h2><p>{guide.explanation}</p>
@@ -100,7 +106,7 @@ export default function LessonPage({ note, onPdf, onBack, onNavigate, onAtlas, a
             {subsection.paragraphs?.map((p, k) => <p key={k}>{p}</p>)}
             {subsection.table && <ComparisonTable table={subsection.table} title={subsection.title}/>}
           </div>)}
-          <ExamTeaching number={note.number} section={section.id}/>
+          <ExamTeaching number={note.number} section={section.id} items={teachingIn(lang, note.number, teachingForSection(note.number, section.id))}/>
           {section.diagram && <InstructionalFigure diagramId={section.diagram} number={`${String(note.number).padStart(2, '0')}.${String(i + 1).padStart(2, '0')}`}/>}
           {section.callout && <aside className="lesson-callout"><span>{tr('AKLINDA KALSIN')}</span><p>{section.callout}</p></aside>}
           <div className="section-source"><FileText size={12}/><span>{section.source} · {tr('Kaynak konu aralığı')}</span></div>

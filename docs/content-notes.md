@@ -8,10 +8,15 @@
 2. **Arapça ders notu eklendi.** Hocamızın ders notlarının Arapça çevirisi (`1syfu-piLHAh3dPNlnqRuB2q3GfmURTu6`) Kaynaklar sayfasında gömülü Google Drive okuyucusunda açılır. Dosya kopyalanmaz, yeniden yüklenmez; kimlik ve bağlantılar `src/resources.js` içinde tek yerde tutulur. Notun Türkçe/İngilizce/Arapça başlık ve açıklaması vardır.
 3. **Arayüz üç dilli.** Türkçe (varsayılan), English ve العربية. Menü, ana sayfa, ders başlıkları ve kısa açıklamaları, kategoriler, atlas sahne adları, quiz ve alıştırma arayüzü, PDF okuyucu, kaynak ve hakkında sayfaları ile yardım metinleri çevrildi. Arapça seçildiğinde `dir="rtl"` uygulanır, kenar çubuğu ve yerleşim aynalanır.
 
-### Diller arasında bilinçli sınır
+### Ders gövdelerinin çevirisi (29 Ekim 2026, ikinci aşama)
 
-- **Çevrilmeyen:** `src/content/lessons/*` altındaki elle yazılmış ders gövdesi ve yerel soru bankası. Bu metinler Türkçe yazılmış editoryal içeriktir; makine çevirisiyle tıbbi anlatım üretmek doğruluk riski taşıdığı için yapılmadı. Arapça veya İngilizce arayüzde ders sayfası, metnin Türkçe olduğunu ve Arapça notun Kaynaklar bölümünde bulunduğunu açıkça söyler; Türkçe bloklar LTR olarak korunur.
-- **Çevrilen ama yeniden yazılmayan:** quiz/alıştırma soru metinleri Türkçe kalır; yalnızca bunları çevreleyen arayüz (düğmeler, uyarılar, sonuç etiketleri) çevrilir.
+Kullanıcı isteği üzerine "metin Türkçe kalır" sınırı kaldırıldı: ders gövdesi de çevriliyor.
+
+- **Yöntem:** her ders için `src/content/lessons/i18n/en/<no>.js` ve `.../ar/<no>.js` dosyaları, Türkçe dersin *yerine geçen* bir yama tutar (alt başlık, giriş, kapsam, bölüm başlıkları, paragraflar, tablolar, uyarı, alt bölümler, sözlük, tekrar soruları, çalışma rehberi ve o dersin sınav anlatımları). `src/content/lessonI18n.js` yamayı Türkçe derse uygular; bölüm `id`'leri, `sourcePages`, şema anahtarları ve renkler Türkçe asıldan gelir.
+- **Makine çevirisi kullanılmadı.** Çeviriler doğrudan yazıldı; tıbbi anlatımda yanlış sözcük anlamı değiştirdiği için otomatik çeviri kabul edilmedi.
+- **Sessiz kayma yok:** dizi uzunlukları (paragraf, alt bölüm, tablo satırı, kontrol sorusu) uyuşmazsa birleştirme hata verir; `tests/lesson-i18n.test.js` bunu ve İngilizce gövdede Türkçe cümle kalmadığını doğrular. `tests/browser.spec.js` içindeki "lesson reading body" testi dil değişimini tarayıcıda kontrol eder.
+- **Durum:** ders 0–3 İngilizce ve Arapça olarak tamamlandı. Kalan dersler (4–11) ile sınav anlatımı, şema başlıkları, quiz ve alıştırma bankaları aynı yöntemle sırayla çevrilecek; çevirisi olmayan ders Türkçe gösterilir ve sayfada kaç dersin çevrildiğini söyleyen bir not çıkar.
+- **Arayüz çevirileri** hocanın onayladığı bir çeviri değildir; yayın öncesi Arapça ve İngilizce metinlerin ana dili konuşuru tarafından okunması önerilir.
 - Arayüz çevirileri, hocanın onayladığı bir çeviri değildir; yayın öncesi Arapça ve İngilizce metinlerin ana dili konuşuru tarafından okunması önerilir.
 
 ### Kaynaklar sayfasındaki açık lisanslı kaynaklar
