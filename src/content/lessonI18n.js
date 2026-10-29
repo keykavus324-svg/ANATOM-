@@ -23,6 +23,7 @@ import en3 from './lessons/i18n/en/3.js';
 import en4 from './lessons/i18n/en/4.js';
 import en5 from './lessons/i18n/en/5.js';
 import en6 from './lessons/i18n/en/6.js';
+import en7 from './lessons/i18n/en/7.js';
 import ar0 from './lessons/i18n/ar/0.js';
 import ar1 from './lessons/i18n/ar/1.js';
 import ar2 from './lessons/i18n/ar/2.js';
@@ -30,10 +31,11 @@ import ar3 from './lessons/i18n/ar/3.js';
 import ar4 from './lessons/i18n/ar/4.js';
 import ar5 from './lessons/i18n/ar/5.js';
 import ar6 from './lessons/i18n/ar/6.js';
+import ar7 from './lessons/i18n/ar/7.js';
 
 const registry = {
-  en: { 0: en0, 1: en1, 2: en2, 3: en3, 4: en4, 5: en5, 6: en6 },
-  ar: { 0: ar0, 1: ar1, 2: ar2, 3: ar3, 4: ar4, 5: ar5, 6: ar6 },
+  en: { 0: en0, 1: en1, 2: en2, 3: en3, 4: en4, 5: en5, 6: en6, 7: en7 },
+  ar: { 0: ar0, 1: ar1, 2: ar2, 3: ar3, 4: ar4, 5: ar5, 6: ar6, 7: ar7 },
 };
 
 export const TRANSLATED_LESSONS = {
