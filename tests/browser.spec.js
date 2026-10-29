@@ -743,6 +743,23 @@ test('interface switches between Turkish, English and Arabic and remembers the c
   await expect(nav).toContainText('Ders Kütüphanesi');
 });
 
+test('the lesson reading body itself switches language, not only the interface', async ({ page }) => {
+  await page.goto('/#/ders/1');
+  await expect(page.locator('.lesson-content')).toContainText('Bir anatomik bilgiyi', { timeout: 10000 });
+  await page.getByRole('button', { name: 'English' }).click();
+  const article = page.locator('.lesson-content');
+  await expect(article).toContainText('Anatomy examines the normal structure of the human body');
+  await expect(article).not.toContainText('Bir anatomik bilgiyi');
+  await expect(page.locator('.lesson-language-note')).toHaveCount(0);
+  await page.getByRole('button', { name: 'العربية' }).click();
+  await expect(article).toContainText('يدرس التشريح البنية الطبيعية لجسم الإنسان');
+  await expect(page.locator('.exam-teaching').first()).toContainText('حلّ المستوى والمحور');
+  await page.goto('/#/ders/1');
+  await expect(page.locator('.lesson-content')).toContainText('يدرس التشريح البنية الطبيعية');
+  await page.getByRole('button', { name: 'Türkçe' }).click();
+  await expect(page.locator('.lesson-content')).toContainText('Bir anatomik bilgiyi');
+});
+
 test('native quiz library lists local sets, filters favorites and preserves practice entry', async ({ page }) => {
   const requests = [];
   page.on('request', r => { if (!r.url().startsWith('http://localhost')) requests.push(r.url()); });
