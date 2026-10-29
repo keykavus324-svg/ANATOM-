@@ -1,3 +1,5 @@
+import { atlasSceneIn } from './atlasI18n.js';
+
 // Localised metadata for the course notes and 3D atlas scenes.
 // Only titles, short descriptions and navigation labels are translated here;
 // the authored lesson bodies (src/content/lessons/*) stay in Turkish, and the
@@ -93,8 +95,9 @@ export function localizedNotes(notes, lang) {
 }
 
 export function localizedScene(scene, lang) {
-  const title = atlasSceneTitles[scene.id]?.[lang];
-  return title ? { ...scene, title } : scene;
+  if (!scene) return scene;
+  // atlasSceneIn already replaces title, summary, observe and steps in one step.
+  return atlasSceneIn(lang, scene);
 }
 
 

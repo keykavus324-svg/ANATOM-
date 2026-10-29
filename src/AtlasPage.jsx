@@ -1,18 +1,23 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowUpRight, BookOpen, Bookmark, ChevronRight, Compass, ExternalLink, Info, Layers, Link2, Loader, Maximize2, Minimize2, MousePointerClick, RefreshCw, Rotate3d, Search, ShieldCheck, Sparkles, TriangleAlert } from 'lucide-react';
-import { ATLAS_SOURCE, atlasSceneGroups, atlasUrl, defaultAtlasScene } from './atlas';
+import { ArrowUpRight, BookOpen, Bookmark, ChevronRight, Compass, ExternalLink, Layers, Link2, Loader, Maximize2, Minimize2, MousePointerClick, RefreshCw, Rotate3d, Search, ShieldCheck, Sparkles, TriangleAlert } from 'lucide-react';
+import { atlasSceneGroups as atlasSceneGroupsRaw, atlasUrl, defaultAtlasScene } from './atlas';
+import { atlasSceneIn, atlasGroupsIn, atlasSourceIn } from './content/atlasI18n.js';
 import { notes } from './data';
 import { useI18n, useLocalizedContent } from './i18n.jsx';
 import './atlas.css';
 
 const SLOW_LOAD_MS = 12000;
-const allScenes = atlasSceneGroups.flatMap(group => group.scenes);
+const buildGroups = lang => atlasGroupsIn(lang).map(group => ({
+  ...group,
+  scenes: (atlasSceneGroupsRaw.find(item => item.id === group.id)?.scenes || []).map(scene => atlasSceneIn(lang, scene)),
+}));
+const ALL_IDS = atlasSceneGroupsRaw.flatMap(group => group.scenes.map(scene => scene.id));
 
 function useSavedScenes() {
   const [saved, setSaved] = useState(() => {
     try {
       const data = JSON.parse(localStorage.getItem('anatomi-atlas-scenes'));
-      return Array.isArray(data) ? data.filter(id => allScenes.some(scene => scene.id === id)) : [];
+      return Array.isArray(data) ? data.filter(id => ALL_IDS.includes(id)) : [];
     } catch { return []; }
   });
   useEffect(() => { try { localStorage.setItem('anatomi-atlas-scenes', JSON.stringify(saved)); } catch { /* Kaydetme kapalıysa atlas çalışmaya devam eder. */ } }, [saved]);
@@ -21,9 +26,12 @@ function useSavedScenes() {
 }
 
 export default function AtlasPage({ scene, onScene, onLesson, onLibrary }) {
-  const { tr, isTurkish } = useI18n();
+  const { tr, lang } = useI18n();
   const { scene: localizedScene } = useLocalizedContent();
   const active = localizedScene(scene || defaultAtlasScene);
+  const atlasSceneGroups = buildGroups(lang);
+  const allScenes = atlasSceneGroups.flatMap(group => group.scenes);
+  const ATLAS_SOURCE = atlasSourceIn(lang);
   const [loaded, setLoaded] = useState(false);
   const [slow, setSlow] = useState(false);
   const [reloadKey, setReloadKey] = useState(0);
@@ -101,7 +109,6 @@ export default function AtlasPage({ scene, onScene, onLesson, onLibrary }) {
       <span>{tr('3B ANATOMİ')} <i/> {tr('gömülü atlas görünümü')}</span>
     </div>
 
-    {!isTurkish && <div className="lesson-language-note"><Info size={18}/><p>{tr('Bu sayfadaki ders metni Türkçedir. Arapça ders notu ve özgün PDF’ler Kaynaklar bölümündedir.')}</p></div>}
     <header className="atlas-hero">
       <div className="atlas-hero-copy">
         <div className="eyebrow"><span/> {tr('ETKİLEŞİMLİ 3B İNCELEME')} <i>{tr('ATLAS')}</i></div>

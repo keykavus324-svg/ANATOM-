@@ -35,6 +35,7 @@ const timeText = (s) =>
 
 export default function PracticePage({ onLesson, onExternalQuizzes }) {
   const { tr, lang } = useI18n();
+  const dateLocale = lang === "ar" ? "ar" : lang === "en" ? "en-GB" : "tr-TR";
   // The question bank is generated for the current language from the same
   // translations the lesson pages use.
   const { knowledgeQuestions, visualQuestions } = practiceBank(lang);
@@ -309,16 +310,14 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
             <ol>
               <li>{tr("Görselde önce yönü ve bakış açısını belirle.")}</li>
               <li>
-                Cevabı yalnız adıyla değil, görevi veya komşuluğuyla söyle.
+                {tr("Cevabı yalnız adıyla değil, görevi veya komşuluğuyla söyle.")}
               </li>
               <li>
-                Yanlışlarını defterden tekrar et; doğru hatırladıkça tekrar
-                aralığı uzar.
+                {tr("Yanlışlarını defterden tekrar et; doğru hatırladıkça tekrar aralığı uzar.")}
               </li>
             </ol>
             <p>
-              Vize / final için konu seçimini hocanın duyurduğu kapsama göre
-              yap. Otomatik bir vize–final kapsamı varsayılmaz.
+              {tr("Vize / final için konu seçimini hocanın duyurduğu kapsama göre yap. Otomatik bir vize–final kapsamı varsayılmaz.")}
             </p>
           </aside>
           {sourceNote}
@@ -354,11 +353,11 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
                       </small>
                       <h3>{q.topic}</h3>
                       <p>
-                        {notebook[q.id].misses} kez yanlış / boş ·{" "}
-                        {notebook[q.id].streak} ardışık doğru · Sonraki tekrar:{" "}
-                        {new Date(notebook[q.id].due).toLocaleDateString(
-                          "tr-TR",
-                        )}
+                        {tr("{misses} kez yanlış / boş · {streak} ardışık doğru · Sonraki tekrar: {date}", {
+                          misses: notebook[q.id].misses,
+                          streak: notebook[q.id].streak,
+                          date: new Date(notebook[q.id].due).toLocaleDateString(dateLocale),
+                        })}
                       </p>
                     </div>
                     <button onClick={() => start([q], true)}>
@@ -406,9 +405,7 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
             </div>
           )}
           <p className="practice-source-note">
-            Kayıtlar yalnızca bu tarayıcıda saklanır. Hesap veya sunucuya
-            gönderim yoktur; cihazlar arasında eşitlenmez. Tarayıcı verilerini
-            silmek defterini de siler.
+            {tr("Kayıtlar yalnızca bu tarayıcıda saklanır. Hesap veya sunucuya gönderim yoktur; cihazlar arasında eşitlenmez. Tarayıcı verilerini silmek defterini de siler.")}
           </p>
         </div>
       )}

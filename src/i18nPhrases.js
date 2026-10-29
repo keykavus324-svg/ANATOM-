@@ -577,6 +577,12 @@ export const PHRASES = [
   ['Fotoğraf: Akademik Bilgi Sistemi', 'Photo: Academic Information System', 'الصورة: نظام المعلومات الأكاديمي'],
   ['FIRAT ÜNİVERSİTESİ', 'FIRAT UNIVERSITY', 'جامعة الفرات'],
   ['Sahne bağlantısı kopyalandı.', 'Scene link copied.', 'تم نسخ رابط المشهد.'],
+  // Practice guidance and the review notebook footer
+  ['Cevabı yalnız adıyla değil, görevi veya komşuluğuyla söyle.', 'Give the answer not only by name but by what it does or what it neighbours.', 'لا تُجب بالاسم فقط، بل بالوظيفة أو بالجوار.'],
+  ['Yanlışlarını defterden tekrar et; doğru hatırladıkça tekrar aralığı uzar.', 'Review your mistakes from the notebook; the interval grows as you keep remembering correctly.', 'راجع أخطاءك من الدفتر؛ وكلما تذكّرت بشكل صحيح يطول الفاصل بين المراجعات.'],
+  ['Vize / final için konu seçimini hocanın duyurduğu kapsama göre yap. Otomatik bir vize–final kapsamı varsayılmaz.', 'For the midterm and final, choose your topics according to the scope announced by the instructor. No midterm–final scope is assumed automatically.', 'اختر موضوعاتك للامتحان النصفي والنهائي وفق النطاق الذي يعلنه المدرّس. ولا يُفترض نطاق نصفي–نهائي تلقائيًا.'],
+  ['{misses} kez yanlış / boş · {streak} ardışık doğru · Sonraki tekrar: {date}', '{misses} wrong / blank · {streak} correct in a row · Next review: {date}', '{misses} خطأ / فراغ · {streak} إجابات صحيحة متتالية · المراجعة التالية: {date}'],
+  ['Kayıtlar yalnızca bu tarayıcıda saklanır. Hesap veya sunucuya gönderim yoktur; cihazlar arasında eşitlenmez. Tarayıcı verilerini silmek defterini de siler.', 'Records are kept only in this browser. Nothing is sent to an account or a server and nothing syncs between devices. Clearing browser data also deletes your notebook.', 'تُحفظ السجلات في هذا المتصفح فقط. ولا يُرسل شيء إلى حساب أو خادم ولا تتم المزامنة بين الأجهزة. ومسح بيانات المتصفح يمحو دفترك أيضًا.'],
 ];
 
 export const DICTIONARIES = {
