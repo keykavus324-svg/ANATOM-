@@ -1,5 +1,30 @@
 # Web konu anlatımları — editoryal kayıt
 
+## 29 Ekim 2026: lisanslı kitapların kaldırılması, Arapça not ve arayüz dilleri
+
+Üç değişiklik yapıldı:
+
+1. **Lisanslı kitap/atlas kütüphanesi kaldırıldı.** `src/books.js`, `src/bookCollections.js`, `src/BooksPage.jsx` ve `src/components/BookCollections.jsx` silindi. Netter, Gray’s, Sobotta, Moore, BD Chaurasia, Clemente, McMinn gibi telifli PDF’ler ve bunlara köprü veren paylaşılan Drive/MEGA klasörleri artık sitede listelenmiyor. Gerekçe telif: bu dosyalar hak sahiplerinin izni olmadan çoğaltılamaz, önizlenemez veya dağıtılamaz. Eski `#/kitaplar` bağlantıları `#/kaynaklar` sayfasına yönlenir (404 üretilmez).
+2. **Arapça ders notu eklendi.** Hocamızın ders notlarının Arapça çevirisi (`1syfu-piLHAh3dPNlnqRuB2q3GfmURTu6`) Kaynaklar sayfasında gömülü Google Drive okuyucusunda açılır. Dosya kopyalanmaz, yeniden yüklenmez; kimlik ve bağlantılar `src/resources.js` içinde tek yerde tutulur. Notun Türkçe/İngilizce/Arapça başlık ve açıklaması vardır.
+3. **Arayüz üç dilli.** Türkçe (varsayılan), English ve العربية. Menü, ana sayfa, ders başlıkları ve kısa açıklamaları, kategoriler, atlas sahne adları, quiz ve alıştırma arayüzü, PDF okuyucu, kaynak ve hakkında sayfaları ile yardım metinleri çevrildi. Arapça seçildiğinde `dir="rtl"` uygulanır, kenar çubuğu ve yerleşim aynalanır.
+
+### Diller arasında bilinçli sınır
+
+- **Çevrilmeyen:** `src/content/lessons/*` altındaki elle yazılmış ders gövdesi ve yerel soru bankası. Bu metinler Türkçe yazılmış editoryal içeriktir; makine çevirisiyle tıbbi anlatım üretmek doğruluk riski taşıdığı için yapılmadı. Arapça veya İngilizce arayüzde ders sayfası, metnin Türkçe olduğunu ve Arapça notun Kaynaklar bölümünde bulunduğunu açıkça söyler; Türkçe bloklar LTR olarak korunur.
+- **Çevrilen ama yeniden yazılmayan:** quiz/alıştırma soru metinleri Türkçe kalır; yalnızca bunları çevreleyen arayüz (düğmeler, uyarılar, sonuç etiketleri) çevrilir.
+- Arayüz çevirileri, hocanın onayladığı bir çeviri değildir; yayın öncesi Arapça ve İngilizce metinlerin ana dili konuşuru tarafından okunması önerilir.
+
+### Kaynaklar sayfasındaki açık lisanslı kaynaklar
+
+Liste `src/resources.js` içindedir ve her satırda lisans etiketi gösterilir: OpenStax *Anatomy and Physiology 2e* (CC BY 4.0), Wikimedia Commons anatomi kategorisi (dosya bazında lisans), kamu malı Gray’s Anatomy 1918 baskısı (Bartleby) ve yalnızca bağlantı verilen ücretsiz makale siteleri (TeachMeAnatomy, Kenhub). Bu sitelerin içeriği teliflidir; yalnızca bağlantı verilir, kopyalanmaz. Lisans bilgisi kaynağın kendi sayfasına aittir ve periyodik olarak yeniden doğrulanmalıdır.
+
+### Doğrulama notları
+
+- Arapça notun Drive paylaşım ayarı (bağlantıya sahip herkes görüntüleyebilir) bu depodan doğrulanamaz; anonim erişim tarayıcıda kontrol edilmelidir. Erişim yoksa okuyucu Drive girişi ister ve sayfa bunu kullanıcıya söyler.
+- `tests/i18n.test.js` sözlükteki her satırın İngilizce ve Arapça karşılığı olduğunu, yinelenen anahtar bulunmadığını, her ders ve atlas sahnesinin çevrilmiş başlığı olduğunu ve bileşenlerdeki tüm `tr()` anahtarlarının tanımlı olduğunu doğrular.
+- `tests/resources.test.js` Arapça notun dosya kimliğini, lisanslı kitap dosyalarının silinmiş olduğunu ve açık kaynak listesinin HTTPS + lisans bilgisi taşıdığını doğrular.
+- Telif kararı hukuki danışmanlık değildir; kaldırma, hak sahiplerinin talebi veya kurumsal yayın politikası doğrultusunda yapılmıştır.
+
 ## 14 Ekim 2026: slayt aktarımı yerine yazılmış dersler
 
 Kullanıcı, PDF sayfalarının metin ve görüntülerini art arda gösteren önceki okuyucuyu açıkça reddetti. Bu sürümde `FullCourseContent` ve “Kaynağın tamamı / Hızlı tekrar” seçimi kaldırıldı. `Sitede oku` doğrudan kendi cümleleriyle yazılmış, tematik olarak düzenlenen açıklamaları gösterir. Özgün PDF ayrı seçenek olarak korunur.

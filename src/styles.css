@@ -39,3 +39,91 @@
 .mobile-brand>img{display:block;object-fit:contain;flex-shrink:0}
 @media(max-width:700px){.mobile-brand{display:flex;align-items:center;gap:6px}.mobile-brand>img{width:23px;height:26px}}
 @media(max-width:360px){.mobile-brand{font-size:20px;gap:4px;letter-spacing:1.5px}.mobile-brand>img{width:20px;height:24px}}
+
+/* ---------------------------------------------------------------------------
+   Language switcher, Arabic typography and right-to-left layout.
+   The interface is available in Turkish, English and Arabic; Arabic switches
+   the document direction so the whole shell mirrors correctly.
+--------------------------------------------------------------------------- */
+.language-switch{display:flex;align-items:center;gap:8px}
+.language-switch-label{display:inline-flex;align-items:center;gap:5px;color:#868c7d;font-size:10px}
+.language-switch-options{display:flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:999px;padding:2px;background:#fbfaf7}
+.language-switch-options button{padding:3px 9px;border-radius:999px;font-size:10px;line-height:1.35;color:#8a8d80;white-space:nowrap}
+.language-switch-options button:hover:not(:disabled){color:var(--rose);background:#f4f1ea}
+.language-switch-options button.active{background:#f0e4de;color:#a3524c;font-weight:600}
+.language-switch.compact .language-switch-options{width:100%;justify-content:space-between}
+.language-switch.compact .language-switch-options button{flex:1;text-align:center;padding:6px 4px}
+.sidebar-language{padding:16px 12px 0}
+.sidebar-language .language-switch-label{display:none}
+
+/* Lesson pages show the interface language, while the authored lesson text is Turkish. */
+.lesson-language-note{display:flex;gap:10px;align-items:flex-start;margin:14px 0 0;padding:12px 15px;border:1px dashed #ddd6c4;border-radius:8px;background:#fbf8ef;color:#7d7a6a;font-size:11px;line-height:1.65}
+.lesson-language-note svg{flex-shrink:0;margin-top:2px;color:#a48c5f}
+.lesson-language-note p{margin:0}
+
+/* Arabic reads right-to-left: mirror the fixed rail and the study card. */
+html[dir="rtl"] body{font-family:'Segoe UI','Noto Naskh Arabic','Noto Sans Arabic',Tahoma,'Inter',sans-serif}
+html[dir="rtl"] .brand>div,html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,html[dir="rtl"] .section-heading h2,html[dir="rtl"] .study-note-top>span,html[dir="rtl"] .profile-panel h2{font-family:'Segoe UI','Noto Naskh Arabic','Noto Sans Arabic',Tahoma,serif;letter-spacing:0}
+html[dir="rtl"] .brand>div{font-size:26px}
+html[dir="rtl"] .eyebrow,html[dir="rtl"] .sidebar-section-label,html[dir="rtl"] .atlas-band-label{letter-spacing:0}
+html[dir="rtl"] h1{letter-spacing:-.4px}
+html[dir="rtl"] .sidebar{left:auto;right:0;border-right:0;border-left:1px solid var(--line)}
+html[dir="rtl"] .workspace{margin-left:0;margin-right:242px}
+html[dir="rtl"] .nav-count,html[dir="rtl"] .nav-active-dot,html[dir="rtl"] .help-button>svg:last-child,html[dir="rtl"] .instructor-mini>svg,html[dir="rtl"] .topic-nav button>svg{margin-left:0;margin-right:auto}
+html[dir="rtl"] .instructor-mini{width:calc(100% + 42px);margin-left:0;margin-right:-21px}
+html[dir="rtl"] .study-note button{flex-direction:row-reverse}
+html[dir="rtl"] .hero-art{margin-left:0;margin-right:-10px}
+html[dir="rtl"] .art-side-label{right:auto;left:-22px}
+html[dir="rtl"] .lesson-breadcrumb,html[dir="rtl"] .reader-footer{flex-direction:row-reverse}
+html[dir="rtl"] .feature-strip>div{border-right:0;border-left:1px solid var(--line)}
+html[dir="rtl"] .feature-strip>div:last-child{border-left:0;padding-left:0;padding-right:7px}
+@media(min-width:1500px){html[dir="rtl"] .workspace{margin-right:270px}}
+@media(max-width:1150px){html[dir="rtl"] .workspace{margin-right:214px}}
+@media(max-width:950px){html[dir="rtl"] .workspace{margin-right:200px}}
+@media(max-width:700px){
+  html[dir="rtl"] .workspace{margin-right:0}
+  html[dir="rtl"] .sidebar{transform:translateX(100%)}
+  html[dir="rtl"] .sidebar.open{transform:translateX(0)}
+  html[dir="rtl"] .instructor-mini{width:calc(100% + 40px);margin-right:-20px}
+}
+
+/* Compact language switch on small screens: short codes keep the top bar from overflowing. */
+.language-switch .lang-short{display:none}
+@media(max-width:760px){
+  .language-switch .lang-full{display:none}
+  .language-switch .lang-short{display:inline}
+  .language-switch-label{display:none}
+  .language-switch-options button{padding:3px 8px;font-size:9px}
+  .topbar-right .online-label,.topbar-right .topbar-separator,.topbar-right>a{display:none}
+  .topbar-right{gap:8px;min-width:0}
+}
+@media(max-width:420px){.language-switch-options button{padding:3px 6px}}
+
+/* The authored lesson and quiz prose is Turkish. Inside the Arabic (RTL)
+   interface those blocks keep left-to-right direction so punctuation, numbers and
+   Latin anatomical terms stay where Turkish readers expect them. */
+html[dir="rtl"] .lesson-content,
+html[dir="rtl"] .lesson-intro,
+html[dir="rtl"] .lesson-subtitle,
+html[dir="rtl"] .lesson-scope,
+html[dir="rtl"] .exam-teaching,
+html[dir="rtl"] .exam-learning-map,
+html[dir="rtl"] .visual-study,
+html[dir="rtl"] .lesson-toc,
+html[dir="rtl"] .mobile-toc,
+html[dir="rtl"] .quiz-runner,
+html[dir="rtl"] .quiz-results,
+html[dir="rtl"] .practice-session,
+html[dir="rtl"] .practice-results,
+html[dir="rtl"] .teaching-figure,
+html[dir="rtl"] .instructional-figure { direction: ltr; text-align: left; }
+html[dir="rtl"] .lesson-breadcrumb, html[dir="rtl"] .lesson-hero-copy { text-align: right; }
+html[dir="rtl"] .lesson-content .lesson-section-title,
+html[dir="rtl"] .lesson-source-footer { text-align: left; }
+
+/* Mobile RTL: the hero artwork is decorative and was overlapping the headline. */
+@media(max-width:700px){
+  html[dir="rtl"] .hero{overflow:hidden}
+  html[dir="rtl"] .hero-art{opacity:.55}
+  html[dir="rtl"] .hero-copy{position:relative;z-index:4}
+}

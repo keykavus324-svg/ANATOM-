@@ -24,6 +24,25 @@ React 19 + Vite, yerel fontlar ve Lucide ikonları. Backend, API anahtarı veya 
 
 İlk sürümdeki “Kaynağın tamamı / Hızlı tekrar” seçimi kaldırılmıştır. Web okuyucusunun tek ana içeriği artık yazılmış ders anlatımıdır. PDF bağımsız bir okuma seçeneğidir. Kaynak sahibi ile web metninin hazırlayanı ayrı belirtilir; yeniden yazılan metin hocanın kendi eseri veya onayladığı ders kitabı olarak sunulmaz.
 
+## Dil desteği (Türkçe · English · العربية)
+
+Arayüz üç dilde çalışır: **Türkçe**, **English** ve **العربية**. Dil seçici masaüstünde üst çubukta, mobilde menünün içinde (TR/EN/AR) yer alır; seçim `anatomi-language` anahtarıyla cihazda saklanır ve Arapça seçildiğinde belge yönü `dir="rtl"` olur.
+
+- **Çevrilen:** menü ve gezinme, ana sayfa bölümleri, ders başlıkları ve kısa açıklamaları, kategori etiketleri, 18 atlas sahnesinin adı, quiz/alıştırma arayüz metinleri, PDF okuyucu, kaynak sayfası, yardım penceresi, atıf ve erişilebilirlik etiketleri (~470 sözlük satırı).
+- **Çevrilmeyen:** `src/content/lessons/*` altındaki elle yazılmış Türkçe ders gövdesi ve yerel soru bankası. Bu bloklar Arapça arayüzde de Türkçe kalır; sayfada bunu açıklayan bir not gösterilir, bloklar `dir="auto"`/`ltr"` ile Türkçe okunur biçimde kalır.
+- Arapça ders notu ve özgün PDF’ler **Kaynaklar** bölümündedir.
+- Sözlük `src/i18nPhrases.js` (düz JS), dil meta verisi `src/i18nMeta.js`, ders/sahne başlıkları `src/content/localizedContent.js` içinde. `tests/i18n.test.js` her Türkçe satırın İngilizce ve Arapça karşılığı olduğunu, her dersin ve sahnenin çevrilmiş başlığı bulunduğunu ve bileşenlerdeki tüm `tr()` anahtarlarının sözlükte tanımlı olduğunu doğrular.
+
+## Kaynaklar sayfası ve telif
+
+Lisanslı kitap/atlas arşivi (**Netter, Gray’s, Sobotta, Moore, BD Chaurasia, Clemente, McMinn** vb.) ve paylaşılan Drive/MEGA klasör bağlantıları siteden **kaldırıldı**: bunlar telif hakkı korunan eserlerdir ve yeniden dağıtılamaz. `#/kitaplar` adresi geriye dönük uyumluluk için `#/kaynaklar` sayfasına yönlenir.
+
+Kaynaklar sayfasında yalnızca şunlar listelenir:
+
+- **Arapça ders notu** — hocamızın ders notlarının Arapça çevirisi, Google Drive dosya kimliği `1syfu-piLHAh3dPNlnqRuB2q3GfmURTu6` ile sitede gömülü okuyucuda açılır (`src/resources.js`).
+- **Açık lisanslı / ücretsiz kaynaklar** — OpenStax *Anatomy and Physiology 2e* (CC BY 4.0), Wikimedia Commons anatomi kategorisi (dosya bazında lisans), kamu malı Gray’s Anatomy (1918) ve yalnızca bağlantı verilen ücretsiz makale siteleri. Her kartta lisans etiketi görünür, dosya barındırılmaz.
+- **Hocamızın Drive arşivi** bağlantısı ve telif notu.
+
 ## 3D Anatomi Atlası (gömülü görünüm)
 
 Siteye, sayfadan ayrılmadan kullanılan **3B anatomi atlası bölümü** eklendi. Gömülü pencere, Zygote’un kendi web sitesinde duyurduğu **ücretsiz iframe gömme** yöntemiyle [ZygoteBody](https://www.zygotebody.com/) üzerinden yüklenir: `https://www.zygotebody.com/`.
@@ -67,6 +86,12 @@ Siteye, sayfadan ayrılmadan kullanılan **3B anatomi atlası bölümü** eklend
 | `public/diagrams/` | Proje için çizilen 26 SVG; slayt görüntüsü veya atlas kopyası değildir |
 | `scripts/build-diagrams.mjs` | Elle tanımlanan SVG geometrisinden yerel şekilleri yeniden üretir |
 | `src/LessonPage.jsx` | Tek sürümlü, yerel konu anlatımı okuyucusu |
+| `src/i18nPhrases.js` | Arayüz sözlüğü: her satır `[Türkçe, English, العربية]`; eksik çeviri Türkçeye düşer |
+| `src/i18n.jsx` · `src/i18nMeta.js` | `LanguageProvider`, `useI18n`, `tr()`, `useLocalizedContent`; dil listesi ve `dir` bilgisi |
+| `src/content/localizedContent.js` | Ders başlıkları/açıklamaları, kategori ve atlas sahnesi adlarının EN/AR karşılıkları |
+| `src/components/LanguageSwitch.jsx` | Üst çubuk ve menüdeki TR/EN/AR dil seçici |
+| `src/resources.js` | Arapça not kimliği ve açık lisanslı kaynak listesi |
+| `src/ResourcesPage.jsx` · `src/resources.css` | Kaynaklar sayfası, gömülü Arapça PDF okuyucusu ve lisans notları |
 | `src/atlas.js` | Atlas sahne kataloğu, ZygoteBody adres üretimi ve ders ↔ sahne eşleşmesi |
 | `src/AtlasPage.jsx` | Gömülü 3B atlas sayfası: araç çubuğu, sahne listesi, rehber panelleri, erişim uyarısı |
 | `src/atlas.css` | Atlas sayfası, ana sayfa atlas bandı ve ders atlas bağlantısının biçimi |
@@ -95,6 +120,7 @@ Bu araç **ders anlatımı yazmaz**. Yalnızca `reference/course-content/` altı
 
 - [Akademik profil](https://abs.firat.edu.tr/tr/bdagdeviren)
 - [Kaynak Drive klasörü](https://drive.google.com/drive/folders/1iAuY6LhNDTXsT6exyIzJiojeB_CLaeSz)
+- **Lisanslı kitap ve atlas PDF’leri kaldırıldı.** Site artık Netter, Gray’s, Sobotta, Moore ve benzeri telifli eserleri listelemez, önizlemez veya bağlantılamaz. Yerine yalnızca hocanın Arapça ders notu ve açık lisanslı kaynaklar sunulur. Lisans etiketleri kaynağın kendi beyanına dayanır; yayın öncesi her bağlantı yeniden doğrulanmalıdır.
 - 12 kaynak dosya 14 Ekim 2026 tarihinde incelenmiştir. Akademik unvan ve atıf: Öğr. Gör. Bekir Dağdeviren, Fırat Üniversitesi Sağlık Bilimleri Fakültesi, Fizyoterapi ve Rehabilitasyon.
 - Derslerin ana konu grupları anlatıma alınmıştır; bir sayfa veya kelime sayısı tıbbi doğruluk/eksiksizlik kanıtı olarak kullanılmaz. Öğretim elemanı denetimi henüz yapılmış değildir.
 - 3B anatomi modeli ve verileri **© Zygote 3D** (ZygoteBody™) şirketine aittir. Site bu modelleri kopyalamaz, indirmez, yeniden barındırmaz veya değiştirmez; yalnızca Zygote’un ücretsiz iframe gömme yöntemiyle kendi sunucusundan gösterir. Zygote markası ve logosu proje tarafından kullanılmaz; yalnızca metin olarak atıf yapılır.
@@ -105,13 +131,13 @@ Bu araç **ders anlatımı yazmaz**. Yalnızca `reference/course-content/` altı
 
 ## Gizlilik
 
-`anatom-saved`, `anatom-completed`, `anatom-last`, `anatomi-last-mode`, `anatomi-reading-size`, `anatomi-atlas-scenes` ve `anatomi-atlas-last` yalnız tarayıcıda saklanır. Hesap, analiz kodu veya çalışma kaydını sunucuya gönderen mekanizma yoktur. Cihazlar arasında eşitleme yapılmaz. PDF açıldığında Google’ın üçüncü taraf hizmetine istek gönderilir; web derslerini okumak Google isteği oluşturmaz. “Hocamız Hakkında” sayfasında resmî portre `apiabs.firat.edu.tr` üzerinden yüklenir; bu sayfa üniversitenin fotoğraf sunucusuna istek gönderir. Fotoğrafta `no-referrer` kullanılır. Fotoğraf yüklenemezse baş harfler ve resmî profile bağlantı gösterilir. Ders okuyucusu ve ana sayfa bu fotoğrafı istemez. 3B atlas bölümünde `www.zygotebody.com` adresine iframe isteği gönderilir ve erişilebilirlik ön kontrolü için aynı alan adına `no-cors` bir istek yapılır; web derslerini okumak bu isteği oluşturmaz.
+`anatom-saved`, `anatom-completed`, `anatom-last`, `anatomi-last-mode`, `anatomi-reading-size`, `anatomi-atlas-scenes`, `anatomi-atlas-last`, `anatomi-quiz-saved`, `anatomi-quiz-studied` ve `anatomi-language` yalnız tarayıcıda saklanır. Hesap, analiz kodu veya çalışma kaydını sunucuya gönderen mekanizma yoktur. Cihazlar arasında eşitleme yapılmaz. PDF açıldığında Google’ın üçüncü taraf hizmetine istek gönderilir; web derslerini okumak Google isteği oluşturmaz. “Hocamız Hakkında” sayfasında resmî portre `apiabs.firat.edu.tr` üzerinden yüklenir; bu sayfa üniversitenin fotoğraf sunucusuna istek gönderir. Fotoğrafta `no-referrer` kullanılır. Fotoğraf yüklenemezse baş harfler ve resmî profile bağlantı gösterilir. Ders okuyucusu ve ana sayfa bu fotoğrafı istemez. 3B atlas bölümünde `www.zygotebody.com` adresine iframe isteği gönderilir ve erişilebilirlik ön kontrolü için aynı alan adına `no-cors` bir istek yapılır; web derslerini okumak bu isteği oluşturmaz.
 
 ## Testler
 
 ```sh
-npm test             # 41 katalog/içerik/kaynak/gezinme/atlas/alıştırma testi
-npm run test:ui      # 32 Playwright senaryosu
+npm test             # 56 katalog/içerik/kaynak/dil/gezinme/atlas/alıştırma testi
+npm run test:ui      # 40 Playwright senaryosu
 npm run build
 ```
 

@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowUpRight, BookOpen, Bookmark, ChevronRight, Compass, ExternalLink, Info, Layers, Link2, Loader, Maximize2, Minimize2, MousePointerClick, RefreshCw, Rotate3d, Search, ShieldCheck, Sparkles, TriangleAlert } from 'lucide-react';
 import { ATLAS_SOURCE, atlasSceneGroups, atlasUrl, defaultAtlasScene } from './atlas';
 import { notes } from './data';
+import { useI18n, useLocalizedContent } from './i18n.jsx';
 import './atlas.css';
 
 const SLOW_LOAD_MS = 12000;
@@ -20,7 +21,9 @@ function useSavedScenes() {
 }
 
 export default function AtlasPage({ scene, onScene, onLesson, onLibrary }) {
-  const active = scene || defaultAtlasScene;
+  const { tr, isTurkish } = useI18n();
+  const { scene: localizedScene } = useLocalizedContent();
+  const active = localizedScene(scene || defaultAtlasScene);
   const [loaded, setLoaded] = useState(false);
   const [slow, setSlow] = useState(false);
   const [reloadKey, setReloadKey] = useState(0);
@@ -39,7 +42,7 @@ export default function AtlasPage({ scene, onScene, onLesson, onLibrary }) {
 
   useEffect(() => {
     const previous = document.title;
-    document.title = `${active.title} · 3D Anatomi Atlası — ANATOMİ`;
+    document.title = `${active.title} · ${tr('3D Anatomi Atlası')} — ANATOMİ`;
     return () => { document.title = previous; };
   }, [active.title]);
 
@@ -94,108 +97,109 @@ export default function AtlasPage({ scene, onScene, onLesson, onLibrary }) {
 
   return <div className="atlas-page">
     <div className="atlas-breadcrumb">
-      <button onClick={onLibrary}><Compass size={15}/> Kütüphaneye dön</button>
-      <span>3B ANATOMİ <i/> gömülü atlas görünümü</span>
+      <button onClick={onLibrary}><Compass size={15}/> {tr('Kütüphaneye dön')}</button>
+      <span>{tr('3B ANATOMİ')} <i/> {tr('gömülü atlas görünümü')}</span>
     </div>
 
+    {!isTurkish && <div className="lesson-language-note"><Info size={18}/><p>{tr('Bu sayfadaki ders metni Türkçedir. Arapça ders notu ve özgün PDF’ler Kaynaklar bölümündedir.')}</p></div>}
     <header className="atlas-hero">
       <div className="atlas-hero-copy">
-        <div className="eyebrow"><span/> ETKİLEŞİMLİ 3B İNCELEME <i>ATLAS</i></div>
-        <h1>3D Anatomi <em>Atlası</em></h1>
-        <p className="atlas-lead">İnsan bedenini siteden ayrılmadan döndür, katmanları kaldır, organları tek tek izole et. Gömülü atlas, hak sahibinin ücretsiz iframe gömme yöntemiyle kendi sunucusundan açılır; ayrı bir üyelik gerekmez.</p>
+        <div className="eyebrow"><span/> {tr('ETKİLEŞİMLİ 3B İNCELEME')} <i>{tr('ATLAS')}</i></div>
+        <h1>{tr('3D Anatomi')} <em>{tr('Atlası')}</em></h1>
+        <p className="atlas-lead">{tr('İnsan bedenini siteden ayrılmadan döndür, katmanları kaldır, organları tek tek izole et. Gömülü atlas, hak sahibinin ücretsiz iframe gömme yöntemiyle kendi sunucusundan açılır; ayrı bir üyelik gerekmez.')}</p>
         <div className="atlas-hero-meta">
-          <span><Layers size={13}/> Katman katman inceleme</span>
-          <span><Search size={13}/> Yapı arama ve izole etme</span>
-          <span><Rotate3d size={13}/> 360° döndürme ve yakınlaştırma</span>
+          <span><Layers size={13}/> {tr('Katman katman inceleme')}</span>
+          <span><Search size={13}/> {tr('Yapı arama ve izole etme')}</span>
+          <span><Rotate3d size={13}/> {tr('360° döndürme ve yakınlaştırma')}</span>
         </div>
       </div>
       <div className="atlas-hero-card">
-        <span className="atlas-hero-card-label">SEÇİLİ SAHNE</span>
+        <span className="atlas-hero-card-label">{tr('SEÇİLİ SAHNE')}</span>
         <strong>{active.title}</strong>
         <small>{active.latin}</small>
-        <p>{active.source === 'zygote' ? 'Hazır izole bağlantı: yapı seçili gelir, diğer katmanlar soldurulur.' : 'Kamera bu bölgeye ayarlanır; katmanları gömülü arayüzden sen yönetirsin.'}</p>
-        {lesson && <button className="atlas-lesson-link" onClick={() => onLesson(lesson)}><BookOpen size={14}/> Ders {String(lesson.number).padStart(2, '0')} · {lesson.title} <ArrowUpRight size={13}/></button>}
+        <p>{active.source === 'zygote' ? tr('Hazır izole bağlantı: yapı seçili gelir, diğer katmanlar soldurulur.') : tr('Kamera bu bölgeye ayarlanır; katmanları gömülü arayüzden sen yönetirsin.')}</p>
+        {lesson && <button className="atlas-lesson-link" onClick={() => onLesson(lesson)}><BookOpen size={14}/> {tr('Ders {n} · {title}', { n: String(lesson.number).padStart(2, '0'), title: lesson.title })} <ArrowUpRight size={13}/></button>}
       </div>
     </header>
 
-    <nav className="atlas-groups" aria-label="Atlas görünüm grupları">
-      <button className={group === 'all' ? 'active' : ''} aria-pressed={group === 'all'} onClick={() => setGroup('all')}>Tüm görünümler<span>{allScenes.length}</span></button>
-      {atlasSceneGroups.map(item => <button key={item.id} className={group === item.id ? 'active' : ''} aria-pressed={group === item.id} onClick={() => setGroup(item.id)}>{item.label}<span>{item.scenes.length}</span></button>)}
+    <nav className="atlas-groups" aria-label={tr('Atlas görünüm grupları')}>
+      <button className={group === 'all' ? 'active' : ''} aria-pressed={group === 'all'} onClick={() => setGroup('all')}>{tr('Tüm görünümler')}<span>{allScenes.length}</span></button>
+      {atlasSceneGroups.map(item => <button key={item.id} className={group === item.id ? 'active' : ''} aria-pressed={group === item.id} onClick={() => setGroup(item.id)}>{tr(item.label)}<span>{item.scenes.length}</span></button>)}
     </nav>
 
     <div className="atlas-layout">
-      <aside className="atlas-sidebar" aria-label="Atlas sahneleri">
-        <div className="atlas-sidebar-head"><span className="eyebrow muted">SAHNELER</span><small>{savedScenes.length > 0 ? `${savedScenes.length} sahne kayıtlı` : 'Bir sahne seç; ders eşleşmesi ve yol gösteren adımlar hazır gelir.'}</small></div>
+      <aside className="atlas-sidebar" aria-label={tr('Atlas sahneleri')}>
+        <div className="atlas-sidebar-head"><span className="eyebrow muted">{tr('SAHNELER')}</span><small>{savedScenes.length > 0 ? tr('{count} sahne kayıtlı', { count: savedScenes.length }) : tr('Bir sahne seç; ders eşleşmesi ve yol gösteren adımlar hazır gelir.')}</small></div>
         {atlasSceneGroups.filter(item => group === 'all' || item.id === group).map(item => <section key={item.id} className="atlas-scene-group">
-          <h2>{item.label}<span>{item.hint}</span></h2>
+          <h2>{tr(item.label)}<span>{tr(item.hint)}</span></h2>
           <div className="atlas-scene-list">
             {item.scenes.map(scene => <button key={scene.id} className={`atlas-scene ${active.id === scene.id ? 'active' : ''}`} aria-current={active.id === scene.id ? 'true' : undefined} onClick={() => onScene(scene.id)}>
               <span className="atlas-scene-dot"/>
               <span className="atlas-scene-text"><strong>{scene.title}</strong><small>{scene.latin}</small></span>
-              {scene.source === 'zygote' ? <span className="atlas-badge" title="Yapı izole edilmiş hazır bağlantı">izole</span> : <ChevronRight size={14}/>}
+              {scene.source === 'zygote' ? <span className="atlas-badge" title={tr('Yapı izole edilmiş hazır bağlantı')}>{tr('izole')}</span> : <ChevronRight size={14}/>}
             </button>)}
           </div>
         </section>)}
-        {savedScenes.length > 0 && <div className="atlas-saved-scenes"><span className="eyebrow muted">KAYDEDİLEN SAHNELER</span>{savedScenes.map(item => <button key={item.id} className={active.id === item.id ? 'active' : ''} onClick={() => onScene(item.id)}>{item.title}<Bookmark size={12} fill="currentColor"/></button>)}</div>}
+        {savedScenes.length > 0 && <div className="atlas-saved-scenes"><span className="eyebrow muted">{tr('KAYDEDİLEN SAHNELER')}</span>{savedScenes.map(item => <button key={item.id} className={active.id === item.id ? 'active' : ''} onClick={() => onScene(item.id)}>{item.title}<Bookmark size={12} fill="currentColor"/></button>)}</div>}
       </aside>
 
       <div className="atlas-main">
         <div className="atlas-toolbar">
           <div className="atlas-toolbar-status" role="status" aria-live="polite">
-            <span className={`atlas-status ${reachable === false ? 'blocked' : loaded ? 'ready' : 'loading'}`}><i/>{reachable === false ? 'Atlas penceresi açılamadı' : loaded ? 'Görünüm hazır' : 'Atlas yükleniyor…'}</span>
-            <span className="atlas-toolbar-caption">{ATLAS_SOURCE.viewerLabel} penceresi · döndürmek için sürükle</span>
+            <span className={`atlas-status ${reachable === false ? 'blocked' : loaded ? 'ready' : 'loading'}`}><i/>{reachable === false ? tr('Atlas penceresi açılamadı') : loaded ? tr('Görünüm hazır') : tr('Atlas yükleniyor…')}</span>
+            <span className="atlas-toolbar-caption">{tr(ATLAS_SOURCE.viewerLabel)} {tr('penceresi · döndürmek için sürükle')}</span>
           </div>
           <div className="atlas-tools">
-            <button className={`icon-button ${savedActive ? 'is-saved' : ''}`} aria-pressed={savedActive} aria-label={savedActive ? 'Sahneyi kaydedilenlerden kaldır' : 'Sahneyi kaydet'} title="Sahneyi kaydet" onClick={() => toggleSaved(active.id)}><Bookmark size={17} fill={savedActive ? 'currentColor' : 'none'}/></button>
-            <button className="icon-button" aria-label="Atlas görünümünü yenile" title="Görünümü yenile" onClick={() => setReloadKey(key => key + 1)}><RefreshCw size={17}/></button>
-            <button className="icon-button" aria-label={expanded ? 'Tam ekrandan çık' : 'Tam ekran atlas'} title={expanded ? 'Tam ekrandan çık' : 'Tam ekran'} onClick={toggleFullscreen}>{expanded ? <Minimize2 size={17}/> : <Maximize2 size={17}/>}</button>
-            <button className="text-button atlas-copy" onClick={copyLink}><Link2 size={15}/> {copied || 'Sahne bağlantısını kopyala'}</button>
-            <a className="primary-button atlas-open" href={url} target="_blank" rel="noreferrer">Yeni sekmede aç <ArrowUpRight size={15}/></a>
+            <button className={`icon-button ${savedActive ? 'is-saved' : ''}`} aria-pressed={savedActive} aria-label={savedActive ? tr('Sahneyi kaydedilenlerden kaldır') : tr('Sahneyi kaydet')} title={tr('Sahneyi kaydet')} onClick={() => toggleSaved(active.id)}><Bookmark size={17} fill={savedActive ? 'currentColor' : 'none'}/></button>
+            <button className="icon-button" aria-label={tr('Atlas görünümünü yenile')} title={tr('Görünümü yenile')} onClick={() => setReloadKey(key => key + 1)}><RefreshCw size={17}/></button>
+            <button className="icon-button" aria-label={expanded ? tr('Tam ekrandan çık') : tr('Tam ekran atlas')} title={expanded ? tr('Tam ekrandan çık') : tr('Tam ekran')} onClick={toggleFullscreen}>{expanded ? <Minimize2 size={17}/> : <Maximize2 size={17}/>}</button>
+            <button className="text-button atlas-copy" onClick={copyLink}><Link2 size={15}/> {copied || tr('Sahne bağlantısını kopyala')}</button>
+            <a className="primary-button atlas-open" href={url} target="_blank" rel="noreferrer">{tr('Yeni sekmede aç')} <ArrowUpRight size={15}/></a>
           </div>
         </div>
 
         <div className={`atlas-viewer ${pseudoFullscreen ? 'is-expanded' : ''}`} ref={viewer}>
-          {reachable !== false && !loaded && !slow && <div className="atlas-overlay"><Loader size={26} className="atlas-spinner"/><p>{active.title} görünümü hazırlanıyor…</p><small>Gömülü atlas altyapısına bağlanılıyor; ilk açılış birkaç saniye sürebilir.</small></div>}
-          {(reachable === false || (slow && !loaded)) && !dismissed && <div className="atlas-overlay atlas-overlay-slow"><TriangleAlert size={25}/><p>{reachable === false ? 'Gömülü atlasa bu ağdan ulaşılamıyor.' : 'Gömülü görünüm açılmadı gibi görünüyor.'}</p><small>{reachable === false ? 'Alan adı engellenmiş, çevrimdışısın ya da tarayıcı uzantın isteği durdurmuş olabilir. Atlası kaynağından yeni sekmede açabilirsin; sayfanın geri kalanı normal çalışır.' : 'Ağ engeli, reklam engelleyici veya tarayıcının gizlilik ayarı çerçeveyi bloke edebilir. Atlası kaynağından yeni sekmede açabilirsin.'}</small><div className="atlas-overlay-actions"><a className="primary-button" href={url} target="_blank" rel="noreferrer">Yeni sekmede aç <ArrowUpRight size={15}/></a><button className="text-button" onClick={() => { setSlow(false); setReloadKey(key => key + 1); }}><RefreshCw size={15}/> Yeniden dene</button><button className="text-button" onClick={() => setDismissed(true)}>Pencereyi yine de göster</button></div></div>}
+          {reachable !== false && !loaded && !slow && <div className="atlas-overlay"><Loader size={26} className="atlas-spinner"/><p>{tr('{title} görünümü hazırlanıyor…', { title: active.title })}</p><small>{tr('Gömülü atlas altyapısına bağlanılıyor; ilk açılış birkaç saniye sürebilir.')}</small></div>}
+          {(reachable === false || (slow && !loaded)) && !dismissed && <div className="atlas-overlay atlas-overlay-slow"><TriangleAlert size={25}/><p>{reachable === false ? tr('Gömülü atlasa bu ağdan ulaşılamıyor.') : tr('Gömülü görünüm açılmadı gibi görünüyor.')}</p><small>{reachable === false ? tr('Alan adı engellenmiş, çevrimdışısın ya da tarayıcı uzantın isteği durdurmuş olabilir. Atlası kaynağından yeni sekmede açabilirsin; sayfanın geri kalanı normal çalışır.') : tr('Ağ engeli, reklam engelleyici veya tarayıcının gizlilik ayarı çerçeveyi bloke edebilir. Atlası kaynağından yeni sekmede açabilirsin.')}</small><div className="atlas-overlay-actions"><a className="primary-button" href={url} target="_blank" rel="noreferrer">{tr('Yeni sekmede aç')} <ArrowUpRight size={15}/></a><button className="text-button" onClick={() => { setSlow(false); setReloadKey(key => key + 1); }}><RefreshCw size={15}/> {tr('Yeniden dene')}</button><button className="text-button" onClick={() => setDismissed(true)}>{tr('Pencereyi yine de göster')}</button></div></div>}
           <iframe key={`${active.id}-${reloadKey}`} src={url} title={`${active.title} — 3B anatomi atlası görünümü`} allow="fullscreen; xr-spatial-tracking; clipboard-write" allowFullScreen onLoad={() => { setLoaded(true); setSlow(false); }}/>
-          {pseudoFullscreen && <button className="atlas-exit-fullscreen" onClick={() => setPseudoFullscreen(false)}><Minimize2 size={16}/> Tam ekrandan çık</button>}
+          {pseudoFullscreen && <button className="atlas-exit-fullscreen" onClick={() => setPseudoFullscreen(false)}><Minimize2 size={16}/> {tr('Tam ekrandan çık')}</button>}
         </div>
 
-        {loaded && <div className="atlas-inline-note"><Info size={15}/><span>Gömülü pencerenin tüm temel araçları kullanılabilir: sol paneldeki opaklık kaydırıcısı, katman düğmesi, sağ üstteki arama kutusu ve etiket araçları bu pencerenin içindedir. Pencere boş kalırsa üstteki <b>Yeni sekmede aç</b> düğmesiyle atlası kaynağından görüntüleyebilirsin.</span></div>}
+        {loaded && <div className="atlas-inline-note"><Info size={15}/><span>{tr('Gömülü pencerenin tüm temel araçları kullanılabilir: sol paneldeki opaklık kaydırıcısı, katman düğmesi, sağ üstteki arama kutusu ve etiket araçları bu pencerenin içindedir. Pencere boş kalırsa üstteki')} <b>{tr('Yeni sekmede aç')}</b> {tr('düğmesiyle atlası kaynağından görüntüleyebilirsin.')}</span></div>}
 
         <div className="atlas-guide">
           <article className="atlas-guide-main">
-            <span className="eyebrow muted">BU SAHNEDE NE YAPILIR?</span>
+            <span className="eyebrow muted">{tr('BU SAHNEDE NE YAPILIR?')}</span>
             <h2>{active.title}<span>{active.latin}</span></h2>
             <p className="atlas-summary">{active.summary}</p>
-            <div className="atlas-observe"><MousePointerClick size={16}/><p><strong>Neye bakmalı?</strong> {active.observe}</p></div>
+            <div className="atlas-observe"><MousePointerClick size={16}/><p><strong>{tr('Neye bakmalı?')}</strong> {active.observe}</p></div>
             <ol className="atlas-steps">{active.steps.map((step, index) => <li key={step}><span>{String(index + 1).padStart(2, '0')}</span>{step}</li>)}</ol>
           </article>
           <aside className="atlas-guide-side">
             <div className="atlas-tools-legend">
-              <span className="eyebrow muted">GÖMÜLÜ ARAÇLAR</span>
+              <span className="eyebrow muted">{tr('GÖMÜLÜ ARAÇLAR')}</span>
               <ul>
-                <li><strong>Döndür / yakınlaş:</strong> sürükle ve tekerlek; üstteki ev simgesi görünümü sıfırlar.</li>
-                <li><strong>Opaklık kaydırıcısı:</strong> soldadır; çektikçe katmanlar tek tek açığa çıkar.</li>
-                <li><strong>Katman düğmesi:</strong> kaydırıcının altındadır; katmanları tek tek açar.</li>
-                <li><strong>Arama:</strong> sağ üsttedir; yapıyı seçer, <b>Zoom to</b> o yapıya odaklanır.</li>
-                <li><strong>Gizle / pin:</strong> Ctrl/Cmd+tıklama yapıyı gizler, etiketteki raptiye sabitler.</li>
-                <li><strong>Model seçimi:</strong> sol taraftaki model simgesinden kadın/erkek model değişir.</li>
+                <li><strong>{tr('Döndür / yakınlaş:')}</strong> {tr('sürükle ve tekerlek; üstteki ev simgesi görünümü sıfırlar.')}</li>
+                <li><strong>{tr('Opaklık kaydırıcısı:')}</strong> {tr('soldadır; çektikçe katmanlar tek tek açığa çıkar.')}</li>
+                <li><strong>{tr('Katman düğmesi:')}</strong> {tr('kaydırıcının altındadır; katmanları tek tek açar.')}</li>
+                <li><strong>{tr('Arama:')}</strong> {tr('sağ üsttedir; yapıyı seçer,')} <b>Zoom to</b> {tr('o yapıya odaklanır.')}</li>
+                <li><strong>{tr('Gizle / pin:')}</strong> {tr('Ctrl/Cmd+tıklama yapıyı gizler, etiketteki raptiye sabitler.')}</li>
+                <li><strong>{tr('Model seçimi:')}</strong> {tr('sol taraftaki model simgesinden kadın/erkek model değişir.')}</li>
               </ul>
             </div>
-            {lesson && <div className="atlas-lesson-card"><BookOpen size={19}/><strong>Bu görünüm Ders {String(lesson.number).padStart(2, '0')} ile eşleşiyor.</strong><p>{lesson.title} · {lesson.latin}</p><button className="text-button" onClick={() => onLesson(lesson)}>Konu anlatımını aç <ArrowUpRight size={14}/></button></div>}
+            {lesson && <div className="atlas-lesson-card"><BookOpen size={19}/><strong>{tr('Bu görünüm Ders {n} ile eşleşiyor.', { n: String(lesson.number).padStart(2, '0') })}</strong><p>{lesson.title} · {lesson.latin}</p><button className="text-button" onClick={() => onLesson(lesson)}>{tr('Konu anlatımını aç')} <ArrowUpRight size={14}/></button></div>}
             <div className="atlas-source-card">
               <ShieldCheck size={19}/>
-              <strong>Kaynak ve kullanım</strong>
-              <p>{ATLAS_SOURCE.licence}</p>
+              <strong>{tr('Kaynak ve kullanım')}</strong>
+              <p>{tr(ATLAS_SOURCE.licence)}</p>
               <p className="atlas-credit-line">{ATLAS_SOURCE.credit}</p>
-              <a href={ATLAS_SOURCE.termsUrl} target="_blank" rel="noreferrer">Kaynak sağlayıcının kullanım koşulları <ExternalLink size={12}/></a>
-              <p className="atlas-source-small">Bu bölüm tıbbi tanı veya tedavi amacı taşımaz; ders çalışmasına yardımcı bir inceleme aracıdır. Gömülü görünümün çalışması kaynak sağlayıcının servisinin erişilebilirliğine bağlıdır.</p>
+              <a href={ATLAS_SOURCE.termsUrl} target="_blank" rel="noreferrer">{tr('Kaynak sağlayıcının kullanım koşulları')} <ExternalLink size={12}/></a>
+              <p className="atlas-source-small">{tr('Bu bölüm tıbbi tanı veya tedavi amacı taşımaz; ders çalışmasına yardımcı bir inceleme aracıdır. Gömülü görünümün çalışması kaynak sağlayıcının servisinin erişilebilirliğine bağlıdır.')}</p>
             </div>
             <div className="atlas-source-card atlas-source-tip">
               <Sparkles size={19}/>
-              <strong>Dersle birlikte kullan</strong>
-              <p>Bir konuyu okurken atlası ikinci sekmede açık tut. Her ders kendi atlas sahnesine bağlanır; böylece okuduğun yapıyı aynı anda üç boyutlu görürsün.</p>
+              <strong>{tr('Dersle birlikte kullan')}</strong>
+              <p>{tr('Bir konuyu okurken atlası ikinci sekmede açık tut. Her ders kendi atlas sahnesine bağlanır; böylece okuduğun yapıyı aynı anda üç boyutlu görürsün.')}</p>
             </div>
           </aside>
         </div>

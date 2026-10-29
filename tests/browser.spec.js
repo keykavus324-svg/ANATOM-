@@ -701,21 +701,46 @@ test('practice is responsive, handles corrupt or unavailable storage and is reac
   expect(errors).toEqual([]);
 });
 
-test('dedicated book library opens a PDF inline without leaving the site', async ({ page }) => {
+test('licensed book library is gone and the resource page carries the Arabic note and open resources', async ({ page }) => {
   await page.route('https://drive.google.com/**', route => route.fulfill({ contentType: 'text/html', body: '<p>PDF preview test</p>' }));
+  // The old book route now lands on the resource page instead of dead-ending.
   await page.goto('/#/kitaplar');
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Anatomi kitapları');
-  await expect(page.locator('.book-collection-card')).toHaveCount(36);
-  await page.getByRole('searchbox', { name: 'Kitaplarda ara' }).fill('Fonksiyonel');
-  await expect(page.locator('.book-collection-card')).toHaveCount(1);
-  await page.getByRole('button', { name: 'Fonksiyonel Nöroanatomi: indirmeden oku' }).click();
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Kaynaklar');
+  await expect(page.locator('.resource-card')).toHaveCount(6);
+  expect(await page.locator('.book-collection-card').count()).toBe(0);
+  await page.goto('/#/kaynaklar');
+  await expect(page.locator('.resource-feature h2')).toHaveText('Ders Notları — Arapça Çeviri');
+  await page.getByRole('button', { name: 'Arapça notu aç' }).click();
   await expect(page.getByRole('dialog')).toBeVisible();
-  await expect(page.locator('.book-reader-dialog iframe')).toHaveAttribute('src', 'https://drive.google.com/file/d/1pNlklnJVADNpruqTYb8vt_jeWAhc2Ftz/preview');
-  await expect(page).toHaveURL(/#\/kitaplar$/);
+  await expect(page.locator('.resource-reader-dialog iframe')).toHaveAttribute('src', 'https://drive.google.com/file/d/1syfu-piLHAh3dPNlnqRuB2q3GfmURTu6/preview');
+  await expect(page.locator('.resource-licence')).toContainText('Lisanslı kitaplar kaldırıldı');
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toHaveCount(0);
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+});
+
+test('interface switches between Turkish, English and Arabic and remembers the choice', async ({ page }) => {
+  await page.goto('/');
+  const nav = page.locator('.sidebar nav');
+  await expect(nav).toContainText('Ders Kütüphanesi');
+  await page.getByRole('button', { name: 'English' }).click();
+  await expect(nav).toContainText('Course Library');
+  await expect(page.locator('.hero h1')).toContainText('the human body');
+  await expect(page.locator('.note-card h3').first()).toHaveText('Introduction to anatomy');
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  await page.getByRole('searchbox', { name: 'Search course notes' }).fill('digestive');
+  await expect(page.locator('.note-card')).toHaveCount(1);
+  await page.getByRole('button', { name: 'Clear search' }).click();
+  await page.getByRole('button', { name: 'العربية' }).click();
+  await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+  await expect(nav).toContainText('مكتبة المحاضرات');
+  await expect(page.locator('.note-card h3').first()).toHaveText('مقدمة في علم التشريح');
+  await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+  await page.getByRole('button', { name: 'Türkçe' }).click();
+  await expect(page.locator('html')).toHaveAttribute('dir', 'ltr');
+  await expect(nav).toContainText('Ders Kütüphanesi');
 });
 
 test('native quiz library lists local sets, filters favorites and preserves practice entry', async ({ page }) => {
