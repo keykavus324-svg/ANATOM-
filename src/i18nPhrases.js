@@ -562,6 +562,8 @@ export const PHRASES = [
   ['Şemayı küçült', 'Zoom out of the diagram', 'صغّر المخطط'],
   ['Şemayı yakınlaştır', 'Zoom into the diagram', 'كبّر المخطط'],
   ['Büyütülmüş şema; kaydırarak incele', 'Enlarged diagram; scroll to study it', 'مخطط مكبّر؛ مرّر لتفحّصه'],
+  ['Ders', 'Lesson', 'الدرس'],
+  ['Şemada {n} numarayla işaretlenen yapı / kavram hangisidir?', 'Which structure or concept is marked with the number {n} in the diagram?', 'ما البنية أو المفهوم المشار إليه بالرقم {n} في المخطط؟'],
   ['{n} numaralı işareti şemada bul. Metin ipucu aşağıdaki düğmeyle açılabilir.', 'Find marker {n} in the diagram. The text hint can be opened with the button below.', 'ابحث عن العلامة رقم {n} في المخطط. ويمكن فتح التلميح النصي بالزر أدناه.'],
 ];
 
