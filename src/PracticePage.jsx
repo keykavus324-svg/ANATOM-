@@ -583,9 +583,7 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
             </nav>
           )}
           <p className="practice-source-note">
-            Çalışma oturumu sayfa yenilendiğinde kapanır. Kontrol edilen görsel
-            yanıtların ve tamamlanan denemelerin tekrar kayıtları bu tarayıcıda
-            tutulur.
+            {tr("Çalışma oturumu sayfa yenilendiğinde kapanır. Kontrol edilen görsel yanıtların ve tamamlanan denemelerin tekrar kayıtları bu tarayıcıda tutulur.")}
           </p>
         </div>
       )}
@@ -666,7 +664,7 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
                   width="760"
                   height="460"
                   loading="lazy"
-                  alt={`${q.topic}, ${q.marker} numaralı işaretin açıklaması aşağıda.`}
+                  alt={tr("{topic} — {marker} numaralı işaretin açıklaması aşağıda.", { topic: q.topic, marker: q.marker })}
                 />
               )}
               <p>

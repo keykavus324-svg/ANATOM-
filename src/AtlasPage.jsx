@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowUpRight, BookOpen, Bookmark, ChevronRight, Compass, ExternalLink, Layers, Link2, Loader, Maximize2, Minimize2, MousePointerClick, RefreshCw, Rotate3d, Search, ShieldCheck, Sparkles, TriangleAlert } from 'lucide-react';
+import { ArrowUpRight, BookOpen, Bookmark, ChevronRight, Compass, ExternalLink, Info, Layers, Link2, Loader, Maximize2, Minimize2, MousePointerClick, RefreshCw, Rotate3d, Search, ShieldCheck, Sparkles, TriangleAlert } from 'lucide-react';
 import { atlasSceneGroups as atlasSceneGroupsRaw, atlasUrl, defaultAtlasScene } from './atlas';
 import { atlasSceneIn, atlasGroupsIn, atlasSourceIn } from './content/atlasI18n.js';
 import { notes } from './data';
