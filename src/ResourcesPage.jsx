@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, BookOpen, ExternalLink, FileText, Languages, RotateCcw, ShieldCheck, X } from 'lucide-react';
 import { useI18n } from './i18n.jsx';
-import { arabicNote, arabicNotePreviewUrl, arabicNoteViewUrl, openResources } from './resources.js';
+import { arabicNote, arabicNotePreviewUrl, arabicNoteViewUrl, licenceIn, openResources } from './resources.js';
 import { DRIVE_URL } from './data.js';
 import './resources.css';
 
@@ -68,7 +68,7 @@ export default function ResourcesPage() {
         <span className="resource-provider">{item.provider}</span>
         <h3>{item.title}</h3>
         <p>{item.note[lang]}</p>
-        <span className="resource-licence-tag">{item.licence}</span>
+        <span className="resource-licence-tag">{licenceIn(lang, item.licence)}</span>
         <a className="resource-open" href={item.url} target="_blank" rel="noopener noreferrer">{tr('Kaynağı aç')} <ArrowUpRight size={15}/></a>
       </article>)}
     </div>
