@@ -364,8 +364,9 @@ test('site creator credit is shared across pages and distinct from the instructo
     for(const route of ['/', '/#/hakkinda', '/#/ders/1']) {
       await page.goto(route);
       const credit=page.locator('.site-footer .site-maker');
-      await expect(credit).toHaveText('Tasarım ve geliştirme: Muhammet TUĞRUL');
-      await expect(credit.locator('strong')).toHaveText('Muhammet TUĞRUL');
+      await expect(credit).toHaveText('Tasarım ve geliştirme: Muhammet TUĞRUL · Arena.ai Agent');
+      await expect(credit.locator('strong').first()).toHaveText('Muhammet TUĞRUL');
+      await expect(credit.locator('strong').nth(1)).toHaveText('Arena.ai Agent');
       await credit.scrollIntoViewIfNeeded();
       await expect(credit).toBeInViewport();
       await page.evaluate(()=>document.fonts.ready);
