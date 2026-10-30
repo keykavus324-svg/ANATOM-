@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { practiceBank, dueQuestionsIn, makeSession, gradeSession } from '../src/practice.js';
+import { loadTranslationPack } from '../src/content/packs/index.js';
+await Promise.all([loadTranslationPack('en'), loadTranslationPack('ar')]); // translation packs load on demand
 
 const languages = ['tr', 'en', 'ar'];
 const turkish = practiceBank('tr');

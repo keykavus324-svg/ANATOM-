@@ -34,6 +34,7 @@ Arayüz üç dilde çalışır: **Türkçe**, **English** ve **العربية**.
 - **Tutarlılık denetimi:** `tests/lesson-i18n.test.js` her çevirinin paragraf/alt bölüm/tablo satırı sayısının Türkçe asılla aynı olduğunu, İngilizce gövdede Türkçe cümle kalmadığını ve sınav anlatımlarının da çevrildiğini doğrular. Sayı uyuşmazsa birleştirme sessizce kaymaz, test kırılır.
 - **Çevrilmeyen (henüz):** yerel quiz/alıştırma soru bankası, şema başlıkları ve şema içi etiketler. Bunlar da aynı yöntemle sırayla çevrilecek.
 - Arapça ders notu ve özgün PDF’ler **Kaynaklar** bölümündedir.
+- **İngilizce ve Arapça metinler isteğe bağlı yüklenir:** çeviri verileri (`src/content/packs/{en,ar}.js`, her dil ayrı bir parça) yalnızca o dil seçildiğinde indirilir; Türkçe ziyaretçi bunları indirmez. Dil değiştirilirken yeni dilin paketi hazır olana kadar ekran eski dilde kalır, sonra tüm metinler birlikte değişir.
 - Sözlük `src/i18nPhrases.js` (düz JS), dil meta verisi `src/i18nMeta.js`, ders/sahne başlıkları `src/content/localizedContent.js` içinde. `tests/i18n.test.js` her Türkçe satırın İngilizce ve Arapça karşılığı olduğunu, her dersin ve sahnenin çevrilmiş başlığı bulunduğunu ve bileşenlerdeki tüm `tr()` anahtarlarının sözlükte tanımlı olduğunu doğrular.
 
 ## Kaynaklar sayfası ve telif
@@ -91,6 +92,7 @@ Siteye, sayfadan ayrılmadan kullanılan **3B anatomi atlası bölümü** eklend
 | `src/LessonPage.jsx` | Tek sürümlü, yerel konu anlatımı okuyucusu |
 | `src/i18nPhrases.js` | Arayüz sözlüğü: her satır `[Türkçe, English, العربية]`; eksik çeviri Türkçeye düşer |
 | `src/i18n.jsx` · `src/i18nMeta.js` | `LanguageProvider`, `useI18n`, `tr()`, `useLocalizedContent`; dil listesi ve `dir` bilgisi |
+| `src/content/packs/` | Dil başına çeviri paketi (`en.js`, `ar.js`) ve `loadTranslationPack` yükleyicisi; paketler tembel yüklenir |
 | `src/content/localizedContent.js` | Ders başlıkları/açıklamaları, kategori ve atlas sahnesi adlarının EN/AR karşılıkları |
 | `src/components/LanguageSwitch.jsx` | Üst çubuk ve menüdeki TR/EN/AR dil seçici |
 | `src/resources.js` | Arapça not kimliği ve açık lisanslı kaynak listesi |

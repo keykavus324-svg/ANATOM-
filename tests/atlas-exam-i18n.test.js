@@ -5,6 +5,8 @@ import { atlasSceneIn, atlasScenesIn, atlasGroupsIn, atlasSourceIn, TRANSLATED_A
 import { examSources, examReviewDate } from '../src/content/exam/index.js';
 import { examVisuals } from '../src/content/exam/visuals.js';
 import { examSourcesIn, examReviewDateIn, examLocatorIn, examVisualsIn, examVisualIn } from '../src/content/examI18n.js';
+import { loadTranslationPack } from '../src/content/packs/index.js';
+await Promise.all([loadTranslationPack('en'), loadTranslationPack('ar')]); // translation packs load on demand
 
 const sceneIds = atlasScenes.map(scene => scene.id);
 

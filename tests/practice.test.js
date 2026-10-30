@@ -14,6 +14,8 @@ import {
 import { lessons } from "../src/lessons.js";
 import { diagrams } from "../src/content/diagrams.js";
 import { routeFromHash, pageHash } from "../src/routing.js";
+import { loadTranslationPack } from '../src/content/packs/index.js';
+await Promise.all([loadTranslationPack('en'), loadTranslationPack('ar')]); // translation packs load on demand
 
 test("practice bank retains real lesson anchors, numbered visual keys and valid unique choices", () => {
   assert.equal(knowledgeQuestions.length, 42);

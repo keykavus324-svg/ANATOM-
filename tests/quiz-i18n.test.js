@@ -3,6 +3,8 @@ import assert from 'node:assert/strict';
 import { quizSets, quizQuestions } from '../src/content/quizBank.js';
 import { quizDiagrams } from '../src/content/quizDiagrams.js';
 import { quizSetIn, quizSetsIn, quizQuestionsIn, quizFigureIn, findQuizSetIn, TRANSLATED_QUIZ } from '../src/content/quizI18n.js';
+import { loadTranslationPack } from '../src/content/packs/index.js';
+await Promise.all([loadTranslationPack('en'), loadTranslationPack('ar')]); // translation packs load on demand
 
 const setIds = quizSets.map(set => set.id);
 const questionIds = Object.values(quizQuestions).flat().map(question => question.id);

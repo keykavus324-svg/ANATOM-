@@ -5,10 +5,13 @@
 // The label array must keep the Turkish order and length, because the numbering
 // printed on the figure SVG is generated from that order.
 import { diagrams } from './diagrams.js';
-import en from './diagrams/i18n/en.js';
-import ar from './diagrams/i18n/ar.js';
+import { translationPack } from './packs/index.js';
 
-const registry = { en, ar };
+// Diagram labels for each language come from its pack (src/content/packs), loaded on demand.
+const registry = {
+  get en() { return translationPack('en')?.diagrams || {}; },
+  get ar() { return translationPack('ar')?.diagrams || {}; },
+};
 
 function sameLength(base, patch, where) {
   if (!Array.isArray(patch) || patch.length !== base.length) {
@@ -41,6 +44,6 @@ export function diagramIn(lang, id) {
 }
 
 export const TRANSLATED_DIAGRAMS = {
-  en: Object.keys(registry.en),
-  ar: Object.keys(registry.ar),
+  get en() { return Object.keys(registry.en); },
+  get ar() { return Object.keys(registry.ar); },
 };

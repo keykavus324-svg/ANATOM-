@@ -7,10 +7,13 @@
 // evidence locators and the six teaching figures.
 import { examSources, examReviewDate } from './exam/index.js';
 import { examVisuals } from './exam/visuals.js';
-import en from './exam/i18n/en/meta.js';
-import ar from './exam/i18n/ar/meta.js';
+import { translationPack } from './packs/index.js';
 
-const registry = { en, ar };
+// Exam archive text for each language comes from its pack (src/content/packs), loaded on demand.
+const registry = {
+  get en() { return translationPack('en')?.exam; },
+  get ar() { return translationPack('ar')?.exam; },
+};
 
 function sameLength(base, patch, where) {
   if (!Array.isArray(patch) || patch.length !== base.length) {
@@ -57,7 +60,8 @@ export function examVisualIn(lang, id) {
   return examVisualsIn(lang)[id] || null;
 }
 
+const keysOf = (lang, part) => Object.keys(registry[lang]?.[part] || {});
 export const TRANSLATED_EXAM = {
-  en: { sources: Object.keys(en.sources), visuals: Object.keys(en.visuals), locators: Object.keys(en.locators) },
-  ar: { sources: Object.keys(ar.sources), visuals: Object.keys(ar.visuals), locators: Object.keys(ar.locators) },
+  get en() { return { sources: keysOf('en', 'sources'), visuals: keysOf('en', 'visuals'), locators: keysOf('en', 'locators') }; },
+  get ar() { return { sources: keysOf('ar', 'sources'), visuals: keysOf('ar', 'visuals'), locators: keysOf('ar', 'locators') }; },
 };
