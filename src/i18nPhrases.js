@@ -583,6 +583,9 @@ export const PHRASES = [
   ['Vize / final için konu seçimini hocanın duyurduğu kapsama göre yap. Otomatik bir vize–final kapsamı varsayılmaz.', 'For the midterm and final, choose your topics according to the scope announced by the instructor. No midterm–final scope is assumed automatically.', 'اختر موضوعاتك للامتحان النصفي والنهائي وفق النطاق الذي يعلنه المدرّس. ولا يُفترض نطاق نصفي–نهائي تلقائيًا.'],
   ['{misses} kez yanlış / boş · {streak} ardışık doğru · Sonraki tekrar: {date}', '{misses} wrong / blank · {streak} correct in a row · Next review: {date}', '{misses} خطأ / فراغ · {streak} إجابات صحيحة متتالية · المراجعة التالية: {date}'],
   ['Kayıtlar yalnızca bu tarayıcıda saklanır. Hesap veya sunucuya gönderim yoktur; cihazlar arasında eşitlenmez. Tarayıcı verilerini silmek defterini de siler.', 'Records are kept only in this browser. Nothing is sent to an account or a server and nothing syncs between devices. Clearing browser data also deletes your notebook.', 'تُحفظ السجلات في هذا المتصفح فقط. ولا يُرسل شيء إلى حساب أو خادم ولا تتم المزامنة بين الأجهزة. ومسح بيانات المتصفح يمحو دفترك أيضًا.'],
+  // Practice session footer and the question figure description
+  ['Çalışma oturumu sayfa yenilendiğinde kapanır. Kontrol edilen görsel yanıtların ve tamamlanan denemelerin tekrar kayıtları bu tarayıcıda tutulur.', 'A study session ends when the page is refreshed. The review records of checked visual answers and completed attempts are kept in this browser.', 'تنتهي جلسة الدراسة عند تحديث الصفحة. وتُحفظ في هذا المتصفح سجلات المراجعة للإجابات البصرية المفحوصة والمحاولات المكتملة.'],
+  ['{topic} — {marker} numaralı işaretin açıklaması aşağıda.', '{topic} — the description of marker {marker} is below.', '{topic} — شرح العلامة رقم {marker} أدناه.'],
 ];
 
 export const DICTIONARIES = {
