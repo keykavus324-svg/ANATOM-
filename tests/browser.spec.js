@@ -357,6 +357,13 @@ test('unavailable official photo falls back without a broken image or invented p
   await expect(page.getByRole('link',{name:'Akademik profilini incele'})).toBeVisible();
 });
 
+test('site creator credit is visible on the home hero', async ({ page }) => {
+  await page.goto('/');
+  const maker = page.locator('.hero .hero-maker');
+  await expect(maker).toHaveText('Tasarım ve geliştirme: Muhammet TUĞRUL');
+  await expect(maker).toBeInViewport();
+});
+
 test('site creator credit is shared across pages and distinct from the instructor attribution', async ({ page }) => {
   await page.route('https://apiabs.firat.edu.tr/**',route=>route.abort());
   for(const width of [1440,320]) {
