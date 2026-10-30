@@ -5,7 +5,7 @@ import { isTranslationReady, loadTranslationPack } from './content/packs/index.j
 // Interface languages live in a plain-JS module so tests can import them.
 export { LANGUAGES, DEFAULT_LANGUAGE, languageMeta } from './i18nMeta.js';
 import { LANGUAGES, DEFAULT_LANGUAGE, languageMeta, LANGUAGE_STORAGE_KEY as STORAGE_KEY } from './i18nMeta.js';
-import { localizedNote, localizedNotes, localizedScene, localizedCategory } from './content/localizedContent.js';
+import { localizedNote, localizedNotes, localizedCategory } from './content/localizedContent.js';
 
 function storedLanguage() {
   try {
@@ -113,7 +113,6 @@ export function useLocalizedContent() {
     isTurkish,
     note: value => localizedNote(value, lang),
     notes: values => localizedNotes(values, lang),
-    scene: value => localizedScene(value, lang),
     categoryLabel: value => localizedCategory(value, lang),
   };
 }

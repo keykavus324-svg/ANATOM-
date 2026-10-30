@@ -28,14 +28,14 @@ React 19 + Vite, yerel fontlar ve Lucide ikonları. Backend, API anahtarı veya 
 
 Arayüz üç dilde çalışır: **Türkçe**, **English** ve **العربية**. Dil seçici masaüstünde üst çubukta, mobilde menünün içinde (TR/EN/AR) yer alır; seçim `anatomi-language` anahtarıyla cihazda saklanır ve Arapça seçildiğinde belge yönü `dir="rtl"` olur.
 
-- **Çevrilen:** menü ve gezinme, ana sayfa bölümleri, ders başlıkları ve kısa açıklamaları, kategori etiketleri, 18 atlas sahnesinin adı, quiz/alıştırma arayüz metinleri, PDF okuyucu, kaynak sayfası, yardım penceresi, atıf ve erişilebilirlik etiketleri (~470 sözlük satırı).
+- **Çevrilen:** menü ve gezinme, ana sayfa bölümleri, ders başlıkları ve kısa açıklamaları, kategori etiketleri, atlas sayfası, quiz/alıştırma arayüz metinleri, PDF okuyucu, kaynak sayfası, yardım penceresi, atıf ve erişilebilirlik etiketleri (~470 sözlük satırı).
 - **Ders gövdesi de çevriliyor:** her dersin İngilizce ve Arapça metni `src/content/lessons/i18n/{en,ar}/<no>.js` altında, Türkçe kaynağın bölüm kimlikleriyle eşleşen bir yama olarak durur. `src/content/lessonI18n.js` bu yamayı Türkçe derse aktarır: paragraf, alt bölüm, tablo, uyarı, sözlük ve tekrar soruları yerinde değişir; bölüm `id`'leri, kaynak sayfaları ve şema anahtarları Türkçe asıldan gelir. Aynı dosya çalışma rehberini (`guide`) ve o dersin sınav anlatımlarını (`teaching`) da çevirir.
 - **Eksik çeviri güvenli düşer:** bir ders için yama yoksa sayfa Türkçe metni gösterir ve "bu ders henüz çevrilmedi" notu (çevrilen ders sayısıyla) görünür.
 - **Tutarlılık denetimi:** `tests/lesson-i18n.test.js` her çevirinin paragraf/alt bölüm/tablo satırı sayısının Türkçe asılla aynı olduğunu, İngilizce gövdede Türkçe cümle kalmadığını ve sınav anlatımlarının da çevrildiğini doğrular. Sayı uyuşmazsa birleştirme sessizce kaymaz, test kırılır.
 - **Çevrilmeyen (henüz):** yerel quiz/alıştırma soru bankası, şema başlıkları ve şema içi etiketler. Bunlar da aynı yöntemle sırayla çevrilecek.
 - Arapça ders notu ve özgün PDF’ler **Kaynaklar** bölümündedir.
 - **İngilizce ve Arapça metinler isteğe bağlı yüklenir:** çeviri verileri (`src/content/packs/{en,ar}.js`, her dil ayrı bir parça) yalnızca o dil seçildiğinde indirilir; Türkçe ziyaretçi bunları indirmez. Dil değiştirilirken yeni dilin paketi hazır olana kadar ekran eski dilde kalır, sonra tüm metinler birlikte değişir.
-- Sözlük `src/i18nPhrases.js` (düz JS), dil meta verisi `src/i18nMeta.js`, ders/sahne başlıkları `src/content/localizedContent.js` içinde. `tests/i18n.test.js` her Türkçe satırın İngilizce ve Arapça karşılığı olduğunu, her dersin ve sahnenin çevrilmiş başlığı bulunduğunu ve bileşenlerdeki tüm `tr()` anahtarlarının sözlükte tanımlı olduğunu doğrular.
+- Sözlük `src/i18nPhrases.js` (düz JS), dil meta verisi `src/i18nMeta.js`, ders başlıkları `src/content/localizedContent.js` içinde. `tests/i18n.test.js` her Türkçe satırın İngilizce ve Arapça karşılığı olduğunu, her dersin çevrilmiş başlığı bulunduğunu ve bileşenlerdeki tüm `tr()` anahtarlarının sözlükte tanımlı olduğunu doğrular.
 
 ## Kaynaklar sayfası ve telif
 
@@ -49,17 +49,13 @@ Kaynaklar sayfasında yalnızca şunlar listelenir:
 
 ## 3D Anatomi Atlası (gömülü görünüm)
 
-Siteye, sayfadan ayrılmadan kullanılan **3B anatomi atlası bölümü** eklendi. Gömülü pencere, Zygote’un kendi web sitesinde duyurduğu **ücretsiz iframe gömme** yöntemiyle [ZygoteBody](https://www.zygotebody.com/) üzerinden yüklenir: `https://www.zygotebody.com/`.
+Site, Muhammet TUĞRUL’un kendi yayımladığı **TUĞRUL ATLAS — İnteraktif Anatomi Atlası** sayfasını gömülü olarak açar: `https://keykavus324-svg.github.io/anatomyATLAS/`. Atlas, “Bir Muhammet TUĞRUL projesi” olarak sayfada belirtilir.
 
-- **Senkronize çalışma:** Atlas, uygulamanın kendi hash durumunu kullanır. `nav=` kamera konumu, `sel=` seçim/vurgu, `layers=` katman opaklığıdır. Sahne seçtiğinde çerçeve adresi güncellenir; yenileme, geri/ileri gezinme ve `#/atlas/<sahne>` bağlantı paylaşımı çalışır.
-- **18 sahne:** 4 bölge görünümü (tüm vücut, baş-boyun, göğüs, karın), 8 sistem görünümü (iskelet, kas, sinir, dolaşım, sindirim, ürogenital, lenfatik, deri) ve 6 tek yapı odağı (kafatası, beyin, akciğerler, karaciğer, mide, kalp).
-- **Doğrulanmış izole bağlantılar:** İskelet, kafatası, beyin, akciğer, karaciğer ve mide görünümleri, kamuya açık paylaşılmış ZygoteBody derin bağlantılarından alınmıştır: yapı seçili gelir, diğer katmanlar soldurulur. Kalan sahneler yalnızca kamerayı konumlandırır; katman denetimi gömülü arayüzde, kullanıcıya bırakılır.
-- **Ders eşleşmesi:** 12 dersin her biri kendi atlas sahnesine bağlıdır. Ders sayfasındaki “3D atlas” düğmesi ve ders altındaki eşleşme kartı ilgili sahneyi açar.
-- **Rehberli kullanım:** Her sahne için kısa özet, “neye bakmalı?” notu ve gömülü Zygote araçlarını (opaklık kaydırıcısı, katman düğmesi, arama, `Zoom to`, gizle/pin, model seçimi) anlatan üç adım bulunur.
-- **Kaydedilen sahneler, tam ekran, bağlantı kopyalama ve yenileme** atlas araç çubuğundadır. Kaydedilen sahneler `anatomi-atlas-scenes`, son açılan sahne `anatomi-atlas-last` anahtarıyla yalnızca bu cihazda saklanır.
-- **Erişilemeyen ağ durumu:** Zygote alan adına ulaşılamazsa boş bir çerçeve bekletmek yerine uyarı gösterilir ve “Yeni sekmede aç” seçeneği sunulur. Site atlas olmadan da çalışır.
-- **Arayüzde marka adı gösterilmez:** Kullanıcıya görünen metinlerde sağlayıcının ürün adı geçmez; “gömülü 3B atlas”, “3D anatomi atlası” ve “kaynak sağlayıcı” gibi nötr ifadeler kullanılır. Yalnızca kaynak kartında tek satır telif atfı bulunur: **3B anatomik model ve veriler © Zygote 3D.** Marka adı, teknik atıf ve doğrulama kaydı bu README ile `docs/content-notes.md` içinde tutulur. Gömülü pencerenin **içindeki** arayüz sağlayıcının kendi sayfasıdır ve oradaki marka görünümü iframe ile değiştirilemez (ZygoteBody’nin ücretsiz sürümü DOM erişimi vermez).
-- **Gömülü görünümün sınırı:** ZygoteBody’nin ücretsiz sürümünde ön yüz, `Fullscreen` dışında üst pencereyle konuşmaz (gömme için API satılmaktadır). Bu nedenle kamera/katman senkronizasyonu, kullanıcı bir sahne seçtiğinde yönlüdür: atlas içindeki her döndürme adres çubuğuna yazılmaz ve dış arayüzden sahne durumu okunamaz.
+- **Tek atlas sayfası:** `#/atlas` sayfası atlası tek bir gömülü pencerede gösterir. Yenileme, tam ekran ve “Yeni sekmede aç” düğmeleri araç çubuğundadır.
+- **Ders bağlantısı yok:** Atlas sahneleri ve ders eşleşmeleri kaldırıldı; atlasın kendi menüleri (görünümler, kesit düzlemleri, sistemler) pencerenin içinde çalışır.
+- **Erişilemeyen ağ durumu:** Atlasın adresine ulaşılamazsa boş bir çerçeve bekletmek yerine uyarı gösterilir ve “Yeni sekmede aç” seçeneği sunulur. Site atlas olmadan da çalışır.
+- **Eski bağlantılar:** `#/atlas/<kimlik>` biçimindeki eski bağlantılar da aynı atlas sayfasını açar.
+- **Gömülü görünümün sınırı:** Gömülü pencere ile site arasında durum senkronizasyonu yoktur; atlasın içindeki her etkileşim adres çubuğuna yazılmaz.
 
 ## Özellikler
 
@@ -75,8 +71,7 @@ Siteye, sayfadan ayrılmadan kullanılan **3B anatomi atlası bölümü** eklend
 - Mobil menü, klavyeyle kullanılabilen diyaloglar, Escape ile kapatma.
 - Ana sayfanın parşömen, adaçayı ve gül tonlarındaki atlas tasarımı korunur.
 - Kullanıcının seçtiği kaburga–sternum amblemi; ana menüde detaylı SVG, mobil/altbilgide sadeleştirilmiş simge ve uyumlu favicon.
-- 3B anatomi atlası: `#/atlas` ve `#/atlas/<sahne>` adresleri, 18 sahne, grup filtresi, ders eşleşmesi, kaydedilen sahneler, tam ekran ve ağ engeli için yedek açılış.
-- Atlas sahneleri derin bağlantıyla paylaşılabilir; ana sayfa bandındaki hızlı sahne çipleri ve kenar çubuğundaki “3D atlas sahneleri” listesi aynı bölüme gider.
+- 3B anatomi atlası: Muhammet TUĞRUL’un TUĞRUL ATLAS’ı `#/atlas` sayfasında gömülü olarak açılır; tam ekran, yenileme, yeni sekmede açma ve ağ engeli için yedek açılış bulunur.
 
 ## İçerik ve kaynak düzeni
 
@@ -93,14 +88,14 @@ Siteye, sayfadan ayrılmadan kullanılan **3B anatomi atlası bölümü** eklend
 | `src/i18nPhrases.js` | Arayüz sözlüğü: her satır `[Türkçe, English, العربية]`; eksik çeviri Türkçeye düşer |
 | `src/i18n.jsx` · `src/i18nMeta.js` | `LanguageProvider`, `useI18n`, `tr()`, `useLocalizedContent`; dil listesi ve `dir` bilgisi |
 | `src/content/packs/` | Dil başına çeviri paketi (`en.js`, `ar.js`) ve `loadTranslationPack` yükleyicisi; paketler tembel yüklenir |
-| `src/content/localizedContent.js` | Ders başlıkları/açıklamaları, kategori ve atlas sahnesi adlarının EN/AR karşılıkları |
+| `src/content/localizedContent.js` | Ders başlıkları/açıklamaları ve kategori adlarının EN/AR karşılıkları |
 | `src/components/LanguageSwitch.jsx` | Üst çubuk ve menüdeki TR/EN/AR dil seçici |
 | `src/resources.js` | Arapça not kimliği ve açık lisanslı kaynak listesi |
 | `src/ResourcesPage.jsx` · `src/resources.css` | Kaynaklar sayfası, gömülü Arapça PDF okuyucusu ve lisans notları |
-| `src/atlas.js` | Atlas sahne kataloğu, ZygoteBody adres üretimi ve ders ↔ sahne eşleşmesi |
-| `src/AtlasPage.jsx` | Gömülü 3B atlas sayfası: araç çubuğu, sahne listesi, rehber panelleri, erişim uyarısı |
+| `src/atlas.js` | TUĞRUL ATLAS kaynak bilgisi (adres, başlık, hazırlayan) |
+| `src/AtlasPage.jsx` | Gömülü TUĞRUL ATLAS sayfası: araç çubuğu, gömülü pencere, kullanım rehberi, erişim uyarısı |
 | `src/atlas.css` | Atlas sayfası, ana sayfa atlas bandı ve ders atlas bağlantısının biçimi |
-| `tests/atlas.test.js` | Sahne bütünlüğü, bağlantı biçimi, ders eşleşmesi ve yol çözümleme testleri |
+| `tests/atlas.test.js` | TUĞRUL ATLAS adresi, atlas yolları ve Zygote bağlantısının kalmadığı kontrolü |
 | `src/courseManifest.json` | Kaynak PDF sayfa sayıları ve SHA-256 kimlikleri |
 | `reference/course-content/` | Editoryal kontrol için 697 kaynak sayfanın metin ve görsel arşivi; **public değildir, production build’e kopyalanmaz** |
 | `public/brand/` | Seçilen logo, şeffaf SVG amblem ve tam logo, PNG sunum dosyası ve küçük boyut amblemi |
@@ -128,15 +123,15 @@ Bu araç **ders anlatımı yazmaz**. Yalnızca `reference/course-content/` altı
 - **Lisanslı kitap ve atlas PDF’leri kaldırıldı.** Site artık Netter, Gray’s, Sobotta, Moore ve benzeri telifli eserleri listelemez, önizlemez veya bağlantılamaz. Yerine yalnızca hocanın Arapça ders notu ve açık lisanslı kaynaklar sunulur. Lisans etiketleri kaynağın kendi beyanına dayanır; yayın öncesi her bağlantı yeniden doğrulanmalıdır.
 - 12 kaynak dosya 14 Ekim 2026 tarihinde incelenmiştir. Akademik unvan ve atıf: Dr. Öğr. Gör. Bekir Dağdeviren, Fırat Üniversitesi Sağlık Bilimleri Fakültesi, Fizyoterapi ve Rehabilitasyon.
 - Derslerin ana konu grupları anlatıma alınmıştır; bir sayfa veya kelime sayısı tıbbi doğruluk/eksiksizlik kanıtı olarak kullanılmaz. Öğretim elemanı denetimi henüz yapılmış değildir.
-- 3B anatomi modeli ve verileri **© Zygote 3D** (ZygoteBody™) şirketine aittir. Site bu modelleri kopyalamaz, indirmez, yeniden barındırmaz veya değiştirmez; yalnızca Zygote’un ücretsiz iframe gömme yöntemiyle kendi sunucusundan gösterir. Zygote markası ve logosu proje tarafından kullanılmaz; yalnızca metin olarak atıf yapılır.
-- Atlas bölümü tıbbi tanı veya tedavi amacı taşımaz; ders çalışmasına yardımcı bir inceleme aracıdır. Gömülü görünümün çalışması Zygote’un servisinin erişilebilirliğine bağlıdır.
+- 3B atlas (TUĞRUL ATLAS) Muhammet TUĞRUL’un kendi çalışmasıdır; site yalnızca onu kendi yayımlanmış adresinden gömülü olarak gösterir ve atlasın içeriğini kopyalamaz, yeniden barındırmaz veya değiştirmez.
+- Atlas bölümü tıbbi tanı veya tedavi amacı taşımaz; ders çalışmasına yardımcı bir inceleme aracıdır. Gömülü görünümün çalışması atlasın yayımlandığı sunucunun erişilebilirliğine bağlıdır.
 - Yapay zekâ ile üretilmiş kapaklar dekoratiftir. Konu içi SVG şemalar özgün ve numaralıdır, fakat sadeleştirilmiş/ölçeksizdir; uzman denetiminden geçmiş atlasların yerini almaz.
 - `reference/` production’a alınmasa da Git deposunda bulunur. Depoyu veya arşivi paylaşmadan önce üçüncü taraf görseller dahil hak sahiplerinin izinlerini doğrulayın.
 - Orijinal PDF’ler değiştirilmez veya uygulamayla yeniden yayımlanmaz. Kalıcı yayın öncesi kaynak ve web metinleri için paylaşım/düzenleme onayı alın.
 
 ## Gizlilik
 
-`anatom-saved`, `anatom-completed`, `anatom-last`, `anatomi-last-mode`, `anatomi-reading-size`, `anatomi-atlas-scenes`, `anatomi-atlas-last`, `anatomi-quiz-saved`, `anatomi-quiz-studied` ve `anatomi-language` yalnız tarayıcıda saklanır. Hesap, analiz kodu veya çalışma kaydını sunucuya gönderen mekanizma yoktur. Cihazlar arasında eşitleme yapılmaz. PDF açıldığında Google’ın üçüncü taraf hizmetine istek gönderilir; web derslerini okumak Google isteği oluşturmaz. “Hocamız Hakkında” sayfasında resmî portre `apiabs.firat.edu.tr` üzerinden yüklenir; bu sayfa üniversitenin fotoğraf sunucusuna istek gönderir. Fotoğrafta `no-referrer` kullanılır. Fotoğraf yüklenemezse baş harfler ve resmî profile bağlantı gösterilir. Ders okuyucusu ve ana sayfa bu fotoğrafı istemez. 3B atlas bölümünde `www.zygotebody.com` adresine iframe isteği gönderilir ve erişilebilirlik ön kontrolü için aynı alan adına `no-cors` bir istek yapılır; web derslerini okumak bu isteği oluşturmaz.
+`anatom-saved`, `anatom-completed`, `anatom-last`, `anatomi-last-mode`, `anatomi-reading-size`, `anatomi-quiz-saved`, `anatomi-quiz-studied` ve `anatomi-language` yalnız tarayıcıda saklanır. Hesap, analiz kodu veya çalışma kaydını sunucuya gönderen mekanizma yoktur. Cihazlar arasında eşitleme yapılmaz. PDF açıldığında Google’ın üçüncü taraf hizmetine istek gönderilir; web derslerini okumak Google isteği oluşturmaz. “Hocamız Hakkında” sayfasında resmî portre `apiabs.firat.edu.tr` üzerinden yüklenir; bu sayfa üniversitenin fotoğraf sunucusuna istek gönderir. Fotoğrafta `no-referrer` kullanılır. Fotoğraf yüklenemezse baş harfler ve resmî profile bağlantı gösterilir. Ders okuyucusu ve ana sayfa bu fotoğrafı istemez. 3B atlas bölümünde `www.zygotebody.com` adresine iframe isteği gönderilir ve erişilebilirlik ön kontrolü için aynı alan adına `no-cors` bir istek yapılır; web derslerini okumak bu isteği oluşturmaz.
 
 ## Testler
 

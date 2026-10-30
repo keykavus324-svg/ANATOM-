@@ -1,44 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { atlasScenes, atlasGroups, ATLAS_SOURCE } from '../src/atlas.js';
-import { atlasSceneIn, atlasScenesIn, atlasGroupsIn, atlasSourceIn, TRANSLATED_ATLAS } from '../src/content/atlasI18n.js';
 import { examSources, examReviewDate } from '../src/content/exam/index.js';
 import { examVisuals } from '../src/content/exam/visuals.js';
 import { examSourcesIn, examReviewDateIn, examLocatorIn, examVisualsIn, examVisualIn } from '../src/content/examI18n.js';
 import { loadTranslationPack } from '../src/content/packs/index.js';
 await Promise.all([loadTranslationPack('en'), loadTranslationPack('ar')]); // translation packs load on demand
-
-const sceneIds = atlasScenes.map(scene => scene.id);
-
-test('every 3D atlas scene is written in English and Arabic', () => {
-  for (const lang of ['en', 'ar']) {
-    assert.deepEqual([...TRANSLATED_ATLAS[lang]].sort(), [...sceneIds].sort(), `${lang} scene list`);
-    const scenes = atlasScenesIn(lang);
-    assert.deepEqual(scenes.map(scene => scene.id), sceneIds);
-    scenes.forEach((scene, i) => {
-      assert.notEqual(scene.summary, atlasScenes[i].summary, `${lang} ${scene.id} summary`);
-      assert.notEqual(scene.observe, atlasScenes[i].observe, `${lang} ${scene.id} observe`);
-      assert.equal(scene.steps.length, atlasScenes[i].steps.length, `${lang} ${scene.id} step count`);
-      scene.steps.forEach((step, s) => assert.notEqual(step, atlasScenes[i].steps[s], `${lang} ${scene.id} step ${s}`));
-      assert.equal(scene.lesson, atlasScenes[i].lesson);
-      assert.equal(scene.source, atlasScenes[i].source);
-    });
-  }
-});
-
-test('the atlas shell is translated but keeps its links', () => {
-  for (const lang of ['en', 'ar']) {
-    const groups = atlasGroupsIn(lang);
-    assert.deepEqual(groups.map(group => group.id), atlasGroups.map(group => group.id));
-    groups.forEach((group, i) => assert.notEqual(group.label, atlasGroups[i].label, `${lang} ${group.id}`));
-
-    const source = atlasSourceIn(lang);
-    assert.equal(source.url, ATLAS_SOURCE.url);
-    assert.equal(source.termsUrl, ATLAS_SOURCE.termsUrl);
-    assert.notEqual(source.viewerLabel, ATLAS_SOURCE.viewerLabel);
-    assert.notEqual(source.licence, ATLAS_SOURCE.licence);
-  }
-});
 
 test('the archive review notes and the review date switch language', () => {
   for (const lang of ['en', 'ar']) {
@@ -72,9 +38,7 @@ test('evidence locators are translated and unknown ones fall through', () => {
   assert.equal(examLocatorIn('xx', 'kas tanıma'), 'kas tanıma');
 });
 
-test('Turkish and unknown languages keep the Turkish atlas text', () => {
-  assert.equal(atlasSceneIn('tr', atlasScenes[0]), atlasScenes[0]);
-  assert.equal(atlasSceneIn('xx', atlasScenes[0]).title, atlasScenes[0].title);
+test('Turkish and unknown languages keep the Turkish exam text', () => {
   assert.equal(examSourcesIn('xx').summary.review, examSources.summary.review);
   assert.equal(examReviewDateIn('xx'), examReviewDate);
   assert.equal(examVisualsIn('xx'), examVisuals);

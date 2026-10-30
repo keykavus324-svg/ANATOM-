@@ -13,7 +13,6 @@ import lesson11 from '../lessons/i18n/en/11.js';
 import { lessonGaps } from '../lessons/i18n/gaps/index.js';
 import quizBank from '../quizBank/i18n/en.js';
 import quizFigures from '../quizDiagrams/i18n/en.js';
-import atlas from '../atlas/i18n/en.js';
 import diagrams from '../diagrams/i18n/en.js';
 import exam from '../exam/i18n/en/meta.js';
 
@@ -36,7 +35,6 @@ export default {
   gaps: lessonGaps,
   quizBank,
   quizFigures,
-  atlas,
   diagrams,
   exam,
 };
