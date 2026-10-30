@@ -32,7 +32,7 @@ export default {
       "source": "PDF · s. 1–7",
       "paragraphs": [
         "Anatomide bir yapının adını ve işlevini metinden öğrenmek, onu üç boyutlu ilişkileri içinde tanımak için tek başına yeterli olmayabilir. Atlas konumu ve komşulukları gösterir; ders kitabı bu ilişkileri açıklayan metni sağlar. Bir kemiği öğrenirken önce anlatımdan ana işaretleri seçip ardından aynı işaretleri atlasın farklı görünümlerinde bulmak, iki kaynağı birbirini tamamlayacak biçimde kullanmaktır.",
-        "Öğr. Gör. Bekir Dağdeviren’in kaynak listesi temel eğitim için öneri niteliğindedir; listedeki kitapları satın almak zorunlu değildir. Kaynakta yeni kitapların yanında ikinci el atlasların da kullanılabileceği belirtilir. Ders notları öğrenmenin ana çerçevesini sunar; ek kaynaklar özellikle görsel ilişkileri tekrar etmek için destek olabilir."
+        "Dr. Öğr. Gör. Bekir Dağdeviren’in kaynak listesi temel eğitim için öneri niteliğindedir; listedeki kitapları satın almak zorunlu değildir. Kaynakta yeni kitapların yanında ikinci el atlasların da kullanılabileceği belirtilir. Ders notları öğrenmenin ana çerçevesini sunar; ek kaynaklar özellikle görsel ilişkileri tekrar etmek için destek olabilir."
       ]
     },
     {
@@ -84,7 +84,7 @@ export default {
       "sourcePages": "1",
       "source": "PDF · s. 1",
       "paragraphs": [
-        "Kaynak rehberinde sorular için bdagdeviren@firat.edu.tr adresi paylaşılır. Öğr. Gör. Bekir Dağdeviren’in önerisi, listedeki kaynakları zorunlu satın alma listesi olarak değil, anatomi bilgisini geliştirme fırsatı olarak değerlendirmektir. Eserin tam adı, baskısı ve dersin gereksinimleri konusunda kararsız kaldığında eğitmene danışabilirsin.",
+        "Kaynak rehberinde sorular için bdagdeviren@firat.edu.tr adresi paylaşılır. Dr. Öğr. Gör. Bekir Dağdeviren’in önerisi, listedeki kaynakları zorunlu satın alma listesi olarak değil, anatomi bilgisini geliştirme fırsatı olarak değerlendirmektir. Eserin tam adı, baskısı ve dersin gereksinimleri konusunda kararsız kaldığında eğitmene danışabilirsin.",
         "ANATOMİ kitap satışı veya satış ortaklığı bağlantısı sunmaz. Kaynakların hakları ilgili yazarlara ve yayınevlerine aittir; bir atlasın bu listede önerilmesi sayfalarının izinsiz yeniden yayımlanabileceği anlamına gelmez."
       ]
     }

@@ -43,7 +43,7 @@ test('reader uses exact source IDs, next/previous, completion, and Escape', asyn
   const dialog = page.getByRole('dialog');
   await expect(dialog).toBeVisible();
   await expect(dialog.locator('iframe')).toHaveAttribute('src','https://drive.google.com/file/d/15OxNPqApSUJ2-rnQoui2EVshH-MdM_IC/preview');
-  await expect(dialog).toContainText('Öğr. Gör. Bekir Dağdeviren');
+  await expect(dialog).toContainText('Dr. Öğr. Gör. Bekir Dağdeviren');
   await expect(dialog.getByRole('button',{name:'Önceki not'})).toBeDisabled();
   await dialog.getByRole('button',{name:'Okundu olarak işaretle',exact:true}).click();
   await expect(dialog.getByRole('button',{name:'Okundu olarak işaretlendi'})).toBeVisible();
@@ -62,7 +62,7 @@ test('reader uses exact source IDs, next/previous, completion, and Escape', asyn
 test('profile and help correctly attribute materials and explain permissions', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button',{name:'Hocamız Hakkında',exact:true}).click();
-  await expect(page.locator('.profile-panel')).toContainText('Bekir Dağdeviren');
+  await expect(page.locator('.profile-panel')).toContainText('Dr. Bekir Dağdeviren');
   await expect(page.locator('.about-page')).toContainText('resmî web sitesi değildir');
   await expect(page.getByRole('link',{name:'Akademik profilini incele'})).toHaveAttribute('href','https://abs.firat.edu.tr/tr/bdagdeviren');
   await page.getByRole('button',{name:'Nasıl kullanılır?'}).click();
@@ -109,7 +109,7 @@ test('web and PDF readers are separate modes with consistent source attribution'
   await expect(page.locator('iframe')).toHaveCount(0);
   await expect(page.locator('.lesson-content')).toContainText('Aorta ve üst ekstremite arterlerinin yolu');
   await expect(page.locator('.source-page')).toHaveCount(0);
-  await expect(page.locator('.lesson-credit')).toContainText('Bekir Dağdeviren');
+  await expect(page.locator('.lesson-credit')).toContainText('Dr. Öğr. Gör. Bekir Dağdeviren');
   await expect(page.locator('.web-edition-note')).toContainText('yeniden yazıldı');
   await page.locator('.reading-modes').getByRole('button',{name:'Orijinal PDF'}).click();
   await expect(page.getByRole('dialog')).toBeVisible();
@@ -335,7 +335,7 @@ test('instructor profile uses the official portrait URL with responsive framing'
   // A neutral fixture verifies rendering; it does not stand in for a real identity photo.
   await page.route(source, route => route.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="180" height="240"><rect width="180" height="240" fill="#a8b69a"/></svg>'}));
   await page.goto('/#/hakkinda');
-  const photo=page.getByRole('img',{name:'Öğr. Gör. Bekir Dağdeviren’in portresi'});
+  const photo=page.getByRole('img',{name:'Dr. Öğr. Gör. Bekir Dağdeviren’in portresi'});
   await expect(photo).toBeVisible();
   await expect(photo).toHaveAttribute('src',source);
   await expect(photo).toHaveAttribute('referrerpolicy','no-referrer');
@@ -351,7 +351,7 @@ test('instructor profile uses the official portrait URL with responsive framing'
 test('unavailable official photo falls back without a broken image or invented portrait', async ({ page }) => {
   await page.route('https://apiabs.firat.edu.tr/images/userProfilePicture/**',route=>route.abort());
   await page.goto('/#/hakkinda');
-  await expect(page.getByRole('img',{name:'Bekir Dağdeviren — fotoğraf yüklenemedi'})).toBeVisible();
+  await expect(page.getByRole('img',{name:'Dr. Bekir Dağdeviren — fotoğraf yüklenemedi'})).toBeVisible();
   await expect(page.locator('.instructor-portrait img')).toHaveCount(0);
   await expect(page.getByRole('link',{name:'Fotoğrafı akademik profilde gör'})).toHaveAttribute('href','https://abs.firat.edu.tr/tr/bdagdeviren');
   await expect(page.getByRole('link',{name:'Akademik profilini incele'})).toBeVisible();
@@ -370,8 +370,8 @@ test('site creator credit is shared across pages and distinct from the instructo
       await expect(credit).toBeInViewport();
       await page.evaluate(()=>document.fonts.ready);
       expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
-      if(route.includes('hakkinda')) await expect(page.locator('.profile-panel')).toContainText('Bekir Dağdeviren');
-      if(route.includes('ders')) await expect(page.locator('.lesson-credit')).toContainText('Kaynak: Öğr. Gör. Bekir Dağdeviren');
+      if(route.includes('hakkinda')) await expect(page.locator('.profile-panel')).toContainText('Dr. Bekir Dağdeviren');
+      if(route.includes('ders')) await expect(page.locator('.lesson-credit')).toContainText('Kaynak: Dr. Öğr. Gör. Bekir Dağdeviren');
     }
   }
 });

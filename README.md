@@ -1,8 +1,8 @@
 # ANATOMİ — Anatomi Ders Kütüphanesi
 
-Öğr. Gör. **Bekir Dağdeviren**’in kaynak notları temel alınarak hazırlanmış bağımsız öğrenci projesi. Fırat Üniversitesi’nin resmî sitesi değildir; hocanın veya üniversitenin onay verdiği iddia edilmez.
+Dr. Öğr. Gör. **Bekir Dağdeviren**’in kaynak notları temel alınarak hazırlanmış bağımsız öğrenci projesi. Fırat Üniversitesi’nin resmî sitesi değildir; hocanın veya üniversitenin onay verdiği iddia edilmez.
 
-**Site tasarım ve geliştirme:** Muhammet TUĞRUL. Ders notlarının kaynak atfı Öğr. Gör. Bekir Dağdeviren olarak korunur.
+**Site tasarım ve geliştirme:** Muhammet TUĞRUL. Ders notlarının kaynak atfı Dr. Öğr. Gör. Bekir Dağdeviren olarak korunur.
 
 ## Çalıştırma
 
@@ -126,7 +126,7 @@ Bu araç **ders anlatımı yazmaz**. Yalnızca `reference/course-content/` altı
 - [Akademik profil](https://abs.firat.edu.tr/tr/bdagdeviren)
 - [Kaynak Drive klasörü](https://drive.google.com/drive/folders/1iAuY6LhNDTXsT6exyIzJiojeB_CLaeSz)
 - **Lisanslı kitap ve atlas PDF’leri kaldırıldı.** Site artık Netter, Gray’s, Sobotta, Moore ve benzeri telifli eserleri listelemez, önizlemez veya bağlantılamaz. Yerine yalnızca hocanın Arapça ders notu ve açık lisanslı kaynaklar sunulur. Lisans etiketleri kaynağın kendi beyanına dayanır; yayın öncesi her bağlantı yeniden doğrulanmalıdır.
-- 12 kaynak dosya 14 Ekim 2026 tarihinde incelenmiştir. Akademik unvan ve atıf: Öğr. Gör. Bekir Dağdeviren, Fırat Üniversitesi Sağlık Bilimleri Fakültesi, Fizyoterapi ve Rehabilitasyon.
+- 12 kaynak dosya 14 Ekim 2026 tarihinde incelenmiştir. Akademik unvan ve atıf: Dr. Öğr. Gör. Bekir Dağdeviren, Fırat Üniversitesi Sağlık Bilimleri Fakültesi, Fizyoterapi ve Rehabilitasyon.
 - Derslerin ana konu grupları anlatıma alınmıştır; bir sayfa veya kelime sayısı tıbbi doğruluk/eksiksizlik kanıtı olarak kullanılmaz. Öğretim elemanı denetimi henüz yapılmış değildir.
 - 3B anatomi modeli ve verileri **© Zygote 3D** (ZygoteBody™) şirketine aittir. Site bu modelleri kopyalamaz, indirmez, yeniden barındırmaz veya değiştirmez; yalnızca Zygote’un ücretsiz iframe gömme yöntemiyle kendi sunucusundan gösterir. Zygote markası ve logosu proje tarafından kullanılmaz; yalnızca metin olarak atıf yapılır.
 - Atlas bölümü tıbbi tanı veya tedavi amacı taşımaz; ders çalışmasına yardımcı bir inceleme aracıdır. Gömülü görünümün çalışması Zygote’un servisinin erişilebilirliğine bağlıdır.
