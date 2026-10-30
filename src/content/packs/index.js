@@ -2,7 +2,7 @@
 //
 // The Turkish site is the default and needs none of the English or Arabic texts, so
 // each language's content is a separate chunk that is downloaded only when that
-// language is chosen. The content helpers (lessonI18n, quizI18n, atlasI18n, ...) read
+// language is chosen. The content helpers (lessonI18n, quizI18n, examI18n, ...) read
 // the cached pack synchronously; the language provider waits for loadTranslationPack
 // before rendering a language, so no screen is drawn half-translated.
 const loaders = {

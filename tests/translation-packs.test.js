@@ -12,7 +12,7 @@ test('Turkish is ready at once; English and Arabic packs load only when requeste
   const en = await loadTranslationPack('en');
   assert.equal(isTranslationReady('en'), true);
   assert.equal(translationPack('en'), en);
-  for (const part of ['lessons', 'gaps', 'quizBank', 'quizFigures', 'atlas', 'diagrams', 'exam']) {
+  for (const part of ['lessons', 'gaps', 'quizBank', 'quizFigures', 'diagrams', 'exam']) {
     assert.ok(en[part], `English pack has ${part}`);
   }
   assert.equal(isTranslationReady('ar'), false, 'loading English does not load Arabic');

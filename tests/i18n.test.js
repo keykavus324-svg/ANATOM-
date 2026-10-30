@@ -3,9 +3,8 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { PHRASES, DICTIONARIES, translate } from '../src/i18nPhrases.js';
 import { LANGUAGES, DEFAULT_LANGUAGE, languageMeta } from '../src/i18nMeta.js';
-import { noteTranslations, atlasSceneTitles, localizedNote, localizedScene } from '../src/content/localizedContent.js';
+import { noteTranslations, localizedNote } from '../src/content/localizedContent.js';
 import { notes } from '../src/data.js';
-import { atlasScenes } from '../src/atlas.js';
 
 test('three interface languages are offered with the right document direction', () => {
   assert.deepEqual(LANGUAGES.map(l => l.code), ['tr', 'en', 'ar']);
@@ -39,7 +38,7 @@ test('translation keeps unknown strings intact and fills placeholders', () => {
   assert.equal(translate('tr', 'Ders Kütüphanesi'), 'Ders Kütüphanesi');
 });
 
-test('every lesson and 3D scene has English and Arabic metadata', () => {
+test('every lesson has English and Arabic metadata', () => {
   for (const note of notes) {
     for (const lang of ['en', 'ar']) {
       const translated = localizedNote(note, lang);
@@ -49,12 +48,6 @@ test('every lesson and 3D scene has English and Arabic metadata', () => {
     assert.equal(localizedNote(note, 'tr'), note);
   }
   assert.deepEqual(Object.keys(noteTranslations).sort(), notes.map(n => String(n.number)).sort());
-  for (const scene of atlasScenes) {
-    for (const lang of ['en', 'ar']) {
-      assert.ok(atlasSceneTitles[scene.id]?.[lang], `missing ${lang} title for scene ${scene.id}`);
-      assert.ok(localizedScene(scene, lang).title);
-    }
-  }
 });
 
 test('every component string passed to tr() exists in the dictionary', () => {
