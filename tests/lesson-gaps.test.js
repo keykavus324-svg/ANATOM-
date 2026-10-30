@@ -35,3 +35,18 @@ test('translated lessons and guides no longer contain the gap source strings', (
     }
   }
 });
+
+// Turkish-specific letters are a reliable tell for untranslated prose or labels. A
+// lesson body or study guide shown in English or Arabic must not keep any leaf that
+// still contains them, except the file names that are kept verbatim by design.
+test('translated lesson bodies and study guides keep no Turkish-letter source string', () => {
+  const turkishLetters = /[çğıöşüİĞÇÖŞÜ]/;
+  for (const lang of ['en', 'ar']) {
+    for (const number of Object.keys(lessons)) {
+      const source = strings(lessons[number]);
+      const shown = [...strings(lessonIn(lang, Number(number), lessons[number])), ...strings(guideIn(lang, Number(number), studyGuides[number]) || '')];
+      const leftovers = [...new Set(shown)].filter(text => source.has(text) && turkishLetters.test(text) && !/ANATOMİ|Türkçe|\.pdf/.test(text));
+      assert.deepEqual(leftovers, [], `lesson ${number} ${lang} still shows Turkish text`);
+    }
+  }
+});

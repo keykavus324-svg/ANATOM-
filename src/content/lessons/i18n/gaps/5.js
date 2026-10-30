@@ -27,4 +27,8 @@ export default {
   },
   "Optik sinir ve ophthalmic arter.": { en: "Optic nerve and ophthalmic artery.", ar: "العصب البصري والشريان الحدقي (ophthalmic artery)." },
   "XII. kranial sinir.": { en: "Twelfth cranial nerve.", ar: "العصب الدماغي الثاني عشر." },
+  'Middle meningeal damarlar.': { en: 'Middle meningeal vessels.', ar: 'الأوعية السحائية المتوسطة.' },
+  'Servikal': { en: 'Cervical', ar: 'عنقي' },
+  'Torakal': { en: 'Thoracic', ar: 'صدري' },
+  'Lumbal': { en: 'Lumbar', ar: 'قطني' },
 };
