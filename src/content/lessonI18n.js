@@ -16,6 +16,7 @@
 // Arrays must keep the same length and order as the Turkish source, otherwise the
 // merge fails loudly instead of silently shifting a paragraph under the wrong
 // heading. tests/lesson-i18n.test.js enforces this.
+import { lessonGaps } from './lessons/i18n/gaps/index.js';
 import en0 from './lessons/i18n/en/0.js';
 import en1 from './lessons/i18n/en/1.js';
 import en2 from './lessons/i18n/en/2.js';
@@ -96,9 +97,25 @@ function mergeSection(base, patch) {
 
 // Replaces the text of a lesson with its translation while keeping IDs, source
 // page references, diagrams and colours from the Turkish original.
+// Replaces any leaf string that is still exactly one of the Turkish source strings
+// listed in ./lessons/i18n/gaps (sub-section paragraphs and table cells that the
+// structural patch does not reach). Strings already translated never match a key.
+function applyGaps(lang, number, value) {
+  const gaps = lessonGaps[number];
+  if (!gaps || lang === 'tr') return value;
+  const replace = v => {
+    if (typeof v === 'string') return gaps[v]?.[lang] ?? v;
+    if (Array.isArray(v)) return v.map(replace);
+    if (v && typeof v === 'object') return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, replace(x)]));
+    return v;
+  };
+  return replace(value);
+}
+
 export function lessonIn(lang, number, base) {
   const patch = lessonTranslation(lang, number);
-  if (!patch || !base) return base;
+  if (!base) return base;
+  if (!patch) return applyGaps(lang, number, base);
   const merged = { ...base };
   for (const key of ['subtitle', 'intro', 'imageAlt', 'scope']) {
     if (patch[key]) merged[key] = patch[key];
@@ -110,12 +127,12 @@ export function lessonIn(lang, number, base) {
   });
   if (patch.glossary) { sameLength(base.glossary, patch.glossary, 'glossary'); merged.glossary = patch.glossary; }
   if (patch.review) { sameLength(base.review, patch.review, 'review'); merged.review = patch.review; }
-  return merged;
+  return applyGaps(lang, number, merged);
 }
 
 export function guideIn(lang, number, base) {
   const guide = lessonTranslation(lang, number)?.guide;
-  return guide ? { ...base, ...guide } : base;
+  return applyGaps(lang, number, guide ? { ...base, ...guide } : base);
 }
 
 export function teachingIn(lang, number, baseItems) {
