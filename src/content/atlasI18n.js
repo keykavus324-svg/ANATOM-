@@ -6,6 +6,7 @@
 import { atlasScenes, atlasGroups, ATLAS_SOURCE } from '../atlas.js';
 import en from './atlas/i18n/en.js';
 import ar from './atlas/i18n/ar.js';
+import { atlasSceneTitles } from './atlas/titles.js';
 
 const registry = { en, ar };
 
@@ -21,7 +22,7 @@ export function atlasSceneIn(lang, scene) {
   sameLength(scene.steps, patch.steps, `${scene.id}.steps`);
   return {
     ...scene,
-    title: patch.title || scene.title,
+    title: patch.title || atlasSceneTitles[scene.id]?.[lang] || scene.title,
     summary: patch.summary || scene.summary,
     observe: patch.observe || scene.observe,
     steps: patch.steps,

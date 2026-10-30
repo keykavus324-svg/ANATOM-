@@ -97,7 +97,7 @@ function QuizViewer({ set, onBack, saved, onSave, studied, onStudied, onLesson }
           <h2 tabIndex={-1}>{set.description}</h2>
           <p>{tr('Sorular bu site için yazıldı; şekiller projeye ait sadeleştirilmiş şemalardır. Her yanıttan sonra doğru yanıt ve kısa açıklama gösterilir, sonunda konu konu özet alırsın.')}</p>
           <button className="primary-button" onClick={start}>{tr('Çözüme başla')} <ArrowRight size={17}/></button>
-          {note && <button className="text-button" onClick={() => onLesson(note)}><BookOpen size={15}/> {tr('Önce konuyu tekrar et:')} {note.title} <ArrowRight size={14}/></button>}
+          {note && <button className="text-button" onClick={() => onLesson(note)}><BookOpen size={15}/> {tr('Önce konuyu tekrar et:')} {localizedNote(note, lang).title} <ArrowRight size={14}/></button>}
         </div>
       </div>}
       {phase === 'play' && current && <div className="quiz-runner">
@@ -159,7 +159,7 @@ export default function QuizPage({ selected, onSelect, onBack, onLesson, onPract
   const word = query.trim().toLocaleLowerCase('tr-TR');
   const results = quizSets.filter(set => (tab === 'all' || saved.includes(set.id)) && (!word || `${set.title} ${set.description} ${set.keywords || ''}`.toLocaleLowerCase('tr-TR').includes(word)));
   const last = findQuizSetIn(lang, lastId);
-  if (selected) return <QuizViewer key={selected.id} set={selected} onBack={onBack} saved={saved.includes(selected.id)} onSave={() => toggleSaved(selected.id)} studied={studied.includes(selected.id)} onStudied={() => toggleStudied(selected.id)} onLesson={onLesson}/>;
+  if (selected) return <QuizViewer key={selected.id} set={findQuizSetIn(lang, selected.id) || selected} onBack={onBack} saved={saved.includes(selected.id)} onSave={() => toggleSaved(selected.id)} studied={studied.includes(selected.id)} onStudied={() => toggleStudied(selected.id)} onLesson={onLesson}/>;
   return <section className="quiz-page" aria-labelledby="quiz-heading">
     <header className="quiz-hero"><div><div className="eyebrow"><span/> {tr('SORULAR BU SİTE İÇİN YAZILDI')}</div><h1 id="quiz-heading">{tr('Bir yapı. Bir soru.')}<br/><em>{tr('Bir adım daha ileri.')}</em></h1><p>{tr('Yerel anatomi quizleriyle bilgini sına. Sorular ders kütüphanesindeki konulara ve projeye ait şemalara dayanır.')}</p><div className="quiz-hero-tags"><span><ClipboardCheck size={14}/>{tr('{n} yerel soru', { n: TOTAL })}</span><span><Layers size={14}/>{tr('{n} konu alanı', { n: quizSets.length })}</span><span><Brain size={14}/>{tr('Şemalı sorular')}</span></div></div><div className="quiz-hero-art" aria-hidden="true"><div className="quiz-orbit"/><Brain size={100} strokeWidth={.8}/><span>REPETITIO EST MATER STUDIORUM</span><small>{tr('Tekrar, öğrenmenin temelidir.')}</small></div></header>
     {last && <button className="quiz-resume" onClick={() => onSelect(last)}><RotateCcw size={19}/><span><small>{tr('SON AÇTIĞIN QUIZ')}</small><strong>{last.title}</strong><em>{tr('Yeniden çöz · soru sırası her denemede karışır')}</em></span><ArrowRight size={20}/></button>}

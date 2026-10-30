@@ -255,7 +255,7 @@ export default function PracticePage({ onLesson, onExternalQuizzes }) {
                     .sort((a, b) => a.number - b.number)
                     .map((note) => (
                       <option key={note.number} value={note.number}>
-                        {String(note.number).padStart(2, "0")} · {note.title}
+                        {String(note.number).padStart(2, "0")} · {localizedNote(note, lang).title}
                       </option>
                     ))}
                 </select>

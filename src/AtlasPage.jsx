@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowUpRight, BookOpen, Bookmark, ChevronRight, Compass, ExternalLink, Info, Layers, Link2, Loader, Maximize2, Minimize2, MousePointerClick, RefreshCw, Rotate3d, Search, ShieldCheck, Sparkles, TriangleAlert } from 'lucide-react';
 import { atlasSceneGroups as atlasSceneGroupsRaw, atlasUrl, defaultAtlasScene } from './atlas';
 import { atlasSceneIn, atlasGroupsIn, atlasSourceIn } from './content/atlasI18n.js';
+import { localizedNote } from './content/localizedContent.js';
 import { notes } from './data';
 import { useI18n, useLocalizedContent } from './i18n.jsx';
 import './atlas.css';
@@ -125,7 +126,7 @@ export default function AtlasPage({ scene, onScene, onLesson, onLibrary }) {
         <strong>{active.title}</strong>
         <small>{active.latin}</small>
         <p>{active.source === 'zygote' ? tr('Hazır izole bağlantı: yapı seçili gelir, diğer katmanlar soldurulur.') : tr('Kamera bu bölgeye ayarlanır; katmanları gömülü arayüzden sen yönetirsin.')}</p>
-        {lesson && <button className="atlas-lesson-link" onClick={() => onLesson(lesson)}><BookOpen size={14}/> {tr('Ders {n} · {title}', { n: String(lesson.number).padStart(2, '0'), title: lesson.title })} <ArrowUpRight size={13}/></button>}
+        {lesson && <button className="atlas-lesson-link" onClick={() => onLesson(lesson)}><BookOpen size={14}/> {tr('Ders {n} · {title}', { n: String(lesson.number).padStart(2, '0'), title: localizedNote(lesson, lang).title })} <ArrowUpRight size={13}/></button>}
       </div>
     </header>
 
@@ -194,7 +195,7 @@ export default function AtlasPage({ scene, onScene, onLesson, onLibrary }) {
                 <li><strong>{tr('Model seçimi:')}</strong> {tr('sol taraftaki model simgesinden kadın/erkek model değişir.')}</li>
               </ul>
             </div>
-            {lesson && <div className="atlas-lesson-card"><BookOpen size={19}/><strong>{tr('Bu görünüm Ders {n} ile eşleşiyor.', { n: String(lesson.number).padStart(2, '0') })}</strong><p>{lesson.title} · {lesson.latin}</p><button className="text-button" onClick={() => onLesson(lesson)}>{tr('Konu anlatımını aç')} <ArrowUpRight size={14}/></button></div>}
+            {lesson && <div className="atlas-lesson-card"><BookOpen size={19}/><strong>{tr('Bu görünüm Ders {n} ile eşleşiyor.', { n: String(lesson.number).padStart(2, '0') })}</strong><p>{localizedNote(lesson, lang).title} · {lesson.latin}</p><button className="text-button" onClick={() => onLesson(lesson)}>{tr('Konu anlatımını aç')} <ArrowUpRight size={14}/></button></div>}
             <div className="atlas-source-card">
               <ShieldCheck size={19}/>
               <strong>{tr('Kaynak ve kullanım')}</strong>

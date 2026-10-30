@@ -99,3 +99,19 @@ export const openResources = [
     },
   },
 ];
+
+// Licence labels are short Turkish phrases in the data. Other languages get their own
+// wording here, keyed by the Turkish value so the data shape stays unchanged.
+const licenceLabels = {
+  'CC BY-SA / public domain (her dosyada ayrı)': {
+    en: 'CC BY-SA / public domain (licence stated per file)',
+    ar: 'CC BY-SA / ملك عام (يُذكر الترخيص لكل ملف)',
+  },
+  'Public domain': { en: 'Public domain', ar: 'ملك عام' },
+  'Ücretsiz erişim (telifli)': { en: 'Free access (copyrighted)', ar: 'وصول مجاني (محمي بحقوق النشر)' },
+  'Ücretsiz makaleler (telifli)': { en: 'Free articles (copyrighted)', ar: 'مقالات مجانية (محمية بحقوق النشر)' },
+};
+
+export function licenceIn(lang, value) {
+  return licenceLabels[value]?.[lang] || value;
+}
