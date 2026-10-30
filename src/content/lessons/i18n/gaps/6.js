@@ -130,4 +130,9 @@ export default {
   "Kaslar ve motor yol": { en: "Muscles and motor pathway", ar: "العضلات والمسار الحركي" },
   "Gastrocnemius, soleus ve plantaris; tibial sinir, plantar fleksiyon.": { en: "Gastrocnemius, soleus and plantaris; tibial nerve, plantar flexion.", ar: "الساقية (gastrocnemius) والنعلية (soleus) والأخمصية (plantaris)؛ العصب الظنبوبي، والقبض الأخمصي." },
   "Posterior derin": { en: "Posterior deep", ar: "الخلفية العميقة" },
+  'Hipertrofi / atrofi': { en: 'Hypertrophy / atrophy', ar: 'تضخّم / ضمور' },
+  'Grup': { en: 'Group', ar: 'المجموعة' },
+  'Transversospinal grup': { en: 'Transversospinal group', ar: 'المجموعة المستعرضة الشوكية' },
+  'Humerustaki hedef': { en: 'Target on the humerus', ar: 'المنتهى على العضد' },
+  'Kompartman': { en: 'Compartment', ar: 'المقصورة' },
 };

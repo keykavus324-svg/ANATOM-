@@ -58,4 +58,7 @@ export default {
   "Distal: trapezium ve trapezoideum": { en: "Distal: trapezium and trapezoid", ar: "البعيد: المنحرف الكبير (trapezium) والمنحرف الصغير (trapezoideum)" },
   "Distal: capitatum ve hamatum": { en: "Distal: capitate and hamate", ar: "البعيد: الرأسي (capitatum) والخُطّافي (hamatum)" },
   "Kemik dizisi ve destek": { en: "Bone sequence and support", ar: "تسلسل العظام والدعم" },
+  'Hat': { en: 'Arch', ar: 'القوس' },
+  'Proksimal: scaphoideum': { en: 'Proximal: scaphoideum', ar: 'الداني: scaphoideum' },
+  'Proksimal: lunatum': { en: 'Proximal: lunatum', ar: 'الداني: lunatum' },
 };
