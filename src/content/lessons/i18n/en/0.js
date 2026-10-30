@@ -24,7 +24,7 @@ export default {
       title: 'An atlas and a textbook do not do the same job',
       paragraphs: [
         'In anatomy, learning the name and function of a structure from a text may not be enough on its own to know it within its three-dimensional relationships. The atlas shows position and neighbourhoods; the textbook supplies the text that explains those relationships. When you learn a bone, first pick out the main landmarks from the explanation and then find the same landmarks in different views of the atlas — that is how you use the two sources so that they complement each other.',
-        'The source list of Lecturer Bekir Dağdeviren is a recommendation for basic training; buying the books on it is not compulsory. The source states that second-hand atlases can be used alongside new books. The course notes provide the main framework of learning; extra sources can help, especially for repeating visual relationships.',
+        'The source list of Dr. Lecturer Bekir Dağdeviren is a recommendation for basic training; buying the books on it is not compulsory. The source states that second-hand atlases can be used alongside new books. The course notes provide the main framework of learning; extra sources can help, especially for repeating visual relationships.',
       ],
     },
     atlaslar: {
@@ -52,7 +52,7 @@ export default {
     iletisim: {
       title: 'Academic contact and source checking',
       paragraphs: [
-        'The resource guide shares the address bdagdeviren@firat.edu.tr for questions. Lecturer Bekir Dağdeviren’s suggestion is to treat the listed sources not as a compulsory shopping list but as an opportunity to improve your anatomical knowledge. When you are unsure about the full title of a work, its edition or the requirements of the course, you can consult your instructor.',
+        'The resource guide shares the address bdagdeviren@firat.edu.tr for questions. Dr. Lecturer Bekir Dağdeviren’s suggestion is to treat the listed sources not as a compulsory shopping list but as an opportunity to improve your anatomical knowledge. When you are unsure about the full title of a work, its edition or the requirements of the course, you can consult your instructor.',
         'ANATOMİ offers no book sales or affiliate links. Rights to the sources belong to the respective authors and publishers; recommending an atlas in this list does not mean its pages may be republished without permission.',
       ],
     },
