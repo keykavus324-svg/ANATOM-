@@ -9,6 +9,6 @@
 - Küçük boyutlar için elle sadeleştirilmiş amblem: `public/brand/anatomi-mark-small.svg`. Mobil başlık ve altbilgide kullanılır; `public/favicon.svg` aynı motifin parşömen zeminli sürümüdür.
 - Sitedeki ANATOMİ yazısı erişilebilir yerel metin/Cormorant Garamond olarak korunur; yanındaki dekoratif amblem boş alt metin taşır. Ana sayfa düğmelerinin erişilebilir adları değişmez.
 
-Simgeler marka amaçlı stilize göğüs kafesi çizimleridir; klinik anatomik referans değildir. Hocanın veya üniversitenin kurumsal logosu olarak sunulmaz. Ders kaynağı ve Muhammet TUĞRUL ve Arena.ai Agent site tasarım/geliştirme atıfları korunur.
+Simgeler marka amaçlı stilize göğüs kafesi çizimleridir; klinik anatomik referans değildir. Hocanın veya üniversitenin kurumsal logosu olarak sunulmaz. Ders kaynağı ve Muhammet TUĞRUL site tasarım/geliştirme atıfları korunur.
 
 23 birim testi, 21 tarayıcı senaryosu ve üretim derlemesi geçti. Yerel logo dosyaları, mobil/masaüstü yüklenmesi, küçük ekranda taşma ve logodan ana sayfaya dönüş sınandı. SVG/PNG dosyaları ve uygulama değişiklikleri yereldir; kapanmış oturumdan uzak yayın yapılmadı.

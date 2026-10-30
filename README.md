@@ -2,7 +2,7 @@
 
 Dr. Öğr. Gör. **Bekir Dağdeviren**’in kaynak notları temel alınarak hazırlanmış bağımsız öğrenci projesi. Fırat Üniversitesi’nin resmî sitesi değildir; hocanın veya üniversitenin onay verdiği iddia edilmez.
 
-**Site tasarım ve geliştirme:** Muhammet TUĞRUL ve Arena.ai Agent. Ders notlarının kaynak atfı Dr. Öğr. Gör. Bekir Dağdeviren olarak korunur.
+**Site tasarım ve geliştirme:** Muhammet TUĞRUL. Ders notlarının kaynak atfı Dr. Öğr. Gör. Bekir Dağdeviren olarak korunur.
 
 ## Çalıştırma
 
