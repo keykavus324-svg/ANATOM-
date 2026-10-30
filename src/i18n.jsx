@@ -1,5 +1,6 @@
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { translate } from './i18nPhrases.js';
+import { isTranslationReady, loadTranslationPack } from './content/packs/index.js';
 
 // Interface languages live in a plain-JS module so tests can import them.
 export { LANGUAGES, DEFAULT_LANGUAGE, languageMeta } from './i18nMeta.js';
@@ -29,10 +30,39 @@ function browserLanguage() {
 const I18nContext = createContext(null);
 
 export function LanguageProvider({ children }) {
-  const [lang, setLangState] = useState(() => storedLanguage() || browserLanguage());
-  const meta = languageMeta(lang);
+  // The first visit may prefer a language whose pack is still downloading; the app is
+  // drawn only once that pack is ready, so nothing appears half-translated.
+  const [startup] = useState(() => storedLanguage() || browserLanguage());
+  const [lang, setLangState] = useState(() => (isTranslationReady(startup) ? startup : null));
+  const requested = useRef(lang || DEFAULT_LANGUAGE);
 
   useEffect(() => {
+    if (lang) return undefined;
+    let alive = true;
+    loadTranslationPack(startup).then(
+      () => { if (alive) setLangState(startup); },
+      () => { if (alive) setLangState(DEFAULT_LANGUAGE); },
+    );
+    return () => { alive = false; };
+  }, [lang, startup]);
+
+  // Switching keeps the current screen (and any open reader or quiz) until the new
+  // language is ready, then changes every text at once.
+  const setLang = useCallback(code => {
+    if (!LANGUAGES.some(item => item.code === code)) return;
+    requested.current = code;
+    if (isTranslationReady(code)) { setLangState(code); return; }
+    loadTranslationPack(code).then(
+      () => { if (requested.current === code) setLangState(code); },
+      () => { /* A failed download keeps the current language. */ },
+    );
+  }, []);
+
+  const activeLang = lang || DEFAULT_LANGUAGE;
+  const meta = languageMeta(activeLang);
+
+  useEffect(() => {
+    if (!lang) return;
     const root = document.documentElement;
     root.lang = meta.htmlLang;
     root.dir = meta.dir;
@@ -41,13 +71,10 @@ export function LanguageProvider({ children }) {
     try { localStorage.setItem(STORAGE_KEY, lang); } catch { /* Preference is optional. */ }
   }, [lang, meta.dir, meta.htmlLang]);
 
-  const setLang = useCallback(code => {
-    if (LANGUAGES.some(item => item.code === code)) setLangState(code);
-  }, []);
-  const tr = useCallback((text, vars) => translate(lang, text, vars), [lang]);
+  const tr = useCallback((text, vars) => translate(activeLang, text, vars), [activeLang]);
 
   const value = useMemo(() => ({
-    lang,
+    lang: activeLang,
     dir: meta.dir,
     isRtl: meta.dir === 'rtl',
     language: meta,
@@ -55,9 +82,10 @@ export function LanguageProvider({ children }) {
     setLang,
     tr,
     // Short helper for the few places that need the current language code.
-    isTurkish: lang === 'tr',
-  }), [lang, meta, setLang, tr]);
+    isTurkish: activeLang === 'tr',
+  }), [activeLang, meta, setLang, tr]);
 
+  if (!lang) return null;
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 }
 

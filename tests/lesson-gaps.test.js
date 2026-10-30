@@ -4,6 +4,8 @@ import { lessons } from '../src/lessons.js';
 import { studyGuides } from '../src/content/studyGuides.js';
 import { lessonIn, guideIn } from '../src/content/lessonI18n.js';
 import { lessonGaps } from '../src/content/lessons/i18n/gaps/index.js';
+import { loadTranslationPack } from '../src/content/packs/index.js';
+await Promise.all([loadTranslationPack('en'), loadTranslationPack('ar')]); // translation packs load on demand
 
 // Every string a gap dictionary can replace must still exist in the Turkish source;
 // otherwise the entry is dead and would silently stop translating.

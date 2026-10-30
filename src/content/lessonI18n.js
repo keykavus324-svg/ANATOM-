@@ -16,48 +16,26 @@
 // Arrays must keep the same length and order as the Turkish source, otherwise the
 // merge fails loudly instead of silently shifting a paragraph under the wrong
 // heading. tests/lesson-i18n.test.js enforces this.
-import { lessonGaps } from './lessons/i18n/gaps/index.js';
-import en0 from './lessons/i18n/en/0.js';
-import en1 from './lessons/i18n/en/1.js';
-import en2 from './lessons/i18n/en/2.js';
-import en3 from './lessons/i18n/en/3.js';
-import en4 from './lessons/i18n/en/4.js';
-import en5 from './lessons/i18n/en/5.js';
-import en6 from './lessons/i18n/en/6.js';
-import en7 from './lessons/i18n/en/7.js';
-import en8 from './lessons/i18n/en/8.js';
-import en9 from './lessons/i18n/en/9.js';
-import en10 from './lessons/i18n/en/10.js';
-import en11 from './lessons/i18n/en/11.js';
-import ar0 from './lessons/i18n/ar/0.js';
-import ar1 from './lessons/i18n/ar/1.js';
-import ar2 from './lessons/i18n/ar/2.js';
-import ar3 from './lessons/i18n/ar/3.js';
-import ar4 from './lessons/i18n/ar/4.js';
-import ar5 from './lessons/i18n/ar/5.js';
-import ar6 from './lessons/i18n/ar/6.js';
-import ar7 from './lessons/i18n/ar/7.js';
-import ar8 from './lessons/i18n/ar/8.js';
-import ar9 from './lessons/i18n/ar/9.js';
-import ar10 from './lessons/i18n/ar/10.js';
-import ar11 from './lessons/i18n/ar/11.js';
+import { translationPack } from './packs/index.js';
 
-const registry = {
-  en: { 0: en0, 1: en1, 2: en2, 3: en3, 4: en4, 5: en5, 6: en6, 7: en7, 8: en8, 9: en9, 10: en10, 11: en11 },
-  ar: { 0: ar0, 1: ar1, 2: ar2, 3: ar3, 4: ar4, 5: ar5, 6: ar6, 7: ar7, 8: ar8, 9: ar9, 10: ar10, 11: ar11 },
-};
+// Translation patches live in the language packs (src/content/packs), which are loaded
+// on demand. These helpers read the cached pack and fall back to Turkish when it is
+// not loaded, so they stay synchronous for the renderer.
+function patchesFor(lang) {
+  return translationPack(lang)?.lessons || {};
+}
 
 export const TRANSLATED_LESSONS = {
-  en: Object.keys(registry.en).map(Number),
-  ar: Object.keys(registry.ar).map(Number),
+  get en() { return Object.keys(patchesFor('en')).map(Number); },
+  get ar() { return Object.keys(patchesFor('ar')).map(Number); },
 };
 
 export function hasLessonTranslation(lang, number) {
-  return Boolean(registry[lang]?.[number]);
+  return Boolean(patchesFor(lang)[number]);
 }
 
 export function lessonTranslation(lang, number) {
-  return registry[lang]?.[number] || null;
+  return patchesFor(lang)[number] || null;
 }
 
 function sameLength(a, b, where) {
@@ -101,7 +79,7 @@ function mergeSection(base, patch) {
 // listed in ./lessons/i18n/gaps (sub-section paragraphs and table cells that the
 // structural patch does not reach). Strings already translated never match a key.
 function applyGaps(lang, number, value) {
-  const gaps = lessonGaps[number];
+  const gaps = translationPack(lang)?.gaps?.[number];
   if (!gaps || lang === 'tr') return value;
   const replace = v => {
     if (typeof v === 'string') return gaps[v]?.[lang] ?? v;

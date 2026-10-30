@@ -6,13 +6,11 @@
 import { quizSets, quizQuestions } from './quizBank.js';
 import { quizDiagrams } from './quizDiagrams.js';
 import { diagramIn } from './diagramI18n.js';
-import en from './quizBank/i18n/en.js';
-import ar from './quizBank/i18n/ar.js';
-import diagramEn from './quizDiagrams/i18n/en.js';
-import diagramAr from './quizDiagrams/i18n/ar.js';
+import { translationPack } from './packs/index.js';
 
-const banks = { en, ar };
-const figures = { en: diagramEn, ar: diagramAr };
+// The English and Arabic banks are part of the language packs (src/content/packs).
+const banks = { get en() { return translationPack('en')?.quizBank; }, get ar() { return translationPack('ar')?.quizBank; } };
+const figures = { get en() { return translationPack('en')?.quizFigures; }, get ar() { return translationPack('ar')?.quizFigures; } };
 
 function sameLength(base, patch, where) {
   if (!Array.isArray(patch) || patch.length !== base.length) {
@@ -79,6 +77,6 @@ export function quizFigureIn(lang, id) {
 }
 
 export const TRANSLATED_QUIZ = {
-  en: Object.keys(banks.en.questions),
-  ar: Object.keys(banks.ar.questions),
+  get en() { return Object.keys(banks.en?.questions || {}); },
+  get ar() { return Object.keys(banks.ar?.questions || {}); },
 };

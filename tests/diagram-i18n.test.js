@@ -2,6 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { diagrams } from '../src/content/diagrams.js';
 import { diagramIn, hasDiagramTranslation, TRANSLATED_DIAGRAMS } from '../src/content/diagramI18n.js';
+import { loadTranslationPack } from '../src/content/packs/index.js';
+await Promise.all([loadTranslationPack('en'), loadTranslationPack('ar')]); // translation packs load on demand
 
 const ids = Object.keys(diagrams);
 

@@ -4,11 +4,14 @@
 // module only replaces the readable text so saved scene ids and deep links work in
 // every language.
 import { atlasScenes, atlasGroups, ATLAS_SOURCE } from '../atlas.js';
-import en from './atlas/i18n/en.js';
-import ar from './atlas/i18n/ar.js';
 import { atlasSceneTitles } from './atlas/titles.js';
+import { translationPack } from './packs/index.js';
 
-const registry = { en, ar };
+// Atlas text for each language comes from its pack (src/content/packs), loaded on demand.
+const registry = {
+  get en() { return translationPack('en')?.atlas; },
+  get ar() { return translationPack('ar')?.atlas; },
+};
 
 function sameLength(base, patch, where) {
   if (!Array.isArray(patch) || patch.length !== base.length) {
@@ -54,6 +57,6 @@ export function atlasSourceIn(lang) {
 }
 
 export const TRANSLATED_ATLAS = {
-  en: Object.keys(en.scenes),
-  ar: Object.keys(ar.scenes),
+  get en() { return Object.keys(registry.en?.scenes || {}); },
+  get ar() { return Object.keys(registry.ar?.scenes || {}); },
 };

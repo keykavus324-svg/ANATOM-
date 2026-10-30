@@ -265,3 +265,9 @@ Yalnız Sitede oku içeriğine `src/content/exam/` altında 42 özgün açıklam
 ## 15 Ekim 2026: quiz şekilleri anatomik plakalara yükseltildi
 
 İlk turda elle kodlanmış SVG şemalar kullanıcıya “yetersiz” göründü; şekiller gerçek atlas plakası kalitesinde yeniden üretildi. Yeni akış: `art-src/` altındaki (git dışı) kaynak illüstrasyonlar gözden geçirildi — vertebra (üstten), sarkomer, kalp frontal kesiti, nefron, göz kesiti, kulak, beyin lobları — her plaka tek tek anatomik doğruluk kontrolünden geçti; pin hedefleri kodda (`scripts/build-quiz-plates.py`) tutulduğu için etiket yanlışı üretemez. Plakalar site paletine uydurulup (72 renk nicemleme → JPEG q82) SVG sarmalına gömüldü; dosya başına ~300–430 KB. `quizDiagrams.js` meta verileri plaka diline (“ANATOMİK PLAKA”) uyarlandı; görüntü boyutu 460→507 (3:2) olarak güncellendi. 50 birim + 39 tarayıcı testi ve üretim build yeniden geçti.
+
+### Çeviri paketleri (30 Ekim 2026)
+
+- İngilizce ve Arapça çeviri verileri `src/content/packs/{en,ar}.js` altında toplandı ve yalnızca dil seçildiğinde yüklenir (`loadTranslationPack`). Türkçe ziyaretçinin ilk açılış JS yükü (gzip) ~741 kB'tan ~332 kB'a düştü; içerik parçası 562 kB'tan 158 kB'a indi.
+- `LanguageProvider` yeni dilin paketi hazır olmadan dili değiştirmez; geçiş sırasında açık okuyucu veya quiz kaybolmaz.
+- `tests/translation-packs.test.js` Türkçenin hemen hazır olduğunu ve EN/AR paketinin istenmeden yüklenmediğini doğrular.

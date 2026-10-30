@@ -4,6 +4,8 @@ import { lessons } from '../src/lessons.js';
 import { studyGuides } from '../src/content/studyGuides.js';
 import { teachingForLesson } from '../src/content/exam/index.js';
 import { lessonIn, guideIn, teachingIn, lessonTranslation, TRANSLATED_LESSONS, hasLessonTranslation } from '../src/content/lessonI18n.js';
+import { loadTranslationPack } from '../src/content/packs/index.js';
+await Promise.all([loadTranslationPack('en'), loadTranslationPack('ar')]); // translation packs load on demand
 
 test('a translated lesson replaces every readable field and keeps the structure', () => {
   for (const lang of ['en', 'ar']) {
