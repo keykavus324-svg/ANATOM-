@@ -30,9 +30,9 @@
 @media(max-width:950px){.instructor-portrait{align-self:center}.instructor-portrait-frame{width:160px;height:160px}.instructor-portrait{width:180px}}
 
 /* Site authorship stays separate from the instructor's course-material credit. */
-.site-footer .site-maker{display:block;margin-top:6px;font-size:10px;line-height:1.7;color:#7b856e}
-.site-footer .site-maker strong{font-weight:600;color:#647353}
-@media(max-width:700px){.site-footer .site-maker{font-size:9px}}
+.site-footer .site-maker{display:block;margin-top:8px;font-size:13px;line-height:1.6;color:#4f5846}
+.site-footer .site-maker strong{font-weight:700;font-size:15px;color:#353932;border-bottom:2px solid #ae5952;padding-bottom:1px}
+@media(max-width:700px){.site-footer .site-maker{font-size:12px}.site-footer .site-maker strong{font-size:14px}}
 
 /* Selected rib-cage emblem: vector detail in the masthead, optical simplification at small sizes. */
 .brand>.brand-symbol{display:block;object-fit:contain;flex-shrink:0}
