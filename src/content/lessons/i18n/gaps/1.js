@@ -85,4 +85,8 @@ export default {
     en: 'A size or length relation to each other; it does not indicate how large the function is.',
     ar: 'خاصية حجم أو طول بالنسبة إلى بعضهما؛ ولا تدل على حجم الوظيفة.',
   },
+  "Sportif ve artistik anatomi": { en: "Sports and artistic anatomy", ar: "التشريح الرياضي والفني" },
+  "Hareket": { en: "Movement", ar: "الحركة" },
+  "Kas / kaslar.": { en: "Muscle / muscles.", ar: "عضلة / عضلات." },
+  "Eklem / eklemler.": { en: "Joint / joints.", ar: "مفصل / مفاصل." },
 };

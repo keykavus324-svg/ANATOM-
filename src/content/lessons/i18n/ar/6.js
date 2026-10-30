@@ -16,7 +16,7 @@ export default {
     { q: 'هل تكون مثنيات المرفق مسترخية بالضرورة أثناء إنزال ثقل ببطء؟', a: 'لا. إنها تولّد قوة مع استطالة بتقلّص لا تمركزي (eksantrik) وتضبط النزول.' },
     { q: 'اذكر العضلات الأربع للكفّة المدوّرة (rotator cuff) ومهمتها المشتركة الأساسية.', a: 'supraspinatus وinfraspinatus وteres minor وsubscapularis. هي — إضافة إلى الحركة — تساهم في الثبات الديناميكي لرأس العضد مقابل التجويف الحقاني؛ وteres major ليس من هذه المجموعة.' },
     { q: 'أي ثلاث عضلات تكوّن pes anserinus؟', a: 'أوتار sartorius وgracilis وsemitendinosus تكوّن ترتيب ارتباط مشتركًا على الوجه الإنسي للظنبوب القريب.' },
-    { q: 'ما الفرق في علاقة المفاصل بين gastrocnemius وsoleus؟', a: 'gastrocnemius يعبر الركبة والكاحل معًا، وsoleus يعبر الكاحل فقط. ويكوّنان معًا triceps surae وينضمان إلى وتر العرقوب (Aşil).' },
+    { q: 'ما الفرق في علاقة المفاصل بين gastrocnemius وsoleus؟', a: 'gastrocnemius يعبر الركبة والكاحل معًا، وsoleus يعبر الكاحل فقط. ويكوّنان معًا triceps surae وينضمان إلى وتر العرقوب (Achilles).' },
   ],
   sections: {
     doku: {
