@@ -960,6 +960,6 @@ test('video lessons section translates with the interface and keeps the combined
   await expect(page.locator('.video-card h3').first()).toContainText('Introduction to anatomy');
   await expect(page.locator('.videos-filters')).toContainText('All lessons');
   await page.getByRole('button', { name: 'العربية' }).click();
-  await expect(page.locator('.videos-note')).toBeVisible();
+  await expect(page.locator('.videos-pending')).toBeVisible();
   await expect(page.locator('.video-card')).toHaveCount(7);
 });

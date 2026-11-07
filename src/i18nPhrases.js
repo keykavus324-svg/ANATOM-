@@ -593,7 +593,6 @@ export const PHRASES = [
   ['Drive klasörü', 'Drive folder', 'مجلد Drive'],
   ['12 ders, tek video', '12 lessons, one video', '12 درسًا في فيديو واحد'],
   ['Birleşik kaydı oynat', 'Play the full recording', 'تشغيل التسجيل الكامل'],
-  ['Videolar NotebookLM ile, bu sitedeki konu anlatımlarının kaynağı olan ders notlarından üretildi. Hocanın kendi sesi veya onayladığı bir yayın değildir; konuyu dinleyerek pekiştirmek içindir.', 'The videos were generated with NotebookLM from the same course notes that the written lectures are based on. They are not the lecturer’s own voice or an approved recording; they exist to reinforce the topic by listening.', 'وُلِّدت الفيديوهات بواسطة NotebookLM من ملاحظات المقرر نفسها التي تستند إليها الشروح المكتوبة. وهي ليست صوت المحاضر ولا تسجيلًا معتمدًا، بل وسيلة لتثبيت الموضوع بالاستماع.'],
   ['Video konu filtreleri', 'Video topic filters', 'مرشِّحات مواضيع الفيديو'],
   ['{n} video listeleniyor', 'Showing {n} videos', 'يُعرض {n} فيديو'],
   ['Video hazırlanıyor…', 'Preparing the video…', 'جارٍ تحضير الفيديو…'],

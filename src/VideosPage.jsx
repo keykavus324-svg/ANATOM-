@@ -133,11 +133,6 @@ export default function VideosPage({ onLesson, initialLesson = null }) {
       </aside>}
     </div>
 
-    <div className="videos-note">
-      <Sparkles size={17}/>
-      <p>{tr('Videolar NotebookLM ile, bu sitedeki konu anlatımlarının kaynağı olan ders notlarından üretildi. Hocanın kendi sesi veya onayladığı bir yayın değildir; konuyu dinleyerek pekiştirmek içindir.')}</p>
-    </div>
-
     <div className="videos-toolbar">
       <div className="videos-filters" aria-label={tr('Video konu filtreleri')}>
         {groups.map(group => <button key={group.id} className={filter === group.id ? 'active' : ''} aria-pressed={filter === group.id} onClick={() => setFilter(group.id)}>{group.label}</button>)}
