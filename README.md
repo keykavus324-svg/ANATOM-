@@ -47,6 +47,19 @@ Kaynaklar sayfasında yalnızca şunlar listelenir:
 - **Açık lisanslı / ücretsiz kaynaklar** — OpenStax *Anatomy and Physiology 2e* (CC BY 4.0), Wikimedia Commons anatomi kategorisi (dosya bazında lisans), kamu malı Gray’s Anatomy (1918) ve yalnızca bağlantı verilen ücretsiz makale siteleri. Her kartta lisans etiketi görünür, dosya barındırılmaz.
 - **Hocamızın Drive arşivi** bağlantısı ve telif notu.
 
+## Video konu anlatımı (`#/videolar`)
+
+Derslerin **NotebookLM** ile üretilmiş video anlatımları sitede ayrı bir bölümde, ders ders listelenir. Video dosyaları depoda tutulmaz; hocanın Drive klasöründeki kayıtlar gömülü Drive oynatıcısıyla açılır.
+
+- **Katalog:** `src/content/videos.js` — her ders için Drive dosya kimliği, süre ve üç dilli özet. Yeni bir video eklendiğinde tek yapılacak şey bu dosyaya bir satır eklemek; sayfa, sayaçlar ve süreler otomatik güncellenir.
+- **Sayfa:** `#/videolar` (`src/VideosPage.jsx`). Kartlar ders kapak görseli, süre ve konu grubu filtresiyle gelir; oynatıcı sayfa içinde açılır, `Esc` ile kapanır.
+- **Ders bağlantısı:** Ders sayfasındaki araç çubuğu ve içindekiler sütununda “Videosunu izle” düğmesi o dersin oynatıcısını açar; oynatıcıdan da yazılı anlatıma dönülür.
+- **Parçalı ders:** Anatomiye Giriş videosu altı sayfa aralığına bölünmüş hâlde yayınlanır; oynatıcıdaki parça düğmeleriyle geçilir.
+- **Birleşik kayıt:** On iki dersin kesintisiz kaydı sayfanın üstünde ayrı bir kart olarak sunulur.
+- **Hazırlanan dersler:** Henüz kaydı eklenmemiş dersler “Video hazırlanıyor” olarak dürüstçe listelenir; kayıt eklenince karta dönüşür.
+- **Künye:** Videoların NotebookLM ile kaynak notlardan üretildiği, hocanın kendi sesi veya onayladığı bir yayın olmadığı sayfada ve oynatıcıda belirtilir.
+- **Erişim:** Drive dosyaları “bağlantıya sahip olan herkes okuyabilir” olarak paylaşıldığı için oynatıcı üyelik istemez; dosya sahibi paylaşımı kaldırırsa oynatıcı çalışmaz, “Drive’da aç” bağlantısı kullanılabilir.
+
 ## 3D Anatomi Atlası (gömülü görünüm)
 
 Site, Muhammet TUĞRUL’un kendi yayımladığı **TUĞRUL ATLAS — İnteraktif Anatomi Atlası** sayfasını gömülü olarak açar: `https://keykavus324-svg.github.io/anatomyATLAS/`. Atlas, “Bir Muhammet TUĞRUL projesi” olarak sayfada belirtilir.
@@ -71,6 +84,7 @@ Site, Muhammet TUĞRUL’un kendi yayımladığı **TUĞRUL ATLAS — İnterakti
 - Mobil menü, klavyeyle kullanılabilen diyaloglar, Escape ile kapatma.
 - Ana sayfanın parşömen, adaçayı ve gül tonlarındaki atlas tasarımı korunur.
 - Kullanıcının seçtiği kaburga–sternum amblemi; ana menüde detaylı SVG, mobil/altbilgide sadeleştirilmiş simge ve uyumlu favicon.
+- Video konu anlatımı: `#/videolar` sayfasında ders ders NotebookLM videoları, parçalı oynatma, konu filtreleri ve ders sayfalarından doğrudan erişim.
 - 3B anatomi atlası: Muhammet TUĞRUL’un TUĞRUL ATLAS’ı `#/atlas` sayfasında gömülü olarak açılır; tam ekran, yenileme, yeni sekmede açma ve ağ engeli için yedek açılış bulunur.
 
 ## İçerik ve kaynak düzeni
