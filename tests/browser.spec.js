@@ -893,3 +893,73 @@ test('quiz figures and options stay usable at the largest reading size and zoom 
   }
   await page.setViewportSize({ width: 1440, height: 1000 });
 });
+
+test('video lessons page lists a card per lesson, filters, and plays the Drive recording', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', err => errors.push(err.message));
+  // The Drive player is stubbed so the check never depends on Google’s availability.
+  await page.route('https://drive.google.com/**', route => route.fulfill({ contentType: 'text/html', body: '<p>video preview test</p>' }));
+  await page.goto('/');
+  // Home entry point
+  await expect(page.locator('.video-band')).toContainText('VİDEO KONU ANLATIMI');
+  await page.locator('.video-band .primary-button').click();
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Dinleyerek tekrar et');
+  await expect(page.locator('.video-card')).toHaveCount(7);
+  expect(await page.locator('.video-card .video-card-poster').count()).toBe(7);
+
+  // Filters narrow by course group, not by hidden content.
+  await page.locator('.videos-filters').getByRole('button', { name: 'Hareket sistemi' }).click();
+  await expect(page.locator('.video-card')).toHaveCount(5);
+  await page.locator('.videos-filters').getByRole('button', { name: 'Temel anatomi' }).click();
+  await expect(page.locator('.video-card')).toHaveCount(1);
+  await expect(page.locator('.video-card h3')).toHaveText('Anatomiye Giriş');
+  await page.locator('.videos-filters').getByRole('button', { name: 'Tüm dersler' }).click();
+  await expect(page.locator('.video-card')).toHaveCount(7);
+
+  // Playing opens the in-page player with the first Drive part of the lesson.
+  await page.locator('.video-card', { hasText: 'Dolaşım Sistemi' }).getByRole('button', { name: 'Oynat', exact: true }).click();
+  const dialog = page.getByRole('dialog');
+  await expect(dialog.locator('iframe')).toHaveAttribute('src', 'https://drive.google.com/file/d/1nQb5155V0yfONhNmIRHdPIh87js24TXQ/preview');
+  await expect(dialog).toContainText('Kalbin boşlukları');
+  await expect(dialog.getByRole('link', { name: 'Drive klasörünü aç' })).toHaveAttribute('href', /1bl7GLkQLamaQs3djc3fiSGd97mZnjKMq/);
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+
+  // Lesson 1 is published in six page-ranged parts.
+  await page.locator('.video-card', { hasText: 'Anatomiye Giriş' }).getByRole('button', { name: 'Oynat', exact: true }).click();
+  await expect(dialog.locator('.video-clips button')).toHaveCount(6);
+  await dialog.locator('.video-clips button').nth(3).click();
+  await expect(dialog.locator('iframe')).toHaveAttribute('src', 'https://drive.google.com/file/d/1wY9gF5Wd2hlbU53d1NQhGbm-Yy7PG77j/preview');
+  await expect(dialog).toContainText('Sayfa 24–36');
+  await dialog.getByRole('button', { name: 'Bu dersin konu anlatımını aç' }).click();
+  await expect(page).toHaveURL(/#\/ders\/1$/);
+  await expect(page.locator('.lesson-hero h1')).toHaveText('Anatomiye Giriş');
+
+  // The lesson page offers the video again and deep-links back into the player.
+  await page.getByRole('button', { name: 'Videosunu izle' }).click();
+  await expect(page).toHaveURL(/#\/videolar$/);
+  await expect(page.getByRole('dialog').locator('.video-clips button')).toHaveCount(6);
+  await page.keyboard.press('Escape');
+
+  expect(errors).toEqual([]);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.locator('.video-card')).toHaveCount(7);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+});
+
+test('video lessons section translates with the interface and keeps the combined recording', async ({ page }) => {
+  await page.route('https://drive.google.com/**', route => route.fulfill({ contentType: 'text/html', body: '<p>video preview test</p>' }));
+  await page.goto('/#/videolar');
+  await expect(page.locator('.videos-featured')).toContainText('BİRLEŞİK KAYIT');
+  await page.locator('.videos-featured .primary-button').click();
+  await expect(page.getByRole('dialog').locator('iframe')).toHaveAttribute('src', 'https://drive.google.com/file/d/1dtCODZugtKZz6PcNCTjybim2SNHhViPV/preview');
+  await page.keyboard.press('Escape');
+
+  await page.getByRole('button', { name: 'English' }).click();
+  await expect(page.locator('.sidebar nav')).toContainText('Video Lessons');
+  await expect(page.locator('.video-card h3').first()).toContainText('Introduction to anatomy');
+  await expect(page.locator('.videos-filters')).toContainText('All lessons');
+  await page.getByRole('button', { name: 'العربية' }).click();
+  await expect(page.locator('.videos-note')).toBeVisible();
+  await expect(page.locator('.video-card')).toHaveCount(7);
+});

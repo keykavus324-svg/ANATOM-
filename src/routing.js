@@ -1,6 +1,6 @@
 import { findQuizSet } from './content/quizBank.js';
 import { notes } from './data.js';
-const paths = { home: '/', library: '/kutuphane', sources: '/kaynaklar', atlas: '/atlas', practice: '/calis', quizzes: '/quizler', saved: '/kaydedilenler', about: '/hakkinda' };
+const paths = { home: '/', library: '/kutuphane', videos: '/videolar', sources: '/kaynaklar', atlas: '/atlas', practice: '/calis', quizzes: '/quizler', saved: '/kaydedilenler', about: '/hakkinda' };
 // Licensed book/atlas collections were removed; old links land on the resource page.
 const legacyPaths = { '/kitaplar': 'sources' };
 export function routeFromHash(hash) {
