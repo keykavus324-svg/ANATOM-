@@ -1,8 +1,34 @@
-# ANATOMİ — Anatomi Ders Kütüphanesi
+# ANATOMİ — Akademik Atlas ve Ders Kütüphanesi
 
 Dr. Öğr. Gör. **Bekir Dağdeviren**’in kaynak notları temel alınarak hazırlanmış bağımsız öğrenci projesi. Fırat Üniversitesi’nin resmî sitesi değildir; hocanın veya üniversitenin onay verdiği iddia edilmez.
 
 **Site tasarım ve geliştirme:** Muhammet TUĞRUL. Ders notlarının kaynak atfı Dr. Öğr. Gör. Bekir Dağdeviren olarak korunur.
+
+## Kesit Laboratuvarı: aynı noktayı üç düzlemde izleme
+
+`#/kesit/v1` bağlantısı Nilearn üzerinden dağıtılan MNI152 T1 ortalama beyin şablonunu açar. Hasta verisi veya üçüncü taraf görüntüleyici kullanılmaz. Aksiyel, koronal ve sagittal görünümler **aynı hacimden** üretilir; kesite tıklama, odaktaki ok tuşları ve sürgüler seçili vokseli günceller. Ekrandaki L/R/A/P/S/I işaretleri dil değişse bile anatomik yönü korur. Bir başlangıç noktası koyup başka bir dilime geçerek şablon uzayında iki nokta arası Öklid mesafesini ölçebilirsiniz. “Ayna konuma geç” yalnızca X koordinatını orta hatta göre yansıtır; doku eşleştirme veya yapı tanıma yapmaz.
+
+Öğretim üyesi hedef nokta, ipucu ve kabul yarıçapı belirleyerek bir **nokta bulma görevi** bağlantısı oluşturabilir. Öğrenci üç görünümde noktasını seçer ve seçimi ile hedef arasındaki mesafeyi kontrol eder. Görev bağlantısı soruyu ve hedefi içerir; puan toplayan veya güvenli bir sınav değildir.
+
+Başlıklı kayıt ve kişisel yorum **Araştırma dosyam** içinde ders pasajları ve yayınlarla birlikte saklanabilir, sunulabilir ve metin olarak indirilebilir. Konum bağlantısı iki noktanın koordinatlarını içerir; başlık veya yorum içermez. Hacim yalnız laboratuvar veya ilgili sunum slaytı açılınca yüklenir. Kaynak, izin ve tekrar üretim: `public/sections/SOURCE.md`, `public/sections/LICENSE.txt`, `scripts/prepare-section-template.py`.
+
+## Atlas Edition — görsel tasarım ve Figma
+
+Genel Bakış sayfasındaki kapak levhasını oklarla değiştirin; Latince başlığa dokunarak ilgili derse geçin. Dört çalışma istasyonunun çizimleri yerel SVG’dir. Kapak görselleri temsili illüstrasyonlardır, tıbbi referans değildir. Mobil ve sağdan sola görünümler aynı içerik ve işlem sırasını korur; otomatik kayan galeri yoktur.
+
+[Figma aktarım paketi](design/figma/Atlas-Edition.zip) masaüstü ve mobil SVG panolarını, renk token’larını, font lisanslarını ve Figma Desktop için yerel katman aktarım kodunu içerir. [Aktarım ve tekrar üretim talimatları](design/figma/README.md). Uygulama dosyaları ile tasarım paketinde aynı `src/editionTokens.json` kullanılır.
+
+## Anatomi Merceği: yapıdan araştırma dosyasına
+
+**Anatomi Merceği** (`#/mercek`) derslerin editoryal paragraflarını, tablo satırlarını ve 26 şemanın etiketlerini yerel olarak arar. Örneğin `#/mercek?q=Radius&b=Ulna` iki yapıyı yan yana gösterir; **Aynı pasajda** yalnız iki terimin beraber geçtiği kayıtları getirir. Şemadaki başka bir etiketten yeni karşılaştırma başlatabilir, **Dersler arası iz** ile eşleşmeleri derse göre süzebilirsiniz. Sorgu adresi paylaşılabilir; kişisel araştırmacı notları adrese eklenmez.
+
+Seçilen pasajlar, dili ve kaynak bölümü korunarak **Araştırma dosyam** içinde saklanır. Kendi notunuzu ekleyebilir, dosyayı kaynak bağlantılarıyla düz metin olarak indirebilir veya seçtiğiniz pasajları şemalarıyla sınıfta sunabilirsiniz. PDF sayfaları bölümün konusuna referanstır; pasajlar özgün PDF'den doğrudan alıntı değildir. **Bilimsel yayınları tara** ayrıca Europe PMC REST API’sinden en çok sekiz yayın künyesi getirir. İstek yalnızca kullanıcı aramayı başlatınca yapılır; araştırmacı notları gönderilmez. Yayınlar kaynak kaydına bağlanır, dosyaya eklenebilir ve RIS olarak aktarılabilir. Servis erişilemezse yerel arama çalışmaya devam eder. Bu araç kapsamlı sistematik derleme, makale kalitesi değerlendirmesi veya klinik karar sistemi değildir. Tarayıcı verilerinin silinmesi dosyayı kaldırır; taşınabilir kopya için indirme kullanılır.
+
+## Akademik kullanım
+
+Ana sayfadaki anatomik levhalar ilgili konu anlatımlarına açılır. **Ders Planlayıcı** (`#/ders-planlayici`), öğretim üyelerinin ders başlığı ve öğrenme hedefleri belirlemesine, konuları seçip sıralamasına ve özgün PDF kaynaklarıyla bir ders planı yazdırmasına olanak verir. **Yeni plan** her ders için ayrı bir taslak açar. **Planı kaydet** geçerli taslağı arşive ekler veya seçili kaydı günceller. Önceki sürümdeki plan arşivde görünür; kayıtlar bu tarayıcıya özeldir. Hesap veya bulut eşitlemesi yoktur.
+
+**Sunumu başlat** planı sınıfa yansıtılabilecek biçimde açar: ilk slaytta hedefler ve konu sırası, ardından her konu için görsel anlatım ve yanıtı öğretim üyesinin açabileceği bir tartışma sorusu yer alır. Ok tuşlarıyla slaytlar arasında geçilir, Esc ile düzenleyiciye dönülür. Sunum, sitenin mevcut üç dildeki ders metinlerini ve tekrar sorularını kullanır. Öğrenciler ders kütüphanesi, 3B atlas, video ve sınav araçlarını aynı platformda kullanmaya devam edebilir.
 
 ## Çalıştırma
 
