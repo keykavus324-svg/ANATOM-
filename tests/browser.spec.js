@@ -81,7 +81,7 @@ test('narrow mobile layout has no horizontal overflow and navigation works', asy
   await page.screenshot({path:'.playwright/mobile.png',fullPage:true});
   await page.getByRole('button',{name:'Menüyü aç'}).click();
   await page.getByRole('button',{name:'Ders Kütüphanesi 12',exact:true}).click();
-  await expect(page.locator('.hero')).toHaveCount(0);
+  await expect(page.locator('.plate-hero')).toHaveCount(0);
   await expect(page.locator('.note-card')).toHaveCount(12);
   await page.getByRole('button',{name:'Menüyü aç'}).click();
   await page.getByRole('button',{name:'Hocamız Hakkında',exact:true}).click();
@@ -156,7 +156,7 @@ test('web routes support browser back/forward and invalid links safely', async (
   await page.goForward();
   await expect(page.locator('.lesson-hero h1')).toHaveText('Anatomiye Giriş');
   await page.goto('/#/ders/99');
-  await expect(page.locator('.hero')).toBeVisible();
+  await expect(page.locator('.plate-hero')).toBeVisible();
 });
 
 test('all 12 web notes and illustrations load without Google requests', async ({ page }) => {
@@ -359,7 +359,7 @@ test('unavailable official photo falls back without a broken image or invented p
 
 test('site creator credit is visible on the home hero', async ({ page }) => {
   await page.goto('/');
-  const maker = page.locator('.hero .hero-maker');
+  const maker = page.locator('.plate-hero .plate-maker');
   await expect(maker).toHaveText('Tasarım ve geliştirme: Muhammet TUĞRUL');
   await expect(maker).toBeInViewport();
 });
@@ -395,7 +395,7 @@ test('anatomy logo is local, crisp and shared by desktop, mobile and footer navi
   await page.locator('.brand-button').screenshot({path:'.playwright/anatomi-brand-desktop.png'});
   await page.goto('/#/ders/1');
   await page.locator('.brand-button').click();
-  await expect(page.locator('.hero')).toBeVisible();
+  await expect(page.locator('.plate-hero')).toBeVisible();
   for(const width of [320,390]) {
     await page.setViewportSize({width,height:844});
     const mobile=page.locator('.mobile-brand img');
@@ -734,7 +734,7 @@ test('interface switches between Turkish, English and Arabic and remembers the c
   await expect(nav).toContainText('Ders Kütüphanesi');
   await page.getByRole('button', { name: 'English' }).click();
   await expect(nav).toContainText('Course Library');
-  await expect(page.locator('.hero h1')).toContainText('the human body');
+  await expect(page.locator('.plate-hero h1')).toContainText('layer by layer.');
   await expect(page.locator('.note-card h3').first()).toHaveText('Introduction to anatomy');
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await page.getByRole('searchbox', { name: 'Search course notes' }).fill('digestive');
@@ -962,4 +962,156 @@ test('video lessons section translates with the interface and keeps the combined
   await page.getByRole('button', { name: 'العربية' }).click();
   await expect(page.locator('.videos-pending')).toBeVisible();
   await expect(page.locator('.video-card')).toHaveCount(7);
+});
+
+test('faculty can assemble a lesson plan and retrieve it after reloading', async ({ page }) => {
+  await page.goto('/');
+  await page.locator('.module-links').getByRole('button', {name:/Ders Planlayıcı/}).click();
+  await expect(page).toHaveURL(/#\/ders-planlayici$/);
+  await expect(page.getByRole('button',{name:'Planı kaydet'})).toBeDisabled();
+  await page.getByLabel('Ders başlığı').fill('Toraks anatomisi');
+  await page.getByLabel('Öğrenme hedefleri').fill('Akciğer loblarını ayırt etmek');
+  await page.getByLabel('Solunum Sistemi',{exact:true}).check();
+  await page.getByLabel('Dolaşım Sistemi',{exact:true}).check();
+  await page.getByRole('button',{name:'Dolaşım Sistemi: yukarı taşı'}).click();
+  await page.getByRole('button',{name:'Planı kaydet'}).click();
+  await expect(page.getByRole('status')).toContainText('kaydedildi');
+  await page.reload();
+  await expect(page.getByLabel('Ders başlığı')).toHaveValue('Toraks anatomisi');
+  await expect(page.getByLabel('Solunum Sistemi',{exact:true})).toBeChecked();
+  await expect(page.locator('.plan-preview')).toContainText('Akciğer loblarını ayırt etmek');
+  await expect(page.locator('.plan-topic a').first()).toHaveText('Dolaşım Sistemi');
+  await expect(page.locator('.plan-sources a')).toHaveCount(2);
+  await page.emulateMedia({media:'print'});
+  await expect(page.locator('.planner form')).toBeHidden();
+  await expect(page.locator('.plan-preview')).toBeVisible();
+});
+
+test('multi-plan archive preserves the previous lesson and supports an ordered classroom presentation', async ({page})=>{
+  await page.goto('/#/ders-planlayici');
+  await page.getByLabel('Ders başlığı').fill('Toraks semineri');
+  await page.getByLabel('Dolaşım Sistemi',{exact:true}).check();
+  await page.getByLabel('Solunum Sistemi',{exact:true}).check();
+  await page.getByRole('button',{name:'Planı kaydet'}).click();
+  await page.getByRole('button',{name:'Yeni plan',exact:true}).click();
+  await page.getByLabel('Ders başlığı').fill('İkinci ders');
+  await page.getByLabel('Sinir Sistemi',{exact:true}).check();
+  await page.getByRole('button',{name:'Planı kaydet'}).click();
+  await page.reload();
+  await page.getByRole('combobox',{name:/Plan arşivim/}).selectOption({label:'Toraks semineri'});
+  const launch = page.getByRole('button',{name:'Sunumu başlat'});
+  await launch.click();
+  const stage = page.getByRole('dialog',{name:'Sınıf sunumu'});
+  await expect(stage).toContainText('Slayt 1 / 5');
+  await expect(stage.getByRole('heading',{level:2})).toHaveText('Toraks semineri');
+  await page.keyboard.press('ArrowRight');
+  await expect(stage.getByRole('heading',{level:2})).toHaveText('Dolaşım Sistemi');
+  await page.keyboard.press('ArrowRight');
+  await expect(stage).toContainText('Pulmoner venler nereye açılır?');
+  await stage.locator('summary').click();
+  await expect(stage.locator('details p')).toBeVisible();
+  await stage.getByRole('button',{name:'Sonraki slayt'}).click();
+  await expect(stage.getByRole('heading',{level:2})).toHaveText('Solunum Sistemi');
+  await page.keyboard.press('Escape');
+  await expect(launch).toBeFocused();
+  page.once('dialog', d=>d.accept());
+  await page.getByRole('button',{name:'Planı sil'}).click();
+  await expect(page.getByLabel('Ders başlığı')).toHaveValue('İkinci ders');
+});
+
+test('plan drafts survive a cancelled switch; mobile Arabic slides follow RTL navigation', async ({page})=>{
+  await page.setViewportSize({width:360,height:760});
+  await page.goto('/#/ders-planlayici');
+  await page.getByLabel('Ders başlığı').fill('Seminer');
+  await page.getByLabel('Dolaşım Sistemi',{exact:true}).check();
+  page.once('dialog', d=>d.dismiss());
+  await page.getByRole('button',{name:'Yeni plan',exact:true}).click();
+  await expect(page.getByLabel('Ders başlığı')).toHaveValue('Seminer');
+  await page.getByRole('button',{name:'العربية'}).click();
+  await expect(page.locator('html')).toHaveAttribute('dir','rtl');
+  await page.getByRole('button',{name:'بدء العرض'}).click();
+  const stage=page.getByRole('dialog');
+  await page.keyboard.press('ArrowLeft');
+  await expect(stage).toContainText('الشريحة 2 من 3');
+  await expect(stage.locator('.stage-body h2')).not.toHaveText('Dolaşım Sistemi');
+  await expect(stage.locator('figure img')).toBeVisible();
+  expect(await stage.locator('.stage-body').evaluate(el=>el.scrollWidth<=el.clientWidth)).toBeTruthy();
+  await page.keyboard.press('ArrowRight');
+  await expect(stage).toContainText('الشريحة 1 من 3');
+  await page.keyboard.press('Escape');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
+});
+
+test('research lens: diagram to comparison, source section, annotated dossier, download and classroom slide', async ({page})=>{
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('/'); await page.locator('.plate-actions').getByRole('button',{name:'Anatomi Merceği'}).click();
+  await expect(page.locator('.lens-plate img')).toHaveAttribute('src','/diagrams/forearm.svg');
+  await page.getByRole('button',{name:'2. Ulna',exact:true}).click();
+  await expect(page).toHaveURL(/#\/mercek\?q=Radius&b=Ulna$/);
+  await expect(page.locator('.lens-pin.b')).toHaveText('2');
+  await expect(page.locator('.lens-filters [aria-pressed=true]')).toContainText('Aynı pasajda');
+  const result=page.locator('.lens-passage').first();await expect(result).toContainText('15–21');
+  const sectionPromise=page.waitForEvent('popup');await result.getByRole('link',{name:'Bölümü aç'}).click();const source=await sectionPromise;
+  await expect(source).toHaveURL(/#\/ders\/4\/onkol$/);await expect(source.locator('#lesson-onkol')).toBeInViewport();await source.close();
+  await result.getByRole('button',{name:'Dosyaya ekle'}).click();await page.getByRole('button',{name:/Araştırma dosyam/}).click();
+  await page.getByLabel('Araştırmacı notu').fill('Seminer için seçildi.');await page.reload();await page.getByRole('button',{name:/Araştırma dosyam/}).click();
+  await expect(page.getByLabel('Araştırmacı notu')).toHaveValue('Seminer için seçildi.');
+  const downloading=page.waitForEvent('download');await page.getByRole('button',{name:'Kaynaklı dosyayı indir'}).click();const file=await downloading;
+  expect(file.suggestedFilename()).toBe('anatomi-arastirma-dosyasi.txt');const stream=await file.createReadStream();let text='';for await(const chunk of stream)text+=chunk.toString();
+  expect(text).toContain('Seminer için seçildi.');expect(text).toContain('#/ders/4/onkol');expect(text).toContain('Bekir Dağdeviren');
+  await page.getByRole('button',{name:'Dosyayı sun'}).click();await expect(page.getByRole('dialog')).toContainText('Seminer için seçildi.');await page.keyboard.press('Escape');
+  await page.getByRole('button',{name:'Dosyadan çıkar'}).click();await expect(page.getByRole('button',{name:'Dosyayı sun'})).toBeDisabled();expect(errors).toEqual([]);
+});
+
+test('research lens: no invented results, language switch and mobile shared search', async ({page})=>{
+  await page.setViewportSize({width:360,height:800});await page.goto('/#/mercek?q=Radius&b=Ulna');await page.getByRole('button',{name:'العربية'}).click();
+  await expect(page.locator('.lens-page h1')).toHaveText('عدسة التشريح');await expect(page.locator('.lens-plate img')).toBeVisible();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.getByRole('button',{name:'English'}).click();await page.getByRole('button',{name:'Close comparison'}).click();
+  await page.getByRole('searchbox',{name:'First structure or term'}).fill('xyz-no-match');await page.getByRole('button',{name:'Examine',exact:true}).click();
+  await expect(page.locator('.lens-empty')).toContainText('No matching passages');await expect(page.locator('.lens-passage')).toHaveCount(0);
+});
+
+test('research lens: opt-in publication lookup, citation export and service failure', async ({page})=>{
+  // Contract fixture, not a test of external service availability.
+  const pattern='https://www.ebi.ac.uk/europepmc/webservices/rest/search?**';let calls=0;
+  await page.route(pattern,r=>{calls++;if(calls===2)return r.abort();expect(new URL(r.request().url()).searchParams.get('query')).toBe('radius AND anatomy AND OPEN_ACCESS:Y');return r.fulfill({json:{resultList:{result:[{source:'MED',id:'123',title:'Bibliographic fixture',authorString:'Author A.',pubYear:'2001',journalTitle:'Example journal'}]}}});});
+  await page.goto('/#/mercek?q=radius');await page.locator('.lens-literature summary').click();expect(calls).toBe(0);
+  await page.getByLabel('Açık erişim',{exact:true}).check();await page.getByRole('button',{name:'Yayın ara'}).click();const article=page.locator('.lens-literature article');await expect(article).toContainText('Bibliographic fixture');await article.getByRole('button',{name:'Dosyaya ekle'}).click();
+  await page.getByRole('button',{name:/Araştırma dosyam/}).click();await expect(page.locator('.lens-dossier')).toContainText('Example journal');const download=page.waitForEvent('download');await page.getByRole('button',{name:'Yayın künyeleri (.ris)'}).click();expect((await download).suggestedFilename()).toBe('anatomi-kaynakca.ris');
+  await page.reload();await page.getByRole('button',{name:/Araştırma dosyam/}).click();await expect(page.locator('.lens-dossier .lens-sources a')).toHaveAttribute('href','https://europepmc.org/article/MED/123');await page.getByRole('button',{name:/Merceğe dön/}).click();await page.locator('.lens-literature summary').click();await page.getByRole('button',{name:'Yayın ara'}).click();await expect(page.locator('.lens-literature [role=status]')).toContainText('ulaşılamadı');await expect(page.locator('.lens-plate img')).toBeVisible();
+});
+
+test('MRI lab: linked planes, 3D distance, reproducible section and dossier slide', async ({page})=>{
+  let loaded=0;page.on('request',r=>{if(r.url().endsWith('.u8'))loaded++;});
+  await page.goto('/');expect(loaded).toBe(0);await page.locator('.plate-actions').getByRole('button',{name:'Kesit Laboratuvarı'}).click();
+  await expect(page.locator('.slice-plane canvas')).toHaveCount(3);expect(loaded).toBe(1);
+  await page.getByRole('button',{name:'Ölçüm başlangıcı koy'}).click();
+  const axial=page.getByRole('group',{name:'Aksiyel kesiti'});await axial.focus();await page.keyboard.press('ArrowRight');await page.keyboard.press('ArrowRight');
+  await expect(page.getByRole('slider',{name:'Sagittal dilimi'})).toHaveAttribute('aria-valuetext','4 mm');await expect(page.locator('.slice-distance')).toContainText('4.0 mm');
+  await page.getByRole('button',{name:'Ayna konuma geç'}).click();await expect(page.locator('.slice-readout')).toContainText('X -4');
+  await page.getByLabel('Kesit başlığı').fill('Ön çalışma');await page.getByLabel('Araştırmacı notu').fill('Kişisel yorum');await page.getByRole('button',{name:'Dosyaya ekle'}).click();await expect(page.getByRole('status')).toContainText('eklendi');
+  await page.getByRole('link',{name:'Araştırma dosyam'}).click();await expect(page.locator('.lens-dossier')).toContainText('Ön çalışma');await expect(page.locator('.lens-dossier textarea')).toHaveValue('Kişisel yorum');
+  const link=await page.getByRole('link',{name:'Kesiti yeniden aç'}).getAttribute('href');expect(link).not.toContain('yorum');await page.getByRole('button',{name:'Dosyayı sun'}).click();await expect(page.getByRole('dialog').locator('canvas')).toHaveCount(3);await page.keyboard.press('Escape');await page.goto('/'+link);await expect(page.locator('.slice-readout')).toContainText('X -4');await expect(page.locator('.slice-distance')).toContainText('4.0 mm');
+});
+
+test('MRI lab: instructor target link, student feedback and mobile RTL orientation',async({page})=>{
+  await page.setViewportSize({width:360,height:800});await page.goto('/#/kesit/v1?p=20,-18,16');await page.locator('.slice-exercise summary').click();await page.getByLabel('Öğrenciye ipucu').fill('Orta hattın 20 mm sağını bul.');await page.getByRole('button',{name:'Görev bağlantısı oluştur'}).click();const link=await page.getByRole('link',{name:'Görevi önizle'}).getAttribute('href');await page.goto(link);await expect(page.locator('.slice-readout')).toContainText('X 0');await page.getByRole('button',{name:'Seçimimi kontrol et'}).click();await expect(page.locator('.exercise-prompt [role=status]')).toContainText('20.0 mm');await page.getByRole('button',{name:'Hedefi göster'}).click();await expect(page.locator('.slice-readout')).toContainText('X 20');await page.getByRole('button',{name:'العربية'}).click();await expect(page.locator('html')).toHaveAttribute('dir','rtl');await expect(page.locator('.slice-views')).toHaveAttribute('dir','ltr');expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
+
+test('MRI lab: unavailable volume is recoverable and observations cannot be saved before loading',async({page})=>{
+  await page.route('**/sections/*.u8',r=>r.abort());await page.goto('/#/kesit/v1');await expect(page.locator('.slice-loading')).toContainText('yüklenemedi');await page.getByLabel('Kesit başlığı').fill('Taslak');await expect(page.getByRole('button',{name:'Dosyaya ekle'})).toBeDisabled();await page.unroute('**/sections/*.u8');await page.getByRole('button',{name:'Yeniden dene'}).click();await expect(page.locator('canvas')).toHaveCount(3);await expect(page.getByRole('button',{name:'Dosyaya ekle'})).toBeEnabled();
+});
+
+test('atlas edition cover switches plates deliberately and opens the corresponding lesson', async({page})=>{
+  await page.goto('/');const cover=page.locator('.edition-cover');await expect(cover.locator('.edition-caption-link')).toContainText('Cor humanum');
+  await cover.getByRole('button',{name:'Sonraki kapak levhası'}).click();await expect(cover.locator('.edition-caption-link')).toContainText('Cerebrum');
+  await cover.getByRole('button',{name:'Beyin: ilgili dersi aç'}).click();await expect(page.locator('.lesson-hero h1')).toHaveText('Sinir Sistemi');
+  await page.goBack();await cover.getByRole('button',{name:'Önceki kapak levhası'}).click();await expect(cover.locator('.edition-caption-link')).toContainText('Cranium');await cover.getByRole('button',{name:'Sonraki kapak levhası'}).click();await expect(cover.locator('.edition-caption-link')).toContainText('Cor humanum');
+});
+
+test('edition is usable on mobile in RTL and with reduced motion',async({page})=>{
+  await page.setViewportSize({width:360,height:800});await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');await page.getByRole('button',{name:'العربية'}).click();
+  const cover=page.locator('.edition-cover');await cover.getByRole('button',{name:'لوحة الغلاف التالية'}).click();await expect(cover.locator('.edition-caption-link')).toContainText('Cerebrum');expect(await cover.locator('.edition-organ').evaluate(el=>getComputedStyle(el).animationName)).toBe('none');
+  await expect(page.locator('.module-links .station')).toHaveCount(4);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });

@@ -1,0 +1,9 @@
+# ANATOMİ / Atlas Edition — Figma tasarım paketi
+
+**Hızlı aktarım:** `Atlas-Edition.zip` arşivini açın. `Desktop.svg` (1440 px) ve `Mobile.svg` (390 px) dosyalarını Figma Design tuvaline sürükleyin. Vektörler ve görseller dosyaya gömülüdür; dış URL gerekmez. Bunlar ekran görüntüsü değil, web arayüzünün gerçek ölçülerinden üretilen katmanlı tasarım panolarıdır. İllüstrasyonlar raster; yazı ve arayüz elemanları ayrı katmanlardır. Tarayıcıya özgü karışım, gölge ve degrade efektleri aktarımda sadeleştirilir.
+
+**Yerel Figma katmanları ve stilleri:** Figma Desktop’ta **Plugins → Development → New plugin** ile Figma Design için boş, arayüzsüz bir JavaScript eklentisi oluşturun. Oluşturulan manifesti ve Figma’nın atadığı kimliği koruyun. Manifestin `main` alanında belirtilen JavaScript dosyasının içeriğini **ZIP içindeki `code.js`** ile değiştirip eklentiyi Development menüsünden çalıştırın. Yeni “ANATOMİ / Atlas Edition” sayfasına iki frame, düzenlenebilir metinler, istasyon kartı bileşenleri, yerel renk ve metin stilleri ekler. Eklenti ağ isteği yapmaz ve mevcut sayfaları değiştirmez. Her çalıştırma ayrı bir sayfa ve yeni stiller oluşturur. Native eklenti Figma Desktop içinde elle çalıştırılmalıdır; bu paketin oluşturulması hesabınızda dosya yayımlamaz.
+
+**Tipografi:** Başlıklar Cormorant Garamond, arayüz Inter, numaralar monospace (aktarımda Roboto Mono). En yakın sonuç için fontları etkinleştirin. Native içe aktarıcı eksik fontlar için Inter kullanır. `tokens.json`, uygulamanın `src/editionTokens.json` dosyasıyla aynıdır.
+
+**Yeniden üretim:** Repo kökünde `npm ci`, `npm run dev` ardından ayrı terminalde `node scripts/export-edition.mjs http://localhost:5173`. Playwright Chromium kurulu değilse `CHROMIUM_EXECUTABLE_PATH` kullanılabilir; kısıtlı Linux ortamında `scripts/test-ui.mjs` içindeki paketli Chromium kütüphane ayarlarını kullanın. `importer.js` yalnız kaynak şablondur; tek başına çalıştırmayın.

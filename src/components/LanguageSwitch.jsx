@@ -9,7 +9,7 @@ export default function LanguageSwitch({ compact = false }) {
   return <div className={`language-switch ${compact ? 'compact' : ''}`} role="group" aria-label={tr('Site dili')}>
     {!compact && <span className="language-switch-label"><Languages size={14} aria-hidden="true"/>{tr('Dil')}</span>}
     <div className="language-switch-options">
-      {languages.map(item => <button key={item.code} type="button" lang={item.htmlLang} dir={item.dir === 'rtl' ? 'rtl' : 'ltr'} className={lang === item.code ? 'active' : ''} aria-pressed={lang === item.code} onClick={() => setLang(item.code)} title={item.name}>
+      {languages.map(item => <button key={item.code} type="button" lang={item.htmlLang} dir={item.dir === 'rtl' ? 'rtl' : 'ltr'} className={lang === item.code ? 'active' : ''} aria-pressed={lang === item.code} onClick={() => setLang(item.code)} title={item.name} aria-label={item.name}>
         <span className="lang-full">{compact ? item.short : item.name}</span><span className="lang-short">{item.short}</span>
       </button>)}
     </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Bookmark, Check, CheckCircle2, ChevronDown, Clock3, FileText, Languages, List, Minus, Plus, PlayCircle } from 'lucide-react';
 import { lessons, readingMinutes } from './lessons';
 import { notes } from './data';
+import { routeFromHash } from './routing';
 import './lesson.css';
 import InstructionalFigure from './components/InstructionalFigure';
 import { diagramIn } from './content/diagramI18n.js';
@@ -35,6 +36,21 @@ export default function LessonPage({ note, onPdf, onVideo, onBack, onNavigate, s
   const [fontSize, setFontSize] = useState(() => {
     try { const size = Number(localStorage.getItem('anatomi-reading-size')); return [14, 16, 18, 20].includes(size) ? size : 16; } catch { return 16; }
   });
+  useEffect(() => {
+    let frame;
+    const jumpToLinkedSection = () => {
+      cancelAnimationFrame(frame);
+      const route = routeFromHash(window.location.hash);
+      if (route.lesson?.number !== note.number || !route.section) return;
+      frame = requestAnimationFrame(() => {
+        const target = document.getElementById(`lesson-${route.section}`);
+        target?.focus({preventScroll:true}); target?.scrollIntoView({block:'start'});
+      });
+    };
+    jumpToLinkedSection();
+    window.addEventListener('hashchange',jumpToLinkedSection);
+    return () => { cancelAnimationFrame(frame); window.removeEventListener('hashchange',jumpToLinkedSection); };
+  }, [note.number]);
   const content = useRef(null);
   const tocDetails = useRef(null);
   const bookNotes = localizedNotes(notes);
