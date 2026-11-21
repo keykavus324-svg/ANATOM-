@@ -276,3 +276,12 @@ Yalnız Sitede oku içeriğine `src/content/exam/` altında 42 özgün açıklam
 **Doğrulama ve sınır.** `forearm` illüstrasyonu doğrulamada reddedildi (ekstra kemik/hatalı çaprazlama); bu id vektörde kaldı, sonraki dalgada yeniden çizilecek. Kalan 16 ders şekli ve 6 sınav haritası da sırayla plakalaşacak. `tests/enrichment.test.js` sözleşmesi bilinçli güncellendi: vektör şartı olan “`<image` yok” kuralı, yalnız kendi sanatını base64 data-URI olarak gömen plakalara izin verecek şekilde daraltıldı; `<script>`, `<foreignObject>` ve her türlü uzak `href` yasağı aynen sürer. Pin halkası sayısı etiket sayısına eşit kalır; 121 birim testi ve şekil senaryoları yeşil.
 
 **Editoryal sınır.** Plakalar gerçekçi öğretim çizimleridir; ölçeksizdir, bağımsız uzman doğrulaması değildir ve atlas veya ders kitabı yerine geçmez. Bu sınır arayüzde ve bu belgede yazılı kalır.
+
+
+## 21 Kasım 2026 (2. dalga): 7 plaka daha; üç çizim doğrulamada reddedildi
+
+**Yapılanlar.** `muscle-bundle`, `antagonists`, `airways`, `diaphragm`, `neuron`, `spinal-roots`, `meninges` plakalaştı (toplam 16 plaka / 10 vektör). Her çizim ekranda tek tek doğrulandı: akciğerde sağ üç-sol iki lob ve kalp çentiği, diyaphragmada gevşek kubbe + kasılmış kubbe ve alçalma okları, omurilik enine kesitinde ganglionlu arka kök ve karma sinir dalları, meninkste dura–araknoid–subaraknoid–pia katman sırası pin hedefleriyle birebir eşleşti.
+
+**Reddedilenler (vektörde kaldı, sıradaki dalgada yeniden çizilecek).** `forearm` ikinci denemede de panel başına iki yerine üç kemik üretti; `alveolus`ta O₂ ve CO₂ okları aynı yöne çizildi (gaz değişimi çift yönlüdür); `heart-flow`da pulmoner devre iki ayrı akciğer durağıyla çift halka olarak çıktı. Üçü de öğretim açısından yanıltıcı olduğundan plakalaştırılmadı.
+
+**Doğrulama.** 121 birim testi yeşil; pin halkası sayısı her plakada etiket sayısına eşit; `diagramPins.js` hedefleri plakalarla eşitlendi (Mercek bindirmesi aynı koordinatları kullanır). Görsel üretim sınırının (tur başına 10) getirdiği dalga düzeni bu kayıtlarda izlenir.
