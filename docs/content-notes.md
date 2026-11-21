@@ -285,3 +285,12 @@ Yalnız Sitede oku içeriğine `src/content/exam/` altında 42 özgün açıklam
 **Reddedilenler (vektörde kaldı, sıradaki dalgada yeniden çizilecek).** `forearm` ikinci denemede de panel başına iki yerine üç kemik üretti; `alveolus`ta O₂ ve CO₂ okları aynı yöne çizildi (gaz değişimi çift yönlüdür); `heart-flow`da pulmoner devre iki ayrı akciğer durağıyla çift halka olarak çıktı. Üçü de öğretim açısından yanıltıcı olduğundan plakalaştırılmadı.
 
 **Doğrulama.** 121 birim testi yeşil; pin halkası sayısı her plakada etiket sayısına eşit; `diagramPins.js` hedefleri plakalarla eşitlendi (Mercek bindirmesi aynı koordinatları kullanır). Görsel üretim sınırının (tur başına 10) getirdiği dalga düzeni bu kayıtlarda izlenir.
+
+
+## 21 Kasım 2026 (3. dalga): 9 plaka daha — ders şekillerinde son vektör forearm
+
+**Plakalaşanlar (25/26).** `alveolus` (oklar artık çapraz ve karşıt yönlü: O₂ kana, CO₂ alveole), `heart-flow` (tek pulmoner + tek sistemik halka; venöz dönüş fizyolojik olarak mavi-gri), `aorta` (arkustan üç dal: brachiocephalicus → sağ çift, sol carotis, sol subclavia; descendens ve iliak çatallanma), `digestive-tract` (mide izleyicinin sağında, caecum-appendix sol altta, kolon çerçevesi tam), `tooth` (mine–dentin–pulpa–sement/apikal açıklık), `villus` (fırçamsı kenarlı epitel, kapiller ağ, santral lakteal), `portal` (mezenterik + splenik → portal ven → sinüzoidler → hepatik venler/cava), `uterus` (fimbria–over aralığı korunmuş koronal kesit), `male-path` (epididymis–deferens–seminal vesicle–prostat–urethra sürekliliği).
+
+**forearm dördüncü kez reddedildi:** sol panelde yine üç kemik üredi. Sıradaki dalgada iki ayrı tek-konum görseli (yalnız supinasyon / yalnız pronasyon) üretilip kodda yan yana birleştirilecek; böylece kemik sayısı üretim değil kod garantisi olacak.
+
+**Doğrulama.** Her çizim kırpılmış 760×460 görünümde tek tek incelendi; pin halkaları `plate-shots` ile canlı plakada doğrulandı (aorta ve male-path örnekleri bu girdide). 121 birim testi yeşil; `diagramPins.js` 25 plaka ile eşitli.
