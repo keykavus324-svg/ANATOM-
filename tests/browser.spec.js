@@ -1039,7 +1039,16 @@ test('exam simulator runs a timed mixed paper, hides answers and reports at the 
   await page.keyboard.press('Alt+ArrowLeft');
   await expect(page.locator('.exam-nav-count')).toContainText('5 / 10');
   await page.locator('.exam-palette-grid button').nth(0).click();
-  await page.locator('.quiz-options label, .quiz-options.multi label').first().click();
+  // The mixed paper shuffles per attempt, so question 1 can be single-choice,
+  // multi-choice, true/false or ordering. Answer with a control that cannot
+  // undo the earlier probe click: a different option label, or for ordering
+  // questions an enabled move button.
+  const q1Options = page.locator('.quiz-options label, .quiz-options.multi label');
+  if (await q1Options.count() >= 2) {
+    await q1Options.nth(1).click();
+  } else {
+    await page.locator('.quiz-order-list button:not([disabled])').first().click();
+  }
   await expect(page.locator('.exam-palette-grid button.is-answered')).toHaveCount(1);
   await expect(page.locator('.exam-blank-note')).toContainText('9 boş');
   await page.getByRole('button', { name: 'Sınavı bitir' }).first().click();

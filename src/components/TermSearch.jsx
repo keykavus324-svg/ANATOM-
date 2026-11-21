@@ -11,21 +11,28 @@ export default function TermSearch({ onPick }) {
   const { isFavorite, toggleFavorite } = useFavorites();
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const box = useRef(null);
+  const inputRef = useRef(null);
   const results = searchTerms(query);
   useEffect(() => {
-    const close = event => { if (!box.current?.contains(event.target)) setOpen(false); };
+    const close = event => { if (!box.current?.contains(event.target)) { setOpen(false); setExpanded(false); } };
     document.addEventListener('pointerdown', close);
     return () => document.removeEventListener('pointerdown', close);
   }, []);
-  return <div className="term-search" ref={box}>
-    <Search size={14} aria-hidden="true"/>
+  return <div className={`term-search${expanded ? ' expanded' : ''}`} ref={box}>
+    <button type="button" className="term-search-toggle" aria-label={tr('Terim arama kutusunu aç')} aria-expanded={expanded}
+      onClick={() => setExpanded(was => { if (!was) setTimeout(() => inputRef.current?.focus(), 0); return !was; })}>
+      <Search size={15} aria-hidden="true"/>
+    </button>
+    <Search size={14} className="term-search-icon" aria-hidden="true"/>
     <input
+      ref={inputRef}
       value={query}
       onChange={event => { setQuery(event.target.value); setOpen(true); }}
       onFocus={() => setOpen(true)}
       onKeyDown={event => {
-        if (event.key === 'Escape') setOpen(false);
+        if (event.key === 'Escape') { setOpen(false); setExpanded(false); }
         if (event.key === 'Enter' && results[0]) { onPick(results[0]); setOpen(false); }
       }}
       placeholder={tr('Terim ara: clavicula / köprücük')}

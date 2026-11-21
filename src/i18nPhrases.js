@@ -958,6 +958,8 @@ export const PHRASES = [
   ['Koyu tema', 'Dark theme', 'السمة الداكنة'],
   ['Açık tema', 'Light theme', 'السمة الفاتحة'],
   ['Geniş çizimde kaydırabilir, iki parmakla yakınlaştırabilirsin.', 'Pan by scrolling and pinch with two fingers to zoom the large plate.', 'مرّر للتحريك وقرّب بإصبعين لتكبير اللوحة الكبيرة.'],
+  ['Konu anlatımını çekmecede aç', 'Open the lesson text in the sheet', 'افتح نص الدرس في اللوحة'],
+  ['Terim arama kutusunu aç', 'Open the term search box', 'افتح مربع البحث عن المصطلحات'],
 ];
 export const DICTIONARIES = {
   en: Object.fromEntries(PHRASES.map(([tr, en]) => [tr, en])),

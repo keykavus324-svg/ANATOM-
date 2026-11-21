@@ -68,20 +68,27 @@ export default function LessonPage({ note, onPdf, onVideo, onBack, onNavigate, s
   const clinicalLang = lang === 'en' ? 'en' : lang === 'ar' ? 'ar' : 'tr';
   const taTerms = termsIn(note.number);
   // Mobil alt çekmece: konu metni küçük ekranda aşağıdan yukarı açılan panelde.
-  const [sheetH, setSheetH] = useState(64);
+  const [sheetH, setSheetH] = useState(72);
+  const [sheetOpen, setSheetOpen] = useState(false);
   const sheetDrag = useRef(null);
   const onSheetDown = event => {
-    sheetDrag.current = { y: event.clientY, h: sheetH };
+    sheetDrag.current = { y: event.clientY, h: sheetH, moved: 0 };
     event.currentTarget.setPointerCapture?.(event.pointerId);
   };
   const onSheetMove = event => {
     if (!sheetDrag.current) return;
     const delta = (sheetDrag.current.y - event.clientY) / window.innerHeight * 100;
-    setSheetH(Math.min(94, Math.max(38, sheetDrag.current.h + delta)));
+    sheetDrag.current.moved = Math.max(sheetDrag.current.moved, Math.abs(delta));
+    if (sheetDrag.current.moved > 2) {
+      setSheetOpen(true);
+      setSheetH(Math.min(94, Math.max(38, sheetDrag.current.h + delta)));
+    }
   };
   const onSheetUp = () => {
     if (!sheetDrag.current) return;
+    const tapped = sheetDrag.current.moved <= 2;
     sheetDrag.current = null;
+    if (tapped) { setSheetOpen(open => !open); return; }
     setSheetH(h => (h < 55 ? 46 : h < 84 ? 72 : 92));
   };
   const bookNotes = localizedNotes(notes);
@@ -120,7 +127,7 @@ export default function LessonPage({ note, onPdf, onVideo, onBack, onNavigate, s
     setActive(id);
   };
   const toc = <ol>{lesson.sections.map((section, i) => <li key={section.id}><button className={active === section.id ? 'active' : ''} aria-current={active === section.id ? 'location' : undefined} onClick={() => jump(section.id)}><span>{String(i + 1).padStart(2, '0')}</span>{section.title}</button>{section.subsections?.length > 0 && <ul className={`toc-subsections${active === section.id ? ' is-active' : ''}`} aria-label={`${section.title} ${tr('ayrıntıları')}`}>{section.subsections.map((subsection, j) => <li key={subsection.title}><button aria-label={tr('Ayrıntı: {title}', { title: subsection.title })} onClick={() => jump(section.id, j)}>{subsection.title}</button></li>)}</ul>}</li>)}<li><button onClick={() => jump('glossary')}><span>＋</span>{tr('Terim kartları')}</button></li><li><button onClick={() => jump('ta')}><span>TA</span>{tr('Latince karşılıklar')}</button></li><li><button onClick={() => jump('review')}><span>↳</span>{tr('Kendini yokla')}</button></li></ol>;
-  return <div className="lesson-page" style={{ '--reading-size': `${fontSize}px`, '--sheet-h': `${sheetH}vh` }}>
+  return <div className={`lesson-page${sheetOpen ? ' sheet-open' : ''}`} style={{ '--reading-size': `${fontSize}px`, '--sheet-h': `${sheetH}vh` }}>
     <div className="lesson-breadcrumb"><button onClick={onBack}><ArrowLeft size={15}/> {tr('Kütüphaneye dön')}</button><span>{categoryLabel(note.category)} <i/> {note.number === 0 ? tr('Kaynak rehberi') : tr('Ders {n}', { n: String(note.number).padStart(2, '0') })}</span></div>
     <header className="lesson-hero">
       <div className="lesson-hero-copy"><div className="eyebrow"><span/> {tr('KONU ANLATIMI')} <i>ANATOMİ</i></div><h1>{note.title}</h1><p className="lesson-subtitle">{lesson.subtitle}</p><p className="lesson-intro">{lesson.intro}</p><div className="lesson-credit"><span className="credit-avatar">BD</span><div><strong>{tr('Kaynak: Dr. Öğr. Gör. Bekir Dağdeviren')}</strong><span>{tr('Konu anlatımı: ANATOMİ · Kaynak notlardan yeniden yazıldı')}</span></div></div><div className="lesson-metadata"><span><Clock3 size={14}/> {tr('Yaklaşık {n} dk okuma', { n: readingMinutes(lesson) })}</span><span><List size={14}/> {tr('{n} konu başlığı', { n: lesson.sections.length })}</span>{diagramCount > 0 && <span>{tr('{n} açıklamalı şema', { n: diagramCount })}</span>}{video && <span><PlayCircle size={14}/> {tr('Video: {time}', { time: formatDuration(video.seconds) })}</span>}</div></div>
@@ -143,7 +150,7 @@ export default function LessonPage({ note, onPdf, onVideo, onBack, onNavigate, s
       <small>{tr('Proje için hazırlanmış çalışma rehberi · Hocanın sınav sorusu değildir. Şemalar sadeleştirilmiş ve ölçeksizdir.')}</small>
     </section>}
     <details className="mobile-toc" ref={tocDetails}><summary><List size={17}/> {tr('Bu derste neler var?')}<ChevronDown size={16}/></summary><nav aria-label={tr('Mobil içindekiler')}>{toc}</nav></details>
-    <div className="sheet-handle" role="separator" aria-label={tr('Konu metni panelini büyüt veya küçült')} onPointerDown={onSheetDown} onPointerMove={onSheetMove} onPointerUp={onSheetUp} onPointerCancel={onSheetUp}><GripHorizontal size={16}/><span>{tr('Konu anlatımı')}</span></div>
+    <div className="sheet-handle" role="separator" aria-label={tr('Konu metni panelini büyüt veya küçült')} aria-expanded={sheetOpen} onPointerDown={onSheetDown} onPointerMove={onSheetMove} onPointerUp={onSheetUp} onPointerCancel={onSheetUp}><GripHorizontal size={16}/><span>{sheetOpen ? tr('Konu anlatımı') : tr('Konu anlatımını çekmecede aç')}</span></div>
     <div className="lesson-layout"><aside className="lesson-toc"><div className="toc-sticky"><div className="eyebrow">{tr('İÇİNDEKİLER')}</div><nav aria-label={tr('Ders içindekiler')}>{toc}</nav><div className="toc-pdf"><FileText size={21}/><strong>{tr('Özgün kaynağa dön.')}</strong><p>{tr('Slaytların tamamı ve hocanın kullandığı şekiller PDF’de.')}</p><button onClick={() => onPdf(note)}>{tr('PDF’yi aç')} <ArrowUpRight size={15}/></button>{video && <>{' '}<div className="toc-video"><PlayCircle size={19}/><strong>{tr('Dinleyerek pekiştir.')}</strong><p>{tr('Bu dersin NotebookLM video anlatımı {time} sürüyor.', { time: formatDuration(video.seconds) })}</p><button onClick={() => onVideo(note)}>{tr('Videoyu aç')} <ArrowUpRight size={15}/></button></div></>}</div></div></aside>
       <article className="lesson-content" ref={content} dir="auto" aria-label={`${note.title} ${tr('KONU ANLATIMI')}`}><div className="lesson-scope"><span>{tr('DERSİN YOL HARİTASI')}</span><p>{lesson.scope}</p></div>
         {lesson.sections.map((section, i) => <section className="lesson-section" key={section.id}><div className="lesson-section-title"><span>{String(i + 1).padStart(2, '0')}</span><h2 id={`lesson-${section.id}`} tabIndex={-1}>{section.title}</h2></div>
