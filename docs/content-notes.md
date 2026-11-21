@@ -305,3 +305,14 @@ Yalnız Sitede oku içeriğine `src/content/exam/` altında 42 özgün açıklam
 **Kalıcılık düzeltmesi.** Plaka bildirimi (`plated.json`) git-yoksayılan `art-src/` içindeydi; taze checkout'ta vektöre geri dönüş riski vardı. Bildirimler artık sürümlenen `scripts/plated-lessons.json` ve `scripts/plated-exam.json`; üç üretici de bunları okuyor.
 
 **Son durum.** 26/26 ders şekli + 6/6 sınav haritası + 7 quiz plakası = tüm görseller gerçekçi raster plaka. 121 birim testi yeşil (exam-teaching sözleşmesi plaka veri-URI'sine güncellendi), build 3.8 s.
+
+
+## 21 Kasım 2026 (yayın): Ana sayfa specimen görselleri yenilendi
+
+Ana sayfa hero'sundaki dört specimen (heart, brain, lungs, skull) siyah zeminli eski
+küçük render'lardı; site dokusuyla uyumsuz duruyordu. Aynı gravür stilinde, krem kâğıt
+zeminli ve daha yüksek çözünürlüklü sürümlerle değiştirildi (`public/edition/specimens/`).
+Depodaki diğer tüm görseller (26 ders plakası, 6 sınav haritası, 7 quiz plakası, 10 atlas
+gravürü, torso) zaten yeni stil dedir; `sections/*.png` gerçek MRI kesitleridir (lisanslı,
+kaynaklı) ve bilinç olarak korunmuştur. Canlı sitede eski görsel görülmesi tarayıcı/CDN
+önbelleğindendir: yeni dağıtım kenarı temizler, kullanıcı tarafında sert yenileme yeter.
