@@ -326,3 +326,24 @@ Dört specimen (heart, brain, lungs, skull) düz macenta zeminde yeniden üretil
 anahtarıyla (alfa rampası + kenar tüyü + magenta unmix) transparan kesildi; kalpte model
 üç kopya çizdiğinden bileşen bölme (kolon projeksiyonu, en geniş parça) eklendi.
 Çıktılar RGBA webp olarak aynı dosya adlarında sürümlendi.
+
+
+## 21 Kasım 2026 (özellik dalgası): 15 maddelik öğrenci deneyimi listesi
+
+1. **Temiz URL:** depo `anatomi` adıyla yayınlanır; `vite.config.js` Pages tabanını `/anatomi/` yapar.
+2. **Sekme kimliği:** `index.html` başlığı + `%BASE_URL%favicon.svg` (Pages tabanında 404 olan mutlak yol düzeltildi).
+3. **Paylaşım kartı:** `og:title/description/image` + twitter kartı; kapak `brand/og-card.png` (1200×630).
+4. **İlk açılış iskeleti:** `#root:empty` saf CSS yükleniyor rozeti; React bağlanınca kaybolur.
+5. **PWA:** `vite-plugin-pwa` (autoUpdate); kabuk precache, plakalar/atlas `.u8` hacimleri CacheFirst runtime; manifest ikonları `brand/pwa-192/512.png`.
+6. **Latince–Türkçe anlık arama:** üst bar `TermSearch`; `fold()` i/ı, ş/s, ğ/g, ü/u, ö/o, ç/c duyarsız; clavicula ⇄ köprücük aynı sonuç.
+7. **TA karşılıkları:** `src/content/terminology.js` (~150 terim, la/tr/en + ders); ders sayfasında TA kartları.
+8. **Zoom & pan:** şekil büyütme penceresine iki parmak pinch + ctrl-tekerlek (1×–3×).
+9. **Kendini sına:** mevcut "Açıklamaları gizle / hatırla" modu korunur; pin numaraları ipucu, açıklamalar dokununca açılır.
+10. **Koyu mod:** üst barda ay/ay-yıldız düğmesi; `html[data-theme]` + ters-çevir yüzey stratejisi, görseller orijinal kalır; seçim localStorage'da.
+11. **Sistem barı:** yapışkan çip barı — İskelet/Kas/Dolaşım/Sinir/Solunum/Sindirim tek dokunuş.
+12. **Klinik Bağlantı:** `clinicalNotes.js` 1–11 ders × 2 not (tr/en/ar), ders metnine dağıtılmış kutular.
+13. **Tekrar listesi:** `useFavorites` (localStorage) + `/tekrar` sayfası; TA kartı ve arama sonucunda yıldız.
+14. **Mini test:** ders sonu 5 soru (3 pin-bulma + 2 terim eşleştirme), tohumlu RNG ile kararlı.
+15. **Mobil alt çekmece:** <760px'te konu metni sürüklenebilir bottom-sheet (46/72/92 vh snap).
+
+Doğrulama: 127 birim testi (yeni `tests/features.test.js` dahil), tam Playwright dizisi, PWA çıktısı (`dist/sw.js`).

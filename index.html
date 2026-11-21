@@ -1,1 +1,42 @@
-<!doctype html><html lang="tr"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="theme-color" content="#f8f7f3"/><meta name="description" content="Öğrenciler ve akademisyenler için anatomi ders kütüphanesi, görsel levhalar, 3B atlas ve ders planlayıcı."/><title>ANATOMİ — Akademik Atlas ve Ders Kütüphanesi</title><link rel="icon" type="image/svg+xml" href="/favicon.svg"/></head><body><div id="root"></div><script type="module" src="/src/main.jsx"></script></body></html>
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#f8f7f3" media="(prefers-color-scheme: light)"/>
+<meta name="theme-color" content="#101c1c" media="(prefers-color-scheme: dark)"/>
+<meta name="description" content="Öğrenciler ve akademisyenler için anatomi ders kütüphanesi: gerçekçi anatomi plakaları, Latince–Türkçe terim arama, mini testler, çevrimdışı çalışma ve ders planlayıcı."/>
+<title>ANATOMİ — Akademik Atlas ve Ders Kütüphanesi</title>
+<link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg"/>
+<link rel="apple-touch-icon" href="%BASE_URL%brand/pwa-192.png"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="ANATOMİ"/>
+<meta property="og:title" content="ANATOMİ — Akademik Atlas ve Ders Kütüphanesi"/>
+<meta property="og:description" content="Gerçekçi anatomi plakaları, Latince–Türkçe anlık terim arama, bölüm sonu mini testler ve çevrimdışı çalışma: tek cihazda kalan ilerleme kaydıyla akademik anatomi kütüphanesi."/>
+<meta property="og:image" content="https://keykavus324-svg.github.io/ANATOM-/brand/og-card.png"/>
+<meta property="og:image:alt" content="Vintage anatomi gravürü stilinde kalp, kafatası ve omurga illüstrasyonlu ANATOMİ kapak kartı"/>
+<meta property="og:locale" content="tr_TR"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="ANATOMİ — Akademik Atlas ve Ders Kütüphanesi"/>
+<meta name="twitter:description" content="Gerçekçi anatomi plakaları, Latince–Türkçe terim arama, mini testler ve çevrimdışı çalışma."/>
+<meta name="twitter:image" content="https://keykavus324-svg.github.io/ANATOM-/brand/og-card.png"/>
+<style>
+  /* First-paint skeleton: pure CSS, removed when React mounts into #root. */
+  html{background:#f8f7f3}
+  @media (prefers-color-scheme: dark){html{background:#101c1c}}
+  #root:empty::before{content:'';display:block;position:fixed;inset:0;background:
+    linear-gradient(#83c5bd0b 1px,transparent 1px) 0 0/28px 28px,
+    linear-gradient(90deg,#83c5bd0b 1px,transparent 1px) 0 0/28px 28px;}
+  #root:empty::after{content:'ANATOMİ yükleniyor';position:fixed;left:50%;top:50%;translate:-50% -50%;
+    font:600 13px/1 system-ui,sans-serif;letter-spacing:.18em;color:#5d7a76;
+    padding:14px 22px 14px 46px;border:1px solid #91bebb55;border-radius:999px;background:#ffffffd9;}
+  @media (prefers-color-scheme: dark){#root:empty::after{background:#16282ad9;color:#9fc6c0;border-color:#91bebb33}}
+  #root:empty::after{animation:anatomi-pulse 1.4s ease-in-out infinite}
+  @keyframes anatomi-pulse{0%,100%{opacity:.55}50%{opacity:1}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

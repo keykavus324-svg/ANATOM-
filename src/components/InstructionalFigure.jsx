@@ -15,6 +15,33 @@ export default function InstructionalFigure({ diagramId, number }) {
   const [zoom, setZoom] = useState(1);
   const dialog = useRef(null);
   const trigger = useRef(null);
+  const pointers = useRef(new Map());
+  const pinch = useRef(null);
+  const onPointerDown = event => {
+    pointers.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    if (pointers.current.size === 2) {
+      const [a, b] = [...pointers.current.values()];
+      pinch.current = { distance: Math.hypot(a.x - b.x, a.y - b.y), zoom };
+    }
+  };
+  const onPointerMove = event => {
+    if (!pointers.current.has(event.pointerId)) return;
+    pointers.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    if (pointers.current.size === 2 && pinch.current?.distance > 0) {
+      const [a, b] = [...pointers.current.values()];
+      const distance = Math.hypot(a.x - b.x, a.y - b.y);
+      setZoom(Math.min(3, Math.max(1, pinch.current.zoom * distance / pinch.current.distance)));
+    }
+  };
+  const onPointerEnd = event => {
+    pointers.current.delete(event.pointerId);
+    if (pointers.current.size < 2) pinch.current = null;
+  };
+  const onWheel = event => {
+    if (!event.ctrlKey) return;
+    event.preventDefault();
+    setZoom(value => Math.min(3, Math.max(1, value * (event.deltaY > 0 ? 0.9 : 1.1))));
+  };
   const titleId = useId();
   const captionId = useId();
   const modalTitleId = useId();
@@ -57,8 +84,8 @@ export default function InstructionalFigure({ diagramId, number }) {
     </figcaption>
     {expanded && <dialog ref={dialog} className="figure-dialog" aria-labelledby={modalTitleId} onKeyDown={containKeyboardFocus} onCancel={event => { event.preventDefault(); setExpanded(false); }} onClick={event => { if (event.target === event.currentTarget) setExpanded(false); }}>
       <div className="figure-dialog-header"><div><span>{tr('Şekil')} {number} · {tr('İNCELEME GÖRÜNÜMÜ')}</span><h2 id={modalTitleId}>{diagram.title}</h2></div><button autoFocus aria-label={tr('Şemayı kapat')} onClick={() => setExpanded(false)}><X size={22}/></button></div>
-      <div className="figure-zoom-tools"><span>{tr('Geniş çizimde yatay ve dikey kaydırabilirsin.')}</span><div><button disabled={zoom <= 1} aria-label={tr('Şemayı küçült')} onClick={() => setZoom(value => Math.max(1, value - .25))}><Minus size={16}/></button><output aria-live="polite">%{Math.round(zoom * 100)}</output><button disabled={zoom >= 2} aria-label={tr('Şemayı yakınlaştır')} onClick={() => setZoom(value => Math.min(2, value + .25))}><Plus size={16}/></button></div></div>
-      <div className="figure-zoom-viewport" tabIndex={0} role="region" aria-label={tr('Büyütülmüş şema; kaydırarak incele')}><img src={`${import.meta.env.BASE_URL}diagrams/${diagramId}.svg`} style={{ width: `${760 * zoom}px` }} width="760" height="460" alt={diagram.title}/></div>
+      <div className="figure-zoom-tools"><span>{tr('Geniş çizimde kaydırabilir, iki parmakla yakınlaştırabilirsin.')}</span><div><button disabled={zoom <= 1} aria-label={tr('Şemayı küçült')} onClick={() => setZoom(value => Math.max(1, value - .25))}><Minus size={16}/></button><output aria-live="polite">%{Math.round(zoom * 100)}</output><button disabled={zoom >= 3} aria-label={tr('Şemayı yakınlaştır')} onClick={() => setZoom(value => Math.min(3, value + .25))}><Plus size={16}/></button></div></div>
+      <div className="figure-zoom-viewport" tabIndex={0} role="region" aria-label={tr('Büyütülmüş şema; kaydırarak incele')} ref={node => { if (node) { node.onwheel = onWheel; } }} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerEnd} onPointerCancel={onPointerEnd}><img src={`${import.meta.env.BASE_URL}diagrams/${diagramId}.svg`} style={{ width: `${760 * zoom}px` }} width="760" height="460" alt={diagram.title}/></div>
       <ol className="figure-dialog-legend">{diagram.labels.map(label => <li key={label.name}><strong>{label.name}.</strong> {label.text}</li>)}</ol>
     </dialog>}
   </figure>;

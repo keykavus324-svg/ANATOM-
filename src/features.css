@@ -1,0 +1,96 @@
+/* 21 Kasım özellik dalgası: terim arama, sistem barı, TA kartları, klinik kutular,
+   mini test, tekrar listesi, mobil alt çekmece, iki parmak yakınlaştırma ve koyu tema. */
+
+/* --- Latince–Türkçe anlık arama --- */
+.term-search { position: relative; display: flex; align-items: center; gap: 7px; padding: 7px 10px; border: 1px solid #d8d2c2; border-radius: 999px; background: #fffefa; color: #6d7465; min-width: 190px; }
+.term-search input { border: 0; outline: none; background: transparent; font: 500 13px/1 Inter, system-ui, sans-serif; color: #353932; width: 100%; }
+.term-search-enter { opacity: .5; }
+.term-search-results { position: absolute; top: calc(100% + 8px); right: 0; width: min(360px, 88vw); margin: 0; padding: 6px; list-style: none; background: #fffefa; border: 1px solid #e2ded1; border-radius: 14px; box-shadow: 0 18px 40px -22px #35393266; z-index: 70; max-height: 320px; overflow: auto; }
+.term-search-results li { display: flex; align-items: center; gap: 4px; }
+.term-search-results li > button:first-child { flex: 1; display: grid; gap: 2px; text-align: left; padding: 8px 10px; border: 0; background: transparent; border-radius: 10px; cursor: pointer; }
+.term-search-results li > button:first-child:hover { background: #f4efe2; }
+.term-search-results strong { font: 600 13px/1.2 'Cormorant Garamond', Georgia, serif; color: #353932; }
+.term-search-results span { font: 500 12px/1.3 Inter, sans-serif; color: #5f6653; }
+.term-search-results em { font: 500 10.5px/1 Inter, sans-serif; font-style: normal; letter-spacing: .08em; color: #a2635d; }
+.term-star { border: 0; background: transparent; color: #b7b09c; padding: 6px; border-radius: 8px; cursor: pointer; }
+.term-star.is-fav { color: #c98a2e; }
+.term-search-empty { padding: 10px 12px; font: 500 12.5px/1.4 Inter, sans-serif; color: #6d7465; }
+
+/* --- Sistemler arası hızlı geçiş --- */
+.system-bar { display: flex; gap: 8px; padding: 8px clamp(14px, 3vw, 28px); overflow-x: auto; position: sticky; top: 0; z-index: 45; background: #f8f7f3ee; backdrop-filter: blur(8px); border-bottom: 1px solid #ece7d8; scrollbar-width: thin; }
+.system-bar button { display: inline-flex; align-items: center; gap: 7px; padding: 7px 13px; border-radius: 999px; border: 1px solid #d8d2c2; background: #fffefa; color: #5f6653; font: 600 12px/1 Inter, sans-serif; white-space: nowrap; cursor: pointer; }
+.system-bar button.active { background: #353932; border-color: #353932; color: #f4efe2; }
+
+/* --- TA kartları --- */
+.ta-section { margin: 34px 0; }
+.ta-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 10px; margin: 14px 0 0; padding: 0; list-style: none; }
+.ta-grid li { position: relative; display: grid; gap: 3px; padding: 12px 38px 12px 14px; border: 1px solid #e2ded1; border-radius: 12px; background: #fbfaf5; }
+.ta-grid strong { font: 600 15px/1.2 'Cormorant Garamond', Georgia, serif; color: #353932; }
+.ta-grid span { font: 500 12.5px/1.35 Inter, sans-serif; color: #5f6653; }
+.ta-grid em { font: 400 11px/1.3 Inter, sans-serif; color: #95978a; }
+.ta-star { position: absolute; top: 10px; right: 10px; border: 0; background: transparent; color: #c4bda9; padding: 5px; border-radius: 8px; cursor: pointer; }
+.ta-star.is-fav { color: #c98a2e; }
+
+/* --- Klinik bağlantı kutusu --- */
+.clinical-note { margin: 18px 0; padding: 14px 16px; border-left: 3px solid #a2635d; border-radius: 0 12px 12px 0; background: #f6ece7; }
+.clinical-note span { display: block; font: 700 10.5px/1 Inter, sans-serif; letter-spacing: .16em; color: #a2635d; margin-bottom: 7px; }
+.clinical-note p { margin: 0; font: 400 13.5px/1.65 Inter, sans-serif; color: #4c4038; }
+.clinical-note small { display: block; margin-top: 8px; font: 500 10.5px/1.4 Inter, sans-serif; color: #9b8b80; }
+
+/* --- Mini test --- */
+.mini-test { margin: 34px 0; padding: 18px; border: 1px solid #e2ded1; border-radius: 16px; background: #fbfaf5; }
+.mini-test-head { display: flex; gap: 10px; align-items: center; color: #a2635d; }
+.mini-test-head strong { display: block; font: 600 15px/1.2 Inter, sans-serif; color: #353932; }
+.mini-test-head small { font: 500 11.5px/1.4 Inter, sans-serif; color: #6d7465; }
+.mini-test-list { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+.mini-test-list li { padding: 12px; border: 1px solid #ece7d8; border-radius: 12px; background: #fffefa; }
+.mini-test-list li.is-correct { border-color: #7fa37a; background: #f1f6ee; }
+.mini-test-list li.is-wrong { border-color: #c96f66; background: #faf0ee; }
+.mini-test-stem { display: flex; gap: 8px; margin: 0 0 8px; font: 600 13.5px/1.5 Inter, sans-serif; color: #353932; }
+.mini-test-stem span { flex: none; width: 20px; height: 20px; display: grid; place-items: center; border-radius: 50%; background: #353932; color: #f4efe2; font-size: 11px; }
+.mini-la { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; }
+.mini-test-figure { margin: 0 0 8px; }
+.mini-test-figure img { width: 100%; height: auto; border-radius: 10px; border: 1px solid #e2ded1; background: #f4ead2; }
+.mini-test-figure figcaption { margin-top: 5px; font: 500 11px/1.3 Inter, sans-serif; color: #95978a; }
+.mini-test-options { display: flex; flex-wrap: wrap; gap: 7px; }
+.mini-test-options button { display: inline-flex; align-items: center; gap: 6px; padding: 7px 11px; border-radius: 999px; border: 1px solid #d8d2c2; background: #fffefa; font: 500 12.5px/1.2 Inter, sans-serif; color: #4c5244; cursor: pointer; }
+.mini-test-options button[aria-pressed='true'] { background: #353932; color: #f4efe2; border-color: #353932; }
+.mini-test-actions { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+.mini-test-score { font: 700 13px/1 Inter, sans-serif; color: #a2635d; }
+
+/* --- Tekrar listesi sayfası --- */
+.review-page { padding: clamp(20px, 4vw, 44px); max-width: 860px; }
+.review-page h1 { font: 600 clamp(26px, 4vw, 40px)/1.1 'Cormorant Garamond', Georgia, serif; color: #2f332c; margin: 10px 0 8px; }
+.review-intro { font: 400 14px/1.6 Inter, sans-serif; color: #5f6653; }
+.review-list { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.review-list li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 15px; border: 1px solid #e2ded1; border-radius: 13px; background: #fffefa; }
+.review-list strong { display: block; font: 600 16px/1.2 'Cormorant Garamond', Georgia, serif; color: #353932; }
+.review-list span { font: 500 12.5px/1.4 Inter, sans-serif; color: #5f6653; }
+.review-list em { display: block; font: 400 11px/1.3 Inter, sans-serif; color: #95978a; }
+.review-actions { display: flex; align-items: center; gap: 6px; }
+.review-actions button { display: inline-flex; align-items: center; gap: 6px; border: 1px solid #d8d2c2; background: transparent; border-radius: 999px; padding: 7px 11px; font: 600 12px/1 Inter, sans-serif; color: #5f6653; cursor: pointer; }
+.review-actions .icon-button { border: 0; color: #c4bda9; }
+
+/* --- Mobil alt çekmece --- */
+.sheet-handle { display: none; }
+@media (max-width: 760px) {
+  .sheet-handle { position: sticky; top: 0; z-index: 60; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 0 8px; margin-top: 10px; border-radius: 16px 16px 0 0; background: #fffefacc; backdrop-filter: blur(8px); color: #6d7465; font: 700 11px/1 Inter, sans-serif; letter-spacing: .14em; text-transform: uppercase; touch-action: none; border: 1px solid #e2ded1; border-bottom: 0; }
+  .lesson-layout { display: block; }
+  .lesson-toc { display: none; }
+  .lesson-content { position: fixed; left: 0; right: 0; bottom: 0; z-index: 55; height: var(--sheet-h, 64vh); overflow-y: auto; overscroll-behavior: contain; background: #fbfaf5; border-radius: 18px 18px 0 0; border: 1px solid #e2ded1; border-bottom: 0; box-shadow: 0 -24px 60px -30px #35393259; padding: 18px 16px calc(24px + env(safe-area-inset-bottom)); }
+}
+
+/* --- İki parmak yakınlaştırma --- */
+.figure-zoom-viewport { touch-action: pan-x pan-y; }
+
+/* --- Koyu tema: yüzeyleri ters çevir, görselleri orijinal bırak --- */
+html[data-theme='dark'] { color-scheme: dark; }
+html[data-theme='dark'] body { background: #101c1b; }
+html[data-theme='dark'] .app-shell { filter: invert(1) hue-rotate(180deg); }
+html[data-theme='dark'] .app-shell img,
+html[data-theme='dark'] .app-shell video,
+html[data-theme='dark'] .app-shell canvas,
+html[data-theme='dark'] .app-shell iframe,
+html[data-theme='dark'] .app-shell .figure-plate,
+html[data-theme='dark'] .app-shell .mini-test-figure { filter: invert(1) hue-rotate(180deg); }
+html[data-theme='dark'] .system-bar { background: #101c1bee; }

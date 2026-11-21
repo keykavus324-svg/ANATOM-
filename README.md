@@ -103,13 +103,19 @@ Site, Muhammet TUĞRUL’un kendi yayımladığı **TUĞRUL ATLAS — İnterakti
 - Masaüstü ve mobil içindekiler; uzun derslerde kaydırılabilir konu listesi ve ayrıntılı alt başlıklara odaklanarak geçiş.
 - Yazı boyutu ayarı, okuma ilerlemesi, terim kartları ve açılır cevaplar.
 - 26 yerel ders şekli ve 6 sınav anlatım haritasının tamamı: gözden geçirilmiş gerçekçi anatomi plakaları (SVG içine gömülü raster, numaralı pinli); açıklamalar metin olarak da okunabilir.
-- Şemalarda büyütme, %100–200 yakınlaştırma, mobil kaydırma, odak sınırlandırma ve Escape ile okuyucuya dönüş.
+- Şemalarda büyütme, %100–300 yakınlaştırma, iki parmak pinch ve ctrl-tekerlek, mobil kaydırma, odak sınırlandırma ve Escape ile okuyucuya dönüş.
 - `/#/ders/0` … `/#/ders/11` adresleri; yenileme, geri/ileri gezinme.
 - Web ve PDF arasında ortak kaydetme ve okundu durumu.
 - Son açılan belgeye ve okuma biçimine dönüş; sayfa/scroll konumu saklanmaz.
 - Mobil menü, klavyeyle kullanılabilen diyaloglar, Escape ile kapatma.
 - Ana sayfanın parşömen, adaçayı ve gül tonlarındaki atlas tasarımı korunur.
 - Kullanıcının seçtiği kaburga–sternum amblemi; ana menüde detaylı SVG, mobil/altbilgide sadeleştirilmiş simge ve uyumlu favicon.
+- Latince–Türkçe anlık terim arama (i/ı, ş/s, ğ/g duyarsız), Terminologia Anatomica kartları ve yıldızlı tekrar listesi (`/#/tekrar`).
+- Sistemler arası yapışkan hızlı geçiş barı; tek dokunuşla iskelet, kas, dolaşım, sinir, solunum ve sindirim dersleri.
+- Ders başına 5 soruluk mini test (şekilden yapı bulma + terim eşleştirme) ve ders metnine dağıtılmış Klinik Bağlantı kutuları (TR/EN/AR).
+- Koyu tema düğmesi (seçim cihazda saklanır), ilk açılışta saf CSS yükleniyor iskeleti, OpenGraph paylaşım kartı.
+- PWA: uygulama kabuğu çevrimdışı çalışır; plakalar ve kesit hacimleri ilk kullanımda önbelleğe alınır.
+- Mobilde konu metni aşağıdan açılan sürüklenebilir çekmecede (46/72/92 vh).
 - Video konu anlatımı: `#/videolar` sayfasında ders ders NotebookLM videoları, parçalı oynatma, konu filtreleri ve ders sayfalarından doğrudan erişim.
 - 3B anatomi atlası: Muhammet TUĞRUL’un TUĞRUL ATLAS’ı `#/atlas` sayfasında gömülü olarak açılır; tam ekran, yenileme, yeni sekmede açma ve ağ engeli için yedek açılış bulunur.
 - Yerel anatomi quizleri (`#/quizler`): 12 konu seti × 10 = 120 özgün soru, dört yanıt biçimi (çoktan seçmeli, doğru/yanlış, çoklu seçim, sıralama), 86 şekilli soru, set bazlı arama/kategori/favori filtreleri ve her sorudan sonra doğru yanıt + açıklama.
