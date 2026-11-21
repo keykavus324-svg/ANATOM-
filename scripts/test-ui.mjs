@@ -12,5 +12,7 @@ writeFileSync(`${cache}/al2023.tar`, brotliDecompressSync(readFileSync(`${packag
 const extract=spawnSync('tar',['-xf',`${cache}/al2023.tar`,'-C',`${cache}/libs`],{stdio:'inherit'});
 if(extract.status!==0) process.exit(extract.status || 1);
 const browserPath = await chromium.executablePath();
-const result = spawnSync('npx', ['playwright', 'test'], { stdio: 'inherit', env: { ...process.env, CHROMIUM_EXECUTABLE_PATH: browserPath, LD_LIBRARY_PATH: `${cache}/libs/lib:${process.env.LD_LIBRARY_PATH || ''}` }});
+// Extra CLI arguments are forwarded, so a subset can be run with
+// `npm run test:ui -- -g "exam"` or `npm run test:ui -- --headed`.
+const result = spawnSync('npx', ['playwright', 'test', ...process.argv.slice(2)], { stdio: 'inherit', env: { ...process.env, CHROMIUM_EXECUTABLE_PATH: browserPath, LD_LIBRARY_PATH: `${cache}/libs/lib:${process.env.LD_LIBRARY_PATH || ''}` }});
 process.exit(result.status ?? 1);

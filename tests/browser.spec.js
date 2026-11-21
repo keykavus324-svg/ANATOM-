@@ -773,8 +773,13 @@ test('native quiz library lists local sets, filters favorites and preserves prac
   page.on('request', r => { if (!r.url().startsWith('http://localhost')) requests.push(r.url()); });
   await page.goto('/#/quizler');
   await expect(page.getByRole('heading', { name: 'Anatomi Quizleri', exact: true })).toBeVisible();
-  await expect(page.locator('.quiz-card')).toHaveCount(7);
-  await expect(page.getByText('70 yerel soru')).toBeVisible();
+  await expect(page.locator('.quiz-card')).toHaveCount(12);
+  await expect(page.getByText('120 yerel soru')).toBeVisible();
+  await expect(page.getByText('12 konu seti')).toBeVisible();
+  await page.locator('.quiz-category-row').getByRole('button', { name: 'Hareket sistemi' }).click();
+  await expect(page.locator('.quiz-card')).toHaveCount(5);
+  await page.locator('.quiz-category-row').getByRole('button', { name: 'Tümü' }).click();
+  await expect(page.locator('.quiz-card')).toHaveCount(12);
   await page.getByRole('searchbox', { name: 'Quizlerde ara' }).fill('kalp');
   await expect(page.locator('.quiz-card')).toHaveCount(1);
   await page.getByRole('button', { name: 'Dolaşım sistemi: favorilere ekle' }).click();
@@ -793,7 +798,7 @@ test('quiz runs fully offline: intro, checked answers with figures, restart and 
   await page.goto('/#/quizler/dolasim');
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Dolaşım');
   await expect(page.locator('.quiz-intro-figure img')).toBeVisible();
-  await page.getByRole('button', { name: 'Çözüme başla' }).click();
+  await page.getByRole('button', { name: 'Adım adım çöz' }).click();
   await expect(page.locator('.quiz-session-bar')).toContainText('1 / 10');
   const figure = page.locator('.quiz-figure img');
   if (await figure.count()) {
@@ -834,18 +839,18 @@ test('quiz preferences, resume and lesson links survive reloads and browser back
   await page.goBack();
   await expect(page).toHaveURL(/#\/quizler\/dolasim$/);
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Dolaşım');
-  await page.getByRole('button', { name: 'Çözüme başla' }).click();
+  await page.getByRole('button', { name: 'Adım adım çöz' }).click();
   await page.getByRole('button', { name: /TEKRAR ET/ }).click();
   await expect(page).toHaveURL(/#\/ders\/7$/);
 });
 
 test('quiz library handles empty results, invalid deep links and narrow screens', async ({ page }) => {
   await page.goto('/#/quizler/unknown');
-  await expect(page.locator('.quiz-card')).toHaveCount(7);
+  await expect(page.locator('.quiz-card')).toHaveCount(12);
   await page.getByRole('searchbox', { name: 'Quizlerde ara' }).fill('olmayanbirquiz');
   await expect(page.locator('.quiz-card')).toHaveCount(0);
   await page.getByRole('button', { name: 'Tüm quizleri göster' }).click();
-  await expect(page.locator('.quiz-card')).toHaveCount(7);
+  await expect(page.locator('.quiz-card')).toHaveCount(12);
   for (const size of [390, 320]) {
     await page.setViewportSize({ width: size, height: 844 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
@@ -861,7 +866,7 @@ test('quiz preferences tolerate corrupt or unavailable browser storage', async (
     localStorage.setItem('anatomi-quiz-last', 'removed');
   });
   await page.goto('/#/quizler');
-  await expect(page.locator('.quiz-card')).toHaveCount(7);
+  await expect(page.locator('.quiz-card')).toHaveCount(12);
   await expect(page.locator('.quiz-resume')).toHaveCount(0);
   await page.addInitScript(() => {
     Storage.prototype.getItem = () => { throw new Error('storage disabled'); };
@@ -876,7 +881,7 @@ test('quiz preferences tolerate corrupt or unavailable browser storage', async (
 
 test('quiz figures and options stay usable at the largest reading size and zoom without reload', async ({ page }) => {
   await page.goto('/#/quizler/sinir');
-  await page.getByRole('button', { name: 'Çözüme başla' }).click();
+  await page.getByRole('button', { name: 'Adım adım çöz' }).click();
   // Advance until a figure-bearing question appears (every set has one).
   for (let step = 0; step < 10 && (await page.locator('.quiz-figure').count()) === 0; step++) {
     await page.locator('.quiz-options label').first().click();
@@ -892,6 +897,275 @@ test('quiz figures and options stay usable at the largest reading size and zoom 
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   }
   await page.setViewportSize({ width: 1440, height: 1000 });
+});
+
+test('the runner grades all four answer shapes and names them in the review', async ({ page }) => {
+  await page.goto('/#/quizler/sindirim');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Sindirim');
+  // The intro announces the mix before the visitor starts.
+  await expect(page.locator('.quiz-intro-types')).toContainText('Sıralama');
+  await expect(page.locator('.quiz-intro-types')).toContainText('Çoklu seçim');
+  await expect(page.locator('.quiz-intro-types')).toContainText('Doğru / Yanlış');
+  await page.getByRole('button', { name: 'Adım adım çöz' }).click();
+  const shapes = new Set();
+  for (let step = 0; step < 10; step++) {
+    await expect(page.locator('.quiz-session-bar')).toContainText(`${step + 1} / 10`);
+    shapes.add((await page.locator('.quiz-session-bar em').innerText()).trim());
+    if (await page.locator('.quiz-order-list').count()) {
+      const rows = await page.locator('.quiz-order-list li').count();
+      expect(rows).toBeGreaterThanOrEqual(4);
+      // Moving a row is what makes an ordering answer; the check button was disabled before.
+      await expect(page.getByRole('button', { name: 'Sırayı kontrol et' })).toBeDisabled();
+      await page.locator('.quiz-order-controls button').nth(1).click();
+      await expect(page.locator('.quiz-order-rank').first()).toHaveText('1');
+      await page.getByRole('button', { name: 'Sırayı kontrol et' }).click();
+      await expect(page.locator('.quiz-order-list li.good, .quiz-order-list li.bad')).toHaveCount(rows);
+      await expect(page.locator('.quiz-order-controls button').first()).toBeDisabled();
+      await expect(page.locator('.quiz-order-mark')).toHaveCount(rows);
+    } else if (await page.locator('.quiz-options.multi').count()) {
+      await expect(page.getByRole('button', { name: 'Seçimleri kontrol et' })).toBeDisabled();
+      await page.locator('.quiz-options.multi label').nth(0).click();
+      await page.locator('.quiz-options.multi label').nth(1).click();
+      await expect(page.locator('.quiz-options.multi input:checked')).toHaveCount(2);
+      await page.getByRole('button', { name: 'Seçimleri kontrol et' }).click();
+      const optionCount = await page.locator('.quiz-options.multi label').count();
+      const correctCount = await page.locator('.quiz-options.multi label.correct').count();
+      expect(correctCount).toBeGreaterThanOrEqual(2);
+      expect(correctCount).toBeLessThan(optionCount);
+      // Every option is marked: the right ones as correct, the rest as wrong or missed.
+      await expect(page.locator('.quiz-options.multi label.incorrect, .quiz-options.multi label.missed')).toHaveCount(optionCount - correctCount);
+      await expect(page.locator('.quiz-options.multi input').first()).toBeDisabled();
+      await expect(page.getByRole('status')).toContainText('Senin seçimlerin:');
+    } else if (await page.locator('.quiz-options.binary').count()) {
+      await expect(page.locator('.quiz-options.binary label')).toHaveCount(2);
+      await page.locator('.quiz-options.binary label').first().click();
+      await page.getByRole('button', { name: 'Yanıtı kontrol et' }).click();
+      await expect(page.locator('.quiz-options.binary label.correct')).toHaveCount(1);
+    } else {
+      await page.locator('.quiz-options label').first().click();
+      await page.getByRole('button', { name: 'Yanıtı kontrol et' }).click();
+      await expect(page.locator('.quiz-options label.correct')).toHaveCount(1);
+      await expect(page.locator('.quiz-options input').first()).toBeDisabled();
+    }
+    await expect(page.getByRole('status')).toContainText('Doğru yanıt:');
+    await page.getByRole('button', { name: step < 9 ? /Sonraki soru/ : /Sonuçları gör/ }).click();
+  }
+  // The session bar uppercases the shape label, so compare case-insensitively.
+  const upper = value => value.toLocaleUpperCase('tr-TR');
+  expect([...shapes].map(upper).sort()).toEqual(['Çoktan seçmeli', 'Çoklu seçim', 'Doğru / Yanlış', 'Sıralama'].map(upper).sort());
+  await expect(page.locator('.quiz-score-line')).toContainText('/ 10 doğru');
+  await expect(page.locator('.quiz-review li')).toHaveCount(10);
+  // The review quotes the canonical order and the visitor's own sequence.
+  // Filter on the shape label itself: the word "sıralama" also occurs inside prose.
+  const reviewItem = label => page.locator('.quiz-review li').filter({ has: page.locator('.quiz-review-head em', { hasText: new RegExp(`^${label}$`) }) });
+  await expect(reviewItem('Sıralama')).toHaveCount(1);
+  await expect(reviewItem('Sıralama')).toContainText('Doğrusu:');
+  await expect(reviewItem('Sıralama').locator('.quiz-review-answer')).toContainText('→');
+  await expect(reviewItem('Çoklu seçim')).toHaveCount(1);
+  await expect(reviewItem('Çoklu seçim').locator('.quiz-review-answer')).toContainText('·');
+  await expect(reviewItem('Doğru / Yanlış')).toHaveCount(1);
+  await expect(page.locator('.quiz-review-answer').filter({ hasText: 'Boş bırakıldı' })).toHaveCount(0);
+});
+
+test('a finished set writes the attempt history and fills the mastery map', async ({ page }) => {
+  await page.goto('/#/quizler');
+  await expect(page.locator('.quiz-mastery-empty')).toContainText('Henüz deneme kaydı yok');
+  await expect(page.locator('.quiz-mastery-empty .score-ring')).toHaveCount(0);
+  const dolasim = page.locator('.quiz-card').filter({ has: page.getByRole('button', { name: 'Dolaşım sistemi', exact: true }) });
+  await expect(dolasim).toHaveCount(1);
+  await expect(dolasim.locator('.quiz-not-started')).toBeVisible();
+  await page.goto('/#/quizler/dolasim');
+  await page.getByRole('button', { name: 'Adım adım çöz' }).click();
+  for (let step = 0; step < 10; step++) {
+    await page.locator('.quiz-options label').first().click();
+    await page.getByRole('button', { name: 'Yanıtı kontrol et' }).click();
+    await page.getByRole('button', { name: step < 9 ? /Sonraki soru/ : /Sonuçları gör/ }).click();
+  }
+  await expect(page.locator('.quiz-score-line')).toContainText('/ 10 doğru');
+  await expect(page.locator('.quiz-score-note')).toContainText('çalışma kaydına eklendi');
+  const stored = await page.evaluate(() => JSON.parse(localStorage.getItem('anatomi-quiz-history-v1') || '[]'));
+  expect(stored).toHaveLength(1);
+  expect(stored[0]).toMatchObject({ mode: 'set', setId: 'dolasim', total: 10 });
+  expect(stored[0].topics.length).toBeGreaterThan(0);
+  await page.getByRole('button', { name: 'Başka quiz seç' }).click();
+  await expect(page).toHaveURL(/#\/quizler$/);
+  await expect(page.locator('.quiz-mastery-body')).toBeVisible();
+  await expect(page.locator('.quiz-mastery-score dl')).toContainText('1 / 12');
+  await expect(page.locator('.quiz-mastery-score dl')).toContainText('10');
+  await expect(page.locator('.quiz-trend .trend-bar')).toHaveCount(1);
+  await expect(page.locator('.quiz-weak-list li').first()).toBeVisible();
+  await expect(page.locator('.quiz-mastery-side .meter-bars li')).toHaveCount(1);
+  await expect(dolasim.locator('.score-ring strong')).toHaveText(/^\d+%$/);
+  await expect(dolasim.locator('.quiz-card-progress')).toContainText('1 deneme');
+  await expect(dolasim.locator('.quiz-not-started')).toHaveCount(0);
+  await page.reload();
+  await expect(page.locator('.quiz-mastery-body')).toBeVisible();
+  await expect(page.locator('.quiz-mastery-score dl')).toContainText('1 / 12');
+  // A second attempt on the same set updates mastery instead of adding a second set.
+  await page.getByRole('button', { name: 'Zayıf konulara çalış' }).click();
+  await expect(page).toHaveURL(/#\/sinav\?k=weak$/);
+  await page.getByRole('button', { name: 'Quiz kütüphanesine dön' }).click();
+  await expect(page.locator('.quiz-mastery-body')).toBeVisible();
+  await page.getByRole('button', { name: 'Deneme geçmişini temizle' }).click();
+  await expect(page.locator('.quiz-mastery-empty')).toBeVisible();
+  const cleared = await page.evaluate(() => JSON.parse(localStorage.getItem('anatomi-quiz-history-v1') || '[]'));
+  expect(cleared).toHaveLength(0);
+  await expect(dolasim.locator('.quiz-not-started')).toBeVisible();
+});
+
+test('exam simulator runs a timed mixed paper, hides answers and reports at the end', async ({ page }) => {
+  const requests = [];
+  page.on('request', r => { if (!r.url().startsWith('http://localhost')) requests.push(r.url()); });
+  await page.goto('/#/sinav');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Karışık kâğıt');
+  await expect(page.locator('.exam-pool-total')).toContainText('120');
+  await expect(page.locator('.exam-pool-list li')).toHaveCount(12);
+  await expect(page.getByRole('button', { name: /Zayıf konularım/ })).toBeDisabled();
+  await page.locator('.exam-choices.lengths').getByRole('button', { name: /10 soru/ }).click();
+  await expect(page.getByRole('button', { name: /Süre sayacı açık · 7:30/ })).toHaveAttribute('aria-pressed', 'true');
+  await page.getByRole('button', { name: 'Sınava başla' }).click();
+  await expect(page.locator('.exam-run-bar')).toContainText('Sınav sürüyor');
+  await expect(page.locator('.exam-clock')).toContainText('7:');
+  await expect(page.locator('.exam-palette-grid button')).toHaveCount(10);
+  // While the paper runs nothing is revealed: no status region, no right/wrong marks.
+  await page.locator('.quiz-options label, .quiz-options.multi label, .quiz-order-list').first().click();
+  await expect(page.getByRole('status')).toHaveCount(0);
+  await expect(page.locator('.quiz-options label.correct, .quiz-options label.incorrect, .quiz-order-mark')).toHaveCount(0);
+  // The palette jumps, Alt+arrow steps, and the blank counter follows the answers.
+  await page.locator('.exam-palette-grid button').nth(4).click();
+  await expect(page.locator('.exam-nav-count')).toContainText('5 / 10');
+  await page.keyboard.press('Alt+ArrowRight');
+  await expect(page.locator('.exam-nav-count')).toContainText('6 / 10');
+  await page.keyboard.press('Alt+ArrowLeft');
+  await expect(page.locator('.exam-nav-count')).toContainText('5 / 10');
+  await page.locator('.exam-palette-grid button').nth(0).click();
+  await page.locator('.quiz-options label, .quiz-options.multi label').first().click();
+  await expect(page.locator('.exam-palette-grid button.is-answered')).toHaveCount(1);
+  await expect(page.locator('.exam-blank-note')).toContainText('9 boş');
+  await page.getByRole('button', { name: 'Sınavı bitir' }).first().click();
+  await expect(page.getByRole('alertdialog')).toContainText('9 soruyu boş bırakıyorsun');
+  await page.getByRole('button', { name: 'Devam et' }).click();
+  await expect(page.getByRole('alertdialog')).toHaveCount(0);
+  await expect(page.locator('.exam-nav-count')).toContainText('1 / 10');
+  await page.getByRole('button', { name: 'Sınavı bitir' }).first().click();
+  await page.getByRole('button', { name: 'Evet, teslim et' }).click();
+  await expect(page.locator('.exam-result-head h1')).toContainText('/ 10 doğru');
+  await expect(page.locator('.exam-result-line')).toContainText('kalan süre');
+  await expect(page.locator('.exam-result-line')).toContainText('9 boş');
+  await expect(page.locator('.exam-review li')).toHaveCount(10);
+  await expect(page.locator('.exam-review li').filter({ hasText: 'Boş bırakıldı' })).toHaveCount(9);
+  await expect(page.locator('.exam-result-block').first().locator('.meter-bars li')).toHaveCount(10);
+  await expect(page.locator('.exam-next-list li').first()).toBeVisible();
+  await expect(page.locator('.exam-progress-note')).toContainText('deneme geçmişine eklendi');
+  const stored = await page.evaluate(() => JSON.parse(localStorage.getItem('anatomi-quiz-history-v1') || '[]'));
+  expect(stored).toHaveLength(1);
+  expect(stored[0].mode).toBe('exam');
+  expect(stored[0].total).toBe(10);
+  // The report links a weak topic back to the set that teaches it.
+  await page.locator('.exam-next-links button').first().click();
+  await expect(page).toHaveURL(/#\/quizler\/[a-z]+$/);
+  await expect(page.locator('.quiz-detail')).toBeVisible();
+  expect(requests.filter(url => !url.includes('fonts') && !url.includes('localhost'))).toHaveLength(0);
+  for (const size of [390, 320]) {
+    await page.setViewportSize({ width: size, height: 844 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  }
+  await page.setViewportSize({ width: 1440, height: 1000 });
+});
+
+test('the exam scope is addressable and a stale key falls back to the mixed paper', async ({ page }) => {
+  await page.goto('/#/sinav?k=dolasim');
+  await expect(page.locator('.exam-pool-total')).toContainText('10');
+  await expect(page.locator('.exam-pool-list li')).toHaveCount(1);
+  await expect(page.locator('.exam-pool-list li')).toContainText('Dolaşım');
+  await page.getByRole('button', { name: 'Sınava başla' }).click();
+  await expect(page.locator('.exam-run-bar')).toContainText('Dolaşım');
+  await expect(page.locator('.exam-palette-grid button')).toHaveCount(10);
+  // Handing in a blank paper is allowed; every blank counts as wrong in the report.
+  await page.getByRole('button', { name: 'Sınavı bitir' }).first().click();
+  await page.getByRole('button', { name: 'Evet, teslim et' }).click();
+  await expect(page.locator('.exam-result-head h1')).toContainText('0 / 10 doğru');
+  await expect(page.locator('.exam-result-line')).toContainText('10 boş');
+  await expect(page.locator('.exam-result-block').first().locator('.meter-bars li')).toHaveCount(1);
+  await expect(page.locator('.exam-progress-note')).toContainText('Bu setin ustalığı artık');
+  // The attempt unlocks the weak-topic paper and the hub shows the same numbers.
+  await page.getByRole('button', { name: 'Zayıf konu kâğıdı' }).click();
+  await expect(page).toHaveURL(/#\/sinav\?k=weak$/);
+  await expect(page.locator('.exam-setup-panel')).toBeVisible();
+  await expect(page.getByRole('button', { name: /Zayıf konularım/ })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.getByRole('button', { name: 'Sınava başla' })).toBeEnabled();
+  await page.goto('/#/quizler');
+  await expect(page.locator('.quiz-mastery-score dl')).toContainText('1 / 12');
+  await expect(page.getByRole('button', { name: 'Zayıf konulara çalış' })).toBeEnabled();
+  await page.goto('/#/sinav?k=olmayan');
+  await expect(page.locator('.exam-pool-total')).toContainText('120');
+  await expect(page.locator('.exam-pool-list li')).toHaveCount(12);
+});
+
+test('a lesson page bridges to its own quiz set and the exam simulator', async ({ page }) => {
+  await page.goto('/#/ders/7');
+  const bridge = page.locator('.lesson-quiz-bridge');
+  await expect(bridge).toBeVisible();
+  await expect(bridge.locator('.lesson-quiz-card')).toHaveCount(1);
+  await expect(bridge.locator('.lesson-quiz-copy h3')).toHaveText('Dolaşım sistemi');
+  await expect(bridge.locator('.lesson-quiz-facts li').first()).toContainText('10 soru');
+  await expect(bridge.locator('.lesson-quiz-facts')).toContainText('Henüz çözülmedi');
+  await bridge.locator('.lesson-quiz-exam').click();
+  await expect(page).toHaveURL(/#\/sinav\?k=dolasim$/);
+  await expect(page.locator('.exam-pool-total')).toContainText('10');
+  await page.getByRole('button', { name: 'Quiz kütüphanesine dön' }).click();
+  await expect(page).toHaveURL(/#\/quizler$/);
+  // The source guide (lesson 0) has no quiz set, so the bridge stays out of the way.
+  await page.goto('/#/ders/0');
+  await expect(page.locator('.lesson-quiz-bridge')).toHaveCount(0);
+  await page.goto('/#/ders/8');
+  await expect(page.locator('.lesson-quiz-card')).toHaveCount(1);
+  await expect(page.locator('.lesson-quiz-copy h3')).toHaveText('Sindirim sistemi');
+  await page.locator('.lesson-quiz-actions .primary-button').click();
+  await expect(page).toHaveURL(/#\/quizler\/sindirim$/);
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Sindirim');
+  await page.goto('/#/ders/7');
+  for (const size of [390, 320]) {
+    await page.setViewportSize({ width: size, height: 844 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    await expect(page.locator('.lesson-quiz-bridge')).toBeVisible();
+  }
+  await page.setViewportSize({ width: 1440, height: 1000 });
+});
+
+test('the quiz hub and the exam simulator follow the interface language', async ({ page }) => {
+  await page.goto('/#/quizler');
+  await page.getByRole('button', { name: 'English' }).click();
+  await expect(page.locator('.quiz-card')).toHaveCount(12);
+  await expect(page.locator('.quiz-card h3 button').first()).toHaveText('Basic anatomy and terminology');
+  await expect(page.getByText('120 local questions')).toBeVisible();
+  const search = page.getByRole('searchbox', { name: 'Search quizzes' });
+  await search.fill('digestive');
+  await expect(page.locator('.quiz-card')).toHaveCount(1);
+  await expect(page.locator('.quiz-card h3 button').first()).toHaveText('Digestive system');
+  await page.getByRole('button', { name: 'Clear the quiz search' }).click();
+  await expect(page.locator('.quiz-card')).toHaveCount(12);
+  await page.locator('.quiz-card h3 button').first().click();
+  await expect(page.locator('.quiz-intro-types')).toContainText('Multiple choice');
+  await page.getByRole('button', { name: 'Solve step by step' }).click();
+  await expect(page.locator('.quiz-session-bar em')).toHaveText('Multiple choice');
+  await page.locator('.quiz-options label').first().click();
+  await page.getByRole('button', { name: 'Check the answer' }).click();
+  await expect(page.getByRole('status')).toContainText('Correct answer:');
+  await page.getByRole('button', { name: 'العربية' }).click();
+  await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+  await expect(page.locator('.quiz-session-bar')).toBeVisible();
+  await page.goto('/#/quizler');
+  await expect(page.locator('.quiz-card h3 button').first()).toHaveText('التشريح الأساسي والمصطلحات');
+  await page.goto('/#/');
+  await page.locator('.quiz-native-band').getByRole('button', { name: 'محاكاة الامتحان' }).click();
+  await expect(page.locator('.exam-setup-head')).toBeVisible();
+  await expect(page.locator('.exam-pool-list li')).toHaveCount(12);
+  await expect(page.getByRole('button', { name: 'ابدأ الامتحان' })).toBeVisible();
+  await page.getByRole('button', { name: 'Türkçe' }).click();
+  await expect(page.locator('html')).toHaveAttribute('dir', 'ltr');
+  await expect(page.locator('.exam-pool-total')).toContainText('120');
+  await expect(page.getByRole('button', { name: 'Sınava başla' })).toBeVisible();
 });
 
 test('video lessons page lists a card per lesson, filters, and plays the Drive recording', async ({ page }) => {

@@ -58,7 +58,7 @@ Arayüz üç dilde çalışır: **Türkçe**, **English** ve **العربية**.
 - **Ders gövdesi de çevriliyor:** her dersin İngilizce ve Arapça metni `src/content/lessons/i18n/{en,ar}/<no>.js` altında, Türkçe kaynağın bölüm kimlikleriyle eşleşen bir yama olarak durur. `src/content/lessonI18n.js` bu yamayı Türkçe derse aktarır: paragraf, alt bölüm, tablo, uyarı, sözlük ve tekrar soruları yerinde değişir; bölüm `id`'leri, kaynak sayfaları ve şema anahtarları Türkçe asıldan gelir. Aynı dosya çalışma rehberini (`guide`) ve o dersin sınav anlatımlarını (`teaching`) da çevirir.
 - **Eksik çeviri güvenli düşer:** bir ders için yama yoksa sayfa Türkçe metni gösterir ve "bu ders henüz çevrilmedi" notu (çevrilen ders sayısıyla) görünür.
 - **Tutarlılık denetimi:** `tests/lesson-i18n.test.js` her çevirinin paragraf/alt bölüm/tablo satırı sayısının Türkçe asılla aynı olduğunu, İngilizce gövdede Türkçe cümle kalmadığını ve sınav anlatımlarının da çevrildiğini doğrular. Sayı uyuşmazsa birleştirme sessizce kaymaz, test kırılır.
-- **Çevrilmeyen (henüz):** yerel quiz/alıştırma soru bankası, şema başlıkları ve şema içi etiketler. Bunlar da aynı yöntemle sırayla çevrilecek.
+- **İçerik bankaları da çevriliyor:** yerel quiz bankası (12 set, 120 soru; `src/content/quizBank/i18n/{en,ar}.js`), “Kendini sına” alıştırma bankası, 26 ders şemasının başlık/alt yazı/etiketleri ve sınav anlatımları üç dilde durur. Çeviri yapısı bozamaz: aynı soru ve etiket sayısı, aynı doğru indeks, aynı soru tipi; metinler gerçekten farklı olmak zorundadır (`tests/quiz-i18n.test.js`, `tests/practice-i18n.test.js`, `tests/diagram-i18n.test.js`). Şema dosya adları diller arasında aynı kalır, görsellerin içine metin gömülmez; etiketler arayüzde çizilir. Arapçada soru metinleri ve seçenekler `dir="auto"` ile yazılır.
 - Arapça ders notu ve özgün PDF’ler **Kaynaklar** bölümündedir.
 - **İngilizce ve Arapça metinler isteğe bağlı yüklenir:** çeviri verileri (`src/content/packs/{en,ar}.js`, her dil ayrı bir parça) yalnızca o dil seçildiğinde indirilir; Türkçe ziyaretçi bunları indirmez. Dil değiştirilirken yeni dilin paketi hazır olana kadar ekran eski dilde kalır, sonra tüm metinler birlikte değişir.
 - Sözlük `src/i18nPhrases.js` (düz JS), dil meta verisi `src/i18nMeta.js`, ders başlıkları `src/content/localizedContent.js` içinde. `tests/i18n.test.js` her Türkçe satırın İngilizce ve Arapça karşılığı olduğunu, her dersin çevrilmiş başlığı bulunduğunu ve bileşenlerdeki tüm `tr()` anahtarlarının sözlükte tanımlı olduğunu doğrular.
@@ -112,6 +112,9 @@ Site, Muhammet TUĞRUL’un kendi yayımladığı **TUĞRUL ATLAS — İnterakti
 - Kullanıcının seçtiği kaburga–sternum amblemi; ana menüde detaylı SVG, mobil/altbilgide sadeleştirilmiş simge ve uyumlu favicon.
 - Video konu anlatımı: `#/videolar` sayfasında ders ders NotebookLM videoları, parçalı oynatma, konu filtreleri ve ders sayfalarından doğrudan erişim.
 - 3B anatomi atlası: Muhammet TUĞRUL’un TUĞRUL ATLAS’ı `#/atlas` sayfasında gömülü olarak açılır; tam ekran, yenileme, yeni sekmede açma ve ağ engeli için yedek açılış bulunur.
+- Yerel anatomi quizleri (`#/quizler`): 12 konu seti × 10 = 120 özgün soru, dört yanıt biçimi (çoktan seçmeli, doğru/yanlış, çoklu seçim, sıralama), 86 şekilli soru, set bazlı arama/kategori/favori filtreleri ve her sorudan sonra doğru yanıt + açıklama.
+- Sınav simülasyonu (`#/sinav`): tüm setlerden dengeli çekilen 10/20/30 soruluk karışık kâğıt, soru başına 45 saniyelik sayaç, soru paleti, Alt+ok geçişi, sınav sırasında yanıt gizliliği, boş bırakırken onay, sonda puan halkası + set/konu bazlı döküm.
+- Ustalık haritası: çözülen set, yanıtlanan soru, doğru oranı, çalışma serisi, doğruluk seyri, zayıf konular ve en düşük ustalıklı setler; `anatomi-quiz-history-v1` anahtarında yalnız cihazda tutulur, tek tuşla temizlenir.
 
 ## İçerik ve kaynak düzeni
 
@@ -171,13 +174,13 @@ Bu araç **ders anlatımı yazmaz**. Yalnızca `reference/course-content/` altı
 
 ## Gizlilik
 
-`anatom-saved`, `anatom-completed`, `anatom-last`, `anatomi-last-mode`, `anatomi-reading-size`, `anatomi-quiz-saved`, `anatomi-quiz-studied` ve `anatomi-language` yalnız tarayıcıda saklanır. Hesap, analiz kodu veya çalışma kaydını sunucuya gönderen mekanizma yoktur. Cihazlar arasında eşitleme yapılmaz. PDF açıldığında Google’ın üçüncü taraf hizmetine istek gönderilir; web derslerini okumak Google isteği oluşturmaz. “Hocamız Hakkında” sayfasında resmî portre `apiabs.firat.edu.tr` üzerinden yüklenir; bu sayfa üniversitenin fotoğraf sunucusuna istek gönderir. Fotoğrafta `no-referrer` kullanılır. Fotoğraf yüklenemezse baş harfler ve resmî profile bağlantı gösterilir. Ders okuyucusu ve ana sayfa bu fotoğrafı istemez. 3B atlas bölümünde `www.zygotebody.com` adresine iframe isteği gönderilir ve erişilebilirlik ön kontrolü için aynı alan adına `no-cors` bir istek yapılır; web derslerini okumak bu isteği oluşturmaz.
+`anatom-saved`, `anatom-completed`, `anatom-last`, `anatomi-last-mode`, `anatomi-reading-size`, `anatomi-quiz-saved`, `anatomi-quiz-studied`, `anatomi-quiz-last`, `anatomi-quiz-history-v1` (quiz ve sınav denemelerinin geçmişi) ve `anatomi-language` yalnız tarayıcıda saklanır. Hesap, analiz kodu veya çalışma kaydını sunucuya gönderen mekanizma yoktur. Cihazlar arasında eşitleme yapılmaz. PDF açıldığında Google’ın üçüncü taraf hizmetine istek gönderilir; web derslerini okumak Google isteği oluşturmaz. “Hocamız Hakkında” sayfasında resmî portre `apiabs.firat.edu.tr` üzerinden yüklenir; bu sayfa üniversitenin fotoğraf sunucusuna istek gönderir. Fotoğrafta `no-referrer` kullanılır. Fotoğraf yüklenemezse baş harfler ve resmî profile bağlantı gösterilir. Ders okuyucusu ve ana sayfa bu fotoğrafı istemez. 3B atlas bölümünde `www.zygotebody.com` adresine iframe isteği gönderilir ve erişilebilirlik ön kontrolü için aynı alan adına `no-cors` bir istek yapılır; web derslerini okumak bu isteği oluşturmaz.
 
 ## Testler
 
 ```sh
-npm test             # 56 katalog/içerik/kaynak/dil/gezinme/atlas/alıştırma testi
-npm run test:ui      # 40 Playwright senaryosu
+npm test             # 121 katalog/içerik/kaynak/dil/quiz/sınav/gezinme/atlas/alıştırma testi
+npm run test:ui      # 63 Playwright senaryosu (alt küme: npm run test:ui -- -g "exam")
 npm run build
 ```
 
@@ -211,3 +214,20 @@ Menüden **Kendini sına** (`#/calis`) veya ana sayfadaki çalışma kartından 
 - **Tekrar:** Kontrol edilen yanlış görseller, tamamlanan denemedeki yanlışlar ve boşlar tarayıcıdaki `anatomi-practice-v1` kaydına eklenir. İlk tekrar 24 saat sonra; sonraki doğru hatırlamalarda 1/3/7/14/30 günlük aralıklar uygulanır. Zamanı gelmeden manuel tekrar mümkündür. Temizleme işlemi ayrıca onay ister.
 
 Tekrar verisi yalnız bu tarayıcıdadır, sunucuya gönderilmez ve cihazlar arasında eşitlenmez. Depolama kapalıysa uyarı gösterilir ve oturum içinde çalışma sürer. Devam eden sınav/çalışma sayfa yenilendiğinde saklanmaz; arayüz bunu açıkça belirtir. Bu oturumdan henüz kontrol edilmemiş yanıtlar yenilemede deftere yazılmaz. Soru bankasında kaynak sorularının birebir kopyaları veya yeni bir resmî cevap anahtarı yoktur.
+
+## Anatomi Quizleri ve sınav simülasyonu
+
+Menüden **Anatomi Quizleri** (`#/quizler`) ve **Sınav Simülasyonu** (`#/sinav`) ayrı girişlerdir; ana sayfadaki quiz şeridi ikisini de açar. Bölüm tümüyle yereldir: sorular, açıklamalar ve şekiller bu proje için üretildi, hiçbir yayıncı isteği yapılmaz.
+
+- **Banka:** 12 konu seti × 10 soru = **120 özgün soru** (`src/content/quizBank.js`). Setler ders kütüphanesine bağlıdır; 1–11 arasındaki her anatomi dersi en az bir setle kapsanır, duyu organları seti ders numarası olmadan durur. Katalog grupları: Temel anatomi (1), Hareket sistemi (5), Organ sistemleri (6).
+- **Dört yanıt biçimi:** 104 çoktan seçmeli, 5 doğru/yanlış, 5 çoklu seçim (hep-ya-hiç puanlanır), 6 sıralama (seçenekler karıştırılır, sıra konuma göre puanlanır). Biçim, sorunun içinde `type` alanıyla taşınır; motor `src/quiz.js` saf fonksiyonlardan oluşur ve rastgelelik kaynağı dışarıdan verilebildiği için testler determinizmi doğrular.
+- **Şekiller:** 86 soru şekillidir; 30 ayrı şekil kullanılır (24 ders şeması + 6 quiz plakası: vertebra, sarkomer, kalp, göz, kulak, beyin). Plakalar numaralı pinli, kâğıt dokulu ve projeye ait öğretim çizimleridir; ölçeksizdir, atlas yerine geçmez.
+- **Adım adım çözüm:** giriş (kapak şekli, soru biçimleri, ders bağlantısı) → her yanıttan sonra doğru yanıt + kısa açıklama → sonuçta puan halkası, konu konu doğruluk çubukları ve soru soru döküm. Favoriler, “çalıştım” işaretleri ve son açılan quiz cihazda saklanır.
+- **Ders → quiz köprüsü:** her anatomi dersinin anlatım sayfasında (`#/ders/<no>`), o derse ait quiz seti kapak şekli, soru/şekil sayısı ve mevcut ustalığıyla birlikte durur; “Adım adım çöz” seti, “Sınav modunda çöz” o setin zamanlı kâğıdını açar. Kaynak rehberinde (ders 0) köprü görünmez.
+- **Sınav simülasyonu:** kapsam adreste taşınır — `#/sinav` (tüm setler), `#/sinav?k=weak` (zayıf konular), `#/sinav?k=<set-id>` (tek set). Kâğıt `pickBalanced` ile set set dengeli çekilir (10/20/30 soru), süre soru başına 45 saniyedir. Sınav sırasında doğru yanıt gösterilmez; soru paleti ve Alt+ok ile gezilir, boş bırakırken onay sorulur, süre biterse kâğıt kendiliğinden teslim edilir.
+- **Rapor ve ustalık haritası:** puan halkası, set set ve konu konu doğruluk, kalan/harcanan süre, boş sayısı, “bundan sonra” listesi (zayıf konudan ilgili sete ve dersi anlatan web dersine bağlantı) ve tam döküm. Merkezdeki ustalık haritası çözülen set, yanıtlanan soru, doğru oranı, çalışma serisi, doğruluk seyri, zayıf konular (doğruluk < %85 ve en az 2 soru kanıtı) ve en düşük ustalıklı setleri gösterir. Ustalık, son deneme ile en iyi denemenin karışımıdır (`round((0.6 × son + 0.4 × en iyi) × 100)`); böylece tek kötü deneme öğrenilmiş bir konuyu silmez.
+- **Çok dillilik:** 12 setin ve 120 sorunun tamamı İngilizce ve Arapça olarak `src/content/quizBank/i18n/{en,ar}.js` içinde durur ve yalnız ilgili dil seçildiğinde yüklenir. Çeviri yapıyı bozamaz: aynı soru ve seçenek sayısı, aynı doğru indeks, aynı soru tipi, aynı şekil anahtarı; metinler gerçekten farklıdır.
+- **Depolama:** `anatomi-quiz-saved`, `anatomi-quiz-studied`, `anatomi-quiz-last` ve `anatomi-quiz-history-v1` (en fazla 80 deneme) yalnız tarayıcıdadır; bozuk kayıt alan alan onarılır veya düşürülür, depolama kapalıysa uyarı gösterilir ve oturum içinde çalışma sürer. Geçmiş tek tuşla temizlenir.
+- **İddia sınırı:** sorular hocanın sınav sorusu veya resmî bir banka değildir; sınav simülasyonu resmî sınav, gözetim veya not değildir; ustalık haritası kişisel çalışma izlenimidir ve gerçek sınav notunu garanti etmez. Bu sınır arayüzde açıkça yazılıdır.
+
+Ayrıntılı mimari, motor sözleşmesi ve doğrulama listesi: [`docs/quiz-integration.md`](docs/quiz-integration.md). Birim testler `tests/quiz-bank.test.js`, `tests/quiz-engine.test.js`, `tests/quiz-progress.test.js` ve `tests/quiz-i18n.test.js` dosyalarındadır; tarayıcı senaryoları dört yanıt biçimini, ustalık haritasının dolmasını, sınav akışını ve adreslenebilir kapsamı doğrular.
