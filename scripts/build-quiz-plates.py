@@ -367,7 +367,7 @@ def build_lesson_plates():
         legend = ' '.join(f'{i + 1}. {escape(nm)}: {escape(tx)}' for i, (nm, tx) in enumerate(figure['labels']))
         svg = (
             '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
-            'viewBox="0 0 760 460" role="img" aria-labelledby="title description">'
+            'viewBox="0 0 760 460" width="760" height="460" role="img" aria-labelledby="title description">'
             f'<title id="title">{escape(figure["title"])}</title>'
             f'<desc id="description">{escape(figure["caption"])} {legend}</desc>'
             f'<rect width="760" height="{LESSON_H}" fill="#f4ead2"/>'
@@ -435,7 +435,7 @@ for name, pins in PINS.items():
     markers = ''.join(pin(n, label, target) for n, label, target in pins)
     svg = (
         '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
-        'viewBox="0 0 760 507" role="img" aria-label="Numaralı anatomi plakası">'
+        'viewBox="0 0 760 507" width="760" height="507" role="img" aria-label="Numaralı anatomi plakası">'
         f'<rect width="760" height="507" fill="#f4ead2"/>'
         f'<image x="0" y="0" width="760" height="507" xlink:href="data:image/jpeg;base64,{data}"/>'
         f'<g>{markers}</g></svg>'
@@ -490,7 +490,7 @@ def build_exam_plates():
         legend = ' '.join(f'{i + 1}. {escape(lb)}' for i, lb in enumerate(figure['labels']))
         svg = (
             '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
-            'viewBox="0 0 760 480" role="img" aria-labelledby="title description">'
+            'viewBox="0 0 760 480" width="760" height="480" role="img" aria-labelledby="title description">'
             f'<title id="title">{escape(figure["title"])}</title>'
             f'<desc id="description">{escape(figure["caption"])} {legend}</desc>'
             '<rect width="760" height="480" fill="#f8f4e9"/>'
