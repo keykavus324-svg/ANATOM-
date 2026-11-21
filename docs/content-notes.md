@@ -316,3 +316,13 @@ Depodaki diğer tüm görseller (26 ders plakası, 6 sınav haritası, 7 quiz pl
 gravürü, torso) zaten yeni stil dedir; `sections/*.png` gerçek MRI kesitleridir (lisanslı,
 kaynaklı) ve bilinç olarak korunmuştur. Canlı sitede eski görsel görülmesi tarayıcı/CDN
 önbelleğindendir: yeni dağıtım kenarı temizler, kullanıcı tarafında sert yenileme yeter.
+
+
+## 21 Kasım 2026 (yayın 2): specimen arka planları kesildi (transparan)
+
+`.plate-specimen img` kuralı `mix-blend-mode: lighten` içerdiği için hero görselleri zaten
+kesilmiş siluet varsayıyor; krem kâğıt zeminli webp'ler dikdörtgen olarak sızıyordu.
+Dört specimen (heart, brain, lungs, skull) düz macenta zeminde yeniden üretilip renk
+anahtarıyla (alfa rampası + kenar tüyü + magenta unmix) transparan kesildi; kalpte model
+üç kopya çizdiğinden bileşen bölme (kolon projeksiyonu, en geniş parça) eklendi.
+Çıktılar RGBA webp olarak aynı dosya adlarında sürümlendi.
