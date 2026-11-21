@@ -1,6 +1,6 @@
 import { findQuizSet } from './content/quizBank.js';
 import { notes } from './data.js';
-const paths = { home: '/', sections: '/kesit/v1', lens: '/mercek', planner: '/ders-planlayici', library: '/kutuphane', videos: '/videolar', exam: '/sinav', sources: '/kaynaklar', atlas: '/atlas', practice: '/calis', quizzes: '/quizler', saved: '/kaydedilenler', about: '/hakkinda' };
+const paths = { home: '/', sections: '/kesit/v1', lens: '/mercek', planner: '/ders-planlayici', library: '/kutuphane', videos: '/videolar', exam: '/sinav', sources: '/kaynaklar', atlas: '/atlas', practice: '/calis', quizzes: '/quizler', saved: '/kaydedilenler', review: '/tekrar', about: '/hakkinda' };
 // Licensed book/atlas collections were removed; old links land on the resource page.
 const legacyPaths = { '/kitaplar': 'sources' };
 

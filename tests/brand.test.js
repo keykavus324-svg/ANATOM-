@@ -11,5 +11,5 @@ test('selected anatomy branding has local vector assets and a matching non-atom 
     assert.doesNotMatch(svg, /<script|<image|<foreignObject|<ellipse|href=/);
   }
   const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
-  assert.match(html, /href="\/favicon.svg"/);
+  assert.match(html, /href="%BASE_URL%favicon\.svg"/);
 });

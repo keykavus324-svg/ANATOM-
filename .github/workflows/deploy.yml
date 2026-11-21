@@ -32,6 +32,7 @@ jobs:
       - name: Build
         env:
           GITHUB_PAGES: 'true'
+          REPO_SLUG: ${{ github.event.repository.name }}
         run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

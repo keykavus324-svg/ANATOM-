@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Bookmark, Check, CheckCircle2, ChevronDown, ClipboardCheck, Clock3, FileText, Languages, List, Minus, Plus, PlayCircle, Timer } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Bookmark, Check, CheckCircle2, ChevronDown, ClipboardCheck, Clock3, FileText, GripHorizontal, Languages, List, Minus, Plus, PlayCircle, Star, Timer } from 'lucide-react';
 import { lessons, readingMinutes } from './lessons';
 import { notes } from './data';
 import { routeFromHash } from './routing';
@@ -14,6 +14,10 @@ import { useI18n, useLocalizedContent } from './i18n.jsx';
 import { videoForLesson, formatDuration } from './content/videos.js';
 import { quizSetsIn, quizQuestionsIn } from './content/quizI18n.js';
 import { setMastery } from './quizProgress';
+import { termsIn } from './content/terminology.js';
+import { clinicalFor } from './content/clinicalNotes.js';
+import { useFavorites } from './useFavorites.js';
+import MiniTest from './components/MiniTest';
 import { figureSrc } from './components/QuizQuestion.jsx';
 
 function ComparisonTable({ table, title }) {
@@ -59,6 +63,34 @@ export default function LessonPage({ note, onPdf, onVideo, onBack, onNavigate, s
   }, [note.number]);
   const content = useRef(null);
   const tocDetails = useRef(null);
+  const { isFavorite, toggleFavorite } = useFavorites();
+  const clinical = clinicalFor(note.number);
+  const clinicalLang = lang === 'en' ? 'en' : lang === 'ar' ? 'ar' : 'tr';
+  const taTerms = termsIn(note.number);
+  // Mobil alt çekmece: konu metni küçük ekranda aşağıdan yukarı açılan panelde.
+  const [sheetH, setSheetH] = useState(72);
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const sheetDrag = useRef(null);
+  const onSheetDown = event => {
+    sheetDrag.current = { y: event.clientY, h: sheetH, moved: 0 };
+    event.currentTarget.setPointerCapture?.(event.pointerId);
+  };
+  const onSheetMove = event => {
+    if (!sheetDrag.current) return;
+    const delta = (sheetDrag.current.y - event.clientY) / window.innerHeight * 100;
+    sheetDrag.current.moved = Math.max(sheetDrag.current.moved, Math.abs(delta));
+    if (sheetDrag.current.moved > 2) {
+      setSheetOpen(true);
+      setSheetH(Math.min(94, Math.max(38, sheetDrag.current.h + delta)));
+    }
+  };
+  const onSheetUp = () => {
+    if (!sheetDrag.current) return;
+    const tapped = sheetDrag.current.moved <= 2;
+    sheetDrag.current = null;
+    if (tapped) { setSheetOpen(open => !open); return; }
+    setSheetH(h => (h < 55 ? 46 : h < 84 ? 72 : 92));
+  };
   const bookNotes = localizedNotes(notes);
   const index = bookNotes.findIndex(n => n.id === note.id);
   useEffect(() => {
@@ -83,8 +115,9 @@ export default function LessonPage({ note, onPdf, onVideo, onBack, onNavigate, s
     };
     window.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
+    content.current?.addEventListener('scroll', update, { passive: true });
     update();
-    return () => { window.removeEventListener('scroll', update); window.removeEventListener('resize', update); };
+    return () => { window.removeEventListener('scroll', update); window.removeEventListener('resize', update); content.current?.removeEventListener('scroll', update); };
   }, [lesson, fontSize]);
   const jump = (id, detailIndex) => {
     if (tocDetails.current) tocDetails.current.open = false;
@@ -93,8 +126,8 @@ export default function LessonPage({ note, onPdf, onVideo, onBack, onNavigate, s
     target?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
     setActive(id);
   };
-  const toc = <ol>{lesson.sections.map((section, i) => <li key={section.id}><button className={active === section.id ? 'active' : ''} aria-current={active === section.id ? 'location' : undefined} onClick={() => jump(section.id)}><span>{String(i + 1).padStart(2, '0')}</span>{section.title}</button>{section.subsections?.length > 0 && <ul className={`toc-subsections${active === section.id ? ' is-active' : ''}`} aria-label={`${section.title} ${tr('ayrıntıları')}`}>{section.subsections.map((subsection, j) => <li key={subsection.title}><button aria-label={tr('Ayrıntı: {title}', { title: subsection.title })} onClick={() => jump(section.id, j)}>{subsection.title}</button></li>)}</ul>}</li>)}<li><button onClick={() => jump('glossary')}><span>＋</span>{tr('Terim kartları')}</button></li><li><button onClick={() => jump('review')}><span>↳</span>{tr('Kendini yokla')}</button></li></ol>;
-  return <div className="lesson-page" style={{ '--reading-size': `${fontSize}px` }}>
+  const toc = <ol>{lesson.sections.map((section, i) => <li key={section.id}><button className={active === section.id ? 'active' : ''} aria-current={active === section.id ? 'location' : undefined} onClick={() => jump(section.id)}><span>{String(i + 1).padStart(2, '0')}</span>{section.title}</button>{section.subsections?.length > 0 && <ul className={`toc-subsections${active === section.id ? ' is-active' : ''}`} aria-label={`${section.title} ${tr('ayrıntıları')}`}>{section.subsections.map((subsection, j) => <li key={subsection.title}><button aria-label={tr('Ayrıntı: {title}', { title: subsection.title })} onClick={() => jump(section.id, j)}>{subsection.title}</button></li>)}</ul>}</li>)}<li><button onClick={() => jump('glossary')}><span>＋</span>{tr('Terim kartları')}</button></li><li><button onClick={() => jump('ta')}><span>TA</span>{tr('Latince karşılıklar')}</button></li><li><button onClick={() => jump('review')}><span>↳</span>{tr('Kendini yokla')}</button></li></ol>;
+  return <div className={`lesson-page${sheetOpen ? ' sheet-open' : ''}`} style={{ '--reading-size': `${fontSize}px`, '--sheet-h': `${sheetH}vh` }}>
     <div className="lesson-breadcrumb"><button onClick={onBack}><ArrowLeft size={15}/> {tr('Kütüphaneye dön')}</button><span>{categoryLabel(note.category)} <i/> {note.number === 0 ? tr('Kaynak rehberi') : tr('Ders {n}', { n: String(note.number).padStart(2, '0') })}</span></div>
     <header className="lesson-hero">
       <div className="lesson-hero-copy"><div className="eyebrow"><span/> {tr('KONU ANLATIMI')} <i>ANATOMİ</i></div><h1>{note.title}</h1><p className="lesson-subtitle">{lesson.subtitle}</p><p className="lesson-intro">{lesson.intro}</p><div className="lesson-credit"><span className="credit-avatar">BD</span><div><strong>{tr('Kaynak: Dr. Öğr. Gör. Bekir Dağdeviren')}</strong><span>{tr('Konu anlatımı: ANATOMİ · Kaynak notlardan yeniden yazıldı')}</span></div></div><div className="lesson-metadata"><span><Clock3 size={14}/> {tr('Yaklaşık {n} dk okuma', { n: readingMinutes(lesson) })}</span><span><List size={14}/> {tr('{n} konu başlığı', { n: lesson.sections.length })}</span>{diagramCount > 0 && <span>{tr('{n} açıklamalı şema', { n: diagramCount })}</span>}{video && <span><PlayCircle size={14}/> {tr('Video: {time}', { time: formatDuration(video.seconds) })}</span>}</div></div>
@@ -117,6 +150,7 @@ export default function LessonPage({ note, onPdf, onVideo, onBack, onNavigate, s
       <small>{tr('Proje için hazırlanmış çalışma rehberi · Hocanın sınav sorusu değildir. Şemalar sadeleştirilmiş ve ölçeksizdir.')}</small>
     </section>}
     <details className="mobile-toc" ref={tocDetails}><summary><List size={17}/> {tr('Bu derste neler var?')}<ChevronDown size={16}/></summary><nav aria-label={tr('Mobil içindekiler')}>{toc}</nav></details>
+    <div className="sheet-handle" role="separator" aria-label={tr('Konu metni panelini büyüt veya küçült')} aria-expanded={sheetOpen} onPointerDown={onSheetDown} onPointerMove={onSheetMove} onPointerUp={onSheetUp} onPointerCancel={onSheetUp}><GripHorizontal size={16}/><span>{sheetOpen ? tr('Konu anlatımı') : tr('Konu anlatımını çekmecede aç')}</span></div>
     <div className="lesson-layout"><aside className="lesson-toc"><div className="toc-sticky"><div className="eyebrow">{tr('İÇİNDEKİLER')}</div><nav aria-label={tr('Ders içindekiler')}>{toc}</nav><div className="toc-pdf"><FileText size={21}/><strong>{tr('Özgün kaynağa dön.')}</strong><p>{tr('Slaytların tamamı ve hocanın kullandığı şekiller PDF’de.')}</p><button onClick={() => onPdf(note)}>{tr('PDF’yi aç')} <ArrowUpRight size={15}/></button>{video && <>{' '}<div className="toc-video"><PlayCircle size={19}/><strong>{tr('Dinleyerek pekiştir.')}</strong><p>{tr('Bu dersin NotebookLM video anlatımı {time} sürüyor.', { time: formatDuration(video.seconds) })}</p><button onClick={() => onVideo(note)}>{tr('Videoyu aç')} <ArrowUpRight size={15}/></button></div></>}</div></div></aside>
       <article className="lesson-content" ref={content} dir="auto" aria-label={`${note.title} ${tr('KONU ANLATIMI')}`}><div className="lesson-scope"><span>{tr('DERSİN YOL HARİTASI')}</span><p>{lesson.scope}</p></div>
         {lesson.sections.map((section, i) => <section className="lesson-section" key={section.id}><div className="lesson-section-title"><span>{String(i + 1).padStart(2, '0')}</span><h2 id={`lesson-${section.id}`} tabIndex={-1}>{section.title}</h2></div>
@@ -132,9 +166,12 @@ export default function LessonPage({ note, onPdf, onVideo, onBack, onNavigate, s
           <ExamTeaching number={note.number} section={section.id} items={teachingIn(lang, note.number, teachingForSection(note.number, section.id))}/>
           {section.diagram && <InstructionalFigure diagramId={section.diagram} number={`${String(note.number).padStart(2, '0')}.${String(i + 1).padStart(2, '0')}`}/>}
           {section.callout && <aside className="lesson-callout"><span>{tr('AKLINDA KALSIN')}</span><p>{section.callout}</p></aside>}
+          {clinical[Math.floor(i / Math.max(1, Math.ceil(lesson.sections.length / clinical.length)))] && <aside className="clinical-note"><span>{tr('KLİNİK BAĞLANTI')}</span><p>{clinical[Math.floor(i / Math.max(1, Math.ceil(lesson.sections.length / clinical.length)))][clinicalLang]}</p><small>{tr('Eğitim amaçlıdır; klinik rehber değildir.')}</small></aside>}
           <div className="section-source"><FileText size={12}/><span>{section.source} · {tr('Kaynak konu aralığı')}</span></div>
         </section>)}
         <section className="glossary-section"><div className="lesson-section-title"><span>＋</span><h2 id="lesson-glossary" tabIndex={-1}>{tr('Küçük bir terim rehberi')}</h2></div><p>{tr('Bu derste karşılaştığın sözcüklere hızlı bir dönüş.')}</p><dl className="glossary-grid">{lesson.glossary.map(([term, definition]) => <div key={term}><dt>{term}</dt><dd>{definition}</dd></div>)}</dl></section>
+        {taTerms.length > 0 && <section className="ta-section"><div className="lesson-section-title"><span>TA</span><h2 id="lesson-ta" tabIndex={-1}>{tr('Terminologia Anatomica kartları')}</h2></div><p>{tr('Her Türkçe terimin yanında uluslararası Latince karşılığı. Yıldıza dokunursan terim tekrar defterine düşer.')}</p><ul className="ta-grid">{taTerms.map(term => <li key={term.la}><button className={`ta-star ${isFavorite(term.la) ? 'is-fav' : ''}`} aria-pressed={isFavorite(term.la)} aria-label={isFavorite(term.la) ? tr('Tekrar listesinden çıkar') : tr('Tekrar listesine ekle')} onClick={() => toggleFavorite(term)}><Star size={13} fill={isFavorite(term.la) ? 'currentColor' : 'none'}/></button><strong>{term.la}</strong><span>{term.tr}</span>{term.en && <em>{term.en}</em>}</li>)}</ul></section>}
+        {note.number >= 1 && <MiniTest number={note.number}/>}
         <section className="review-section"><div className="eyebrow">{tr('ÖĞRENDİKLERİNİ PEKİŞTİR')}</div><h2 id="lesson-review" tabIndex={-1}>{tr('Okudun. Peki, hatırlıyor musun?')}</h2><p>{tr('Önce kendin yanıtla, sonra cevabı aç. Bunlar konu anlatımı için hazırlanmış tekrar sorularıdır; hocanın sınav soruları değildir.')}</p>{lesson.review.map((item, i) => <details key={item.q}><summary><span>{String(i + 1).padStart(2, '0')}</span>{item.q}<ChevronDown size={17}/></summary><p>{item.a}</p></details>)}</section>
         {lessonQuizSets.length > 0 && <section className="lesson-quiz-bridge" aria-labelledby="lesson-quiz-heading">
           <div className="eyebrow">{tr('BU DERSİN SORULARI')}</div>
