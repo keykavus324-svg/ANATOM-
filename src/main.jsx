@@ -1,7 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import editionTokens from './editionTokens.json';
 import { createRoot } from 'react-dom/client';
-import { ArrowUpRight, ArrowRight, BookOpen, Bookmark, Library, LayoutGrid, Search, X, ChevronRight, ChevronLeft, ChevronDown, ExternalLink, GraduationCap, CircleHelp, Menu, PanelLeftClose, FileText, Check, CheckCircle2, Maximize2, Leaf, List, SlidersHorizontal, Mail, ShieldCheck, RotateCcw, Rotate3d, ClipboardCheck, Brain, PlayCircle, Timer } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, BookOpen, Bookmark, Library, LayoutGrid, Search, X, ChevronRight, ChevronLeft, ChevronDown, ExternalLink, GraduationCap, CircleHelp, Menu, PanelLeftClose, FileText, Check, CheckCircle2, Maximize2, Leaf, List, SlidersHorizontal, Mail, ShieldCheck, RotateCcw, Rotate3d, ClipboardCheck, Brain, PlayCircle, Timer, Star, MoonStar, SunMedium} from 'lucide-react';
+import TermSearch from './components/TermSearch';
+import SystemBar from './components/SystemBar';
+import ReviewPage from './ReviewPage';
+import { useFavorites } from './useFavorites.js';
+import './features.css';
 import '@fontsource/inter/latin-400.css';
 import '@fontsource/inter/latin-500.css';
 import '@fontsource/inter/latin-600.css';
