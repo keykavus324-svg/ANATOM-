@@ -52,7 +52,14 @@ test('6 additional instructional visuals exist with self-contained accessible le
     assert.match(svg, /viewBox="0 0 760 480"/);
     assert.match(svg, /<title id="title">/);
     assert.match(svg, /<desc id="description">/);
-    assert.doesNotMatch(svg, /<script|<image|<foreignObject|href=/);
+    // Raster exam plates embed their reviewed artwork as a base64 JPEG data-URI
+    // (same contract as the lesson plates); scripts, foreign objects and any
+    // remote reference stay banned.
+    assert.doesNotMatch(svg, /<script|<foreignObject/);
+    assert.doesNotMatch(svg, /href="https?:\/\//);
+    for (const tag of svg.matchAll(/<image[^>]*>/g)) {
+      assert.match(tag[0], /xlink:href="data:image\/jpeg;base64,[A-Za-z0-9+/=]+"/);
+    }
     assert.ok(figure.caption.length > 100);
     for (const label of figure.labels) assert.ok(svg.includes(label));
   }

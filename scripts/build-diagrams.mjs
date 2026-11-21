@@ -137,7 +137,7 @@ const escape=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>',
 // Diagrams that already ship as reviewed raster plates (art-src/<id>.png embedded by
 // scripts/build-quiz-plates.py) are left untouched here; their pin targets are owned
 // by the plate builder and carried over from diagramPins.js.
-const platedManifest=(()=>{try{return new Set(JSON.parse(readFileSync(new URL('../art-src/plated.json',import.meta.url),'utf8')));}catch{return new Set();}})();
+const platedManifest=(()=>{try{return new Set(JSON.parse(readFileSync(new URL('./plated-lessons.json',import.meta.url),'utf8')));}catch{return new Set();}})();
 const plated=id=>platedManifest.has(id);
 let written=0;
 for(const [id,definition] of Object.entries(diagrams)){

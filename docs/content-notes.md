@@ -294,3 +294,14 @@ Yalnız Sitede oku içeriğine `src/content/exam/` altında 42 özgün açıklam
 **forearm dördüncü kez reddedildi:** sol panelde yine üç kemik üredi. Sıradaki dalgada iki ayrı tek-konum görseli (yalnız supinasyon / yalnız pronasyon) üretilip kodda yan yana birleştirilecek; böylece kemik sayısı üretim değil kod garantisi olacak.
 
 **Doğrulama.** Her çizim kırpılmış 760×460 görünümde tek tek incelendi; pin halkaları `plate-shots` ile canlı plakada doğrulandı (aorta ve male-path örnekleri bu girdide). 121 birim testi yeşil; `diagramPins.js` 25 plaka ile eşitli.
+
+
+## 21 Kasım 2026 (4. ve son dalga): forearm çözüldü, 6 sınav haritası plakalaştı — %100 gerçekçi
+
+**forearm.** Tek görselde kemik sayısını tutturamayan üretim yerine iki ayrı tek-konum illüstrasyonu (yalnız supinasyon / yalnız pronasyon, her biri kesin iki kemik) üretilip `PIL` ile yan yana birleştirildi; kemik sayısı artık kod garantisi. Pinler: radius, ulna, distal radius (pronasyon panelinde).
+
+**Sınav haritaları.** `carpal-map` (8 karpal, palmar yerleşim), `distal-humerus` (ön/arka yüz + proksimal ulna insetsi), `cuff-map` (posterior+kostal scapula, başlangıç fossaları), `hyoid-map` (supra/infrahyoid gruplar + thyrohyoideus), `portal-map` (çift giriş–tek çıkış, hepatik arter dahil), `cortex-map` (central oluk, pre/postcentral bantlar, lateral sulkus) plakalaştı. Görüş alanı 760×480 sözleşmesi korundu.
+
+**Kalıcılık düzeltmesi.** Plaka bildirimi (`plated.json`) git-yoksayılan `art-src/` içindeydi; taze checkout'ta vektöre geri dönüş riski vardı. Bildirimler artık sürümlenen `scripts/plated-lessons.json` ve `scripts/plated-exam.json`; üç üretici de bunları okuyor.
+
+**Son durum.** 26/26 ders şekli + 6/6 sınav haritası + 7 quiz plakası = tüm görseller gerçekçi raster plaka. 121 birim testi yeşil (exam-teaching sözleşmesi plaka veri-URI'sine güncellendi), build 3.8 s.

@@ -263,6 +263,62 @@ LESSON_PINS = {
         (5, (640, 330), (425, 255)),
         (6, (80, 180), (185, 290)),
     ],
+    'forearm': [
+        (1, (35, 60), (72, 130)),
+        (2, (250, 40), (265, 130)),
+        (3, (450, 420), (555, 430)),
+    ],
+}
+
+EXAM_H = 480
+# n, label(x, y), target(x, y) in 760x480 exam-plate coordinates.
+EXAM_PINS = {
+    'carpal-map': [
+        (1, (110, 400), (270, 300)),
+        (2, (400, 440), (440, 330)),
+        (3, (680, 400), (540, 300)),
+        (4, (700, 220), (568, 268)),
+        (5, (80, 120), (180, 200)),
+        (6, (250, 60), (295, 180)),
+        (7, (450, 60), (405, 200)),
+        (8, (640, 80), (515, 200)),
+    ],
+    'distal-humerus': [
+        (1, (60, 150), (85, 315)),
+        (2, (250, 440), (185, 335)),
+        (3, (60, 80), (108, 265)),
+        (4, (300, 120), (162, 272)),
+        (5, (560, 120), (435, 275)),
+        (6, (680, 380), (688, 238)),
+    ],
+    'cuff-map': [
+        (1, (80, 60), (110, 115)),
+        (2, (80, 400), (150, 260)),
+        (3, (330, 420), (235, 260)),
+        (4, (660, 420), (600, 260)),
+        (5, (430, 60), (260, 105)),
+    ],
+    'hyoid-map': [
+        (1, (140, 80), (330, 140)),
+        (2, (640, 140), (420, 235)),
+        (3, (120, 400), (290, 330)),
+        (4, (640, 330), (365, 275)),
+    ],
+    'portal-map': [
+        (1, (120, 440), (420, 415)),
+        (2, (120, 300), (365, 330)),
+        (3, (110, 180), (330, 300)),
+        (4, (640, 140), (430, 170)),
+        (5, (620, 60), (370, 105)),
+        (6, (180, 60), (350, 45)),
+    ],
+    'cortex-map': [
+        (1, (300, 40), (372, 130)),
+        (2, (140, 60), (320, 160)),
+        (3, (560, 50), (430, 150)),
+        (4, (140, 400), (380, 270)),
+        (5, (660, 400), (640, 220)),
+    ],
 }
 
 
@@ -342,7 +398,7 @@ def sync_diagram_pins(targets):
             '// Coordinates are SVG viewBox space (760 × 460).\n'
             'export const diagramPins = ' + json.dumps(pins, separators=(',', ':')) + ';\n'
         )
-    with open(os.path.join(SRC, 'plated.json'), 'w', encoding='utf-8') as handle:
+    with open(os.path.join(ROOT, 'scripts', 'plated-lessons.json'), 'w', encoding='utf-8') as handle:
         handle.write(json.dumps(sorted(targets), indent=2) + '\n')
     print('diagramPins.js synced for', ', '.join(sorted(targets)))
 
@@ -387,3 +443,67 @@ for name, pins in PINS.items():
     with open(os.path.join(OUT, f'{name}.svg'), 'w', encoding='utf-8') as handle:
         handle.write(svg + '\n')
     print(f'{name}.svg: {len(svg) // 1024} KB, {len(pins)} pins')
+
+
+EXAM_OUT = os.path.join(ROOT, 'public', 'diagrams', 'exam')
+
+
+def exam_image(name):
+    """Cover-crop the reviewed artwork to the 760x480 exam plate ratio."""
+    im = Image.open(os.path.join(SRC, f'{name}.png')).convert('RGB')
+    w, h = im.size
+    ratio = 760 / EXAM_H
+    if w / h > ratio:
+        nw = int(h * ratio)
+        x = (w - nw) // 2
+        im = im.crop((x, 0, x + nw, h))
+    else:
+        nh = int(w / ratio)
+        y = (h - nh) // 2
+        im = im.crop((0, y, w, y + nh))
+    im = im.resize((1440, int(round(1440 / ratio))), Image.LANCZOS)
+    buffer = io.BytesIO()
+    im.save(buffer, format='JPEG', quality=82, optimize=True, progressive=True)
+    return base64.b64encode(buffer.getvalue()).decode('ascii')
+
+
+def exam_meta():
+    """Exam plate legends stay owned by src/content/exam/visuals.js."""
+    script = (
+        "import {examVisuals} from './src/content/exam/visuals.js';"
+        "console.log(JSON.stringify(examVisuals));"
+    )
+    out = subprocess.run(['node', '-e', script], cwd=ROOT, capture_output=True, check=True, text=True)
+    return json.loads(out.stdout)
+
+
+def build_exam_plates():
+    meta = exam_meta()
+    plated = []
+    for name, pins in EXAM_PINS.items():
+        if not os.path.exists(os.path.join(SRC, f'{name}.png')):
+            print(f'skip exam (no source in this checkout): {name}')
+            continue
+        data = exam_image(name)
+        markers = ''.join(pin(n, label, target) for n, label, target in pins)
+        figure = meta[name]
+        legend = ' '.join(f'{i + 1}. {escape(lb)}' for i, lb in enumerate(figure['labels']))
+        svg = (
+            '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
+            'viewBox="0 0 760 480" role="img" aria-labelledby="title description">'
+            f'<title id="title">{escape(figure["title"])}</title>'
+            f'<desc id="description">{escape(figure["caption"])} {legend}</desc>'
+            '<rect width="760" height="480" fill="#f8f4e9"/>'
+            f'<image x="0" y="0" width="760" height="480" xlink:href="data:image/jpeg;base64,{data}"/>'
+            f'<g>{markers}</g></svg>'
+        )
+        with open(os.path.join(EXAM_OUT, f'{name}.svg'), 'w', encoding='utf-8') as handle:
+            handle.write(svg + '\n')
+        plated.append(name)
+        print(f'exam/{name}.svg: {len(svg) // 1024} KB, {len(pins)} pins')
+    with open(os.path.join(ROOT, 'scripts', 'plated-exam.json'), 'w', encoding='utf-8') as handle:
+        handle.write(json.dumps(sorted(plated), indent=2) + '\n')
+    return plated
+
+
+build_exam_plates()
