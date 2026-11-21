@@ -1,4 +1,5 @@
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+const platedExam=(()=>{try{return new Set(JSON.parse(readFileSync(new URL('./plated-exam.json',import.meta.url),'utf8')));}catch{return new Set();}})();
 import { examVisuals } from '../src/content/exam/visuals.js';
 const esc = s => String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const text = (x,y,s,size=17,fill='#44563c') => `<text x="${x}" y="${y}" font-size="${size}" fill="${fill}" font-family="Arial,sans-serif">${esc(s)}</text>`;
@@ -35,8 +36,11 @@ drawings['cortex-map'] = text(35,43,'ANTERIOR / ÖN',16)+text(545,43,'POSTERIOR 
   `<path d="M95 270Q42 170 126 112Q205 49 335 76Q480 56 582 123Q692 179 663 281Q640 344 529 354L278 346Q148 361 95 270Z" fill="#e7dcc8" stroke="#78866b" stroke-width="3"/><path d="M300 90Q320 145 296 206L277 255L301 270L324 209Q349 147 328 84Z" fill="#c8917e"/><path d="M341 84Q365 150 337 212L318 270L345 268L363 216Q389 146 370 85Z" fill="#a5bd95"/><path d="M338 80Q365 144 333 210L310 273" fill="none" stroke="#556a49" stroke-width="5"/><path d="M151 275Q250 253 310 273Q391 283 488 267" fill="none" stroke="#6b795f" stroke-width="4"/><path d="M565 130Q535 233 567 335" fill="none" stroke="#b6ab91" stroke-width="2" stroke-dasharray="6 5"/>`+
   mark(430,74,1)+line(419,81,353,129)+mark(240,145,2)+line(252,147,304,153)+mark(438,153,3)+line(426,158,359,170)+mark(200,394,4)+line(207,381,231,267)+mark(630,232,5)+text(80,420,'Motor: oluğun önü',15)+text(350,420,'Somatik duyu: oluğun arkası',15)+text(80,450,'Bölgesel kavram haritası; birebir korteks konturu / alan sınırı değildir.',13);
 mkdirSync('public/diagrams/exam', {recursive:true});
+let written=0;
 for (const [id,figure] of Object.entries(examVisuals)) {
+ if(platedExam.has(id))continue;
+ written++;
  const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 480" width="760" height="480" role="img" aria-labelledby="title description"><title id="title">${esc(figure.title)}</title><desc id="description">${esc(figure.caption+' '+figure.labels.join(' '))}</desc><defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#667a55"/></marker></defs><rect width="760" height="480" fill="#f8f4e9"/>${drawings[id]}</svg>`;
  writeFileSync(`public/diagrams/exam/${id}.svg`,svg);
 }
-console.log('6 original exam teaching diagrams written.');
+console.log(`Wrote ${written} vector exam maps; ${platedExam.size} raster exam plates left to scripts/build-quiz-plates.py.`);

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Bookmark, Check, CheckCircle2, ChevronDown, Clock3, FileText, Languages, List, Minus, Plus, PlayCircle } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Bookmark, Check, CheckCircle2, ChevronDown, ClipboardCheck, Clock3, FileText, Languages, List, Minus, Plus, PlayCircle, Timer } from 'lucide-react';
 import { lessons, readingMinutes } from './lessons';
 import { notes } from './data';
 import { routeFromHash } from './routing';
@@ -12,13 +12,16 @@ import { teachingForLesson, teachingForSection } from './content/exam';
 import { lessonIn, guideIn, teachingIn, hasLessonTranslation, TRANSLATED_LESSONS } from './content/lessonI18n';
 import { useI18n, useLocalizedContent } from './i18n.jsx';
 import { videoForLesson, formatDuration } from './content/videos.js';
+import { quizSetsIn, quizQuestionsIn } from './content/quizI18n.js';
+import { setMastery } from './quizProgress';
+import { figureSrc } from './components/QuizQuestion.jsx';
 
 function ComparisonTable({ table, title }) {
   const { tr } = useI18n();
   return <div className="lesson-table-wrap"><table><caption>{title} — {tr('karşılaştırma')}</caption><thead><tr>{table.headers.map(h => <th key={h} scope="col">{h}</th>)}</tr></thead><tbody>{table.rows.map((row, j) => <tr key={j}>{row.map((cell, k) => k === 0 ? <th scope="row" key={k}>{cell}</th> : <td key={k}>{cell}</td>)}</tr>)}</tbody></table></div>;
 }
 
-export default function LessonPage({ note, onPdf, onVideo, onBack, onNavigate, saved, onSave, completed, onComplete }) {
+export default function LessonPage({ note, onPdf, onVideo, onBack, onNavigate, saved, onSave, completed, onComplete, onQuiz, onExam, quizHistory = [] }) {
   const { tr, isTurkish, lang } = useI18n();
   const { categoryLabel, notes: localizedNotes } = useLocalizedContent();
   const baseLesson = lessons[note.number];
@@ -30,6 +33,9 @@ export default function LessonPage({ note, onPdf, onVideo, onBack, onNavigate, s
   const translated = hasLessonTranslation(lang, note.number);
   const video = videoForLesson(note.number);
   const diagramCount = lesson.sections.filter(s => s.diagram).length + additionalTeaching.filter(item => item.visual).length;
+  // Every anatomy lesson has its own native quiz set; the source guide (lesson 0)
+  // and the sense-organ set stay outside this bridge.
+  const lessonQuizSets = quizSetsIn(lang).filter(set => set.lesson === note.number);
   const translatedCount = TRANSLATED_LESSONS[lang]?.length || 0;
   const [active, setActive] = useState(lesson.sections[0].id);
   const [progress, setProgress] = useState(0);
@@ -130,6 +136,32 @@ export default function LessonPage({ note, onPdf, onVideo, onBack, onNavigate, s
         </section>)}
         <section className="glossary-section"><div className="lesson-section-title"><span>＋</span><h2 id="lesson-glossary" tabIndex={-1}>{tr('Küçük bir terim rehberi')}</h2></div><p>{tr('Bu derste karşılaştığın sözcüklere hızlı bir dönüş.')}</p><dl className="glossary-grid">{lesson.glossary.map(([term, definition]) => <div key={term}><dt>{term}</dt><dd>{definition}</dd></div>)}</dl></section>
         <section className="review-section"><div className="eyebrow">{tr('ÖĞRENDİKLERİNİ PEKİŞTİR')}</div><h2 id="lesson-review" tabIndex={-1}>{tr('Okudun. Peki, hatırlıyor musun?')}</h2><p>{tr('Önce kendin yanıtla, sonra cevabı aç. Bunlar konu anlatımı için hazırlanmış tekrar sorularıdır; hocanın sınav soruları değildir.')}</p>{lesson.review.map((item, i) => <details key={item.q}><summary><span>{String(i + 1).padStart(2, '0')}</span>{item.q}<ChevronDown size={17}/></summary><p>{item.a}</p></details>)}</section>
+        {lessonQuizSets.length > 0 && <section className="lesson-quiz-bridge" aria-labelledby="lesson-quiz-heading">
+          <div className="eyebrow">{tr('BU DERSİN SORULARI')}</div>
+          <h2 id="lesson-quiz-heading" tabIndex={-1}>{tr('Okudun. Şimdi soruyla sına.')}</h2>
+          <p>{tr('Bu ders için yazılmış yerel quiz seti ve süre tutan sınav kâğıdı hazır. Yanıtlar ve ustalık kaydı yalnız bu cihazda saklanır.')}</p>
+          <div className="lesson-quiz-cards">{lessonQuizSets.map(set => {
+            const bank = quizQuestionsIn(lang, set.id);
+            const mastery = setMastery(quizHistory, set.id);
+            return <article className="lesson-quiz-card" key={set.id}>
+              <figure aria-hidden="true"><img src={figureSrc(set.diagram)} width="760" height="460" loading="lazy" alt=""/></figure>
+              <div className="lesson-quiz-copy">
+                <h3>{set.title}</h3>
+                <p>{set.description}</p>
+                <ul className="lesson-quiz-facts">
+                  <li><ClipboardCheck size={13}/> {tr('{n} soru', { n: bank.length })}</li>
+                  <li><FileText size={13}/> {tr('{n} şekilli soru', { n: bank.filter(item => item.figure).length })}</li>
+                  <li><Timer size={13}/> {mastery.mastery === null ? tr('Henüz çözülmedi') : tr('Ustalığın %{mastery}', { mastery: mastery.mastery })}</li>
+                </ul>
+                <div className="lesson-quiz-actions">
+                  <button className="primary-button" onClick={() => onQuiz(set)}>{tr('Adım adım çöz')} <ArrowRight size={15}/></button>
+                  <button className="lesson-quiz-exam" onClick={() => onExam(set.id)}><Timer size={15}/> {tr('Sınav modunda çöz')}</button>
+                </div>
+              </div>
+            </article>;
+          })}</div>
+          <p className="lesson-quiz-note">{tr('Karışık kâğıt tüm derslerden soru çeker; zayıf konu kâğıdı yalnız tekrar gereken konuları sorar.')} <button className="text-button" onClick={() => onExam('')}><Timer size={13}/> {tr('Karışık sınava gir')}</button></p>
+        </section>}
         <div className="lesson-completion"><div><CheckCircle2 size={25}/><span><strong>{tr('Bir konu daha, bir adım daha.')}</strong><small>{tr('Okundu durumu bu tarayıcıda saklanır.')}</small></span></div><button className={`complete-button ${completed ? 'completed' : ''}`} onClick={() => onComplete(note.id)}>{completed ? <CheckCircle2 size={17}/> : <Check size={17}/>} {completed ? tr('Okundu olarak işaretlendi') : tr('Okundu olarak işaretle')}</button></div>
         <div className="lesson-source-footer"><span>{tr('ÖZGÜN KAYNAK')}</span><p>{tr('Dr. Öğr. Gör. Bekir Dağdeviren')} · <button onClick={() => onPdf(note)}>{note.original} <ArrowUpRight size={13}/></button></p><small>{tr('Bu konu anlatımı kaynak notlar temel alınarak proje için yazılmıştır; hocanın birebir metni veya onayladığı bir yayın değildir. Sayfa referansları kaynak konuyu belirtir; açıklayıcı ek bilgiler ve düzeltmeler içerir. Konu içindeki numaralı şemalar proje için hazırlanmıştır; sadeleştirilmiştir ve ölçekli anatomik atlas çizimleri değildir. Yapay zekâ ile üretilmiş kapak görseli hocanın PDF’sinden alınmamıştır ve anatomik hata içerebilir. Eğitim amaçlıdır; klinik referans değildir.')}</small></div>
         <nav className="lesson-next-prev" aria-label={tr('Dersler arasında gezinme')}>{index > 0 ? <button onClick={() => onNavigate(bookNotes[index - 1])}><ArrowLeft size={18}/><span><small>{tr('ÖNCEKİ NOT')}</small>{bookNotes[index - 1].title}</span></button> : <button onClick={onBack}><ArrowLeft size={18}/><span><small>{tr('BAŞLANGIÇ NOKTAN')}</small>{tr('Ders kütüphanesi')}</span></button>}{index < bookNotes.length - 1 && <button onClick={() => onNavigate(bookNotes[index + 1])}><span><small>{tr('SONRAKİ NOT')}</small>{bookNotes[index + 1].title}</span><ArrowRight size={18}/></button>}</nav>

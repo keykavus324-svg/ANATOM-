@@ -12,7 +12,9 @@ Output: public/diagrams/quiz/<id>.svg (760x507 viewBox, 3:2 plate)
 """
 import base64
 import io
+import json
 import os
+import subprocess
 
 from PIL import Image
 
@@ -80,6 +82,327 @@ PINS = {
 }
 
 
+# Lesson diagrams that graduated from schematic vectors to reviewed raster plates.
+# Same contract as the quiz plates: targets are code-owned so every numbered label
+# can be audited in version control; the artwork itself lives in art-src/ (git-ignored)
+# and is embedded into the committed SVG.
+LESSON_OUT = os.path.join(ROOT, 'public', 'diagrams')
+LESSON_H = 460
+
+# n, label(x, y), target(x, y) in 760x460 lesson-plate coordinates.
+LESSON_PINS = {
+    'long-bone': [
+        (1, (150, 60), (360, 70)),
+        (2, (600, 50), (415, 40)),
+        (3, (620, 230), (362, 235)),
+        (4, (140, 170), (368, 175)),
+        (5, (610, 370), (375, 365)),
+        (6, (140, 300), (332, 230)),
+    ],
+    'growth-plate': [
+        (1, (90, 60), (150, 150)),
+        (2, (330, 420), (330, 200)),
+        (3, (480, 420), (400, 230)),
+        (4, (640, 80), (520, 200)),
+    ],
+    'synovial': [
+        (1, (120, 70), (330, 150)),
+        (2, (640, 60), (380, 210)),
+        (3, (110, 180), (287, 205)),
+        (4, (110, 320), (262, 150)),
+        (5, (640, 400), (505, 275)),
+    ],
+    'joint-motion': [
+        (1, (80, 420), (120, 290)),
+        (2, (660, 60), (580, 220)),
+        (3, (60, 150), (60, 297)),
+    ],
+    'foot-arch': [
+        (1, (80, 420), (130, 280)),
+        (2, (90, 90), (200, 180)),
+        (3, (330, 60), (320, 200)),
+        (4, (600, 90), (470, 260)),
+        (5, (560, 420), (300, 330)),
+    ],
+    'spine': [
+        (1, (560, 50), (390, 55)),
+        (2, (560, 160), (380, 160)),
+        (3, (560, 300), (390, 300)),
+        (4, (560, 400), (380, 385)),
+        (5, (200, 420), (365, 425)),
+    ],
+    'skull': [
+        (1, (120, 60), (255, 110)),
+        (2, (430, 35), (450, 70)),
+        (3, (680, 120), (585, 230)),
+        (4, (680, 300), (445, 250)),
+        (5, (90, 220), (255, 265)),
+        (6, (120, 420), (250, 390)),
+        (7, (300, 40), (330, 195)),
+    ],
+    'cavities': [
+        (1, (560, 60), (380, 60)),
+        (2, (560, 150), (400, 140)),
+        (3, (180, 190), (370, 190)),
+        (4, (180, 260), (372, 242)),
+        (5, (180, 360), (375, 320)),
+    ],
+    'planes': [
+        (1, (600, 40), (400, 40)),
+        (2, (120, 90), (300, 100)),
+        (3, (110, 240), (250, 220)),
+    ],
+    'muscle-bundle': [
+        (1, (90, 60), (150, 230)),
+        (2, (330, 420), (340, 260)),
+        (3, (500, 420), (490, 260)),
+        (4, (660, 80), (620, 250)),
+    ],
+    'antagonists': [
+        (1, (300, 60), (280, 200)),
+        (2, (90, 400), (200, 290)),
+        (3, (430, 430), (375, 350)),
+        (4, (660, 60), (640, 140)),
+    ],
+    'airways': [
+        (1, (560, 60), (380, 120)),
+        (2, (240, 60), (352, 205)),
+        (3, (520, 120), (408, 205)),
+        (4, (120, 250), (240, 250)),
+        (5, (640, 250), (510, 250)),
+    ],
+    'diaphragm': [
+        (1, (140, 150), (330, 200)),
+        (2, (140, 300), (380, 260)),
+        (3, (560, 90), (300, 130)),
+        (4, (600, 330), (430, 320)),
+    ],
+    'neuron': [
+        (1, (80, 40), (120, 120)),
+        (2, (80, 300), (175, 225)),
+        (3, (300, 400), (250, 228)),
+        (4, (430, 80), (430, 228)),
+        (5, (660, 400), (690, 220)),
+    ],
+    'spinal-roots': [
+        (1, (640, 80), (500, 200)),
+        (2, (640, 420), (440, 280)),
+        (3, (700, 265), (585, 265)),
+        (4, (560, 430), (620, 320)),
+        (5, (120, 60), (380, 210)),
+    ],
+    'meninges': [
+        (1, (660, 120), (560, 185)),
+        (2, (120, 80), (300, 195)),
+        (3, (90, 220), (380, 215)),
+        (4, (120, 360), (250, 250)),
+        (5, (430, 430), (300, 330)),
+    ],
+    'alveolus': [
+        (1, (380, 60), (380, 120)),
+        (2, (90, 90), (250, 285)),
+        (3, (640, 400), (430, 320)),
+        (4, (640, 60), (430, 200)),
+        (5, (100, 400), (600, 300)),
+    ],
+    'heart-flow': [
+        (1, (110, 120), (320, 265)),
+        (2, (170, 50), (380, 70)),
+        (3, (620, 120), (430, 240)),
+        (4, (680, 380), (615, 250)),
+    ],
+    'aorta': [
+        (1, (150, 80), (350, 140)),
+        (2, (600, 60), (400, 100)),
+        (3, (650, 120), (455, 145)),
+        (4, (620, 300), (405, 280)),
+        (5, (150, 400), (395, 390)),
+    ],
+    'digestive-tract': [
+        (1, (150, 50), (378, 50)),
+        (2, (640, 60), (440, 110)),
+        (3, (140, 150), (330, 175)),
+        (4, (660, 250), (400, 270)),
+        (5, (120, 380), (285, 345)),
+        (6, (640, 150), (480, 220)),
+        (7, (600, 400), (385, 400)),
+    ],
+    'tooth': [
+        (1, (150, 60), (330, 90)),
+        (2, (120, 150), (310, 150)),
+        (3, (620, 120), (400, 170)),
+        (4, (120, 330), (320, 300)),
+        (5, (620, 400), (390, 395)),
+    ],
+    'villus': [
+        (1, (110, 80), (300, 140)),
+        (2, (120, 300), (345, 260)),
+        (3, (620, 120), (385, 190)),
+        (4, (640, 400), (400, 400)),
+    ],
+    'portal': [
+        (1, (110, 120), (250, 330)),
+        (2, (660, 420), (440, 350)),
+        (3, (660, 250), (400, 240)),
+        (4, (120, 60), (330, 110)),
+        (5, (620, 60), (440, 50)),
+    ],
+    'uterus': [
+        (1, (90, 90), (170, 185)),
+        (2, (250, 40), (250, 110)),
+        (3, (620, 80), (390, 140)),
+        (4, (640, 180), (450, 175)),
+        (5, (620, 330), (395, 320)),
+        (6, (600, 420), (385, 400)),
+    ],
+    'male-path': [
+        (1, (110, 420), (300, 345)),
+        (2, (120, 60), (320, 105)),
+        (3, (660, 90), (495, 160)),
+        (4, (660, 240), (415, 215)),
+        (5, (640, 330), (425, 255)),
+        (6, (80, 180), (185, 290)),
+    ],
+    'forearm': [
+        (1, (35, 60), (72, 130)),
+        (2, (250, 40), (265, 130)),
+        (3, (450, 420), (555, 430)),
+    ],
+}
+
+EXAM_H = 480
+# n, label(x, y), target(x, y) in 760x480 exam-plate coordinates.
+EXAM_PINS = {
+    'carpal-map': [
+        (1, (110, 400), (270, 300)),
+        (2, (400, 440), (440, 330)),
+        (3, (680, 400), (540, 300)),
+        (4, (700, 220), (568, 268)),
+        (5, (80, 120), (180, 200)),
+        (6, (250, 60), (295, 180)),
+        (7, (450, 60), (405, 200)),
+        (8, (640, 80), (515, 200)),
+    ],
+    'distal-humerus': [
+        (1, (60, 150), (85, 315)),
+        (2, (250, 440), (185, 335)),
+        (3, (60, 80), (108, 265)),
+        (4, (300, 120), (162, 272)),
+        (5, (560, 120), (435, 275)),
+        (6, (680, 380), (688, 238)),
+    ],
+    'cuff-map': [
+        (1, (80, 60), (110, 115)),
+        (2, (80, 400), (150, 260)),
+        (3, (330, 420), (235, 260)),
+        (4, (660, 420), (600, 260)),
+        (5, (430, 60), (260, 105)),
+    ],
+    'hyoid-map': [
+        (1, (140, 80), (330, 140)),
+        (2, (640, 140), (420, 235)),
+        (3, (120, 400), (290, 330)),
+        (4, (640, 330), (365, 275)),
+    ],
+    'portal-map': [
+        (1, (120, 440), (420, 415)),
+        (2, (120, 300), (365, 330)),
+        (3, (110, 180), (330, 300)),
+        (4, (640, 140), (430, 170)),
+        (5, (620, 60), (370, 105)),
+        (6, (180, 60), (350, 45)),
+    ],
+    'cortex-map': [
+        (1, (300, 40), (372, 130)),
+        (2, (140, 60), (320, 160)),
+        (3, (560, 50), (430, 150)),
+        (4, (140, 400), (380, 270)),
+        (5, (660, 400), (640, 220)),
+    ],
+}
+
+
+def lesson_image(name):
+    """Cover-crop the reviewed artwork to the 760x460 lesson plate ratio."""
+    im = Image.open(os.path.join(SRC, f'{name}.png')).convert('RGB')
+    w, h = im.size
+    ratio = 760 / LESSON_H
+    if w / h > ratio:
+        nw = int(h * ratio)
+        x = (w - nw) // 2
+        im = im.crop((x, 0, x + nw, h))
+    else:
+        nh = int(w / ratio)
+        y = (h - nh) // 2
+        im = im.crop((0, y, w, y + nh))
+    im = im.resize((1440, int(1440 / ratio)), Image.LANCZOS)
+    buffer = io.BytesIO()
+    im.save(buffer, format='JPEG', quality=82, optimize=True, progressive=True)
+    return base64.b64encode(buffer.getvalue()).decode('ascii')
+
+
+def lesson_meta():
+    """Title/caption/legend text stays owned by src/content/diagrams.js so the plate
+    and the vector pipeline can never drift apart."""
+    script = (
+        "import {diagrams} from './src/content/diagrams.js';"
+        "console.log(JSON.stringify(Object.fromEntries(Object.entries(diagrams)"
+        ".map(([id, d]) => [id, {title: d.title, caption: d.caption, labels: d.labels.map(l => [l.name, l.text])}]))));"
+    )
+    out = subprocess.run(['node', '-e', script], cwd=ROOT, capture_output=True, check=True, text=True)
+    return json.loads(out.stdout)
+
+
+def escape(text):
+    return text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+
+
+def build_lesson_plates():
+    meta = lesson_meta()
+    targets = {}
+    for name, pins in LESSON_PINS.items():
+        data = lesson_image(name)
+        markers = ''.join(pin(n, label, target) for n, label, target in pins)
+        figure = meta[name]
+        legend = ' '.join(f'{i + 1}. {escape(nm)}: {escape(tx)}' for i, (nm, tx) in enumerate(figure['labels']))
+        svg = (
+            '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
+            'viewBox="0 0 760 460" width="760" height="460" role="img" aria-labelledby="title description">'
+            f'<title id="title">{escape(figure["title"])}</title>'
+            f'<desc id="description">{escape(figure["caption"])} {legend}</desc>'
+            f'<rect width="760" height="{LESSON_H}" fill="#f4ead2"/>'
+            f'<image x="0" y="0" width="760" height="{LESSON_H}" xlink:href="data:image/jpeg;base64,{data}"/>'
+            f'<g>{markers}</g></svg>'
+        )
+        with open(os.path.join(LESSON_OUT, f'{name}.svg'), 'w', encoding='utf-8') as handle:
+            handle.write(svg + '\n')
+        targets[name] = [[tx, ty] for _n, _label, (tx, ty) in pins]
+        print(f'{name}.svg: {len(svg) // 1024} KB, {len(pins)} pins')
+    return targets
+
+
+def sync_diagram_pins(targets):
+    """Keep src/content/diagramPins.js (ResearchLens overlay) on the plate targets."""
+    path = os.path.join(ROOT, 'src', 'content', 'diagramPins.js')
+    with open(path, encoding='utf-8') as handle:
+        source = handle.read()
+    import json
+    body = source[source.index('{'):source.rindex('}') + 1]
+    pins = json.loads(body)
+    for name, coords in targets.items():
+        pins[name] = coords
+    with open(path, 'w', encoding='utf-8') as handle:
+        handle.write(
+            '// Lesson plates: targets for raster plates come from scripts/build-quiz-plates.py;\n'
+            '// remaining vector diagrams keep the coordinates from scripts/build-diagrams.mjs.\n'
+            '// Coordinates are SVG viewBox space (760 × 460).\n'
+            'export const diagramPins = ' + json.dumps(pins, separators=(',', ':')) + ';\n'
+        )
+    with open(os.path.join(ROOT, 'scripts', 'plated-lessons.json'), 'w', encoding='utf-8') as handle:
+        handle.write(json.dumps(sorted(targets), indent=2) + '\n')
+    print('diagramPins.js synced for', ', '.join(sorted(targets)))
+
+
 def plate_image(name):
     im = Image.open(os.path.join(SRC, f'{name}.png')).convert('RGB')
     im = im.resize((1440, 960), Image.LANCZOS)
@@ -99,12 +422,20 @@ def pin(n, label, target):
     )
 
 
+build_lesson_plates_targets = build_lesson_plates()
+sync_diagram_pins(build_lesson_plates_targets)
+
 for name, pins in PINS.items():
+    # The quiz plate sources are reviewed offline; in checkouts without art-src/
+    # the committed plates stay as they are instead of failing the build.
+    if not os.path.exists(os.path.join(SRC, f'{name}.png')):
+        print(f'skip (no source in this checkout): {name}')
+        continue
     data = plate_image(name)
     markers = ''.join(pin(n, label, target) for n, label, target in pins)
     svg = (
         '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
-        'viewBox="0 0 760 507" role="img" aria-label="Numaralı anatomi plakası">'
+        'viewBox="0 0 760 507" width="760" height="507" role="img" aria-label="Numaralı anatomi plakası">'
         f'<rect width="760" height="507" fill="#f4ead2"/>'
         f'<image x="0" y="0" width="760" height="507" xlink:href="data:image/jpeg;base64,{data}"/>'
         f'<g>{markers}</g></svg>'
@@ -112,3 +443,67 @@ for name, pins in PINS.items():
     with open(os.path.join(OUT, f'{name}.svg'), 'w', encoding='utf-8') as handle:
         handle.write(svg + '\n')
     print(f'{name}.svg: {len(svg) // 1024} KB, {len(pins)} pins')
+
+
+EXAM_OUT = os.path.join(ROOT, 'public', 'diagrams', 'exam')
+
+
+def exam_image(name):
+    """Cover-crop the reviewed artwork to the 760x480 exam plate ratio."""
+    im = Image.open(os.path.join(SRC, f'{name}.png')).convert('RGB')
+    w, h = im.size
+    ratio = 760 / EXAM_H
+    if w / h > ratio:
+        nw = int(h * ratio)
+        x = (w - nw) // 2
+        im = im.crop((x, 0, x + nw, h))
+    else:
+        nh = int(w / ratio)
+        y = (h - nh) // 2
+        im = im.crop((0, y, w, y + nh))
+    im = im.resize((1440, int(round(1440 / ratio))), Image.LANCZOS)
+    buffer = io.BytesIO()
+    im.save(buffer, format='JPEG', quality=82, optimize=True, progressive=True)
+    return base64.b64encode(buffer.getvalue()).decode('ascii')
+
+
+def exam_meta():
+    """Exam plate legends stay owned by src/content/exam/visuals.js."""
+    script = (
+        "import {examVisuals} from './src/content/exam/visuals.js';"
+        "console.log(JSON.stringify(examVisuals));"
+    )
+    out = subprocess.run(['node', '-e', script], cwd=ROOT, capture_output=True, check=True, text=True)
+    return json.loads(out.stdout)
+
+
+def build_exam_plates():
+    meta = exam_meta()
+    plated = []
+    for name, pins in EXAM_PINS.items():
+        if not os.path.exists(os.path.join(SRC, f'{name}.png')):
+            print(f'skip exam (no source in this checkout): {name}')
+            continue
+        data = exam_image(name)
+        markers = ''.join(pin(n, label, target) for n, label, target in pins)
+        figure = meta[name]
+        legend = ' '.join(f'{i + 1}. {escape(lb)}' for i, lb in enumerate(figure['labels']))
+        svg = (
+            '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
+            'viewBox="0 0 760 480" width="760" height="480" role="img" aria-labelledby="title description">'
+            f'<title id="title">{escape(figure["title"])}</title>'
+            f'<desc id="description">{escape(figure["caption"])} {legend}</desc>'
+            '<rect width="760" height="480" fill="#f8f4e9"/>'
+            f'<image x="0" y="0" width="760" height="480" xlink:href="data:image/jpeg;base64,{data}"/>'
+            f'<g>{markers}</g></svg>'
+        )
+        with open(os.path.join(EXAM_OUT, f'{name}.svg'), 'w', encoding='utf-8') as handle:
+            handle.write(svg + '\n')
+        plated.append(name)
+        print(f'exam/{name}.svg: {len(svg) // 1024} KB, {len(pins)} pins')
+    with open(os.path.join(ROOT, 'scripts', 'plated-exam.json'), 'w', encoding='utf-8') as handle:
+        handle.write(json.dumps(sorted(plated), indent=2) + '\n')
+    return plated
+
+
+build_exam_plates()

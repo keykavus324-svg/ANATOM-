@@ -35,3 +35,28 @@
 
 /* Long Latin compounds must remain readable even at 320px and 20px type. */
 .lesson-content{overflow-wrap:anywhere}
+
+/* Lesson → native quiz bridge. Same paper language as .visual-study; the exam
+   shortcut is styled here because quiz.css only loads with the quiz pages. */
+.lesson-quiz-bridge{padding:28px;margin:24px 0 32px;background:#f1efe4;border:1px solid #d8ddcc;border-radius:12px;color:#58664c}
+.lesson-quiz-bridge>.eyebrow{font-size:8px;letter-spacing:1.6px;color:#8b5e53;font-weight:600}
+.lesson-quiz-bridge h2{font-family:var(--serif);font-size:34px;line-height:1.15;margin:12px 0 8px;color:#3f4a37}
+.lesson-quiz-bridge>p{font-size:13px;line-height:1.8;max-width:88ch}
+.lesson-quiz-cards{display:grid;gap:16px;margin:22px 0 4px}
+.lesson-quiz-card{display:grid;grid-template-columns:230px minmax(0,1fr);gap:0;background:#faf8f0;border:1px solid #dfe3d2;border-radius:10px;overflow:hidden}
+.lesson-quiz-card figure{margin:0;background:#e9e7da;min-width:0}
+.lesson-quiz-card img{width:100%;height:100%;min-height:150px;object-fit:cover;display:block}
+.lesson-quiz-copy{padding:16px 18px;min-width:0}
+.lesson-quiz-copy h3{font-family:var(--serif);font-size:22px;line-height:1.25;margin-bottom:6px;color:#3f4a37}
+.lesson-quiz-copy>p{font-size:12px;line-height:1.75;color:#6a7560}
+.lesson-quiz-facts{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:12px 0 14px}
+.lesson-quiz-facts li{display:flex;align-items:center;gap:6px;font-size:11px;padding:6px 10px;background:#eeeee3;border:1px solid #dfe3d2;border-radius:999px;color:#5b6a50}
+.lesson-quiz-facts svg{flex-shrink:0}
+.lesson-quiz-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.lesson-quiz-exam{display:inline-flex;align-items:center;gap:7px;padding:11px 16px;border:1px solid #c9a49b;border-radius:999px;background:#fdf8f6;color:#8b5e53;font-size:12px;font-weight:600;cursor:pointer}
+.lesson-quiz-exam:hover{background:#f7ece8;border-color:#ae5952}
+.lesson-quiz-exam:focus-visible,.lesson-quiz-bridge .text-button:focus-visible{outline:2px solid #65774f;outline-offset:3px}
+.lesson-quiz-note{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:11px;line-height:1.7;margin-top:14px;color:#6a7560}
+.lesson-quiz-note .text-button{display:inline-flex;align-items:center;gap:5px;color:#8b5e53;font-size:11px;font-weight:600}
+@media(max-width:700px){.lesson-quiz-bridge{padding:18px}.lesson-quiz-bridge h2{font-size:27px}.lesson-quiz-bridge>p{font-size:12px}.lesson-quiz-card{grid-template-columns:minmax(0,1fr)}.lesson-quiz-card figure{height:150px}.lesson-quiz-card img{min-height:150px}.lesson-quiz-copy{padding:14px}.lesson-quiz-copy h3{font-size:19px}.lesson-quiz-actions>button{flex:1 1 auto;justify-content:center}}
+@media(max-width:400px){.lesson-quiz-facts li{font-size:10px;padding:5px 8px}.lesson-quiz-bridge h2{font-size:24px}}

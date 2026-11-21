@@ -18,15 +18,18 @@ test('every quiz set and question has an English and an Arabic version', () => {
   assert.deepEqual([...TRANSLATED_QUIZ.ar].sort(), [...questionIds].sort());
 });
 
-test('translated quiz sets keep their ids and diagrams', () => {
+test('translated quiz sets keep their ids, diagrams, lessons and categories', () => {
   for (const lang of ['en', 'ar']) {
     const sets = quizSetsIn(lang);
     assert.deepEqual(sets.map(set => set.id), setIds);
+    assert.equal(sets.length, 12);
     sets.forEach((set, i) => {
       assert.notEqual(set.title, quizSets[i].title, `${lang} ${set.id} title is untranslated`);
       assert.notEqual(set.description, quizSets[i].description, `${lang} ${set.id} description is untranslated`);
       assert.equal(set.diagram, quizSets[i].diagram);
       assert.equal(set.lesson, quizSets[i].lesson);
+      assert.equal(set.category, quizSets[i].category);
+      assert.notEqual(set.keywords, quizSets[i].keywords, `${lang} ${set.id} keywords`);
     });
     assert.equal(findQuizSetIn(lang, 'kas').title, sets.find(set => set.id === 'kas').title);
   }
@@ -41,7 +44,11 @@ test('translated questions keep the option order and the correct index', () => {
       merged.forEach((question, i) => {
         assert.equal(question.id, base[i].id);
         assert.equal(question.options.length, base[i].options.length, `${lang} ${question.id} option count`);
-        assert.equal(question.correct, base[i].correct, `${lang} ${question.id} correct index`);
+        // `correct` is an index for single-answer shapes, a list for multi-select and
+        // null for ordering questions, whose canonical order is the option list itself.
+        assert.deepEqual(question.correct, base[i].correct, `${lang} ${question.id} correct index`);
+        assert.equal(question.type, base[i].type, `${lang} ${question.id} answer shape`);
+        assert.equal(question.figure, base[i].figure, `${lang} ${question.id} figure key`);
         assert.notEqual(question.text, base[i].text, `${lang} ${question.id} question text`);
         assert.notEqual(question.why, base[i].why, `${lang} ${question.id} explanation`);
         assert.notEqual(question.topic, base[i].topic, `${lang} ${question.id} topic`);
