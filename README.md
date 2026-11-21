@@ -102,7 +102,7 @@ Site, Muhammet TUĞRUL’un kendi yayımladığı **TUĞRUL ATLAS — İnterakti
 - Konu filtreleri, sıralama, kart ve liste görünümü.
 - Masaüstü ve mobil içindekiler; uzun derslerde kaydırılabilir konu listesi ve ayrıntılı alt başlıklara odaklanarak geçiş.
 - Yazı boyutu ayarı, okuma ilerlemesi, terim kartları ve açılır cevaplar.
-- 26 yerel SVG: kesitler, hareket modelleri ve akış haritaları; metin olarak okunabilen numaralı açıklamalar.
+- 26 yerel ders şekli: gözden geçirilmiş gerçekçi anatomi plakaları (SVG içine gömülü raster) ve ilişki şemaları (vektör); numaralı açıklamalar metin olarak da okunabilir.
 - Şemalarda büyütme, %100–200 yakınlaştırma, mobil kaydırma, odak sınırlandırma ve Escape ile okuyucuya dönüş.
 - `/#/ders/0` … `/#/ders/11` adresleri; yenileme, geri/ileri gezinme.
 - Web ve PDF arasında ortak kaydetme ve okundu durumu.
@@ -186,7 +186,7 @@ npm run build
 
 UI testleri 5175 portunda ayrı Vite sunucusu açıp kapatır. Kısıtlı Linux ortamında `@sparticuz/chromium` ve `tar` kullanılır; geçici dosyalar `.playwright/` içinde tutulur. Standart Playwright kurulumunda `npx playwright test` de kullanılabilir.
 
-Yeni şekilleri yeniden üretmek için `node scripts/build-diagrams.mjs` çalıştırılır. Çıktılar `public/diagrams/` içinde sürümlenir; ağ veya görsel üretim servisi gerekmez.
+Şekilleri yeniden üretmek için `python3 scripts/build-quiz-plates.py` (raster plakalar) ve `node scripts/build-diagrams.mjs` (vektör şemalar) çalıştırılır. Plaka kaynak illüstrasyonları git dışında `art-src/` içinde tutulur; numaralı pin hedefleri kodda sabittir (`scripts/build-quiz-plates.py` ve `src/content/diagramPins.js`), böylece etiket hedefleri sürüm kontrolünde denetlenebilir. Çıktılar `public/diagrams/` içinde sürümlenir; çalışma anında ağ veya görsel üretimi gerekmez. Plakalar gerçekçi öğretim çizimleridir: ölçeksizdir, atlas veya ders kitabı yerine geçmez.
 
 Testler her anatomi bölümündeki ayrıntılı anlatımın varlığını ve kaynak-konu eşleşmesini, alt başlıklara masaüstü/mobil erişimi, 26 şemanın yüklenmesini, büyütme ve odak döngüsünü, mobil şekil taşmalarını, yazılmış derslerin varsayılan açılmasını, slayt isteklerinin olmamasını, daha önce eksik olan kas/sindirim/sinir başlıklarını, kaynak sayfa sınırlarını, PDF geçişini, klavye odağını, font/kaydetme/okundu durumunu ve 320/390/768 piksel genişlikleri kontrol eder. PDF iframe gerektiğinde fixture ile taklit edilir; test başarısı anonim Drive erişimi veya tıbbi denetim anlamına gelmez.
 

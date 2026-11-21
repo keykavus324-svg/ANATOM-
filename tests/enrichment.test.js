@@ -42,7 +42,10 @@ test('26 original local diagrams are attached to relevant lessons with complete 
     assert.match(svg, /viewBox="0 0 760 460"/);
     assert.match(svg, /<title id="title">/);
     assert.match(svg, /<desc id="description">/);
-    assert.doesNotMatch(svg, /<script|<foreignObject|<image|href="https?:/);
+    assert.doesNotMatch(svg, /<script|<foreignObject|href="https?:/);
+    // Reviewed raster plates embed their artwork as a self-contained base64 data URI
+    // (same contract as public/diagrams/quiz/); anything remote is still rejected.
+    if (svg.includes('<image')) assert.match(svg, /<image[^>]*xlink:href="data:image\/jpeg;base64,/);
     figure.labels.forEach((label, i) => {
       assert.ok(label.name && label.text.length > 20);
       assert.ok(svg.includes(`${i + 1}. ${label.name}:`), `${id} legend ${i + 1}`);

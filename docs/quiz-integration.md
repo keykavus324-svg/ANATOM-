@@ -18,6 +18,7 @@
 ## Şekiller
 
 - `src/content/quizDiagrams.js` (meta) + `scripts/build-quiz-diagrams.mjs` ve `scripts/build-quiz-plates.py` (geometri/plaka) → `public/diagrams/quiz/*.svg`. Yedi plaka (vertebra, sarcomere, heart, nephron, eye, ear, brain) projeye ait öğretim çizimleridir; ölçeksizdir ve ders şekilleriyle aynı kâğıt/pin dilini kullanır.
+- Ders şekilleri (`public/diagrams/*.svg`) iki katmandan oluşur: gözden geçirilmiş gerçekçi anatomi plakaları (kaynak illüstrasyon `art-src/<id>.png`, SVG içine base64 gömülü; `scripts/build-quiz-plates.py` üretir, pin hedefleri aynı dosyada kodla sabitlenir ve `src/content/diagramPins.js` eşitlenir) ve henüz plakalaşmamış ilişki şemaları (`scripts/build-diagrams.mjs` vektör). Hangi id'lerin plaka olduğu `art-src/plated.json` bildiriminde durur; vektör üreteci bu id'leri yeniden yazmaz.
 - Soru şekilleri `figureSrc()` ile çözülür: önce `diagrams/quiz/<id>.svg`, yoksa `diagrams/<id>.svg`. Dosya adları diller arasında aynı kalır; yalnız meta veri (başlık, görünüş, alt yazı, etiketler) çevrilir.
 
 ## Motor
