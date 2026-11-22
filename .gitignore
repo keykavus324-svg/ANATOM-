@@ -13,3 +13,8 @@ google_drive/
 # Quiz plate source illustrations: reproducible sources kept out of git;
 # the compiled plates (public/diagrams/quiz/*.svg) embed the imagery.
 art-src/
+
+# Android release signing keys must never be committed
+*.keystore
+*.jks
+

@@ -1,0 +1,195 @@
+name: Build & Publish Android APK
+
+on:
+  push:
+    branches: [main, 'arena/**']
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      version_name:
+        description: 'Release version (e.g. 1.0.0)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android-apk-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Setup Gradle cache
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit and content tests
+        run: npm test
+
+      - name: Determine release version
+        id: version
+        run: |
+          PKG_VER=$(node -p "require('./package.json').version")
+          if [ -n "${{ github.event.inputs.version_name }}" ]; then
+            VER="${{ github.event.inputs.version_name }}"
+          elif [[ "${{ github.ref }}" == refs/tags/v* ]]; then
+            VER="${GITHUB_REF#refs/tags/v}"
+          else
+            VER="$PKG_VER"
+          fi
+          CODE=$((100 + ${{ github.run_number }}))
+          echo "name=$VER" >> "$GITHUB_OUTPUT"
+          echo "tag=v$VER" >> "$GITHUB_OUTPUT"
+          echo "code=$CODE" >> "$GITHUB_OUTPUT"
+          echo "Building ANATOMİ APK v$VER (versionCode=$CODE)"
+
+      - name: Build Capacitor web bundle and sync Android project
+        run: npm run build:mobile
+
+      - name: Accept Android SDK licenses
+        run: |
+          if [ -n "$ANDROID_HOME" ] && [ -x "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" ]; then
+            yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null 2>&1 || true
+          fi
+
+      - name: Prepare APK release signing key
+        id: signing
+        env:
+          KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KEYSTORE_PASS: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASS: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          KEYSTORE_FILE="$RUNNER_TEMP/anatomi-release.keystore"
+          if [ -n "$KEYSTORE_B64" ]; then
+            echo "$KEYSTORE_B64" | base64 -d > "$KEYSTORE_FILE"
+            echo "password=$KEYSTORE_PASS" >> "$GITHUB_OUTPUT"
+            echo "alias=$KEY_ALIAS" >> "$GITHUB_OUTPUT"
+            echo "key_password=$KEY_PASS" >> "$GITHUB_OUTPUT"
+          else
+            PASS="anatomi-release-2026"
+            ALIAS="anatomi"
+            keytool -genkeypair -v \
+              -keystore "$KEYSTORE_FILE" \
+              -storepass "$PASS" \
+              -keypass "$PASS" \
+              -alias "$ALIAS" \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -dname "CN=ANATOMI, OU=Mobile, O=Anatomi Akademik Atlas, L=Elazig, C=TR"
+            echo "password=$PASS" >> "$GITHUB_OUTPUT"
+            echo "alias=$ALIAS" >> "$GITHUB_OUTPUT"
+            echo "key_password=$PASS" >> "$GITHUB_OUTPUT"
+          fi
+          echo "path=$KEYSTORE_FILE" >> "$GITHUB_OUTPUT"
+
+      - name: Build signed Release APK
+        working-directory: android
+        env:
+          ANDROID_VERSION_NAME: ${{ steps.version.outputs.name }}
+          ANDROID_VERSION_CODE: ${{ steps.version.outputs.code }}
+          ANDROID_KEYSTORE_PATH: ${{ steps.signing.outputs.path }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ steps.signing.outputs.password }}
+          ANDROID_KEY_ALIAS: ${{ steps.signing.outputs.alias }}
+          ANDROID_KEY_PASSWORD: ${{ steps.signing.outputs.key_password }}
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleRelease --no-daemon
+
+      - name: Verify and package APK artifacts
+        id: package
+        run: |
+          mkdir -p release-apk
+          RAW_APK="android/app/build/outputs/apk/release/app-release.apk"
+          if [ ! -f "$RAW_APK" ]; then
+            echo "Expected signed release APK not found at $RAW_APK"
+            ls -la android/app/build/outputs/apk/release/ || true
+            exit 1
+          fi
+
+          APKSIGNER=$(find "$ANDROID_HOME/build-tools" -name apksigner 2>/dev/null | sort -V | tail -n 1 || true)
+          if [ -n "$APKSIGNER" ]; then
+            "$APKSIGNER" verify --verbose "$RAW_APK"
+          fi
+
+          VER="${{ steps.version.outputs.name }}"
+          cp "$RAW_APK" "release-apk/ANATOMI.apk"
+          cp "$RAW_APK" "release-apk/ANATOMI-v${VER}.apk"
+          (cd release-apk && sha256sum "ANATOMI-v${VER}.apk" > "ANATOMI-v${VER}.apk.sha256")
+          SIZE_MB=$(du -h "release-apk/ANATOMI.apk" | cut -f1)
+          echo "size=$SIZE_MB" >> "$GITHUB_OUTPUT"
+          ls -lh release-apk/
+
+      - name: Upload APK workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ANATOMI-Android-APK-v${{ steps.version.outputs.name }}
+          path: release-apk/*
+          retention-days: 90
+
+      - name: Publish GitHub Release with downloadable APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${{ steps.version.outputs.tag }}"
+          VER="${{ steps.version.outputs.name }}"
+          SIZE="${{ steps.package.outputs.size }}"
+
+          cat <<EOF > release-notes.md
+          ## 📱 ANATOMİ Android Mobil Uygulaması — v${VER}
+
+          Akademik anatomi ders kütüphanesi, gerçekçi plakalar, Latince–Türkçe anlık terim arama, 120 özgün quiz sorusu, sınav simülasyonu, 3D anatomi atlası ve 3 düzlemli MR kesit laboratuvarı artık tek bir **çevrimdışı Android APK** uygulamasında!
+
+          ### ✨ Mobil Özellikler
+          - **Hızlı Mobil Alt Gezinti Çubuğu:** Ana Sayfa, Dersler, Quizler, 3D Atlas ve Menü tek parmak erişiminde
+          - **Tam Çevrimdışı Çalışma:** Tüm 12 ders notu, 26+ anatomik şema, Terminologia Anatomica sözlüğü ve MR kesit verisi uygulamanın içinde gömülü
+          - **Doğal Android Deneyimi:** Özel uygulama simgesi, açılış ekranı, açık/koyu tema uyumlu durum çubuğu, dokunsal geri bildirim ve donanım geri tuşu desteği
+          - **3 Dil Desteği:** Türkçe, English ve العربية (RTL destekli)
+
+          ### 📥 Kurulum Adımları (Android 7.0+)
+          1. Aşağıdaki **\`ANATOMI.apk\`** dosyasına dokunarak indirin (\`${SIZE}\`).
+          2. İndirilen dosyayı açın. Android ilk kez APK kuruyorsanız **"Bilinmeyen kaynaklardan uygulama yüklemeye izin ver"** seçeneğini onaylayın.
+          3. **Yükle** düğmesine dokunun ve **ANATOMİ** uygulamasını açın.
+          EOF
+
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release edit "$TAG" \
+              --title "ANATOMİ Android APK v${VER}" \
+              --notes-file release-notes.md \
+              --target "${{ github.sha }}"
+            gh release upload "$TAG" \
+              "release-apk/ANATOMI.apk" \
+              "release-apk/ANATOMI-v${VER}.apk" \
+              "release-apk/ANATOMI-v${VER}.apk.sha256" \
+              --clobber
+          else
+            gh release create "$TAG" \
+              "release-apk/ANATOMI.apk" \
+              "release-apk/ANATOMI-v${VER}.apk" \
+              "release-apk/ANATOMI-v${VER}.apk.sha256" \
+              --target "${{ github.sha }}" \
+              --title "ANATOMİ Android APK v${VER}" \
+              --notes-file release-notes.md \
+              --latest
+          fi

@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import editionTokens from './editionTokens.json';
 import { createRoot } from 'react-dom/client';
-import { ArrowUpRight, ArrowRight, BookOpen, Bookmark, Library, LayoutGrid, Search, X, ChevronRight, ChevronLeft, ChevronDown, ExternalLink, GraduationCap, CircleHelp, Menu, PanelLeftClose, FileText, Check, CheckCircle2, Maximize2, Leaf, List, SlidersHorizontal, Mail, ShieldCheck, RotateCcw, Rotate3d, ClipboardCheck, Brain, PlayCircle, Timer, Star, MoonStar, SunMedium} from 'lucide-react';
+import { ArrowUpRight, ArrowRight, BookOpen, Bookmark, Library, LayoutGrid, Search, X, ChevronRight, ChevronLeft, ChevronDown, ExternalLink, GraduationCap, CircleHelp, Menu, PanelLeftClose, FileText, Check, CheckCircle2, Maximize2, Leaf, List, SlidersHorizontal, Mail, ShieldCheck, RotateCcw, Rotate3d, ClipboardCheck, Brain, PlayCircle, Timer, Star, MoonStar, SunMedium, Smartphone, Download } from 'lucide-react';
 import TermSearch from './components/TermSearch';
 import SystemBar from './components/SystemBar';
+import MobileTabBar from './components/MobileTabBar';
 import ReviewPage from './ReviewPage';
+import { APK_DOWNLOAD_URL, APK_RELEASES_URL, isNativeApp, syncNativeTheme, hideNativeSplash, registerAndroidBackButton, triggerHaptic } from './nativeBridge.js';
 import { useFavorites } from './useFavorites.js';
 import '@fontsource/inter/latin-400.css';
 import '@fontsource/inter/latin-500.css';
@@ -46,7 +48,9 @@ import { courseVideos, formatDuration, totalVideoSeconds } from './content/video
 import { routeFromHash, pageHash, lessonHash, quizHash, examHash, parseExamScope } from './routing';
 import { LanguageProvider, useI18n, useLocalizedContent } from './i18n.jsx';
 import './edition.css';
+import './mobile.css';
 for (const [token, color] of Object.entries(editionTokens)) document.documentElement.style.setProperty(`--edition-${token}`,color);
+if (isNativeApp()) document.documentElement.classList.add('is-native-app');
 
 function useStoredState(key, initial) {
   const [value, setValue] = useState(() => { try { const data = JSON.parse(localStorage.getItem(key)); return Array.isArray(initial) ? (Array.isArray(data) ? data.filter(id => notes.some(n => n.id === id)) : initial) : (typeof data === 'string' && notes.some(n => n.id === data) ? data : initial); } catch { return initial; } });
@@ -131,9 +135,9 @@ function App() {
   const openQuiz = quiz => { history.pushState(null, '', quizHash(quiz)); setSelectedQuiz(quiz); setPage('quizzes'); setMobileOpen(false); setActiveNote(null); window.scrollTo({ top: 0, behavior: 'instant' }); };
   // `key` is a set id, 'weak' for the drill paper or empty for the mixed exam.
   const openExam = (key = '') => { const scope = parseExamScope(key ? `k=${encodeURIComponent(key)}` : ''); history.pushState(null, '', examHash(scope.key)); setExamScope(scope); setSelectedQuiz(null); setPage('exam'); setMobileOpen(false); setActiveNote(null); window.scrollTo({ top: 0, behavior: 'instant' }); };
-  const toggleSaved = id => { const exists = saved.includes(id); setSaved(prev => exists ? prev.filter(x => x !== id) : [...prev, id]); setToast(exists ? tr('Not, kaydedilenlerden kaldırıldı.') : tr('Not, kütüphanene kaydedildi.')); };
+  const toggleSaved = id => { triggerHaptic('light'); const exists = saved.includes(id); setSaved(prev => exists ? prev.filter(x => x !== id) : [...prev, id]); setToast(exists ? tr('Not, kaydedilenlerden kaldırıldı.') : tr('Not, kütüphanene kaydedildi.')); };
   const openNote = note => { setActiveNote(note); setLastId(note.id); setLastMode('pdf'); };
-  const toggleComplete = id => setCompleted(prev => prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]);
+  const toggleComplete = id => { triggerHaptic('success'); setCompleted(prev => prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]); };
   const results = filterNotesList(allNotes, { query, category, savedOnly: page === 'saved', saved, sort, locale: lang });
   const lastNote = allNotes.find(n => n.id === lastId);
   // Route state (and deep links) carry the stored note; swap in the localised title.
@@ -144,8 +148,24 @@ function App() {
   });
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
+    syncNativeTheme(theme);
     try { localStorage.setItem('anatomi-theme', theme); } catch { /* theme still applies for the session */ }
   }, [theme]);
+  useEffect(() => { hideNativeSplash(); }, []);
+  const nativeBackRef = useRef(null);
+  nativeBackRef.current = {
+    hasOverlay: () => Boolean(activeNote || help || mobileOpen),
+    closeOverlay: () => {
+      if (activeNote) setActiveNote(null);
+      else if (help) setHelp(false);
+      else if (mobileOpen) setMobileOpen(false);
+    },
+    isHome: () => page === 'home',
+    goHome: () => navigate('home'),
+    showExitHint: () => setToast(tr('Çıkmak için geri tuşuna tekrar dokun.')),
+  };
+  useEffect(() => registerAndroidBackButton(nativeBackRef), []);
+  const nativeApp = isNativeApp();
   const openLessonNumber = number => {
     const note = allNotes.find(item => item.number === number);
     if (note) openWeb(note);
@@ -166,13 +186,13 @@ function App() {
     { id: 'saved', label: tr('Kaydedilenler'), Icon: Bookmark },
     { id: 'about', label: tr('Hocamız Hakkında'), Icon: GraduationCap },
   ];
-  return <div className="app-shell"><a className="skip-link" href="#main-content" onClick={event => { event.preventDefault(); document.getElementById('main-content')?.focus(); }}>{tr('İçeriğe atla')}</a>
+  return <><div className="app-shell"><a className="skip-link" href="#main-content" onClick={event => { event.preventDefault(); document.getElementById('main-content')?.focus(); }}>{tr('İçeriğe atla')}</a>
     {mobileOpen && <div className="sidebar-backdrop" onClick={() => setMobileOpen(false)}/>}
     <aside className={`sidebar ${mobileOpen ? 'open' : ''}`} aria-label={tr('Ana menü')}><button className="brand-button" onClick={() => navigate('home')} aria-label={tr('ANATOMİ ana sayfa')}><Brand/></button><button className="mobile-close icon-button" aria-label={tr('Menüyü kapat')} onClick={() => setMobileOpen(false)}><PanelLeftClose size={20}/></button><div className="sidebar-section-label">{tr('PLATFORM')}</div>
       <nav>{navItems.map(({id, label, Icon}) => <React.Fragment key={id}>{id === 'planner' && <div className="sidebar-section-label nav-subgroup">{tr('ÇALIŞMA ALANI')}</div>}<button key={id} className={`nav-item ${page === id || (page === 'lesson' && id === 'library') ? 'active' : ''}`} onClick={() => navigate(id)} aria-current={page === id ? 'page' : undefined}><Icon size={19}/><span>{label}</span>{id === 'library' && <span className="nav-count">{notes.length}</span>}{id === 'saved' && saved.length > 0 && <span className="nav-count">{saved.length}</span>}{id === 'review' && favorites.length > 0 && <span className="nav-count">{favorites.length}</span>}{id === 'home' && <span className="nav-active-dot"/>}</button></React.Fragment>)}</nav>
       <div className="sidebar-language"><LanguageSwitch compact/></div>
       <div className="sidebar-divider"/><div className="sidebar-section-label topics-label">{tr('KONU BAŞLIKLARI')}</div><div className="topic-nav">{categories.slice(1).map((cat, i) => <button key={cat} className={category === cat && page === 'library' ? 'selected-topic' : ''} onClick={() => navigate('library', cat)}><span className={`topic-dot dot-${i}`}/>{categoryLabel(cat)}<ChevronRight size={13}/></button>)}</div>
-            <div className="sidebar-bottom"><div className="study-note" hidden={!lastNote}><div className="study-note-top"><BookOpen size={20}/><span>{tr('Küçük adımlar, kalıcı bilgiler.')}</span></div><p>{completed.length ? tr('{count} / 12 notu okundu olarak işaretledin.', { count: completed.length }) : tr('Her yeni konu, insanı anlamaya bir adım daha yakın.')}</p><div className="progress-track"><span style={{ width: `${completed.length / notes.length * 100}%` }}/></div><button onClick={() => lastNote ? (lastMode === 'pdf' ? openNote(lastNote) : openWeb(lastNote)) : openWeb(allNotes[0])}>{lastNote ? tr('Okumaya devam et') : tr('İlk adımı at')} <ArrowUpRight size={15}/></button></div><button className="help-button" onClick={() => { setHelp(true); setMobileOpen(false); }}><CircleHelp size={17}/> {tr('Nasıl kullanılır?')}<ArrowUpRight size={14}/></button><button className="instructor-mini" onClick={() => navigate('about')}><span className="avatar">BD</span><span><strong>{tr('Dr. Bekir Dağdeviren')}</strong><small>{tr('Dr. Öğr. Gör. · Fırat Üniversitesi')}</small></span><ChevronRight size={15}/></button></div>
+            <div className="sidebar-bottom"><div className="study-note" hidden={!lastNote}><div className="study-note-top"><BookOpen size={20}/><span>{tr('Küçük adımlar, kalıcı bilgiler.')}</span></div><p>{completed.length ? tr('{count} / 12 notu okundu olarak işaretledin.', { count: completed.length }) : tr('Her yeni konu, insanı anlamaya bir adım daha yakın.')}</p><div className="progress-track"><span style={{ width: `${completed.length / notes.length * 100}%` }}/></div><button onClick={() => lastNote ? (lastMode === 'pdf' ? openNote(lastNote) : openWeb(lastNote)) : openWeb(allNotes[0])}>{lastNote ? tr('Okumaya devam et') : tr('İlk adımı at')} <ArrowUpRight size={15}/></button></div>{!nativeApp && <a className="sidebar-apk-link" href={APK_DOWNLOAD_URL} target="_blank" rel="noreferrer"><Smartphone size={16}/><span>{tr('Android APK İndir')}</span><Download size={14}/></a>}<button className="help-button" onClick={() => { setHelp(true); setMobileOpen(false); }}><CircleHelp size={17}/> {tr('Nasıl kullanılır?')}<ArrowUpRight size={14}/></button><button className="instructor-mini" onClick={() => navigate('about')}><span className="avatar">BD</span><span><strong>{tr('Dr. Bekir Dağdeviren')}</strong><small>{tr('Dr. Öğr. Gör. · Fırat Üniversitesi')}</small></span><ChevronRight size={15}/></button></div>
     </aside>
     <div className="workspace"><header className="topbar"><div className="breadcrumb"><button className="mobile-menu icon-button" aria-label={tr('Menüyü aç')} onClick={() => setMobileOpen(true)}><Menu size={21}/></button><button className="mobile-brand" onClick={() => navigate('home')} aria-label={tr('ANATOMİ ana sayfa')}><img src={`${import.meta.env.BASE_URL}brand/anatomi-mark-small.svg`} alt="" width="24" height="26"/>ANATOMİ</button><span>{tr('Çalışma alanı')}</span><ChevronRight size={13}/><strong>{page === 'lesson' ? tr('Web ders notu') : navItems.find(n => n.id === page)?.label}</strong></div><div className="topbar-right"><button className="header-search" aria-label={tr('Kütüphanede ara')} onClick={() => { navigate('library'); setTimeout(()=>searchRef.current?.focus(),0); }}><Search size={15}/><span>{tr('Kütüphanede ara')}</span><kbd>⌘ K</kbd></button><TermSearch onPick={term => openLessonNumber(term.lesson)}/><button className="icon-button theme-toggle" aria-label={theme === 'dark' ? tr('Açık tema') : tr('Koyu tema')} title={theme === 'dark' ? tr('Açık tema') : tr('Koyu tema')} onClick={() => setTheme(t => (t === 'dark' ? 'light' : 'dark'))}>{theme === 'dark' ? <SunMedium size={18}/> : <MoonStar size={18}/>}</button><LanguageSwitch/></div></header>
     <SystemBar current={lessonNote?.number} onLesson={openLessonNumber}/>
@@ -190,6 +210,22 @@ function App() {
       </section>}
       {page === 'home' && <section className="practice-entry"><div><h2>{tr('Okudun. Peki hatırlıyor musun?')}</h2><p>{tr('Görsel yapı tanıma, süreli denemeler ve sana özel tekrar defteri.')}</p></div><button className="practice-primary" onClick={() => navigate('practice')}>{tr('Kendini sına')} <ArrowRight size={16}/></button></section>}
       {page === 'home' && <section className="quiz-native-band"><div><h2>{tr('Anatomiyi quizlerle keşfet.')}</h2><p>{tr('Sorularını bu site için yazdık: 12 konu seti, 120 özgün soru, dört soru tipi ve projeye ait şemalar.')}</p></div><div className="home-quiz-actions"><button className="primary-button" onClick={() => navigate('quizzes')}>{tr('Anatomi Quizleri')} <ArrowRight size={16}/></button><button className="quiz-secondary" onClick={() => openExam('')}><Timer size={15}/> {tr('Sınav simülasyonu')}</button></div></section>}
+      {page === 'home' && !nativeApp && <section className="apk-band" aria-label={tr('ANDROİD MOBİL UYGULAMA')}>
+        <div className="apk-band-copy">
+          <div className="apk-band-eyebrow"><span/>{tr('ANDROİD MOBİL UYGULAMA')}</div>
+          <h2>{tr('ANATOMİ artık cebinde,')}<br/><em>{tr('çevrimdışı ve her an yanında.')}</em></h2>
+          <p>{tr('Tüm ders notları, 120 özgün quiz, Latince–Türkçe sözlük ve 3D MR kesitleri tek bir Android APK paketinde. İnternet olmadan da çalışır.')}</p>
+          <div className="apk-band-meta">
+            <span><Smartphone size={13}/>{tr('Android 7.0+')}</span>
+            <span><ShieldCheck size={13}/>{tr('Çevrimdışı çalışma')}</span>
+            <span><Download size={13}/>{tr('Ücretsiz APK')}</span>
+          </div>
+        </div>
+        <div className="apk-band-actions">
+          <a className="apk-download-btn" href={APK_DOWNLOAD_URL} target="_blank" rel="noreferrer"><Download size={17}/>{tr('Android APK İndir')}</a>
+          <a className="apk-releases-link" href={APK_RELEASES_URL} target="_blank" rel="noreferrer">{tr('Tüm sürümler ve kurulum notları')}<ArrowUpRight size={13}/></a>
+        </div>
+      </section>}
       <section className={`library-section ${page !== 'home' ? 'standalone' : ''}`} id="ders-notlari"><div className="section-heading"><div><div className="eyebrow muted">{page === 'saved' ? tr('SENİN KOLEKSİYONUN') : tr('BİLGİYE BİR ADIM DAHA YAKIN')}</div><h2>{page === 'saved' ? tr('Kaydedilen notlar') : tr('Ders kütüphanesi')}<span>{page === 'saved' ? saved.length : notes.length}</span></h2><p>{page === 'saved' ? tr('Tekrar dönmek istediğin notlar, tam burada.') : tr('Merak ettiğin konuyu seç. İnsan vücudunun hikâyesini keşfet.')}</p></div><div className="view-switch" aria-label={tr('Görünüm')}><button className={layout === 'grid' ? 'selected' : ''} aria-label={tr('Kart görünümü')} aria-pressed={layout === 'grid'} onClick={() => setLayout('grid')}><LayoutGrid size={17}/></button><button className={layout === 'list' ? 'selected' : ''} aria-label={tr('Liste görünümü')} aria-pressed={layout === 'list'} onClick={() => setLayout('list')}><List size={19}/></button></div></div>
       <div className="search-row"><div className="search-field"><Search size={18}/><input ref={searchRef} type="search" placeholder={tr('Bir konu, sistem veya ders notu ara…')} value={query} onChange={e => setQuery(e.target.value)} aria-label={tr('Ders notlarında ara')}/>{query ? <button onClick={() => { setQuery(''); searchRef.current?.focus(); }} aria-label={tr('Aramayı temizle')}><X size={16}/></button> : <kbd>⌘ K</kbd>}</div><div className="sort-select"><SlidersHorizontal size={15}/><select value={sort} onChange={e => setSort(e.target.value)} aria-label={tr('Notları sırala')}><option value="course">{tr('Ders sırasına göre')}</option><option value="az">{tr('Ada göre (A–Z)')}</option><option value="reverse">{tr('Ters ders sırası')}</option></select><ChevronDown size={13}/></div></div>
       <div className="filters-row"><div className="category-filters" aria-label={tr('Konu filtreleri')}>{categories.map(cat => <button key={cat} className={category === cat ? 'active' : ''} onClick={() => setCategory(cat)} aria-pressed={category === cat}>{categoryLabel(cat)}{cat === 'Tüm notlar' && <span>{page === 'saved' ? saved.length : notes.length}</span>}</button>)}</div><span className="result-count" aria-live="polite">{tr('{count} not listeleniyor', { count: results.length })}</span></div>
@@ -201,7 +237,9 @@ function App() {
     {activeNote && <Reader note={activeNote} bookNotes={allNotes} onClose={() => setActiveNote(null)} onNavigate={openNote} onWeb={openWeb} saved={saved.includes(activeNote.id)} toggleSaved={toggleSaved} completed={completed.includes(activeNote.id)} toggleComplete={toggleComplete}/>}
     {help && <Dialog className="help-dialog" label={tr('ANATOMİ nasıl kullanılır?')} onClose={() => setHelp(false)}><button className="dialog-close icon-button" onClick={() => setHelp(false)} aria-label={tr('Yardımı kapat')}><X size={22}/></button><div className="eyebrow">{tr('KÜÇÜK BİR REHBER')}</div><h2>{tr('Keşfet. Oku. Hatırla.')}</h2><div className="help-step"><span>01</span><div><h3>{tr('İlgilendiğin konuyu bul.')}</h3><p>{tr('Arama kutusunda Türkçe veya Latince bir terim ara. Konu başlıklarıyla notları daralt.')}</p></div></div><div className="help-step"><span>02</span><div><h3>{tr('İndirmeden okumaya başla.')}</h3><p>{tr('“Sitede oku” ile açıklamalı konu anlatımını aç. İçindekilerden bir bölüme geç, metin boyutunu ayarla ve tekrar sorularıyla öğrendiklerini pekiştir. “PDF’yi aç” ile hocanın özgün belgesini görüntüle. PDF için izin istenirse Drive’da açıp dosya sahibinden erişim iste.')}</p></div></div><div className="help-step"><span>03</span><div><h3>{tr('Yapıyı üç boyutlu gör.')}</h3><p>{tr('“3D Anatomi Atlası” bölümünde TUĞRUL ATLAS’ı aç: atlası sürükleyerek döndür, görünüm ve sistem düğmeleriyle incele. Pencere açılmazsa “Yeni sekmede aç” ile atlası ayrı bir sekmede görüntüleyebilirsin.')}</p></div></div><div className="help-step"><span>04</span><div><h3>{tr('Kendi çalışma alanını oluştur.')}</h3><p>{tr('Yer imi simgesiyle notları kaydet. Bitirdiğin notları okundu olarak işaretle. Seçimlerin yalnızca bu cihazın tarayıcısında saklanır; hesap veya bulut senkronizasyonu yoktur.')}</p></div></div><div className="help-step"><span>05</span><div><h3>{tr('Dili sen seç.')}</h3><p>{tr('Sağ üstteki dil seçicisinden Türkçe, English ve العربية arasında geçiş yap. Arayüz, ders başlıkları ve menüler seçtiğin dilde görünür; seçimin bu cihazda saklanır. Arapça ders notu Kaynaklar bölümündedir.')}</p></div></div><div className="help-info"><ShieldCheck size={20}/><p>{tr('Paylaşım izinleri dosya sahibinin kontrolündedir. ANATOMİ belgeleri değiştirmez veya yeniden yüklemez. 3B atlas Muhammet TUĞRUL’un kendi çalışmasıdır; site yalnızca onu gömülü olarak gösterir.')}</p></div><button className="primary-button" onClick={() => setHelp(false)}>{tr('Keşfetmeye hazırım')} <ArrowRight size={16}/></button></Dialog>}
     {toast && <div className="toast" role="status"><CheckCircle2 size={17}/>{toast}</div>}
-  </div>;
+  </div>
+  <MobileTabBar page={page} mobileOpen={mobileOpen} onNavigate={navigate} onToggleMenu={() => setMobileOpen(open => !open)}/>
+  </>;
 }
 
 createRoot(document.getElementById('root')).render(<LanguageProvider><App/></LanguageProvider>);
