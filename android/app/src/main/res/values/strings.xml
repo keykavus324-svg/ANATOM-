@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ANATOMİ</string>
+    <string name="title_activity_main">ANATOMİ</string>
+    <string name="package_name">tr.anatomi.atlas</string>
+    <string name="custom_url_scheme">tr.anatomi.atlas</string>
+</resources>

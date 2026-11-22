@@ -1,0 +1,368 @@
+/* ---------------------------------------------------------------------------
+   Mobile App & Native Android APK Experience
+   - Native-feeling bottom tab bar (outside .app-shell so fixed positioning
+     remains viewport-anchored even in inverted dark mode)
+   - Safe-area inset support for notched / edge-to-edge Android 15+ devices
+   - Android APK download banner on the web build (hidden inside the APK)
+--------------------------------------------------------------------------- */
+
+/* Native APK polish */
+html.is-native-app {
+  overscroll-behavior-y: contain;
+}
+html.is-native-app button,
+html.is-native-app nav,
+html.is-native-app .topbar,
+html.is-native-app .mobile-tab-bar {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Mobile bottom tab bar — hidden on desktop */
+.mobile-tab-bar {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 25;
+    background: rgba(248, 247, 243, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding-top: env(safe-area-inset-top, 0px);
+    min-height: calc(60px + env(safe-area-inset-top, 0px));
+    height: auto;
+  }
+
+  .sidebar {
+    padding-top: calc(28px + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .system-bar {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .system-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-filters {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-tab-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 45;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: center;
+    padding: 6px 6px calc(8px + env(safe-area-inset-bottom, 0px));
+    background: rgba(251, 250, 246, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid #e4e1d4;
+    box-shadow: 0 -8px 28px -18px rgba(42, 48, 39, 0.25);
+  }
+
+  .mobile-tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    min-height: 48px;
+    padding: 3px 2px;
+    border: 0;
+    background: transparent;
+    color: #74786b;
+    font-family: 'Inter', system-ui, sans-serif;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 0.16s ease, transform 0.12s ease;
+  }
+
+  .mobile-tab-item:active {
+    transform: scale(0.94);
+  }
+
+  .mobile-tab-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 28px;
+    border-radius: 999px;
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+
+  .mobile-tab-item.active {
+    color: #a3524c;
+  }
+
+  .mobile-tab-item.active .mobile-tab-pill {
+    background: #f0e4de;
+    color: #a3524c;
+  }
+
+  .mobile-tab-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .mobile-tab-item.active .mobile-tab-label {
+    font-weight: 600;
+  }
+
+  /* Dedicated dark mode palette for the viewport-pinned tab bar */
+  html[data-theme='dark'] .mobile-tab-bar {
+    background: rgba(16, 28, 27, 0.94);
+    border-top-color: #243937;
+    box-shadow: 0 -10px 30px -16px rgba(0, 0, 0, 0.55);
+  }
+
+  html[data-theme='dark'] .mobile-tab-item {
+    color: #93aba7;
+  }
+
+  html[data-theme='dark'] .mobile-tab-item.active {
+    color: #e0968e;
+  }
+
+  html[data-theme='dark'] .mobile-tab-item.active .mobile-tab-pill {
+    background: rgba(174, 89, 82, 0.22);
+    color: #e0968e;
+  }
+
+  /* Leave room for the bottom tab bar so content, footer, and toasts never hide underneath */
+  .site-footer {
+    padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .toast {
+    bottom: calc(78px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .lesson-page.sheet-open .lesson-content {
+    padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width: 350px) {
+  .mobile-tab-label {
+    font-size: 9px;
+  }
+  .mobile-tab-pill {
+    width: 38px;
+    height: 26px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Android APK Download Band (visible on web; automatically hidden in APK)
+--------------------------------------------------------------------------- */
+.apk-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  margin: 28px 0 36px;
+  padding: 26px 28px;
+  border-radius: 14px;
+  border: 1px solid #1b4e46;
+  background: linear-gradient(135deg, #0f3e37 0%, #154d44 58%, #1d5c52 100%);
+  color: #f6f4ec;
+  position: relative;
+  overflow: hidden;
+}
+
+.apk-band::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 88% 20%, rgba(234, 210, 201, 0.14), transparent 52%);
+  pointer-events: none;
+}
+
+.apk-band-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.apk-band-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #b7d7cf;
+}
+
+.apk-band-eyebrow span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e2958b;
+}
+
+.apk-band h2 {
+  font-family: var(--serif);
+  font-size: clamp(27px, 3vw, 36px);
+  font-weight: 500;
+  line-height: 1.12;
+  margin-top: 10px;
+  color: #fdfbf5;
+}
+
+.apk-band h2 em {
+  color: #f0b5ab;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.apk-band p {
+  margin-top: 10px;
+  max-width: 560px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #cfe3dd;
+}
+
+.apk-band-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.apk-band-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 11px;
+  color: #e4f0ec;
+}
+
+.apk-band-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  min-width: 210px;
+}
+
+.apk-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: #f8f5ec;
+  color: #0f3e37;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 10px 24px -14px rgba(0, 0, 0, 0.45);
+  transition: transform 0.16s ease, background 0.16s ease;
+}
+
+.apk-download-btn:hover {
+  background: #ffffff;
+  color: #0b2f29;
+  transform: translateY(-1px);
+}
+
+.apk-releases-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 10px;
+  font-size: 11.5px;
+  color: #cde3dd;
+  text-decoration: underline;
+  text-decoration-color: rgba(205, 227, 221, 0.4);
+  text-underline-offset: 3px;
+}
+
+.apk-releases-link:hover {
+  color: #ffffff;
+}
+
+/* Sidebar compact APK link */
+.sidebar-apk-link {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 7px;
+  background: #0f3e37;
+  color: #f6f4ec;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.sidebar-apk-link:hover {
+  background: #155148;
+  color: #ffffff;
+}
+
+.sidebar-apk-link > svg:last-child {
+  margin-left: auto;
+}
+
+html[dir='rtl'] .sidebar-apk-link > svg:last-child {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Preserve the deep emerald brand look of the APK banner in dark mode too */
+html[data-theme='dark'] .app-shell .apk-band,
+html[data-theme='dark'] .app-shell .sidebar-apk-link {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+@media (max-width: 760px) {
+  .apk-band {
+    grid-template-columns: 1fr;
+    padding: 20px 18px;
+    gap: 16px;
+    margin: 22px 0 28px;
+  }
+  .apk-band-actions {
+    min-width: 0;
+  }
+}
+
+/* Print hides mobile chrome & APK promo */
+@media print {
+  .mobile-tab-bar,
+  .apk-band,
+  .sidebar-apk-link {
+    display: none !important;
+  }
+}

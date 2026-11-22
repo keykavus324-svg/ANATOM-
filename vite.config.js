@@ -2,13 +2,15 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
+const isCapacitorBuild = process.env.CAPACITOR === 'true';
+
 // The Pages base path follows the repository slug (the deploy workflow exports
 // REPO_SLUG). Renaming the repository to `anatomi` therefore cleans the live URL
-// on the very next deploy; local development keeps the domain root.
+// on the very next deploy; local development and native APK builds keep the root.
 export default defineConfig({
   plugins: [
     react(),
-    VitePWA({
+    ...(!isCapacitorBuild ? [VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: {
@@ -53,9 +55,9 @@ export default defineConfig({
           },
         ],
       },
-    }),
+    })] : []),
   ],
-  base: process.env.GITHUB_PAGES === 'true' ? `/${process.env.REPO_SLUG || 'ANATOM-'}/` : '/',
+  base: !isCapacitorBuild && process.env.GITHUB_PAGES === 'true' ? `/${process.env.REPO_SLUG || 'ANATOM-'}/` : '/',
   server: { host: '0.0.0.0', allowedHosts: ['.e2b.app'] },
   build: {
     rollupOptions: {
