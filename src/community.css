@@ -152,3 +152,10 @@
 html[dir="rtl"] .post-kind { margin-inline-start: 0; margin-inline-end: auto; }
 html[dir="rtl"] .comment-form input { text-align: right; }
 html[dir="rtl"] .char-count { text-align: left; }
+
+/* Device-local bookmarks are visually distinct without changing shared post data. */
+.post-actions .save-button { margin-inline-start: auto; }
+.save-button.saved { color: var(--rose); background: color-mix(in srgb, var(--rose) 9%, transparent); }
+@media (max-width: 520px) {
+  .post-actions .save-button { margin-inline-start: 0; }
+}

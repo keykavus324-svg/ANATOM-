@@ -3,6 +3,7 @@ import {
   CheckCircle2,
   ChevronDown,
   Heart,
+  Bookmark,
   MessageCircle,
   MessagesSquare,
   PenLine,
@@ -39,6 +40,15 @@ const RELATIVE_KEYS = {
   week: '{n} hafta önce',
   month: '{n} ay önce',
 };
+
+const BOOKMARK_STORAGE_KEY = 'anatomi-topluluk-kaydedilenler';
+
+function readSavedIds() {
+  try {
+    const value = JSON.parse(localStorage.getItem(BOOKMARK_STORAGE_KEY) || '[]');
+    return Array.isArray(value) ? [...new Set(value.filter(id => typeof id === 'string' || typeof id === 'number').map(String))] : [];
+  } catch { return []; }
+}
 
 const ERROR_KEYS = {
   author: 'Görünen ad gerekli.',
@@ -86,7 +96,7 @@ function CommentSection({ post, canPost, onComment }) {
   </div>;
 }
 
-function PostCard({ post, mine, canPost, flash, onLike, onComment, onRemove, onOpenLesson }) {
+function PostCard({ post, mine, canPost, flash, saved, onSave, onLike, onComment, onRemove, onOpenLesson }) {
   const { tr } = useI18n();
   const [open, setOpen] = useState(false);
   const [confirming, setConfirming] = useState(false);
@@ -108,6 +118,7 @@ function PostCard({ post, mine, canPost, flash, onLike, onComment, onRemove, onO
     {!confirming ? <footer className="post-actions">
       <button className={`action-button like-button ${post.liked ? 'liked' : ''}`} aria-label={tr('{count} beğeni', { count: post.likes })} aria-pressed={post.liked} onClick={() => onLike(post.id)}><Heart size={17} fill={post.liked ? 'currentColor' : 'none'}/><span>{post.likes}</span></button>
       <button className="action-button" aria-expanded={open} onClick={() => setOpen(value => !value)}><MessageCircle size={16}/><span>{tr('{count} yorum', { count: comments })}</span></button>
+      <button className={`action-button save-button ${saved ? 'saved' : ''}`} aria-label={saved ? tr('Kaydedilenlerden çıkar') : tr('Gönderiyi kaydet')} aria-pressed={saved} onClick={() => onSave(post.id)}><Bookmark size={16} fill={saved ? 'currentColor' : 'none'}/><span>{saved ? tr('Kaydedildi') : tr('Kaydet')}</span></button>
     </footer> : <footer className="post-confirm">
       <p>{tr('Bu gönderiyi silmek istediğine emin misin?')}</p>
       <div><button className="danger-button" onClick={() => onRemove(post.id)}>{tr('Evet, sil')}</button><button className="text-button" onClick={() => setConfirming(false)}>{tr('Vazgeç')}</button></div>
@@ -178,6 +189,12 @@ export default function CommunityPage({ onOpenLesson }) {
   const { board, profile, canPost, mode, status, offline, busy, setName, publish, like, comment, remove, refresh } = useCommunity();
   const allNotes = useMemo(() => localize(notes).filter(note => note.number > 0), [localize]);
   const [tab, setTab] = useState('all');
+  const [savedIds, setSavedIds] = useState(readSavedIds);
+  useEffect(() => {
+    const syncSaved = event => { if (event.key === BOOKMARK_STORAGE_KEY) setSavedIds(readSavedIds()); };
+    window.addEventListener('storage', syncSaved);
+    return () => window.removeEventListener('storage', syncSaved);
+  }, []);
   const [tag, setTag] = useState('all');
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState('new');
@@ -188,7 +205,16 @@ export default function CommunityPage({ onOpenLesson }) {
   useEffect(() => { if (!toast) return undefined; clearTimeout(toastTimer.current); toastTimer.current = setTimeout(() => setToast(''), 2400); return () => clearTimeout(toastTimer.current); }, [toast]);
 
   const actorId = getActorId();
-  const visible = useMemo(() => sortPosts(filterPosts(board, { query, kind: tab, tag }), sort), [board, query, tab, tag, sort]);
+  const toggleSaved = id => setSavedIds(current => {
+    const next = current.includes(String(id)) ? current.filter(savedId => savedId !== String(id)) : [...current, String(id)];
+    try { localStorage.setItem(BOOKMARK_STORAGE_KEY, JSON.stringify(next)); } catch { /* storage unavailable */ }
+    return next;
+  });
+  const visible = useMemo(() => {
+    const kind = tab === 'saved' ? 'all' : tab;
+    const matches = filterPosts(board, { query, kind, tag });
+    return sortPosts(tab === 'saved' ? matches.filter(post => savedIds.includes(String(post.id))) : matches, sort);
+  }, [board, query, tab, tag, sort, savedIds]);
   const handlePublish = async draft => {
     const result = await publish(draft);
     if (result.ok) {
@@ -221,7 +247,7 @@ export default function CommunityPage({ onOpenLesson }) {
       <div className="community-main">
         <div className="community-toolbar">
           <div className="community-tabs" role="tablist" aria-label={tr('Gönderi türleri')}>
-            {[['all', tr('Tümü')], ['soru', tr('Sorular')], ['not', tr('Notlar')]].map(([value, label]) => <button key={value} role="tab" aria-selected={tab === value} className={tab === value ? 'active' : ''} onClick={() => setTab(value)}>{label}</button>)}
+            {[['all', tr('Tümü')], ['soru', tr('Sorular')], ['not', tr('Notlar')], ['saved', tr('Kaydettiklerim')]].map(([value, label]) => <button key={value} role="tab" aria-selected={tab === value} className={tab === value ? 'active' : ''} onClick={() => setTab(value)}>{label}{value === 'saved' && savedIds.length > 0 ? ` · ${savedIds.length}` : ''}</button>)}
           </div>
           <div className="community-tools">
             <div className="search-field"><Search size={16}/><input type="search" value={query} onChange={e => setQuery(e.target.value)} placeholder={tr('Toplulukta ara')} aria-label={tr('Toplulukta ara')}/>{query && <button className="icon-button" aria-label={tr('Aramayı temizle')} onClick={() => setQuery('')}><X size={15}/></button>}</div>
@@ -243,7 +269,7 @@ export default function CommunityPage({ onOpenLesson }) {
           <h3>{board.length === 0 ? tr('Henüz paylaşım yok.') : tr('Bu filtreyle eşleşen gönderi bulunamadı.')}</h3>
           <p>{board.length === 0 ? tr('İlk paylaşımı sen yap: soru sor, notunu paylaş, başlat.') : tr('Filtreleri temizle veya başka bir etikete göz at.')}</p>
           {board.length === 0 && <button className="primary-button" onClick={() => setComposer(true)}>{tr('Yeni gönderi')} <PenLine size={15}/></button>}
-        </div> : <div className="community-list">{visible.map(post => <PostCard key={post.id} post={post} mine={mode === 'remote' ? Boolean(actorId && post.actor === actorId) : Boolean(profile && post.author === profile)} canPost={canPost} flash={highlight === post.id} onLike={like} onComment={handleComment} onRemove={id => { remove(id); setToast(tr('Gönderi silindi.')); }} onOpenLesson={onOpenLesson}/>)}</div>}
+        </div> : <div className="community-list">{visible.map(post => <PostCard key={post.id} post={post} mine={mode === 'remote' ? Boolean(actorId && post.actor === actorId) : Boolean(profile && post.author === profile)} canPost={canPost} flash={highlight === post.id} saved={savedIds.includes(String(post.id))} onSave={toggleSaved} onLike={like} onComment={handleComment} onRemove={id => { remove(id); setToast(tr('Gönderi silindi.')); }} onOpenLesson={onOpenLesson}/>)}</div>}
       </div>
 
       <aside className="community-side">

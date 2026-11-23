@@ -990,6 +990,11 @@ export const PHRASES = [
   ['{n} hafta önce', '{n} weeks ago', 'قبل {n} أسبوع'],
   ['{n} ay önce', '{n} months ago', 'قبل {n} شهر'],
   ['Sabitlenmiş', 'Pinned', 'مثبَّت'],
+  ['Kaydettiklerim', 'Saved by me', 'المحفوظات'],
+  ['Gönderiyi kaydet', 'Save post', 'احفظ المنشور'],
+  ['Kaydedilenlerden çıkar', 'Remove from saved', 'أزل من المحفوظات'],
+  ['Gönderi kaydedildi', 'Post saved', 'تم حفظ المنشور'],
+
   ['{count} beğeni', '{count} likes', '{count} إعجاب'],
   ['{count} yorum', '{count} comments', '{count} تعليق'],
   ['Yorum yaz…', 'Write a comment…', 'اكتب تعليقًا…'],
