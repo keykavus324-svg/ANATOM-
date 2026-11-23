@@ -1,0 +1,154 @@
+/* Topluluk panosu: sorular, paylaşılan notlar ve yorumlar. */
+.community-page { padding: 46px clamp(20px, 4vw, 56px) 72px; max-width: 1180px; }
+.community-page h1 { font-family: var(--serif); font-size: clamp(34px, 4vw, 52px); line-height: 1.08; margin: 14px 0 12px; }
+.community-page h1 em { display: block; font-size: clamp(17px, 1.6vw, 21px); color: var(--rose); font-style: italic; margin-top: 12px; }
+.community-intro { color: var(--muted); font-size: 14px; line-height: 1.7; margin: 0 0 30px; max-width: 68ch; }
+
+.community-layout { display: grid; grid-template-columns: minmax(0, 1fr) 312px; gap: 26px; align-items: start; }
+
+/* --- araç çubuğu ---------------------------------------------------------- */
+.community-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 14px; }
+.community-tabs { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--surface, #fff); }
+.community-tabs button { padding: 7px 15px; border-radius: 999px; font-size: 12px; color: #8a8d80; }
+.community-tabs button.active { background: #f0e4de; color: #a3524c; font-weight: 600; }
+.community-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-inline-start: auto; }
+.community-tools .search-field { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 6px; padding: 0 11px; background: var(--surface, #fff); min-height: 38px; }
+.community-tools .search-field input { border: 0; outline: none; background: none; font: inherit; font-size: 12.5px; width: 160px; color: inherit; }
+.community-tools .sort-select { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--line); border-radius: 6px; padding: 0 10px; background: var(--surface, #fff); min-height: 38px; color: var(--muted); }
+.community-tools .sort-select select { border: 0; background: none; font: inherit; font-size: 12px; color: inherit; outline: none; }
+.community-new { min-height: 38px; padding: 10px 15px; gap: 12px; font-size: 11px; }
+
+.community-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.community-tags button { border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px; font-size: 11.5px; color: #82867a; background: transparent; }
+.community-tags button.active { border-color: #dcc3be; background: #f5ece8; color: #a3524c; font-weight: 600; }
+
+/* --- gönderi kartı -------------------------------------------------------- */
+.community-list { display: grid; gap: 14px; }
+.post-card { border: 1px solid var(--line); border-radius: 16px; background: var(--surface, #fff); padding: 18px 20px 14px; transition: border-color .18s, box-shadow .18s; }
+.post-card:hover { border-color: #ddd6cc; box-shadow: 0 2px 10px rgba(60, 50, 40, .04); }
+.post-head { display: flex; align-items: center; gap: 10px; }
+.post-avatar { display: grid; place-items: center; border-radius: 50%; background: #ece5dc; color: #7d5b53; font-family: var(--serif); font-weight: 600; flex-shrink: 0; }
+.post-avatar.md { width: 36px; height: 36px; font-size: 14px; }
+.post-avatar.sm { width: 26px; height: 26px; font-size: 10px; }
+.post-author { display: grid; line-height: 1.35; min-width: 0; }
+.post-author strong { font-size: 13px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.post-author small { font-size: 10.5px; color: var(--muted); }
+.post-kind { margin-inline-start: auto; border-radius: 999px; padding: 4px 10px; font-size: 10.5px; font-weight: 600; letter-spacing: .02em; }
+.post-kind.kind-soru { background: #f5e8e4; color: #a3524c; }
+.post-kind.kind-not { background: #ebeee2; color: #68785a; }
+.post-pinned { display: inline-flex; align-items: center; gap: 5px; font-size: 10.5px; color: #9b695a; border: 1px solid #ead9cd; border-radius: 999px; padding: 4px 10px; }
+.post-remove { color: #a9ada0; }
+.post-remove:hover { color: var(--rose); }
+.post-title { font-family: var(--serif); font-size: 21px; line-height: 1.25; margin: 14px 0 6px; }
+.post-body { margin: 0; color: #4d5148; font-size: 13.5px; line-height: 1.75; white-space: pre-line; overflow-wrap: anywhere; }
+.post-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 12px; }
+.post-tag { font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: #96907f; background: #f2efe6; border-radius: 4px; padding: 3px 7px; }
+.post-lesson { display: inline-flex; align-items: center; gap: 4px; font-size: 10.5px; color: #68785a; border: 1px solid #dde2d2; border-radius: 4px; padding: 3px 8px; }
+.post-lesson:hover { color: var(--rose); border-color: #dcc3be; }
+.post-actions { display: flex; align-items: center; gap: 6px; margin-top: 12px; border-top: 1px solid var(--line); padding-top: 10px; }
+.action-button { display: inline-flex; align-items: center; gap: 7px; padding: 6px 11px; border-radius: 999px; font-size: 11.5px; color: #82867a; }
+.action-button:hover { background: #f3f0e8; color: var(--rose); }
+.action-button span { font-variant-numeric: tabular-nums; }
+.like-button.liked { color: var(--rose); }
+.post-confirm { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; justify-content: space-between; margin-top: 12px; border-top: 1px solid var(--line); padding-top: 12px; }
+.post-confirm p { margin: 0; font-size: 12.5px; color: var(--muted); }
+.post-confirm > div { display: flex; align-items: center; gap: 10px; }
+.danger-button { border: 1px solid #e0c3bf; color: #a3524c; border-radius: 6px; padding: 8px 14px; font-size: 11.5px; }
+.danger-button:hover { background: #f5e8e4; color: #a3524c; }
+
+/* --- yorumlar ------------------------------------------------------------- */
+.post-comments { margin-top: 12px; border-top: 1px dashed var(--line); padding-top: 12px; }
+.comment-list { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 12px; }
+.comment-list li { display: flex; gap: 10px; align-items: flex-start; }
+.comment-list li > div { min-width: 0; }
+.comment-list strong { font-size: 12px; font-weight: 600; margin-inline-end: 8px; }
+.comment-list small { font-size: 10px; color: var(--muted); }
+.comment-list p { margin: 3px 0 0; font-size: 12.5px; line-height: 1.65; color: #4d5148; white-space: pre-line; overflow-wrap: anywhere; }
+.comment-form { display: flex; gap: 8px; align-items: center; }
+.comment-form input { flex: 1; min-width: 0; border: 1px solid var(--line); border-radius: 999px; padding: 9px 14px; font: inherit; font-size: 12.5px; background: var(--surface, #fff); color: inherit; }
+.comment-send { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--rose); color: #fff; flex-shrink: 0; }
+.comment-send:hover:not(:disabled) { background: var(--rose-dark); color: #fff; }
+.comment-gate { margin: 6px 0 0; font-size: 11.5px; color: var(--muted); border: 1px dashed var(--line); border-radius: 8px; padding: 9px 12px; }
+.field-error { margin: 8px 0 0; color: #a3524c; font-size: 12px; }
+@keyframes post-flash { from { box-shadow: 0 0 0 2px rgba(174, 89, 82, .35); } to { box-shadow: 0 0 0 6px rgba(174, 89, 82, 0); } }
+.post-card.flash { animation: post-flash 1.6s ease-out; }
+
+/* --- yan sütun ------------------------------------------------------------ */
+.community-side { display: grid; gap: 14px; position: sticky; top: 24px; }
+.side-card { border: 1px solid var(--line); border-radius: 16px; background: var(--surface, #fff); padding: 18px; }
+.side-card h2 { font-family: var(--serif); font-size: 19px; margin: 0 0 8px; display: flex; align-items: center; gap: 8px; }
+.side-card p { margin: 0; font-size: 12px; line-height: 1.7; color: var(--muted); }
+.profile-card input { width: 100%; margin-top: 12px; border: 1px solid var(--line); border-radius: 6px; padding: 9px 12px; font: inherit; font-size: 12.5px; background: var(--paper, #fff); color: inherit; }
+.profile-hint { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; font-size: 11.5px; color: #68785a; }
+.rules-card ol { margin: 0; padding-inline-start: 20px; display: grid; gap: 9px; }
+.rules-card li { font-size: 12px; line-height: 1.7; color: #5a5f54; }
+.storage-card { background: #f6f3ea; border-style: dashed; }
+.stats-card { display: flex; flex-wrap: wrap; gap: 16px; padding: 14px 18px; }
+.stats-card span { display: inline-flex; align-items: center; gap: 7px; font-size: 11.5px; color: #6d7268; }
+
+/* --- boş durum ------------------------------------------------------------ */
+.community-empty { text-align: center; padding: 54px 20px; border: 1px dashed var(--line); border-radius: 16px; color: var(--muted); }
+.community-empty svg { color: #c3bfb0; }
+.community-empty h3 { font-family: var(--serif); font-size: 23px; margin: 12px 0 6px; color: var(--ink); }
+.community-empty p { font-size: 12.5px; margin: 0 0 16px; }
+
+/* --- düzenleyici ---------------------------------------------------------- */
+.composer-dialog { width: min(640px, 94vw); border: none; border-radius: 18px; padding: 0; overflow: hidden; background: var(--surface, #fff); color: inherit; }
+.composer-dialog::backdrop { background: rgba(24, 22, 18, .55); }
+.composer-head { display: flex; align-items: flex-start; gap: 14px; padding: 18px 20px 12px; border-bottom: 1px solid var(--line); }
+.composer-head h2 { font-family: var(--serif); font-size: 24px; margin: 4px 0 0; flex: 1; }
+.composer-dialog > .field, .composer-dialog .kind-switch, .composer-dialog .composer-row, .composer-dialog .composer-foot { margin-inline: 20px; }
+.kind-switch { display: flex; gap: 8px; margin-top: 16px; }
+.kind-switch button { flex: 1; border: 1px solid var(--line); border-radius: 8px; padding: 11px; font-size: 12.5px; color: #82867a; }
+.kind-switch button.selected { border-color: #dcc3be; background: #f5e8e4; color: #a3524c; font-weight: 600; }
+.composer-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.field { display: grid; gap: 6px; margin-top: 14px; }
+.field > span { font-size: 11px; letter-spacing: .04em; color: var(--muted); }
+.field input, .field select, .field textarea { width: 100%; border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font: inherit; font-size: 13px; background: var(--paper, #fff); color: inherit; resize: vertical; }
+.char-count { font-size: 10.5px; color: var(--muted); text-align: end; font-variant-numeric: tabular-nums; }
+.composer-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; justify-content: space-between; margin-top: 18px; margin-bottom: 20px; border-top: 1px solid var(--line); padding-top: 14px; }
+.composer-note { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; color: var(--muted); }
+.composer-foot .primary-button { min-height: 38px; padding: 10px 16px; gap: 12px; font-size: 11px; }
+
+/* --- canlı pano durumları ------------------------------------------------- */
+.community-refresh { border: 1px solid var(--line); border-radius: 6px; width: 38px; height: 38px; display: grid; place-items: center; color: #82867a; background: var(--surface, #fff); }
+.community-refresh:hover:not(:disabled) { color: var(--rose); border-color: #dcc3be; }
+.community-refresh svg { transition: transform .3s; }
+.community-notice { display: flex; align-items: center; gap: 9px; margin-bottom: 14px; padding: 10px 14px; border-radius: 8px; background: #f5ece4; border: 1px solid #e6d3c2; color: #9a6a4d; font-size: 12px; }
+.notice-dot { width: 7px; height: 7px; border-radius: 50%; background: #c58a5f; flex-shrink: 0; }
+.community-loading { display: flex; align-items: center; gap: 12px; justify-content: center; padding: 54px 20px; border: 1px dashed var(--line); border-radius: 16px; color: var(--muted); font-size: 12.5px; }
+.storage-card.live { background: #eef0e8; border-color: #dde2d2; }
+.storage-card.live h2 { color: #5d6f52; }
+
+/* --- ana sayfa şeridi ----------------------------------------------------- */
+.community-band { display: flex; align-items: center; justify-content: space-between; gap: 20px; background: #eef0e8; border: 1px solid #e0e4d5; border-radius: 7px; padding: 25px; margin: 32px 0 23px; }
+.community-band h2 { font-family: var(--serif); font-size: 28px; font-weight: 500; }
+.community-band h2 em { font-style: normal; color: var(--rose); }
+.community-band p { font-size: 10px; line-height: 1.8; color: #868c78; margin-top: 7px; max-width: 60ch; }
+.community-band .eyebrow i { font-style: normal; margin-inline-start: 6px; font-size: 7px; border: 1px solid #cfd4c2; border-radius: 3px; padding: 2px 5px; letter-spacing: 1.4px; color: #7d8a6f; }
+.community-band .primary-button { flex-shrink: 0; }
+
+@media (max-width: 980px) {
+  .community-layout { grid-template-columns: 1fr; }
+  .community-side { position: static; grid-template-columns: 1fr 1fr; align-items: start; }
+  .storage-card, .stats-card { grid-column: 1 / -1; }
+}
+@media (max-width: 700px) {
+  .community-tools { margin-inline-start: 0; width: 100%; }
+  .community-tools .search-field { flex: 1; }
+  .community-tools .search-field input { width: 100%; }
+  .community-new { width: 100%; justify-content: center; }
+  .community-side { grid-template-columns: 1fr; }
+  .composer-row { grid-template-columns: 1fr; }
+  .composer-foot { justify-content: stretch; }
+  .composer-foot .primary-button { width: 100%; }
+  .community-band { flex-direction: column; align-items: flex-start; padding: 20px; }
+}
+
+/* Azaltılmış hareket tercihinde yeni gönderi vurgusu animasyonsuz kalır. */
+@media (prefers-reduced-motion: reduce) { .post-card.flash { animation: none; } }
+
+/* Arapça arayüz sağdan sola okunur; bazı iç konumlamaları aynalansın. */
+html[dir="rtl"] .post-kind { margin-inline-start: 0; margin-inline-end: auto; }
+html[dir="rtl"] .comment-form input { text-align: right; }
+html[dir="rtl"] .char-count { text-align: left; }

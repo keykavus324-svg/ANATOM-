@@ -1398,3 +1398,58 @@ test('edition is usable on mobile in RTL and with reduced motion',async({page})=
   const cover=page.locator('.edition-cover');await cover.getByRole('button',{name:'لوحة الغلاف التالية'}).click();await expect(cover.locator('.edition-caption-link')).toContainText('Cerebrum');expect(await cover.locator('.edition-organ').evaluate(el=>getComputedStyle(el).animationName)).toBe('none');
   await expect(page.locator('.module-links .station')).toHaveCount(4);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
+
+test('community board publishes, comments, likes and keeps posts on this device', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', err => errors.push(err.message));
+  await page.goto('/#/topluluk');
+  await expect(page.locator('.post-card')).toHaveCount(1);
+  await expect(page.locator('.post-pinned')).toContainText('Sabitlenmiş');
+
+  const profileInput = page.locator('.profile-card input');
+  await profileInput.click();
+  await profileInput.pressSequentially('Elif Yılmaz', { delay: 10 });
+  await expect(profileInput).toHaveValue('Elif Yılmaz', { timeout: 2000 });
+  await profileInput.blur();
+  await expect(page.locator('.profile-hint')).toContainText('Elif Yılmaz');
+
+  await page.locator('.community-new').click();
+  const composer = page.getByRole('dialog');
+  await composer.getByRole('button', { name: 'Not paylaş' }).click();
+  await composer.getByLabel('İlgili ders (isteğe bağlı)').selectOption('9');
+  await composer.getByLabel('Başlık (isteğe bağlı)').fill('Sinir sisteminde tekrar');
+  await composer.getByLabel('İçerik').fill('Piramidal tractus ile extrapiramidal sistem arasındaki farkları netleştirmek için kendi cümlelerimizle özet çıkaralım.');
+  await composer.locator('.primary-button').click();
+
+  await expect(page.getByRole('status')).toContainText('Gönderi panoya eklendi.');
+  await expect(page.locator('.post-card')).toHaveCount(2);
+  const mine = page.locator('.post-card', { hasText: 'Sinir sisteminde tekrar' });
+  await expect(mine.locator('.post-lesson')).toContainText('Ders 9');
+
+  await mine.locator('.like-button').click();
+  await expect(mine.locator('.like-button')).toHaveAttribute('aria-pressed', 'true');
+  await mine.getByRole('button', { name: /yorum/ }).click();
+  await mine.getByPlaceholder('Yorum yaz…').fill('Farkları tabloyla özetleyebiliriz.');
+  await mine.getByRole('button', { name: 'Yorumu gönder' }).click();
+  await expect(page.getByRole('status')).toContainText('Yorum eklendi.');
+  await expect(mine.getByRole('button', { name: /yorum/ })).toContainText('1 yorum');
+
+  await mine.locator('.post-lesson').click();
+  await expect(page).toHaveURL(/#\/ders\/9/);
+  await page.goBack();
+  await page.reload();
+  await expect(page.locator('.post-card')).toHaveCount(2);
+  const restoredPost = page.locator('.post-card', { hasText: 'Sinir sisteminde tekrar' });
+  // Browser back/reload may remount the page with an empty profile draft; restore
+  // the display name so ownership controls are asserted against current state.
+  const restoredProfile = page.locator('#community-profile-input');
+  if (!(await restoredProfile.inputValue())) {
+    await restoredProfile.fill('Elif Yılmaz');
+    await restoredProfile.blur();
+  }
+  await expect(restoredPost.locator('.post-remove')).toBeVisible();
+  await restoredPost.locator('.post-remove').click();
+  await restoredPost.getByRole('button', { name: 'Evet, sil' }).click();
+  await expect(page.locator('.post-card')).toHaveCount(1);
+  expect(errors).toEqual([]);
+});
