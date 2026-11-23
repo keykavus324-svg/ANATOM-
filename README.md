@@ -30,6 +30,17 @@ Ana sayfadaki anatomik levhalar ilgili konu anlatımlarına açılır. **Ders Pl
 
 **Sunumu başlat** planı sınıfa yansıtılabilecek biçimde açar: ilk slaytta hedefler ve konu sırası, ardından her konu için görsel anlatım ve yanıtı öğretim üyesinin açabileceği bir tartışma sorusu yer alır. Ok tuşlarıyla slaytlar arasında geçilir, Esc ile düzenleyiciye dönülür. Sunum, sitenin mevcut üç dildeki ders metinlerini ve tekrar sorularını kullanır. Öğrenciler ders kütüphanesi, 3B atlas, video ve sınav araçlarını aynı platformda kullanmaya devam edebilir.
 
+## Topluluk panosu (`#/topluluk`)
+
+Forum ve sosyal akışın ortasında bir sınıf panosu: soru sor, not paylaş, yorumla, beğen. Menüdeki **Topluluk** girişi ve ana sayfadaki şeritten açılır.
+
+- **İki gönderi türü:** `Soru sor` ve `Not paylaş`. Her gönderiye etiket (Genel, Osteoloji, Arthrologia, Myologia, Nöroanatomi, Klinik bağlantı, Çalışma tekniği) ve isteğe bağlı ders bağlantısı (`Ders 1–11`) eklenir; ders etiketi ilgili konu anlatımına tek tıkla gider.
+- **Akış:** Tümü / Sorular / Notlar sekmeleri, etiket süzgeçleri, Türkçe karakter duyarlı arama, Yeni–Popüler sıralaması; sabitlenmiş açılış gönderisi listenin başında kalır.
+- **Sohbet:** Gönderiler altında satır içi yorumlar ve beğeniler bulunur. Yeni içerik diğer cihazlara en geç 15 saniyelik pano yoklamasıyla yansır; sekme odağa geldiğinde pano hemen yenilenir.
+- **Kalıcı ortak pano:** Gönderi, yorum ve beğeniler Supabase Postgres'te saklanır. Tablo erişimleri RLS ile korunur; gönderi/yorum/beğeni yazma işlemleri herkese açıktır, bu sürümde hesap veya kimlik doğrulama yoktur. Beğeni ve kendi gönderisini silme, cihazın yerel depolamasında saklanan sabit aktör UUID'siyle ilişkilendirilir; bu bir kullanıcı hesabı değildir.
+- **Görünen ad ve sınırlar:** Görünen ad (`anatomi-topluluk-profil`) yalnızca cihazda tutulur; toplulukta gönderi/yorum yazarken sunucuya içerik ve görünen ad gider. Hassas kişisel bilgi paylaşmayın. Supabase yapılandırılamazsa geliştirme/yerel modda pano localStorage'a düşebilir.
+- **Mimari ve test:** `src/forum/remote.js` PostgREST istemcisi, `src/forum/config.js` ortam yapılandırması, `src/useCommunity.js` uzaktan pano ve yenileme kancasıdır. `VITE_FORUM_MODE=local` yerel modu, `VITE_FORUM_MODE=remote` uzaktan modu zorlar; aksi halde Supabase URL/anahtarı varsa uzaktan mod seçilir. `npm run test:forum` iki ayrı tarayıcı ile mock PostgREST backendinde paylaşım, beğeni, yorum ve canlı yenilemeyi sınar. Arayüz üç dilde (TR/EN/AR) çalışır; Arapça sağdan sola okunur.
+
 ## Çalıştırma
 
 Node.js 22+ önerilir.
@@ -118,6 +129,7 @@ Site, Muhammet TUĞRUL’un kendi yayımladığı **TUĞRUL ATLAS — İnterakti
 - Mobilde konu metni aşağıdan açılan sürüklenebilir çekmecede (46/72/92 vh).
 - Video konu anlatımı: `#/videolar` sayfasında ders ders NotebookLM videoları, parçalı oynatma, konu filtreleri ve ders sayfalarından doğrudan erişim.
 - 3B anatomi atlası: Muhammet TUĞRUL’un TUĞRUL ATLAS’ı `#/atlas` sayfasında gömülü olarak açılır; tam ekran, yenileme, yeni sekmede açma ve ağ engeli için yedek açılış bulunur.
+- Topluluk panosu (`#/topluluk`): Supabase'te kalıcı soru/not gönderileri, yorumlar ve beğeniler; cihazlar arası 15 saniyelik canlı yenileme, etiket/ders süzgeçleri ve cihazda tutulan görünen ad.
 - Yerel anatomi quizleri (`#/quizler`): 12 konu seti × 10 = 120 özgün soru, dört yanıt biçimi (çoktan seçmeli, doğru/yanlış, çoklu seçim, sıralama), 86 şekilli soru, set bazlı arama/kategori/favori filtreleri ve her sorudan sonra doğru yanıt + açıklama.
 - Sınav simülasyonu (`#/sinav`): tüm setlerden dengeli çekilen 10/20/30 soruluk karışık kâğıt, soru başına 45 saniyelik sayaç, soru paleti, Alt+ok geçişi, sınav sırasında yanıt gizliliği, boş bırakırken onay, sonda puan halkası + set/konu bazlı döküm.
 - Ustalık haritası: çözülen set, yanıtlanan soru, doğru oranı, çalışma serisi, doğruluk seyri, zayıf konular ve en düşük ustalıklı setler; `anatomi-quiz-history-v1` anahtarında yalnız cihazda tutulur, tek tuşla temizlenir.
@@ -180,13 +192,13 @@ Bu araç **ders anlatımı yazmaz**. Yalnızca `reference/course-content/` altı
 
 ## Gizlilik
 
-`anatom-saved`, `anatom-completed`, `anatom-last`, `anatomi-last-mode`, `anatomi-reading-size`, `anatomi-quiz-saved`, `anatomi-quiz-studied`, `anatomi-quiz-last`, `anatomi-quiz-history-v1` (quiz ve sınav denemelerinin geçmişi) ve `anatomi-language` yalnız tarayıcıda saklanır. Hesap, analiz kodu veya çalışma kaydını sunucuya gönderen mekanizma yoktur. Cihazlar arasında eşitleme yapılmaz. PDF açıldığında Google’ın üçüncü taraf hizmetine istek gönderilir; web derslerini okumak Google isteği oluşturmaz. “Hocamız Hakkında” sayfasında resmî portre `apiabs.firat.edu.tr` üzerinden yüklenir; bu sayfa üniversitenin fotoğraf sunucusuna istek gönderir. Fotoğrafta `no-referrer` kullanılır. Fotoğraf yüklenemezse baş harfler ve resmî profile bağlantı gösterilir. Ders okuyucusu ve ana sayfa bu fotoğrafı istemez. 3B atlas bölümünde `www.zygotebody.com` adresine iframe isteği gönderilir ve erişilebilirlik ön kontrolü için aynı alan adına `no-cors` bir istek yapılır; web derslerini okumak bu isteği oluşturmaz.
+`anatom-saved`, `anatom-completed`, `anatom-last`, `anatomi-last-mode`, `anatomi-reading-size`, `anatomi-quiz-saved`, `anatomi-quiz-studied`, `anatomi-quiz-last`, `anatomi-quiz-history-v1` (quiz ve sınav denemelerinin geçmişi), `anatomi-topluluk-profil` (topluluk görünen adı), `anatomi-topluluk-aktor` (cihaza özgü anonim forum aktörü) ve `anatomi-language` tarayıcıda saklanır. Topluluk gönderileri, yorumları ve beğenileri herkese açık Supabase backendine yazılır ve cihazlar arasında eşitlenir; forum hesabı/oturum açma yoktur. Diğer çalışma kayıtları sunucuya gönderilmez. PDF açıldığında Google’ın üçüncü taraf hizmetine istek gönderilir; web derslerini okumak Google isteği oluşturmaz. “Hocamız Hakkında” sayfasında resmî portre `apiabs.firat.edu.tr` üzerinden yüklenir; bu sayfa üniversitenin fotoğraf sunucusuna istek gönderir. Fotoğrafta `no-referrer` kullanılır. Fotoğraf yüklenemezse baş harfler ve resmî profile bağlantı gösterilir. Ders okuyucusu ve ana sayfa bu fotoğrafı istemez. 3B atlas bölümünde `www.zygotebody.com` adresine iframe isteği gönderilir ve erişilebilirlik ön kontrolü için aynı alan adına `no-cors` bir istek yapılır; web derslerini okumak bu isteği oluşturmaz.
 
 ## Testler
 
 ```sh
-npm test             # 121 katalog/içerik/kaynak/dil/quiz/sınav/gezinme/atlas/alıştırma testi
-npm run test:ui      # 63 Playwright senaryosu (alt küme: npm run test:ui -- -g "exam")
+npm test             # 136 katalog/içerik/kaynak/dil/quiz/sınav/gezinme/atlas/alıştırma/topluluk testi
+npm run test:ui      # 64 Playwright senaryosu (alt küme: npm run test:ui -- -g "exam")
 npm run build
 ```
 
