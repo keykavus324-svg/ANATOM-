@@ -1426,15 +1426,31 @@ test('community board publishes, comments, likes and keeps posts on this device'
   const mine = page.locator('.post-card', { hasText: 'Sinir sisteminde tekrar' });
   await expect(mine.locator('.post-lesson')).toContainText('Ders 9');
 
-  await mine.locator('.like-button').click();
-  await expect(mine.locator('.like-button')).toHaveAttribute('aria-pressed', 'true');
-  await mine.getByRole('button', { name: /yorum/ }).click();
-  await mine.getByPlaceholder('Yorum yaz…').fill('Farkları tabloyla özetleyebiliriz.');
-  await mine.getByRole('button', { name: 'Yorumu gönder' }).click();
-  await expect(page.getByRole('status')).toContainText('Yorum eklendi.');
-  await expect(mine.getByRole('button', { name: /yorum/ })).toContainText('1 yorum');
+  await mine.getByRole('button', { name: 'Gönderiyi kaydet' }).click();
+  await page.getByRole('tab', { name: /Kaydettiklerim/ }).click();
+  await expect(page.locator('.post-card')).toHaveCount(1);
+  await expect(page.locator('.post-card', { hasText: 'Sinir sisteminde tekrar' })).toBeVisible();
+  await page.getByRole('tab', { name: 'Tümü' }).click();
+  await page.reload();
+  await page.getByRole('tab', { name: /Kaydettiklerim/ }).click();
+  await expect(page.locator('.post-card', { hasText: 'Sinir sisteminde tekrar' })).toBeVisible();
+  await page.getByRole('tab', { name: 'Tümü' }).click();
+  const reloadedMine = page.locator('.post-card', { hasText: 'Sinir sisteminde tekrar' });
 
-  await mine.locator('.post-lesson').click();
+  await reloadedMine.locator('.like-button').click();
+  await expect(reloadedMine.locator('.like-button')).toHaveAttribute('aria-pressed', 'true');
+  const activeProfile = page.locator('#community-profile-input');
+  if (!(await activeProfile.inputValue())) {
+    await activeProfile.fill('Elif Yılmaz');
+    await activeProfile.blur();
+  }
+  await reloadedMine.getByRole('button', { name: /yorum/ }).click();
+  await reloadedMine.getByPlaceholder('Yorum yaz…').fill('Farkları tabloyla özetleyebiliriz.');
+  await reloadedMine.getByRole('button', { name: 'Yorumu gönder' }).click();
+  await expect(page.getByRole('status')).toContainText('Yorum eklendi.');
+  await expect(reloadedMine.getByRole('button', { name: /yorum/ })).toContainText('1 yorum');
+
+  await reloadedMine.locator('.post-lesson').click();
   await expect(page).toHaveURL(/#\/ders\/9/);
   await page.goBack();
   await page.reload();
