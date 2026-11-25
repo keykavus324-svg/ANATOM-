@@ -11,7 +11,7 @@
 .practice-hero .eyebrow {
   font-size: 10px;
   letter-spacing: 1.7px;
-  color: #9b7967;
+  color: #000000;
 }
 .practice-hero h1 {
   font-family: var(--serif);
@@ -21,14 +21,14 @@
   margin: 19px 0;
 }
 .practice-hero h1 em {
-  color: #b2826d;
+  color: #000000;
   font-weight: 400;
 }
 .practice-hero > p {
   font-size: 14px;
   line-height: 1.9;
   max-width: 65ch;
-  color: #7a846f;
+  color: #000000;
 }
 .practice-pills {
   display: flex;
@@ -76,7 +76,7 @@
   padding: 27px;
   text-align: left;
   background: #f9f8ef;
-  color: #758068;
+  color: #000000;
 }
 .practice-modes button[aria-pressed="true"] {
   border-color: #91a87b;
@@ -142,7 +142,7 @@
 .practice-notebook > p {
   font-size: 13px;
   line-height: 1.9;
-  color: #79836d;
+  color: #000000;
 }
 .practice-page button {
   touch-action: manipulation;
@@ -197,7 +197,7 @@
   padding-left: 19px;
 }
 .practice-source-note {
-  color: #8b927f;
+  color: #000000;
   font-size: 11px;
   line-height: 1.9;
   margin-top: 24px;
@@ -235,7 +235,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  color: #8b7865;
+  color: #000000;
   font-size: 10px;
   letter-spacing: 1px;
   line-height: 1.8;
@@ -246,7 +246,7 @@
   gap: 7px;
   font-size: 17px;
   letter-spacing: 0;
-  color: #9f735e;
+  color: #000000;
   font-variant-numeric: tabular-nums;
   flex-shrink: 0;
 }
@@ -260,7 +260,7 @@
 .practice-topic {
   font-size: 11px;
   line-height: 1.8;
-  color: #8b957d;
+  color: #000000;
   margin-bottom: 15px;
 }
 .practice-session h2 {
@@ -298,7 +298,7 @@
 }
 .practice-figure figcaption > p {
   font-size: 14px;
-  color: #6b795c;
+  color: #000000;
   margin-top: 18px;
 }
 .practice-options {
@@ -329,7 +329,7 @@
   min-width: 0;
 }
 .practice-options b {
-  color: #9a886d;
+  color: #000000;
   font-size: 11px;
   margin-right: 13px;
 }
@@ -370,7 +370,7 @@
   border-radius: 8px;
   font-size: 13px;
   line-height: 1.8;
-  color: #866b52;
+  color: #000000;
 }
 .practice-warning button {
   margin: 8px 10px 0 0;
@@ -415,7 +415,7 @@
 }
 .practice-review-list small {
   font-size: 10px;
-  color: #8b967b;
+  color: #000000;
 }
 .practice-review-list h3 {
   font-family: var(--serif);
@@ -432,7 +432,7 @@
 }
 .practice-delete {
   margin-top: 15px;
-  color: #a27762;
+  color: #000000;
 }
 .practice-empty {
   border: 1px dashed #c8d2ba;
@@ -530,7 +530,7 @@
   background: #e9eddf;
   border-radius: 4px;
   font-size: 10px;
-  color: #657953;
+  color: #000000;
 }
 .practice-result-item img {
   display: block;
@@ -562,7 +562,7 @@
 .practice-entry p {
   font-size: 12px;
   line-height: 1.8;
-  color: #7d886f;
+  color: #000000;
   margin: 0;
 }
 .practice-entry button {

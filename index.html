@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-<meta name="theme-color" content="#f8f7f3" media="(prefers-color-scheme: light)"/>
-<meta name="theme-color" content="#101c1c" media="(prefers-color-scheme: dark)"/>
+<meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)"/>
+<meta name="theme-color" content="#251e25" media="(prefers-color-scheme: dark)"/>
 <meta name="description" content="Öğrenciler ve akademisyenler için anatomi ders kütüphanesi: gerçekçi anatomi plakaları, Latince–Türkçe terim arama, mini testler, çevrimdışı çalışma ve ders planlayıcı."/>
 <title>ANATOMİ — Akademik Atlas ve Ders Kütüphanesi</title>
 <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg"/>
@@ -21,16 +21,17 @@
 <meta name="twitter:description" content="Gerçekçi anatomi plakaları, Latince–Türkçe terim arama, mini testler ve çevrimdışı çalışma."/>
 <meta name="twitter:image" content="https://keykavus324-svg.github.io/ANATOM-/brand/og-card.png"/>
 <style>
-  /* First-paint skeleton: pure CSS, removed when React mounts into #root. */
-  html{background:#f8f7f3}
-  @media (prefers-color-scheme: dark){html{background:#101c1c}}
+  /* First-paint skeleton: pure CSS, removed when React mounts into #root.
+     Palette mirrors src/tokens.css (Atlas Edition: parchment + wine). */
+  html{background:#f7f5f0}
+  @media (prefers-color-scheme: dark){html{background:#251e25}}
   #root:empty::before{content:'';display:block;position:fixed;inset:0;background:
-    linear-gradient(#83c5bd0b 1px,transparent 1px) 0 0/28px 28px,
-    linear-gradient(90deg,#83c5bd0b 1px,transparent 1px) 0 0/28px 28px;}
+    linear-gradient(#7c36420d 1px,transparent 1px) 0 0/28px 28px,
+    linear-gradient(90deg,#7c36420d 1px,transparent 1px) 0 0/28px 28px;}
   #root:empty::after{content:'ANATOMİ yükleniyor';position:fixed;left:50%;top:50%;translate:-50% -50%;
-    font:600 13px/1 system-ui,sans-serif;letter-spacing:.18em;color:#5d7a76;
-    padding:14px 22px 14px 46px;border:1px solid #91bebb55;border-radius:999px;background:#ffffffd9;}
-  @media (prefers-color-scheme: dark){#root:empty::after{background:#16282ad9;color:#9fc6c0;border-color:#91bebb33}}
+    font:600 13px/1 system-ui,sans-serif;letter-spacing:.18em;color:#7c3642;
+    padding:14px 22px 14px 46px;border:1px solid #9a485655;border-radius:999px;background:#fffdf9e6;}
+  @media (prefers-color-scheme: dark){#root:empty::after{background:#251e25e6;color:#ecb49a;border-color:#9a485633}}
   #root:empty::after{animation:anatomi-pulse 1.4s ease-in-out infinite}
   @keyframes anatomi-pulse{0%,100%{opacity:.55}50%{opacity:1}}
 </style>

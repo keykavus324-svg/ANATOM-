@@ -10,7 +10,7 @@
   display:flex;
   align-items:center;
   gap:10px;
-  color:#647652;
+  color:#000000;
   font-size:10px;
   letter-spacing:1.3px;
 }
@@ -58,7 +58,7 @@
   line-height:1.6;
 }
 .exam-learning-map nav button>span {
-  color:#9a7968;
+  color:#000000;
   font-family:var(--serif);
   font-size:20px;
 }
@@ -98,7 +98,7 @@
 }
 .exam-source-audit li p {
   margin-top:4px;
-  color:#78826d;
+  color:#000000;
 }
 .exam-teaching {
   margin:30px 0;
@@ -107,10 +107,10 @@
   color:#5d6b51;
 }
 .teaching-kicker {
-  font-size:9px;
+  font-size:10px;
   letter-spacing:1.4px;
   font-weight:600;
-  color:#967362;
+  color:#000000;
   margin-bottom:12px;
 }
 .exam-teaching>h3 {
@@ -142,7 +142,7 @@
 .teaching-trap strong {
   font-size:11px;
   letter-spacing:.7px;
-  color:#966d59;
+  color:#000000;
 }
 .teaching-trap p {
   font-size:calc(var(--reading-size) - 1px);
@@ -172,10 +172,10 @@
 }
 .teaching-check legend>span {
   display:block;
-  font-size:9px;
+  font-size:10px;
   letter-spacing:1px;
   margin-bottom:8px;
-  color:#7b896d;
+  color:#000000;
 }
 .teaching-check label {
   display:flex;
@@ -200,7 +200,7 @@
 }
 .teaching-check label b {
   font-size:11px;
-  color:#879777;
+  color:#000000;
   margin-right:12px;
 }
 .teaching-check label small {
@@ -253,7 +253,7 @@
 }
 .teaching-evidence {
   margin:18px 0 6px;
-  color:#818a76;
+  color:#000000;
 }
 .teaching-evidence p,.teaching-evidence li {
   font-size:11px;
@@ -319,7 +319,7 @@
   display:block;
   font-size:10px;
   line-height:1.7;
-  color:#8c927e;
+  color:#000000;
 }
 .teaching-figure-viewport:focus-visible {
   outline:2px solid #6c8057;

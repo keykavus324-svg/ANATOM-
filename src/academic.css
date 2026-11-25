@@ -1,10 +1,7 @@
+/* Palette lives in tokens.css (Atlas Edition); academic.css keeps only
+   component-level styling so the teal interim skin can no longer split the
+   identity of the shell. */
 :root {
-  --paper: #f6f8f8;
-  --white: #fff;
-  --ink: #203d40;
-  --line: #dce4e3;
-  --rose: #116566;
-  --rose-dark: #084c51;
   background: var(--paper);
   color: var(--ink);
 }
@@ -13,7 +10,7 @@
   padding-top: 27px;
 }
 .brand {
-  color: #104c4f;
+  color: #6d2f3a;
 }
 .brand .brand-symbol,
 .mobile-brand img {
@@ -21,8 +18,8 @@
     saturate(2);
 }
 .brand span {
-  color: #548184;
-  font-size: 8px;
+  color: #7d5a60;
+  font-size:9.5px;
   letter-spacing: 2.1px;
 }
 .brand-button {
@@ -34,7 +31,7 @@
     600 9px/1.3 'Inter',
     sans-serif;
   letter-spacing: 1.6px;
-  color: #76908e;
+  color: #6e5f63;
 }
 .sidebar-section-label {
   margin-bottom: 11px;
@@ -43,21 +40,21 @@
   gap: 3px;
 }
 .sidebar .nav-item {
-  color: #536968;
+  color: #55494c;
   min-height: 38px;
   padding: 10px 13px;
   font-size: 12px;
   border-radius: 6px;
 }
 .sidebar .nav-item.active {
-  background: #e3f1ee;
-  color: #11615f;
+  background: #f2e5e2;
+  color: #7c3642;
 }
 .nav-item:hover {
-  background: #f2f6f5;
+  background: #f6f1ec;
 }
 .nav-active-dot {
-  background: #23827d;
+  background: #9a4856;
 }
 .sidebar .nav-subgroup {
   margin-top: 24px;
@@ -81,17 +78,17 @@
   padding-top: 12px;
 }
 .instructor-mini {
-  background: #f5f9f8;
+  background: #fbf7f4;
 }
 .avatar {
-  background: #dbeeea;
-  color: #226761;
+  background: #f2e5e2;
+  color: #7c3642;
 }
 .sidebar .help-button {
   padding: 14px 9px;
 }
 .topic-dot {
-  background: #5d9d93;
+  background: #8a5f6b;
 }
 .dot-1 {
   background: #ba9f64;
@@ -111,15 +108,15 @@
   font-size: 12px;
 }
 .breadcrumb strong {
-  color: #234541;
+  color: var(--edition-ink);
 }
 .topbar-right {
   gap: 18px;
 }
 .header-search {
-  border: 1px solid #dce4e3;
-  background: #f8faf9;
-  color: #677978;
+  border: 1px solid #dfd9d0;
+  background: #f7f5f0;
+  color: #685f61;
   border-radius: 7px;
   padding: 8px 11px;
   display: flex;
@@ -129,7 +126,7 @@
 }
 .header-search kbd {
   font-size: 10px;
-  border: 1px solid #dae1df;
+  border: 1px solid #dfd9d0;
   padding: 1px 4px;
   border-radius: 3px;
   background: white;
@@ -137,14 +134,14 @@
 }
 .topbar .language-switch-label {
   font-size: 0;
-  color: #657c79;
+  color: #685f61;
 }
 .language-switch-options {
   background: white;
 }
 .language-switch-options button.active {
-  background: #e3efec;
-  color: #165a57;
+  background: #f2e5e2;
+  color: #7c3642;
 }
 .topbar .language-switch .lang-full {
   display: none;
@@ -299,7 +296,7 @@ main {
   align-items: center;
   gap: 9px;
   color: #a5c9c8;
-  font-size: 8px;
+  font-size:9.5px;
 }
 .spec-index b {
   width: 25px;
@@ -351,18 +348,18 @@ main {
   width: 39px;
   height: 39px;
   border-radius: 9px;
-  background: #e4f2ee;
-  color: #21796c;
+  background: #f2e5e2;
+  color: #7c3642;
   display: grid;
   place-items: center;
 }
 .module-icon.module-atlas {
-  background: #e9eef8;
-  color: #546f9a;
+  background: #eceef4;
+  color: #4d5f86;
 }
 .module-icon.module-planner {
-  background: #efe9f5;
-  color: #80649b;
+  background: #efe9f0;
+  color: #6d5a80;
 }
 .module-links strong {
   font-size: 13px;
@@ -371,7 +368,7 @@ main {
 }
 .module-links small {
   font-size: 10px;
-  color: #6e7f7e;
+  color: #5f5457;
   display: block;
   margin-top: 5px;
   line-height: 1.4;
@@ -379,24 +376,24 @@ main {
 .module-links button > svg {
   margin-inline-start: auto;
   align-self: flex-start;
-  color: #839796;
+  color: #716569;
   width: 13px;
 }
 .module-links button:hover,
 .spec-card:hover {
-  border-color: #8fb5ad;
-  box-shadow: 0 3px 12px #193b3310;
+  border-color: #c9a49b;
+  box-shadow: 0 3px 12px #42313a10;
 }
 .academic-kicker {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #267a71;
+  color: #7c3642;
 }
 .academic-kicker i {
   width: 19px;
   height: 2px;
-  background: #4e9389;
+  background: #9a4856;
   border-radius: 0;
 }
 .plate-heading {
@@ -416,7 +413,7 @@ main {
   display: flex;
   align-items: center;
   gap: 7px;
-  color: #236862;
+  color: #7c3642;
   font-size: 11px;
   font-weight: 600;
 }
@@ -468,11 +465,11 @@ main {
   top: 11px;
   left: 12px;
   background: #ffffffa1;
-  border: 1px solid #bcc3bf70;
-  color: #657774;
+  border: 1px solid #cfc7be70;
+  color: #5f5457;
   padding: 3px 6px;
   border-radius: 3px;
-  font-size: 8px;
+  font-size:9.5px;
 }
 .spec-expand {
   left: auto;
@@ -490,7 +487,7 @@ main {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 8px;
+  font-size:9.5px;
   font-weight: 600;
   letter-spacing: 1.1px;
   color: var(--accent);
@@ -506,13 +503,13 @@ main {
 }
 .spec-info em {
   font: italic 12px Georgia;
-  color: #748282;
+  color: #6b5f62;
 }
 .spec-info > svg {
   position: absolute;
   bottom: 15px;
   inset-inline-end: 14px;
-  color: #8a9996;
+  color: #77696d;
 }
 .academic-home {
   margin-bottom: 35px;
@@ -526,7 +523,7 @@ main {
 }
 .planner > p,
 .plan-preview p {
-  color: #5d7471;
+  color: #685f61;
   font-size: 14px;
   line-height: 1.65;
 }
@@ -556,8 +553,8 @@ main {
   width: 100%;
   margin: 8px 0 16px;
   padding: 10px;
-  border: 1px solid #b4c8c5;
-  background: #fbfdfc;
+  border: 1px solid #cfc4bb;
+  background: #fffdf9;
   border-radius: 5px;
   font: inherit;
 }
@@ -573,7 +570,7 @@ main {
   gap: 8px;
 }
 .planner input {
-  accent-color: #156a63;
+  accent-color: #7c3642;
 }
 .planner [role='status'] {
   font-size: 12px;
@@ -600,7 +597,7 @@ main {
 }
 .plan-preview li small {
   display: block;
-  color: #657975;
+  color: #685f61;
   font-family: Georgia;
   margin-top: 3px;
 }
@@ -640,7 +637,7 @@ html[dir='rtl'] .plate-specimen {
     font-size: 12px;
   }
   .module-links small {
-    font-size: 9px;
+    font-size:10px;
   }
   .spec-thumb {
     height: 135px;
@@ -706,7 +703,7 @@ html[dir='rtl'] .plate-specimen {
     font-size: 48px;
   }
   .plate-badge {
-    font-size: 7px;
+    font-size:9px;
     letter-spacing: 1px;
   }
   .plate-copy p {
@@ -722,7 +719,7 @@ html[dir='rtl'] .plate-specimen {
     left: -25%;
   }
   .spec-index {
-    font-size: 6px;
+    font-size:8.5px;
     right: 9px;
   }
   .module-links {
@@ -817,7 +814,7 @@ html[dir='rtl'] .plate-specimen {
   font: italic 500 1.05em/0.96 var(--serif);
 }
 .plate-maker {
-  font-size: 9px;
+  font-size:10px;
   display: block;
   color: #a5c5c2;
   margin-top: 14px;
@@ -857,7 +854,7 @@ html[dir='rtl'] .plate-specimen {
     height: 78%;
   }
   .plate-maker {
-    font-size: 8px;
+    font-size:9.5px;
   }
   .plate-copy h1 {
     font-size: clamp(38px, 9.4vw, 51px);
@@ -904,7 +901,7 @@ html[dir='rtl'] .plate-specimen {
 }
 .plan-sources a {
   display: block;
-  color: #276c64;
+  color: #7c3642;
   margin-top: 6px;
   overflow-wrap: anywhere;
 }
@@ -938,9 +935,9 @@ html[dir='rtl'] .plate-specimen {
 }
 .plan-library-bar {
   margin-top: 22px;
-  background: #eaf3f1;
-  color: #245c58;
-  border: 1px solid #cfdfdb;
+  background: #f5eeea;
+  color: #5a3a40;
+  border: 1px solid #e4d9d0;
   padding: 16px 18px;
   border-radius: 10px;
   flex-wrap: wrap;
@@ -951,7 +948,7 @@ html[dir='rtl'] .plate-specimen {
   min-width: 120px;
 }
 .plan-library-bar small {
-  color: #587673;
+  color: #685f61;
 }
 .plan-library-bar select {
   display: block;
@@ -959,15 +956,15 @@ html[dir='rtl'] .plate-specimen {
   max-width: 420px;
   margin-top: 4px;
   background: white;
-  color: #254b47;
+  color: #3f3538;
   padding: 7px 10px;
-  border: 1px solid #c6d8d4;
+  border: 1px solid #d8cdc4;
   border-radius: 5px;
   font: inherit;
 }
 .plan-library-bar button,
 .plan-stage button {
-  border: 1px solid #c2d6d2;
+  border: 1px solid #d8cdc4;
   border-radius: 5px;
   background: white;
   padding: 8px 12px;
@@ -990,8 +987,8 @@ html[dir='rtl'] .plate-specimen {
   margin: 0;
   padding: 0;
   border: 0;
-  background: #f6f9f7;
-  color: #193e40;
+  background: #f7f5f0;
+  color: #312b2e;
   overflow: hidden;
 }
 .plan-stage[open] {
@@ -1003,7 +1000,7 @@ html[dir='rtl'] .plate-specimen {
   justify-content: space-between;
   padding: 14px clamp(16px, 4vw, 65px);
   background: #fff;
-  border-bottom: 1px solid #d6e2dd;
+  border-bottom: 1px solid #dfd9d0;
 }
 .plan-stage header span {
   font-weight: 600;
@@ -1038,7 +1035,7 @@ html[dir='rtl'] .plate-specimen {
 }
 .stage-copy details {
   margin: 22px 0;
-  background: #e6f1ed;
+  background: #f2e5e2;
   border-radius: 8px;
   padding: 15px;
 }
@@ -1051,7 +1048,7 @@ html[dir='rtl'] .plate-specimen {
 }
 .stage-link {
   font-size: 14px;
-  color: #276863;
+  color: #7c3642;
   margin-top: 18px;
 }
 .stage-body figure {
@@ -1067,18 +1064,18 @@ html[dir='rtl'] .plate-specimen {
 }
 .stage-body figcaption {
   font-size: 11px;
-  color: #586e67;
+  color: #685f61;
   line-height: 1.5;
 }
 .plan-stage footer {
-  border-top: 1px solid #d6e2dd;
+  border-top: 1px solid #dfd9d0;
   font-size: 13px;
 }
 .plan-stage footer button {
   padding: 10px;
 }
 .plan-stage footer button:last-child {
-  background: #13645e;
+  background: #7c3642;
   color: white;
 }
 html[dir='rtl'] .plan-stage footer svg {

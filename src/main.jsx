@@ -34,6 +34,7 @@ import CommunityPage from './CommunityPage';
 import QuizPage from './QuizPage';
 import ExamPage from './ExamPage';
 import { useQuizProgress } from './useQuizProgress';
+import './tokens.css';
 import './styles.css';
 import './features.css';
 import './academic.css';

@@ -13,3 +13,6 @@ google_drive/
 # Quiz plate source illustrations: reproducible sources kept out of git;
 # the compiled plates (public/diagrams/quiz/*.svg) embed the imagery.
 art-src/
+
+# Local copies of the design skills used for the visual pass (cloned, not project source)
+.skills/

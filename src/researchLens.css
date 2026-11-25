@@ -30,7 +30,7 @@
 .lens-results-heading p,
 .lens-note,
 .lens-empty {
-  color: #5c7371;
+  color: #000000;
   font-size: 13px;
   line-height: 1.65;
 }
@@ -194,7 +194,7 @@
 .lens-labels small {
   width: 100%;
   font-size: 10px;
-  color: #72817d;
+  color: #000000;
 }
 .lens-labels button {
   padding: 4px 7px;
@@ -241,7 +241,7 @@
 .lens-meta {
   justify-content: space-between;
   gap: 12px;
-  color: #5b7973;
+  color: #000000;
   font-size: 11px;
 }
 .lens-meta span {
@@ -572,10 +572,10 @@ html[dir='rtl'] .lens-figure .lens-plate img {
   font-size: 10px;
   font-weight: 500;
   margin-inline-start: 6px;
-  color: #648274;
+  color: #000000;
 }
 .lens-literature p {
-  color: #647771;
+  color: #000000;
   line-height: 1.6;
   font-size: 12px;
   margin: 9px 0;

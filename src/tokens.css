@@ -1,0 +1,114 @@
+/* ---------------------------------------------------------------------------
+   ANATOMİ design tokens — tek görsel kaynak (single source of truth).
+
+   Raw palette mirrors src/editionTokens.json (the Figma-shared Atlas Edition
+   pack). main.jsx also writes those values as --edition-* custom properties at
+   runtime; the fallbacks below keep first paint and no-JS render consistent.
+
+   Derived from two design skills applied to this project:
+   - ui-ux-pro-max  → product match "Research Lab / University Department":
+     Swiss Modernism 2.0 grid discipline, institutional accent + serif
+     headings, semantic color roles, pre-delivery accessibility checklist.
+   - frontend-design (OpenDesign / anthropics) → subject-grounded identity:
+     engraved anatomical plate, Latin specimen labels, one memorable moment,
+     restrained motion, no templated defaults.
+
+   Order matters: tokens.css loads first; later stylesheets consume these
+   variables instead of raw hex values.
+--------------------------------------------------------------------------- */
+
+:root {
+  /* --- Raw palette (mirrors editionTokens.json) --- */
+  --edition-paper: #f7f5f0;
+  --edition-surface: #fffdf9;
+  --edition-ink: #312b2e;
+  --edition-muted: #685f61;
+  --edition-rule: #dfd9d0;
+  --edition-wine: #7c3642;
+  --edition-carmine: #9a4856;
+  --edition-blush: #f2e5e2;
+  --edition-night: #251e25;
+  --edition-copper: #ecb49a;
+  --edition-ivory: #fff7e9;
+  --edition-sage: #536c61;
+
+  /* --- Semantic color roles (ui-ux-pro-max token contract) --- */
+  --color-primary: var(--edition-wine);
+  --color-on-primary: #ffffff;
+  --color-secondary: var(--edition-sage);
+  --color-on-secondary: #ffffff;
+  --color-accent: var(--edition-carmine);
+  --color-accent-ink: #8a4b3f;      /* accent text on light surfaces, ≥4.5:1 */
+  --color-gold: #8a5f13;            /* specimen-label ochre, ≥4.5:1 on paper */
+  --color-background: var(--edition-paper);
+  --color-surface: var(--edition-surface);
+  --color-foreground: var(--edition-ink);
+  --color-muted: var(--edition-blush);
+  --color-muted-fg: var(--edition-muted);
+  --color-border: var(--edition-rule);
+  --color-destructive: #a63d34;
+  --color-on-destructive: #ffffff;
+  --color-ring: var(--edition-carmine);
+
+  /* --- Legacy aliases used across existing stylesheets --- */
+  --paper: var(--edition-paper);
+  --white: var(--edition-surface);
+  --ink: var(--edition-ink);
+  --muted: var(--edition-muted);
+  --line: var(--edition-rule);
+  --rose: var(--edition-wine);
+  --rose-dark: #672938;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+
+  /* --- Typography --- */
+  --font-heading: var(--serif);
+  --font-body: var(--sans);
+  --text-2xs: 10px;                 /* label floor — nothing meaningful below */
+  --text-xs: 11px;
+  --text-sm: 12.5px;
+  --text-base: 14px;
+  --text-lg: 16px;                  /* reading size (lesson prose) */
+  --text-xl: 20px;
+  --text-2xl: 26px;
+  --text-3xl: 34px;
+  --leading-body: 1.7;
+  --leading-reading: 1.9;
+  --measure: 72ch;                  /* line-length ceiling for long prose */
+
+  /* --- Spacing scale (8px base, Swiss grid) --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-10: 64px;
+
+  /* --- Radius scale --- */
+  --radius-sm: 5px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+
+  /* --- Elevation --- */
+  --shadow-1: 0 1px 2px rgb(43 30 36 / 0.05);
+  --shadow-2: 0 8px 24px rgb(43 30 36 / 0.09);
+  --shadow-dialog: 0 24px 100px rgb(37 43 52 / 0.25);
+
+  /* --- Motion (150–300ms hover band; one entrance moment per view) --- */
+  --duration-fast: 160ms;
+  --duration-base: 240ms;
+  --duration-slow: 400ms;
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-entrance: cubic-bezier(0.2, 0.7, 0.3, 1);
+
+  /* --- Layering --- */
+  --z-sticky: 12;
+  --z-backdrop: 25;
+  --z-sidebar: 30;
+  --z-toast: 100;
+}

@@ -239,7 +239,7 @@ html[dir='rtl'] .edition-cover .edition-copy {
   color: var(--edition-night);
 }
 .edition-cover .plate-maker {
-  font-size: 9px;
+  font-size:10px;
   color: #c4abad;
   margin-top: 14px;
 }
@@ -601,6 +601,34 @@ html[dir='rtl'] .edition-viewport {
     transform: none;
   }
 }
+
+/* The single orchestrated moment: the cover plate assembles once on load —
+   kicker, headline, lede, actions, then the specimen viewport. Everything else
+   in the interface only moves in response to a person's action. */
+@keyframes plate-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.edition-cover .edition-kicker,
+.edition-cover h1,
+.edition-cover .plate-copy > p,
+.edition-cover .plate-actions,
+.edition-cover .plate-maker {
+  animation: plate-reveal var(--duration-slow, 400ms) var(--ease-entrance, ease) both;
+}
+.edition-cover h1 { animation-delay: 70ms; }
+.edition-cover .plate-copy > p { animation-delay: 140ms; }
+.edition-cover .plate-actions { animation-delay: 210ms; }
+.edition-cover .plate-maker { animation-delay: 270ms; }
+.edition-cover .edition-viewport {
+  animation: plate-reveal var(--duration-slow, 400ms) var(--ease-entrance, ease) 120ms both;
+}
 @media (min-width: 1500px) {
   .edition-cover {
     min-height: 415px;
@@ -633,7 +661,7 @@ html[dir='rtl'] .edition-viewport {
     inset-inline-end: 13px;
   }
   .edition-caption-link small {
-    font-size: 8px;
+    font-size:9.5px;
   }
   .edition-caption-link span {
     font-size: 16px;
@@ -652,7 +680,7 @@ html[dir='rtl'] .edition-viewport {
     width: 85px;
   }
   .station-strip {
-    font-size: 8px;
+    font-size:9.5px;
   }
 }
 @media (min-width: 701px) and (max-width: 900px) {
@@ -700,7 +728,7 @@ html[dir='rtl'] .edition-viewport {
     width: 100%;
   }
   .edition-kicker {
-    font-size: 8px;
+    font-size:9.5px;
   }
   .edition-cover h1 {
     font-size: clamp(47px, 9.4vw, 69px);
@@ -747,11 +775,11 @@ html[dir='rtl'] .edition-viewport {
     padding-top: 7px;
   }
   .edition-cover .plate-maker {
-    font-size: 8px;
+    font-size:9.5px;
     margin-top: 9px;
   }
   .edition-folio {
-    font-size: 8px;
+    font-size:9.5px;
     margin: 9px 0 19px;
   }
   .edition-home .module-links {
@@ -771,7 +799,7 @@ html[dir='rtl'] .edition-viewport {
     font-size: 20px;
   }
   .edition-counter {
-    font-size: 9px;
+    font-size:10px;
   }
   .edition-home .spec-thumb {
     height: 140px;
@@ -808,7 +836,13 @@ html[dir='rtl'] .edition-viewport {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .edition-organ {
+  .edition-organ,
+  .edition-cover .edition-kicker,
+  .edition-cover h1,
+  .edition-cover .plate-copy > p,
+  .edition-cover .plate-actions,
+  .edition-cover .plate-maker,
+  .edition-cover .edition-viewport {
     animation: none;
   }
   .station-art,
